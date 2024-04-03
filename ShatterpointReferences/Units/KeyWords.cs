@@ -10,5 +10,8 @@
         public const string Dathomirian = "Dathomirian";
         public const string NightSister = "Nightsister";
         public const string ForceUser = "ForceUser";
+
+        public const string Scoundrel = "Scoundrel";
+        public const string ShadowCollective = "ShadowCollective";
     }
 }

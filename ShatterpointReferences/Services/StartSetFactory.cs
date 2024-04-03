@@ -204,5 +204,63 @@ namespace ShatterpointReferences.Services
                 }
             };
         }
+
+        public static Unit LordMaul()
+        {
+            return new Unit()
+            {
+                Name = "Lord Maul",
+                UniqueName = "Maul",
+                Type = UnitType.Primary,
+                KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
+                Abilities = new List<Ability>()
+                {
+                    new Ability()
+                    {
+                        Name = "Force Speed",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Each character in this Unit may move.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "There is No Place to Run",
+                        Type = AbilityType.Active,
+                        Cost = 2,
+                        Text = "Choose a character in this Unit and an enemy character within 3 of that character. Pull the chosen enemy character 2 Toward the chosen allied character. Then the chosen enemy character gains Exposed",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "Revent, I Myst Have Revent",
+                        Type = AbilityType.Reactive,
+                        Cost = 0,
+                        Text = "When this Unit is Wounded by a melee attack, after the attack is resolved, one character in this Unit may immediately dash and make a 5 dive melee attack targeting the character that Wounded it.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Targeted
+                    },
+                    new Ability()
+                    {
+                        Name = "Sustained By Rage",
+                        Type = AbilityType.Automatic,
+                        Cost = 0,
+                        Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer D equal to the cost of the ability instead. For every 3D this Unit has, characters in this Unit add 1 die to their melee Attack rolls. For each injured token, this Unit has, characters in this Unit add 3 dice to their melee attack rolls.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    }
+                }
+            };
+        }
     }
 }

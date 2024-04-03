@@ -15,9 +15,10 @@ namespace ShatterpointReferences.Services
         {
             UnitList = new();
 
-            UnitList.Add(StartSetFactory.AsajiVentress());
             UnitList.Add(StartSetFactory.Kalani());
             UnitList.Add(StartSetFactory.B1BAttleDroids());
+            UnitList.Add(StartSetFactory.AsajiVentress());
+            UnitList.Add(StartSetFactory.LordMaul());
         }
 
         public List<Ability> ActivateUnit(Unit unit)
