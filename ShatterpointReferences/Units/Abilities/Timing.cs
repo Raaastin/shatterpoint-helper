@@ -7,9 +7,13 @@
         /// </summary>
         Start, 
         /// <summary>
-        /// During the turn
+        /// During the turn this unit is activated
         /// </summary>
         Active, 
+        /// <summary>
+        /// During the turn an ally is activated
+        /// </summary>
+        AnotherActive,
         /// <summary>
         /// In opponent's turn, when the unit is targeted
         /// </summary>

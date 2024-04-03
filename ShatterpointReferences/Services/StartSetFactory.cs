@@ -110,7 +110,7 @@ namespace ShatterpointReferences.Services
                     new Ability()
                     {
                         Name = "Well, I Guess I'm in Charge Now",
-                        Type = AbilityType.Reactive,
+                        Type = AbilityType.Automatic,
                         Cost = 0,
                         Text = "When this Unit's Order Card would be placed in reserve, it's controlling player may place it on the bottom of their Order Deck instead",
                         Synergies = new List<Synergy>(),
@@ -187,11 +187,11 @@ namespace ShatterpointReferences.Services
                                 KeyWords = new List<string>() { KeyWords.SeparatistAlliance, KeyWords.Dathomirian }
                             }
                         },
-                        Timing = Timing.Targeted
+                        Timing = Timing.AnotherActive
                     },
                     new Ability()
                     {
-                        Name = "Stith Assassin",
+                        Name = "Sith Assassin",
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may heal 3. If it Wounded a Primary Unit or Secondary Unit, it may also more or jump. If it Wounder a primary Unit, refresh 2F.",
