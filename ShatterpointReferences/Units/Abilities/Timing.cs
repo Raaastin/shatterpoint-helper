@@ -17,7 +17,11 @@
         /// <summary>
         /// In opponent's turn, when the unit is targeted
         /// </summary>
-        Targeted, 
+        Targeted,
+        /// <summary>
+        /// At any time during the opponent's turn
+        /// </summary>
+        Opponent, 
         /// <summary>
         /// At the end of activation
         /// </summary>

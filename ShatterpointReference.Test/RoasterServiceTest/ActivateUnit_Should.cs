@@ -96,5 +96,21 @@ namespace ShatterpointReference.Test.RoasterServiceTest
             Assert.Equal("I've Got You In My Sights", result[3].Name);
             Assert.Equal("Pack Hunter", result[4].Name);
         }
+
+        [Fact]
+        public void Contain_StartAbilities_ActiveAbilities_Synergies_MandalorianSuperCommandos()
+        {
+            // Arrange
+            service.InitStartedSet();
+
+            // Act
+            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Mandalorian Super Commandos")));
+
+            // Arrange
+            Assert.Equal(3, result.Count);
+            Assert.Equal("Jet Pack", result[0].Name);
+            Assert.Equal("Mandalorians are Stronger Together", result[1].Name);
+            Assert.Equal("Victory or Death!", result[2].Name);
+        }
     }
 }

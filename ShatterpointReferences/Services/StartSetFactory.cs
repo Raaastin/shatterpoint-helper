@@ -331,5 +331,63 @@ namespace ShatterpointReferences.Services
                 }
             };
         }
+
+        public static Unit MandalorianSuperCommandos()
+        {
+            return new Unit()
+            {
+                Name = "Mandalorian Super Commandos",
+                UniqueName = "",
+                Type = UnitType.Support,
+                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },
+                Abilities = new List<Ability>()
+                {
+                    new Ability()
+                    {
+                        Name = "Jet Pack",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Each character in this Unit may jump.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "Mandalorians are Stronger Together",
+                        Type = AbilityType.Reactive,
+                        Cost = 0,
+                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this unit immediately makes a focus action",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "No Mercy",
+                        Type = AbilityType.Permanent,
+                        Cost = 0,
+                        Text = "When an enemy character that is Engaged with one or more characters in this Unit advance or dash, after the move is resolved, the moving character's unit suffers 2D if the moving character is no longer engaged with one or more characters in this Unit.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Opponent
+                    },
+                    new Ability()
+                    {
+                        Name = "Victory or Death!",
+                        Type = AbilityType.Permanent,
+                        Cost = 0,
+                        Text = "Characters in this Unit have Impact(1)",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    }
+                }
+            };
+        }
     }
 }

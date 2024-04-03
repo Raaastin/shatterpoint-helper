@@ -20,6 +20,7 @@ namespace ShatterpointReferences.Services
             UnitList.Add(StartSetFactory.AsajiVentress());
             UnitList.Add(StartSetFactory.LordMaul());
             UnitList.Add(StartSetFactory.GarSaxon());
+            UnitList.Add(StartSetFactory.MandalorianSuperCommandos());
         }
 
         public List<Ability> ActivateUnit(Unit unit)
