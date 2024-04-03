@@ -50,5 +50,14 @@ namespace ShatterpointReferences.Services
 
             return result;
         }
+
+        public List<Ability> GettingTargeted(Unit unit)
+        {
+            var result = new List<Ability>();
+
+            result.AddRange(unit.Abilities.Where(x => x.Timing == Timing.Targeted));
+
+            return result;
+        }
     }
 }

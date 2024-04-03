@@ -239,7 +239,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
-                        Name = "Revent, I Myst Have Revent",
+                        Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When this Unit is Wounded by a melee attack, after the attack is resolved, one character in this Unit may immediately dash and make a 5 dive melee attack targeting the character that Wounded it.",
@@ -251,7 +251,7 @@ namespace ShatterpointReferences.Services
                     new Ability()
                     {
                         Name = "Sustained By Rage",
-                        Type = AbilityType.Automatic,
+                        Type = AbilityType.Permanent,
                         Cost = 0,
                         Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer D equal to the cost of the ability instead. For every 3D this Unit has, characters in this Unit add 1 die to their melee Attack rolls. For each injured token, this Unit has, characters in this Unit add 3 dice to their melee attack rolls.",
                         Synergies = new List<Synergy>()
