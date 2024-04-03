@@ -14,9 +14,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_Kalani()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("Kalani")));
 
@@ -27,9 +24,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_B1BattleDroid()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("B1 Battle Droid")));
 
@@ -41,9 +35,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_Ventress()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("Ventress")));
 
@@ -55,9 +46,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_Maul()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("Maul")));
 
@@ -69,9 +57,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_GarSaxon()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("Gar Saxon")));
 
@@ -82,9 +67,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_MandalorianSuperCommandos()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.GettingTargeted(service.UnitList.First(x => x.Name.Contains("Mandalorian Super Commandos")));
 

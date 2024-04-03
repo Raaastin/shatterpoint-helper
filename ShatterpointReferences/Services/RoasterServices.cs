@@ -9,9 +9,10 @@ namespace ShatterpointReferences.Services
 
         public RoasterServices()
         {
+            InitStartedSet();
         }
 
-        public void InitStartedSet()
+        private void InitStartedSet()
         {
             UnitList = new();
 

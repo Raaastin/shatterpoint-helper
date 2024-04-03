@@ -14,9 +14,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithKalani()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Kalani")));
 
@@ -32,9 +29,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithBattleDroids()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("B1 Battle Droids")));
 
@@ -49,9 +43,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithVentress()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Ventress")));
 
@@ -65,9 +56,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_LordMaul()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Lord Maul")));
 
@@ -82,9 +70,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_GarSaxon()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Gar Saxon")));
 
@@ -100,9 +85,6 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_MandalorianSuperCommandos()
         {
-            // Arrange
-            service.InitStartedSet();
-
             // Act
             var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Mandalorian Super Commandos")));
 
