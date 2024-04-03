@@ -174,7 +174,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
-                        Name = "Slip away",
+                        Name = "Slip Away",
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When another Dathomirian or Separatist Alliance character targets an enemy character that is Engaged with one of more characters in this Unit with an attackn this Unit may use this ability. One character in this Unit that is Engaged with the target character may immediately repos. If it does, this unit gains Crouch",

@@ -33,7 +33,7 @@ namespace ShatterpointReferences.Services
             // Add abilities from other units that matches the synergies
             foreach (var ally in UnitList.Where(x => x.Name != unit.Name))
             {
-                foreach(var ability in ally.Abilities)
+                foreach(var ability in ally.Abilities.Where(x => x.Type == AbilityType.Reactive && x.Timing != Timing.Active))
                 {
                     if (ability.Synergies.Any(x =>
                         (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character

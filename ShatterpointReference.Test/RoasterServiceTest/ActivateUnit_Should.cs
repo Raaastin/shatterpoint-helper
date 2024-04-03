@@ -24,7 +24,8 @@ namespace ShatterpointReference.Test.RoasterServiceTest
             Assert.Equal("Roger, Roger", result[0].Name);
             Assert.Equal("Tactical Network", result[1].Name);
             Assert.Equal("Target, Concentrate All Firepower", result[2].Name);
-            Assert.Equal("Combat A.I. Protocols", result[3].Name);
+            Assert.Equal("Slip Away", result[3].Name);
+            Assert.Equal("Combat A.I. Protocols", result[4].Name);
         }
     }
 }
