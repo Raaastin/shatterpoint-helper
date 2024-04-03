@@ -1,21 +1,30 @@
 using ShatterpointReferences.Services;
 
-namespace ShatterpointReference.Test.RoasterServiceTest
+namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
     public class ActivateUnit_Should
     {
-        public RoasterServices service;
+        public SelectedUnitsService service;
+        public UnitDataBaseService db;
 
         public ActivateUnit_Should()
         {
-            service = new();
+            db = new();
+            service = new(db);
+
+            service.SelectUnit("Kalani, Super Tactical Robot");
+            service.SelectUnit("B1 Battle Droids");
+            service.SelectUnit("Asaji Ventress, Sith Assassin");
+            service.SelectUnit("Lord Maul");
+            service.SelectUnit("Gar Saxon, Merciless Commander");
+            service.SelectUnit("Mandalorian Super Commandos");
         }
 
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithKalani()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Kalani")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Kalani")));
 
             // Arrange
             Assert.Equal(5, result.Count);
@@ -30,7 +39,7 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithBattleDroids()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("B1 Battle Droids")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("B1 Battle Droids")));
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -44,7 +53,7 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithVentress()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Ventress")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Ventress")));
 
             // Arrange
             Assert.Equal(3, result.Count);
@@ -57,7 +66,7 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_LordMaul()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Lord Maul")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Lord Maul")));
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -71,7 +80,7 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_GarSaxon()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Gar Saxon")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Gar Saxon")));
 
             // Arrange
             Assert.Equal(5, result.Count);
@@ -86,7 +95,7 @@ namespace ShatterpointReference.Test.RoasterServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_MandalorianSuperCommandos()
         {
             // Act
-            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Mandalorian Super Commandos")));
+            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Mandalorian Super Commandos")));
 
             // Arrange
             Assert.Equal(3, result.Count);

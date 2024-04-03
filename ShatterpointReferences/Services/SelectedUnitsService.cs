@@ -3,25 +3,26 @@ using ShatterpointReferences.Units.Abilities;
 
 namespace ShatterpointReferences.Services
 {
-    public class RoasterServices
+    public class SelectedUnitsService
     {
-        public List<Unit> UnitList { get; set; }
+        public List<Unit> SelectedUnits { get; set; }
+        private readonly UnitDataBaseService _unitDataBaseService;
 
-        public RoasterServices()
+        public SelectedUnitsService(UnitDataBaseService unitDataBaseService)
         {
-            InitStartedSet();
+            _unitDataBaseService = unitDataBaseService;
         }
 
-        private void InitStartedSet()
+        public void SelectUnit(string name)
         {
-            UnitList = new();
+            if (SelectedUnits.Any(x => x.Name == name))
+                return;
 
-            UnitList.Add(StartSetFactory.Kalani());
-            UnitList.Add(StartSetFactory.B1BAttleDroids());
-            UnitList.Add(StartSetFactory.AsajiVentress());
-            UnitList.Add(StartSetFactory.LordMaul());
-            UnitList.Add(StartSetFactory.GarSaxon());
-            UnitList.Add(StartSetFactory.MandalorianSuperCommandos());
+            var unit = SelectedUnits.FirstOrDefault(x => x.Name == name);
+            if (unit is null)
+                return;
+
+            SelectedUnits.Add(unit);
         }
 
         public List<Ability> ActivateUnit(Unit unit)
@@ -35,7 +36,7 @@ namespace ShatterpointReferences.Services
             result.AddRange(unit.Abilities.Where(x => x.Timing == Timing.Active));
 
             // Add abilities from other units that matches the synergies
-            foreach (var ally in UnitList.Where(x => x.Name != unit.Name))
+            foreach (var ally in SelectedUnits.Where(x => x.Name != unit.Name))
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Type == AbilityType.Reactive))
                 {

@@ -4,7 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<RoasterServices>();
+builder.Services.AddSingleton<UnitDataBaseService>();
+builder.Services.AddScoped<SelectedUnitsService>();
+builder.Services.AddMvc(o => o.EnableEndpointRouting = false);
 
 var app = builder.Build();
 
@@ -21,6 +23,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthorization();
+app.UseMvc();
 
 app.MapRazorPages();
 

@@ -1,0 +1,45 @@
+﻿@using ShatterpointReferences.Units;
+
+@model List<Unit>
+
+@section Scripts {
+
+    <script>
+
+        function Test() {
+
+        }
+
+        function SelectUnit(unitName) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("SelectUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+            }).done(function (data, status) {
+                location.reload();
+            }).fail(function (data, status) {
+                console.log(data);
+                console.log(status);
+                alert("Error with SelectUnit");
+            });
+        }
+
+    </script>
+}
+
+<div>
+    <h1>Unit available</h1>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var unit in @Model)
+        {
+            <tr>
+                <td>@unit.Name</td>
+                <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Select this unit</a></td>
+            </tr>
+        }
+    </table>
+</div>
