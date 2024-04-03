@@ -4,6 +4,7 @@
     {
         Automatic, 
         Active, 
-        Reactive
+        Reactive,
+        Permanent
     }
 }

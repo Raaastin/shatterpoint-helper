@@ -78,5 +78,23 @@ namespace ShatterpointReference.Test.RoasterServiceTest
             Assert.Equal("Sustained By Rage", result[2].Name);
             Assert.Equal("Slip Away", result[3].Name);
         }
+
+        [Fact]
+        public void Contain_StartAbilities_ActiveAbilities_Synergies_GarSaxon()
+        {
+            // Arrange
+            service.InitStartedSet();
+
+            // Act
+            var result = service.ActivateUnit(service.UnitList.First(x => x.Name.Contains("Gar Saxon")));
+
+            // Arrange
+            Assert.Equal(5, result.Count);
+            Assert.Equal("Pride of the Mandalor", result[0].Name);
+            Assert.Equal("Jet Pack", result[1].Name);
+            Assert.Equal("Mandalorians are Stronger Together", result[2].Name);
+            Assert.Equal("I've Got You In My Sights", result[3].Name);
+            Assert.Equal("Pack Hunter", result[4].Name);
+        }
     }
 }

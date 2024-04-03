@@ -13,5 +13,7 @@
 
         public const string Scoundrel = "Scoundrel";
         public const string ShadowCollective = "ShadowCollective";
+        public const string Mandalorian = "Mandalorian";
+        public const string SuperCommando = "SuperCommando";
     }
 }

@@ -262,5 +262,74 @@ namespace ShatterpointReferences.Services
                 }
             };
         }
+
+        public static Unit GarSaxon()
+        {
+            return new Unit()
+            {
+                Name = "Gar Saxon, Merciless Commander",
+                UniqueName = "Gar Saxon",
+                Type = UnitType.Secondary,
+                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando},
+                Abilities = new List<Ability>()
+                {
+                    new Ability()
+                    {
+                        Name = "Pride of the Mandalor",
+                        Type = AbilityType.Automatic,
+                        Cost = 0,
+                        Text = "At the start of this Unit's activation, choose another allied Mandalorian character. THe chosen character may jump.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Start
+                    },
+                    new Ability()
+                    {
+                        Name = "Jet Pack",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Each character in this Unit may jump.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "Mandalorians are Stronger Together",
+                        Type = AbilityType.Reactive,
+                        Cost = 0,
+                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this Unit immediately makes a focus action",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "I've Got You In My Sights",
+                        Type = AbilityType.Permanent,
+                        Cost = 0,
+                        Text = "Characters in this Unit have Sharpshooter(2). When a character in this Unit makes a ranged attack, the target does not benefit from Cover. After this Unit Makes a focus action, it gains Crouch",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    },
+                    new Ability()
+                    {
+                        Name = "Pack Hunter",
+                        Type = AbilityType.Permanent,
+                        Cost = 0,
+                        Text = "When a character in this Unit makes a melee attack targeting an enemy character that is Engaged with another allied Mandalorian character, it adds 2 dice to the attack roll",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = Timing.Active
+                    }
+                }
+            };
+        }
     }
 }
