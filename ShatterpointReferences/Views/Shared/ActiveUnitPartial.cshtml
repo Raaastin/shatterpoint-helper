@@ -35,7 +35,7 @@
                 </tr>
             }
         }
-        @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Active))
+        @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
         {
             <tr>
                 <th>During Turn</th>
@@ -43,7 +43,7 @@
                 <td></td>
             </tr>
         }
-        @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Active))
+        @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
         {
             @if (ability is not null)
             {
