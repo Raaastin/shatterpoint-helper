@@ -6,14 +6,24 @@
 
     <script>
 
-        function Test() {
-
-        }
-
         function SelectUnit(unitName) {
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("SelectUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+            }).done(function (data, status) {
+                location.reload();
+            }).fail(function (data, status) {
+                console.log(data);
+                console.log(status);
+                alert("Error with SelectUnit");
+            });
+        }
+
+        function ClearSelectedUnits() {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("ClearSelectedUnits", "Build")",
                 contentType: "application/json; charset=utf-8",
             }).done(function (data, status) {
                 location.reload();
@@ -42,4 +52,5 @@
             </tr>
         }
     </table>
+    <a href="#" onclick="ClearSelectedUnits();return false;">Select this unit</a>
 </div>
