@@ -1,0 +1,27 @@
+﻿@using ShatterpointReferences.Model;
+@using ShatterpointReferences.Units.Abilities;
+
+@model TargetedUnitPartialModel
+
+@section Scripts {
+
+}
+
+<div>
+    <h1>Current Effect while being targeted</h1>
+    <h2>Targeted Unit: @Model.SelectedUnit.Name</h2>
+    <table>
+        <th>
+            <td>Abilities</td>
+        </th>
+        @foreach (var ability in @Model.CurrentTargetSynergies)
+        {
+            @if (ability is not null)
+            {
+                <tr>
+                    <td><div>@ability.Name</div></td>
+                </tr>
+            }
+        }
+    </table>
+</div>

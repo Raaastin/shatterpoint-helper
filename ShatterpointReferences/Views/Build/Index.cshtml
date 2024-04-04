@@ -46,6 +46,17 @@
             });
         }
 
+        function TargetUnit(htmlElement, unitName) {
+            $.ajax({
+                url: "@Url.Action("TargetUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) { $(htmlElement).html(result); },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    htmlElement.innerHTML = "Unit activation failed";
+                }
+            });
+        }
+
     </script>
 }
 
@@ -73,13 +84,19 @@
         <table>
             <tr>
                 <td>Name</td>
+                <td>Action</td>
             </tr>
             @foreach (var unit in @Model.SelectedUnits)
             {
                 @if (unit is not null)
                 {
                     <tr>
-                        <td><a href="#" onclick="ActivateUnit('#activeUnitId', '@unit.Name');return false;">@unit.Name</a></td>
+                        <td>@unit.Name</td>
+                        <td>
+                            <a href="#" onclick="ActivateUnit('#activeUnitId', '@unit.Name');return false;">Active</a>
+                            /
+                            <a href="#" onclick="TargetUnit('#targetedUnitId', '@unit.Name');return false;">Target</a>
+                        </td>
                     </tr>
                 }
             }
@@ -87,6 +104,8 @@
     </div>
 
     <div id="activeUnitId">
+    </div>
+    <div id="targetedUnitId">
     </div>
 
 </div>
