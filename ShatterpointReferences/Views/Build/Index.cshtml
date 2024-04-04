@@ -1,6 +1,7 @@
-﻿@using ShatterpointReferences.Units;
+﻿@using ShatterpointReferences.Model
+@using ShatterpointReferences.Units;
 
-@model List<Unit>
+@model BuildModel
 
 @section Scripts {
 
@@ -34,23 +35,49 @@
             });
         }
 
+        function ActivateUnit(unitName) {
+            alert('Activate unit : ' + unitName);
+        }
+
     </script>
 }
 
 <div>
-    <h1>Unit available</h1>
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Action</td>
-        </tr>
-        @foreach (var unit in @Model)
-        {
+    <div>
+        <h1>Unit available</h1>
+        <table>
             <tr>
-                <td>@unit.Name</td>
-                <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Select this unit</a></td>
+                <td>Name</td>
+                <td>Action</td>
             </tr>
-        }
-    </table>
-    <a href="#" onclick="ClearSelectedUnits();return false;">Select this unit</a>
+            @foreach (var unit in @Model.UnitList)
+            {
+                <tr>
+                    <td>@unit.Name</td>
+                    <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Select this unit</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <h1>Selected Units</h1>
+        <a href="#" onclick="ClearSelectedUnits();return false;">Clear selection</a>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Action</td>
+            </tr>
+
+            @foreach (var unit in @Model.SelectedUnits)
+            {
+                @if (unit is not null)
+                {
+                    <tr>
+                        <td><a href="#" onclick="ActivateUnit('@unit.Name');return false;">@unit.Name</a></td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
 </div>

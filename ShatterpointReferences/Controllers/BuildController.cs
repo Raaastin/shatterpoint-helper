@@ -3,6 +3,7 @@ using System.Net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using ShatterpointReferences.Model;
 using ShatterpointReferences.Services;
 using ShatterpointReferences.Units;
 
@@ -22,7 +23,16 @@ namespace ShatterpointReferences.Controllers
         [HttpGet("index")]
         public ActionResult Index()
         {
-            return View("Index", db.UnitList);
+            var model = new BuildModel();
+
+            // Available units
+            model.UnitList = db.UnitList;
+
+            // Selected units
+            model.SelectedUnits = ReadSelectedUnits().ToList();
+
+
+            return View("Index", model);
         }
 
         // TODO: fix: 1 unit per cook for a maximum of 6 cookies. 
@@ -106,7 +116,27 @@ namespace ShatterpointReferences.Controllers
             }
 
             return Ok();
+        }
 
+        private Unit[] ReadSelectedUnits()
+        {
+            var unit1 = Request.Cookies[unit_1] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_1]) : null;
+            var unit2 = Request.Cookies[unit_2] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_2]) : null;
+            var unit3 = Request.Cookies[unit_3] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_3]) : null;
+            var unit4 = Request.Cookies[unit_4] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_4]) : null;
+            var unit5 = Request.Cookies[unit_5] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_5]) : null;
+            var unit6 = Request.Cookies[unit_6] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_6]) : null;
+
+            var arrayUnit = new Unit[]
+            {
+                unit1,
+                unit2,
+                unit3,
+                unit4,
+                unit5,
+                unit6
+            };
+            return arrayUnit;
         }
     }
 }
