@@ -1,7 +1,11 @@
+using ShatterpointReferences.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<UnitDataBaseService>();
+builder.Services.AddMvc(o => o.EnableEndpointRouting = false);
 
 var app = builder.Build();
 
@@ -17,8 +21,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseMvc();
 
 app.MapRazorPages();
 

@@ -1,0 +1,92 @@
+﻿@using ShatterpointReferences.Model
+@using ShatterpointReferences.Units;
+
+@model BuildModel
+
+@section Scripts {
+
+    <script>
+
+        function SelectUnit(unitName) {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("SelectUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+            }).done(function (data, status) {
+                location.reload();
+            }).fail(function (data, status) {
+                console.log(data);
+                console.log(status);
+                alert("Error with SelectUnit");
+            });
+        }
+
+        function ClearSelectedUnits() {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("ClearSelectedUnits", "Build")",
+                contentType: "application/json; charset=utf-8",
+            }).done(function (data, status) {
+                location.reload();
+            }).fail(function (data, status) {
+                console.log(data);
+                console.log(status);
+                alert("Error with SelectUnit");
+            });
+        }
+
+        function ActivateUnit(htmlElement, unitName) {
+            $.ajax({
+                url: "@Url.Action("ActivateUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) { $(htmlElement).html(result); },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    htmlElement.innerHTML = "Unit activation failed";
+                }
+            });
+        }
+
+    </script>
+}
+
+<div>  
+    <div>
+        <h1>Unit available</h1>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Action</td>
+            </tr>
+            @foreach (var unit in @Model.UnitList)
+            {
+                <tr>
+                    <td>@unit.Name</td>
+                    <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Select this unit</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <h1>Selected Units</h1>
+        <a href="#" onclick="ClearSelectedUnits();return false;">Clear selection</a>
+        <table>
+            <tr>
+                <td>Name</td>
+            </tr>
+            @foreach (var unit in @Model.SelectedUnits)
+            {
+                @if (unit is not null)
+                {
+                    <tr>
+                        <td><a href="#" onclick="ActivateUnit('#activeUnitId', '@unit.Name');return false;">@unit.Name</a></td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    <div id="activeUnitId">
+    </div>
+
+</div>

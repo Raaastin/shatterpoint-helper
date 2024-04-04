@@ -1,0 +1,27 @@
+﻿@using ShatterpointReferences.Model;
+@using ShatterpointReferences.Units.Abilities;
+
+@model ActiveUnitPartialModel
+
+@section Scripts {
+
+}
+
+<div>
+    <h1>Current Activation Synergies</h1>
+    <h2>Active Unit: @Model.ActiveUnit.Name</h2>
+    <table>
+        <th>
+            <td>Abilities</td>
+        </th>
+        @foreach (var ability in @Model.CurrentActivationSynergies)
+        {
+            @if (ability is not null)
+            {
+                <tr>
+                    <td><div>@ability.Name</div></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
