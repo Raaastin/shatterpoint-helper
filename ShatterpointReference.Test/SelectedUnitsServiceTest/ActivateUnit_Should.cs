@@ -1,30 +1,30 @@
 using ShatterpointReferences.Services;
+using ShatterpointReferences.Units;
 
 namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
     public class ActivateUnit_Should
     {
-        public SelectedUnitsService service;
+        public List<Unit> selecteUnits { get; set; } = new();
         public UnitDataBaseService db;
 
         public ActivateUnit_Should()
         {
             db = new();
-            service = new(db);
 
-            service.SelectUnit("Kalani, Super Tactical Robot");
-            service.SelectUnit("B1 Battle Droids");
-            service.SelectUnit("Asaji Ventress, Sith Assassin");
-            service.SelectUnit("Lord Maul");
-            service.SelectUnit("Gar Saxon, Merciless Commander");
-            service.SelectUnit("Mandalorian Super Commandos");
+            selecteUnits.Add(db.Get("Kalani, Super Tactical Robot"));
+            selecteUnits.Add(db.Get("B1 Battle Droids"));
+            selecteUnits.Add(db.Get("Asaji Ventress, Sith Assassin"));
+            selecteUnits.Add(db.Get("Lord Maul"));
+            selecteUnits.Add(db.Get("Gar Saxon, Merciless Commander"));
+            selecteUnits.Add(db.Get("Mandalorian Super Commandos"));
         }
 
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithKalani()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Kalani")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("Kalani, Super Tactical Robot"), selecteUnits);
 
             // Arrange
             Assert.Equal(5, result.Count);
@@ -39,7 +39,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithBattleDroids()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("B1 Battle Droids")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("B1 Battle Droids"), selecteUnits);
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -53,7 +53,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithVentress()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Ventress")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("Asaji Ventress, Sith Assassin"), selecteUnits);
 
             // Arrange
             Assert.Equal(3, result.Count);
@@ -66,7 +66,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_LordMaul()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Lord Maul")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("Lord Maul"), selecteUnits);
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -80,7 +80,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_GarSaxon()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Gar Saxon")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("Gar Saxon, Merciless Commander"), selecteUnits);
 
             // Arrange
             Assert.Equal(5, result.Count);
@@ -95,7 +95,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_MandalorianSuperCommandos()
         {
             // Act
-            var result = service.ActivateUnit(service.SelectedUnits.First(x => x.Name.Contains("Mandalorian Super Commandos")));
+            var result = ActivateUnitService.ActivateUnit(db.Get("Mandalorian Super Commandos"), selecteUnits);
 
             // Arrange
             Assert.Equal(3, result.Count);

@@ -15,6 +15,11 @@ namespace ShatterpointReferences.Services
             InitStartedSet();
         }
 
+        public Unit Get(string name)
+        {
+            return UnitList.FirstOrDefault(x => x.Name == name);
+        }
+
         private void InitStartedSet()
         {
             UnitList = new();

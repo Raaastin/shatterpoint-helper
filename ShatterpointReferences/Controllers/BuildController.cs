@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using ShatterpointReferences.Model;
 using ShatterpointReferences.Services;
 using ShatterpointReferences.Units;
+using ShatterpointReferences.Units.Abilities;
 
 namespace ShatterpointReferences.Controllers
 {
@@ -30,7 +31,6 @@ namespace ShatterpointReferences.Controllers
 
             // Selected units
             model.SelectedUnits = ReadSelectedUnits().ToList();
-
 
             return View("Index", model);
         }
@@ -116,6 +116,22 @@ namespace ShatterpointReferences.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpGet("activate-unit")]
+        public ActionResult ActivateUnit([FromQuery] string unitName)
+        {
+            var unit = db.UnitList.FirstOrDefault(x => x.Name == unitName);
+            if (unit is null)
+                return NotFound();
+
+            var activeAbilities = ActivateUnitService.ActivateUnit(unit, ReadSelectedUnits().ToList());
+
+            var data = new ActiveUnitPartialModel();
+            data.ActiveUnit = unit;
+            data.CurrentActivationSynergies = activeAbilities;
+
+            return PartialView("ActiveUnitPartial", data);
         }
 
         private Unit[] ReadSelectedUnits()

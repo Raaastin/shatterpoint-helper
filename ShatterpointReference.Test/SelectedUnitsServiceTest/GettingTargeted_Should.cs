@@ -1,30 +1,30 @@
 using ShatterpointReferences.Services;
+using ShatterpointReferences.Units;
 
 namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
     public class GettingTargeted_Should
     {
-        public SelectedUnitsService service;
+        public List<Unit> selectedUnits { get; set; } = new();
         public UnitDataBaseService db;
 
         public GettingTargeted_Should()
         {
             db = new();
-            service = new(db);
 
-            service.SelectUnit("Kalani, Super Tactical Robot");
-            service.SelectUnit("B1 Battle Droids");
-            service.SelectUnit("Asaji Ventress, Sith Assassin");
-            service.SelectUnit("Lord Maul");
-            service.SelectUnit("Gar Saxon, Merciless Commander");
-            service.SelectUnit("Mandalorian Super Commandos");
+            selectedUnits.Add(db.Get("Kalani, Super Tactical Robot"));
+            selectedUnits.Add(db.Get("B1 Battle Droids"));
+            selectedUnits.Add(db.Get("Asaji Ventress, Sith Assassin"));
+            selectedUnits.Add(db.Get("Lord Maul"));
+            selectedUnits.Add(db.Get("Gar Saxon, Merciless Commander"));
+            selectedUnits.Add(db.Get("Mandalorian Super Commandos"));
         }
 
         [Fact]
         public void Contains_ReactiveOrDefensive_abilities_Kalani()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("Kalani")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("Kalani, Super Tactical Robot"), selectedUnits);
 
             // Arrange
             Assert.Empty(result);
@@ -34,7 +34,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_B1BattleDroid()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("B1 Battle Droid")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("B1 Battle Droids"), selectedUnits);
 
             // Arrange
             Assert.Single(result);
@@ -45,7 +45,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_Ventress()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("Ventress")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("Asaji Ventress, Sith Assassin"), selectedUnits);
 
             // Arrange
             Assert.Single(result);
@@ -56,7 +56,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_Maul()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("Maul")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("Lord Maul"), selectedUnits);
 
             // Arrange
             Assert.Single(result);
@@ -67,7 +67,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_GarSaxon()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("Gar Saxon")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("Gar Saxon, Merciless Commander"), selectedUnits);
 
             // Arrange
             Assert.Empty(result);
@@ -77,7 +77,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_MandalorianSuperCommandos()
         {
             // Act
-            var result = service.GettingTargeted(service.SelectedUnits.First(x => x.Name.Contains("Mandalorian Super Commandos")));
+            var result = ActivateUnitService.GettingTargeted(db.Get("Mandalorian Super Commandos"), selectedUnits);
 
             // Arrange
             Assert.Empty(result);
