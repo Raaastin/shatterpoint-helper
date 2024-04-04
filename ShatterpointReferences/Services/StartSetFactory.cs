@@ -18,6 +18,7 @@ namespace ShatterpointReferences.Services
                 {
                     new Ability()
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Roger, Roger",
                         Type = AbilityType.Automatic,
                         Cost = 0,
@@ -35,6 +36,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
                         Cost = 0,
@@ -52,6 +54,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Target, Concentrate All Firepower",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -69,6 +72,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Complete Analysis",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -91,7 +95,8 @@ namespace ShatterpointReferences.Services
                 Abilities = new List<Ability>()
                 {
                     new Ability()
-                    {
+                    { 
+                        Weilder = "B1 Battle Droids",
                         Name = "Combat A.I. Protocols",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -109,6 +114,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "B1 Battle Droids",
                         Name = "Well, I Guess I'm in Charge Now",
                         Type = AbilityType.Automatic,
                         Cost = 0,
@@ -118,6 +124,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "B1 Battle Droids",
                         Name = "I Hate This Job",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -141,6 +148,7 @@ namespace ShatterpointReferences.Services
                 {
                     new Ability()
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Dathomirian Dexterity",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -152,6 +160,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Force Push",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -163,6 +172,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Riposte",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -174,6 +184,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Slip Away",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -191,6 +202,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Sith Assassin",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -217,6 +229,7 @@ namespace ShatterpointReferences.Services
                 {
                     new Ability()
                     {
+                        Weilder = "Lord Maul",
                         Name = "Force Speed",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -228,6 +241,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Lord Maul",
                         Name = "There is No Place to Run",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -239,6 +253,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Lord Maul",
                         Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -250,6 +265,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Lord Maul",
                         Name = "Sustained By Rage",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -270,11 +286,12 @@ namespace ShatterpointReferences.Services
                 Name = "Gar Saxon, Merciless Commander",
                 UniqueName = "Gar Saxon",
                 Type = UnitType.Secondary,
-                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando},
+                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
                 Abilities = new List<Ability>()
                 {
                     new Ability()
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Pride of the Mandalor",
                         Type = AbilityType.Automatic,
                         Cost = 0,
@@ -286,6 +303,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -297,6 +315,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -308,6 +327,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "I've Got You In My Sights",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -319,6 +339,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Pack Hunter",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -344,6 +365,7 @@ namespace ShatterpointReferences.Services
                 {
                     new Ability()
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -355,6 +377,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -366,6 +389,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "No Mercy",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -377,6 +401,7 @@ namespace ShatterpointReferences.Services
                     },
                     new Ability()
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Victory or Death!",
                         Type = AbilityType.Permanent,
                         Cost = 0,

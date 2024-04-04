@@ -11,15 +11,65 @@
     <h1>Current Activation Synergies</h1>
     <h2>Active Unit: @Model.ActiveUnit.Name</h2>
     <table>
-        <th>
-            <td>Abilities</td>
-        </th>
-        @foreach (var ability in @Model.CurrentActivationSynergies)
+        <tr>
+            <th>Source</th>
+            <th>Abilities</th>
+            <th>Description</th>
+        </tr>
+        @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Start))
+        {
+            <tr>
+                <th>Start Turn</th>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+        @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Start))
         {
             @if (ability is not null)
             {
                 <tr>
+                    <td><div>@ability.Weilder</div></td>
                     <td><div>@ability.Name</div></td>
+                    <td><div>@ability.Text</div></td>
+                </tr>
+            }
+        }
+        @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Active))
+        {
+            <tr>
+                <th>During Turn</th>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+        @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Active))
+        {
+            @if (ability is not null)
+            {
+                <tr>
+                    <td><div>@ability.Weilder</div></td>
+                    <td><div>@ability.Name</div></td>
+                    <td><div>@ability.Text</div></td>
+                </tr>
+            }
+        }
+        @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.End))
+        {
+            <tr>
+                <th>End of the turn</th>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+        @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.End))
+        {
+            @if (ability is not null)
+            {
+                <tr>
+                    <td><div>@ability.Weilder</div></td>
+                    <td><div>@ability.Name</div></td>
+                    <td><div>@ability.Text</div></td>
                 </tr>
             }
         }

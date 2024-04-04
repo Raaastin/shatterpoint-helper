@@ -2,6 +2,7 @@
 {
     public class Ability
     {
+        public string Weilder { get; set; }
         public string Name { get; set; }
         public AbilityType Type { get; set; }
         public int Cost { get; set; }

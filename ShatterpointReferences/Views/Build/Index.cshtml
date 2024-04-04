@@ -35,24 +35,30 @@
             });
         }
 
-        function ActivateUnit(htmlElement, unitName) {
+        function ActivateUnit(unitName) {
             $.ajax({
                 url: "@Url.Action("ActivateUnit", "Build")" + "?unitname=" + unitName,
                 contentType: "application/json; charset=utf-8",
-                success: function (result) { $(htmlElement).html(result); },
+                success: function (result) {
+                    $('#activeUnitId').html(result);
+                    $('#targetedUnitId').empty();
+                },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    htmlElement.innerHTML = "Unit activation failed";
+                    Alert("error");
                 }
             });
         }
 
-        function TargetUnit(htmlElement, unitName) {
+        function TargetUnit(unitName) {
             $.ajax({
                 url: "@Url.Action("TargetUnit", "Build")" + "?unitname=" + unitName,
                 contentType: "application/json; charset=utf-8",
-                success: function (result) { $(htmlElement).html(result); },
+                success: function (result) {
+                    $('#targetedUnitId').html(result);
+                    $('#activeUnitId').empty();
+                },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    htmlElement.innerHTML = "Unit activation failed";
+                    Alert("error");
                 }
             });
         }
@@ -60,9 +66,10 @@
     </script>
 }
 
-<div>  
+<div>
     <div>
         <h1>Unit available</h1>
+        <p>Chose up to 6 Units</p>
         <table>
             <tr>
                 <td>Name</td>
@@ -72,7 +79,7 @@
             {
                 <tr>
                     <td>@unit.Name</td>
-                    <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Select this unit</a></td>
+                    <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Add</a></td>
                 </tr>
             }
         </table>
@@ -83,8 +90,8 @@
         <a href="#" onclick="ClearSelectedUnits();return false;">Clear selection</a>
         <table>
             <tr>
-                <td>Name</td>
-                <td>Action</td>
+                <th>Name</th>
+                <th>Action</th>
             </tr>
             @foreach (var unit in @Model.SelectedUnits)
             {
@@ -93,9 +100,9 @@
                     <tr>
                         <td>@unit.Name</td>
                         <td>
-                            <a href="#" onclick="ActivateUnit('#activeUnitId', '@unit.Name');return false;">Active</a>
+                            <a href="#" onclick="ActivateUnit('@unit.Name');return false;">Active</a>
                             /
-                            <a href="#" onclick="TargetUnit('#targetedUnitId', '@unit.Name');return false;">Target</a>
+                            <a href="#" onclick="TargetUnit('@unit.Name');return false;">Target</a>
                         </td>
                     </tr>
                 }
@@ -105,6 +112,7 @@
 
     <div id="activeUnitId">
     </div>
+
     <div id="targetedUnitId">
     </div>
 
