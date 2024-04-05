@@ -11,17 +11,19 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "Kalani, Super Tactical Robot",
+                ProfilePicture = "kalani-pp.png",
                 UniqueName = "Kalani",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("kalani-pp.png")
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Roger, Roger",
                         Type = AbilityType.Automatic,
                         Cost = 0,
-                        Text = "At the start of this Unit's activation, each allied Battle Droid Supporting character withing 4 of a character in this Unit may dash",
+                        Text = "At the start of this Unit's activation, each allied <b>Battle Droid Supporting</b> character withing 4 of a character in this Unit may dash",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -33,12 +35,13 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Start
                     },
-                    new Ability()
+                    new Ability("kalani-pp.png")
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
                         Cost = 0,
-                        Text = "Chose another allied Battle Droid character within 4. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
+                        Text = "Chose another allied <b>Battle Droid</b> character within 4. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -50,12 +53,13 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("kalani-pp.png")
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Target, Concentrate All Firepower",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "When an allied Battle Droid character makes an attack, if the targeted character is withing 4 of one or more other allied Battle Droid characters, the attacking character adds 1 die to its attack roll.",
+                        Text = "When an allied <b>Battle Droid</b> character makes an attack, if the targeted character is withing 4 of one or more other allied <b>Battle Droid</b> characters, the attacking character adds 1 die to its attack roll.",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -67,8 +71,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("kalani-pp.png")
                     {
+                        Weilder = "Kalani, Super Tactical Robot",
                         Name = "Complete Analysis",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -85,17 +90,19 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "B1 Battle Droids",
+                ProfilePicture = "b1-pp.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("b1-pp.png")
                     {
+                        Weilder = "B1 Battle Droids",
                         Name = "Combat A.I. Protocols",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After an allied Battle Droid Unit makes a combat action, choose one of the targeted characters that is within 4 of all character in this Unit if able. the chosen character gains Constrain or Exposed.",
+                        Text = "After an allied <b>Battle Droid</b> Unit makes a combat action, choose one of the targeted characters that is within 4 of all character in this Unit if able. the chosen character gains Constrain or Exposed.",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -107,8 +114,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("b1-pp.png")
                     {
+                        Weilder = "B1 Battle Droids",
                         Name = "Well, I Guess I'm in Charge Now",
                         Type = AbilityType.Automatic,
                         Cost = 0,
@@ -116,8 +124,9 @@ namespace ShatterpointReferences.Services
                         Synergies = new List<Synergy>(),
                         Timing = Timing.Start
                     },
-                    new Ability()
+                    new Ability("b1-pp.png")
                     {
+                        Weilder = "B1 Battle Droids",
                         Name = "I Hate This Job",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -134,13 +143,15 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "Asaji Ventress, Sith Assassin",
+                ProfilePicture = "asaji-pp.png",
                 UniqueName = "Asaji Ventress",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.SeparatistAlliance },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("asaji-pp.png")
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Dathomirian Dexterity",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -150,8 +161,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("asaji-pp.png")
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Force Push",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -161,8 +173,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("asaji-pp.png")
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Riposte",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -172,12 +185,13 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Targeted
                     },
-                    new Ability()
+                    new Ability("asaji-pp.png")
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Slip Away",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "When another Dathomirian or Separatist Alliance character targets an enemy character that is Engaged with one of more characters in this Unit with an attackn this Unit may use this ability. One character in this Unit that is Engaged with the target character may immediately repos. If it does, this unit gains Crouch",
+                        Text = "When another <b>Dathomirian</b> or <b>Separatist Alliance</b> character targets an enemy character that is Engaged with one of more characters in this Unit with an attackn this Unit may use this ability. One character in this Unit that is Engaged with the target character may immediately repos. If it does, this unit gains Crouch",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -189,8 +203,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.AnotherActive
                     },
-                    new Ability()
+                    new Ability("asaji-pp.png")
                     {
+                        Weilder = "Asaji Ventress, Sith Assassin",
                         Name = "Sith Assassin",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -210,13 +225,15 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "Lord Maul",
+                ProfilePicture = "lordmaul-pp.png",
                 UniqueName = "Maul",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("lordmaul-pp.png")
                     {
+                        Weilder = "Lord Maul",
                         Name = "Force Speed",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -226,8 +243,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("lordmaul-pp.png")
                     {
+                        Weilder = "Lord Maul",
                         Name = "There is No Place to Run",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -237,8 +255,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("lordmaul-pp.png")
                     {
+                        Weilder = "Lord Maul",
                         Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -248,8 +267,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Targeted
                     },
-                    new Ability()
+                    new Ability("lordmaul-pp.png")
                     {
+                        Weilder = "Lord Maul",
                         Name = "Sustained By Rage",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -268,13 +288,15 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "Gar Saxon, Merciless Commander",
+                ProfilePicture = "garsaxon-pp.png",
                 UniqueName = "Gar Saxon",
                 Type = UnitType.Secondary,
-                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando},
+                KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("garsaxon-pp.png")
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Pride of the Mandalor",
                         Type = AbilityType.Automatic,
                         Cost = 0,
@@ -284,8 +306,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Start
                     },
-                    new Ability()
+                    new Ability("garsaxon-pp.png")
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -295,8 +318,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("garsaxon-pp.png")
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -306,8 +330,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("garsaxon-pp.png")
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "I've Got You In My Sights",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -317,8 +342,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("garsaxon-pp.png")
                     {
+                        Weilder = "Gar Saxon, Merciless Commander",
                         Name = "Pack Hunter",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -337,13 +363,15 @@ namespace ShatterpointReferences.Services
             return new Unit()
             {
                 Name = "Mandalorian Super Commandos",
+                ProfilePicture = "supercommando-pp.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },
                 Abilities = new List<Ability>()
                 {
-                    new Ability()
+                    new Ability("supercommando-pp.png")
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -353,19 +381,21 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("supercommando-pp.png")
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this unit immediately makes a focus action",
+                        Text = "After <b>this</b> Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this unit immediately makes a focus action",
                         Synergies = new List<Synergy>()
                         {
                         },
                         Timing = Timing.Active
                     },
-                    new Ability()
+                    new Ability("supercommando-pp.png")
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "No Mercy",
                         Type = AbilityType.Permanent,
                         Cost = 0,
@@ -375,8 +405,9 @@ namespace ShatterpointReferences.Services
                         },
                         Timing = Timing.Opponent
                     },
-                    new Ability()
+                    new Ability("supercommando-pp.png")
                     {
+                        Weilder = "Mandalorian Super Commandos",
                         Name = "Victory or Death!",
                         Type = AbilityType.Permanent,
                         Cost = 0,

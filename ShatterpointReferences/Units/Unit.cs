@@ -9,6 +9,10 @@ namespace ShatterpointReferences.Units
         /// </summary>
         public string Name { get; set; }
         /// <summary>
+        /// Profile picture of the unit
+        /// </summary>
+        public string ProfilePicture { get; set; }
+        /// <summary>
         /// Unique name of the unit
         /// </summary>
         public string UniqueName { get; set; }

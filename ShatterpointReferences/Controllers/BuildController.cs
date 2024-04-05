@@ -134,6 +134,22 @@ namespace ShatterpointReferences.Controllers
             return PartialView("ActiveUnitPartial", data);
         }
 
+        [HttpGet("target-unit")]
+        public ActionResult TargetUnit([FromQuery] string unitName)
+        {
+            var unit = db.UnitList.FirstOrDefault(x => x.Name == unitName);
+            if (unit is null)
+                return NotFound();
+
+            var activeAbilities = ActivateUnitService.GettingTargeted(unit, ReadSelectedUnits().ToList());
+
+            var data = new TargetedUnitPartialModel();
+            data.SelectedUnit = unit;
+            data.CurrentTargetSynergies = activeAbilities;
+
+            return PartialView("TargetedUnitPartial", data);
+        }
+
         private Unit[] ReadSelectedUnits()
         {
             var unit1 = Request.Cookies[unit_1] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_1]) : null;

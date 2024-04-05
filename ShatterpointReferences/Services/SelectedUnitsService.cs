@@ -16,7 +16,7 @@ namespace ShatterpointReferences.Services
             result.AddRange(unit.Abilities.Where(x => x.Timing == Timing.Active));
 
             // Add abilities from other units that matches the synergies
-            foreach (var ally in selectedUnit.Where(x => x.Name != unit.Name))
+            foreach (var ally in selectedUnit.Where(x => x is not null && x.Name != unit.Name))
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Type == AbilityType.Reactive))
                 {
@@ -33,7 +33,6 @@ namespace ShatterpointReferences.Services
             return result;
         }
 
-        // Todo: add 
         public static List<Ability> GettingTargeted(Unit unit, List<Unit> selectedUnit)
         {
             var result = new List<Ability>();
@@ -42,7 +41,7 @@ namespace ShatterpointReferences.Services
             result.AddRange(unit.Abilities.Where(x => x.Timing == Timing.Targeted));
 
             // Ability from other units for when getting targeted
-            foreach (var ally in selectedUnit.Where(x => x.Name != unit.Name))
+            foreach (var ally in selectedUnit.Where(x => x is not null && x.Name != unit.Name))
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Timing == Timing.Targeted))
                 {
