@@ -22,44 +22,63 @@ body {
 }
 
 /* Card Title*/
-
 .dynamic-card {
-    border: 2px solid red;
-    border-radius: 25px;
+    border: 2px solid black;
+    border-radius: 20px;
     margin: 5px;
 }
 
-.dynamic-card-title table td img {
-    height: 45px;
-    width: 45px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.dynamic-card-title {
+    border-radius: 17px 17px 0px 0px;
+    background-image: url(../img/card/title-back-red.png);
 }
 
-.dynamic-card-title table td h4 {
-    font-size: 15px;
-    font-weight: 700;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 0px;
-    margin: 0px;
-}
+    .dynamic-card-title * {
+        display: inline;
+    }
+
+    .dynamic-card-title img {
+        z-index: 2;
+        height: 45px;
+        width: 45px;
+        margin: 5px;
+    }
+
+    .dynamic-card-title div {
+        z-index: 1;
+        height: 45px;
+        font-size: 15px;
+        font-weight: 700;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: black;
+        width: 100%;
+        margin: 0px;
+    }
 
 /* Card */
-.dynamic-card-content table td img {
-    height: 35px;
-    width: 35px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.dynamic-card-content {
+    margin: 5px;
 }
 
-.dynamic-card-content table td h4 {
-    font-size: 15px;
-    font-weight: 700;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 0px;
-    margin: 0px;
+    .dynamic-card-content table td img {
+        height: 35px;
+        width: 35px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dynamic-card-content table td h4 {
+        font-size: 15px;
+        font-weight: 700;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 0px;
+        margin: 0px;
+    }
+
+.ability-title * {
+    display: inline-block;
 }
 
 .dynamic-card-content table td p {
@@ -67,5 +86,5 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0px;
     margin: 0px;
-    line-height: 0.9;
+    line-height: 1;
 }

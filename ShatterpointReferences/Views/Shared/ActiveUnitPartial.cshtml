@@ -9,18 +9,12 @@
 
 @section Css {
 
-    .
-
 }
 
 <div class="dynamic-card">
-    <div class ="dynamic-card-title">
-        <table >
-            <tr>
-                <td><img alt="@Url.Content(@Model.ActiveUnit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @Model.ActiveUnit.ProfilePicture))" /></td>
-                <td><h4>@Model.ActiveUnit.Name</h4></td>
-            </tr>
-        </table>
+    <div class="dynamic-card-title">
+        <img alt="@Url.Content(@Model.ActiveUnit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @Model.ActiveUnit.ProfilePicture))" />
+        <div>@Model.ActiveUnit.Name</div>
     </div>
 
     <div class="dynamic-card-content">
@@ -32,8 +26,13 @@
                     <tr>
                         <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
                         <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
+                            <div class="ability-content">
+                                <div class="ability-title">
+                                    <h4>@ability.Name</h4>
+                                    <div>Cost: @ability.Cost F</div>
+                                </div>
+                                <p>@Html.Raw(@ability.Text)</p>
+                            </div>
                         </td>
                     </tr>
                 }

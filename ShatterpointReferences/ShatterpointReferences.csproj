@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\img\card\title-back-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\img\pp\asaji-pp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

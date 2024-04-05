@@ -108,6 +108,17 @@
                 }
             }
         </table>
+
+        @* Clickable miniatures *@
+        @foreach (var unit in @Model.SelectedUnits)
+        {
+            @if (unit is not null)
+            {
+                <a href="#" onclick="ActivateUnit('@unit.Name');return false;">
+                    <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", unit.ProfilePicture))" />
+                </a>
+            }
+        }
     </div>
 
     <div id="activeUnitId">
