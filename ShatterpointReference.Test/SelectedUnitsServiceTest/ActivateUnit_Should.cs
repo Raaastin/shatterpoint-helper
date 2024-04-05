@@ -27,12 +27,13 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             var result = ActivateUnitService.ActivateUnit(db.Get("Kalani, Super Tactical Robot"), selecteUnits);
 
             // Arrange
-            Assert.Equal(5, result.Count);
+            Assert.Equal(6, result.Count);
             Assert.Equal("Roger, Roger", result[0].Name);
-            Assert.Equal("Tactical Network", result[1].Name);
-            Assert.Equal("Target, Concentrate All Firepower", result[2].Name);
-            Assert.Equal("Combat A.I. Protocols", result[3].Name);
+            Assert.Equal("Complete Analysis", result[1].Name);
+            Assert.Equal("Tactical Network", result[2].Name);
+            Assert.Equal("Target, Concentrate All Firepower", result[3].Name);
             Assert.Equal("Slip Away", result[4].Name);
+            Assert.Equal("Combat A.I. Protocols", result[5].Name);
         }
 
         [Fact]
@@ -45,8 +46,8 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             Assert.Equal(4, result.Count);
             Assert.Equal("Well, I Guess I'm in Charge Now", result[0].Name);
             Assert.Equal("Combat A.I. Protocols", result[1].Name);
-            Assert.Equal("Target, Concentrate All Firepower", result[2].Name);
-            Assert.Equal("Slip Away", result[3].Name);
+            Assert.Equal("Slip Away", result[2].Name);
+            Assert.Equal("Target, Concentrate All Firepower", result[3].Name);
         }
 
         [Fact]

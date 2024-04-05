@@ -25,57 +25,7 @@
 
     <div class="dynamic-card-content">
         <table>
-            @* Abilities at start *@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Start))
-            {
-                <tr>
-                    <th>Start Turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Start))
-            {
-                @if (ability is not null)
-                {
-                    <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
-                        <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
-                        </td>
-                    </tr>
-                }
-            }
-            @* Abilities when active *@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
-            {
-                <tr>
-                    <th>During Turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
-            {
-                @if (ability is not null)
-                {
-                    <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
-                        <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
-                        </td>
-                    </tr>
-                }
-            }
-            @* Abilities when turn ends*@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.End))
-            {
-                <tr>
-                    <th>End of the turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.End))
+            @foreach (var ability in @Model.CurrentActivationSynergies)
             {
                 @if (ability is not null)
                 {

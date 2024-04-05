@@ -14,6 +14,6 @@
         public int Cost { get; set; }
         public string Text { get; set; }
         public List<Synergy> Synergies { get; set; }
-        public Timing Timing { get; set; }
+        public List<Timing> Timing { get; set; }
     }
 }
