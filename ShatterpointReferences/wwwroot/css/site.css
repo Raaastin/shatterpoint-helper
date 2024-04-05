@@ -38,22 +38,22 @@ body {
     }
 
     .dynamic-card-title img {
-        z-index: 2;
         height: 45px;
         width: 45px;
-        margin: 5px;
+        margin: 5px 0px 3px 10px;
     }
 
     .dynamic-card-title div {
-        z-index: 1;
-        height: 45px;
-        font-size: 15px;
         font-weight: 700;
         color: white;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         background-color: black;
         width: 100%;
-        margin: 0px;
+        margin-top: -45px;
+        display: inline-block;
+        text-align: center;
+        padding: 5px 0px 5px 0px;
+        float: left;
     }
 
 /* Card */
