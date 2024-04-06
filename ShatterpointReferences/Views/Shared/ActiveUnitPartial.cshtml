@@ -3,20 +3,11 @@
 
 @model ActiveUnitPartialModel
 
-@section Scripts {
-
-}
-
-@section Css {
-
-}
-
 <div class="dynamic-card">
     <div class="dynamic-card-title">
         <img alt="@Url.Content(@Model.ActiveUnit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @Model.ActiveUnit.ProfilePicture))" />
         <div>@Model.ActiveUnit.Name</div>
     </div>
-
     <div class="dynamic-card-content">
         <table>
             @foreach (var ability in @Model.CurrentActivationSynergies)
@@ -25,11 +16,17 @@
                 {
                     <tr>
                         <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
+                        <td><img alt="@Url.Content(@ability.Type.ToString())" src="@Url.Content(String.Format("~/img/abilities/{0}.png", ability.Type))" /></td>
                         <td>
                             <div class="ability-content">
                                 <div class="ability-title">
                                     <h4>@ability.Name</h4>
-                                    <div>Cost: @ability.Cost F</div>
+                                    <div>
+                                        @for (int i = 0; i < ability.Cost; i++)
+                                        {
+                                            <span><img alt="@Url.Content(@ability.Cost.ToString())" src="@Url.Content("~/img/abilities/force.png")" /></span>
+                                        }
+                                    </div>
                                 </div>
                                 <p>@Html.Raw(@ability.Text)</p>
                             </div>
