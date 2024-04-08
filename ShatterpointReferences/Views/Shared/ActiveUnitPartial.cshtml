@@ -3,87 +3,33 @@
 
 @model ActiveUnitPartialModel
 
-@section Scripts {
-
-}
-
-@section Css {
-
-    .
-
-}
-
 <div class="dynamic-card">
-    <div class ="dynamic-card-title">
-        <table >
-            <tr>
-                <td><img alt="@Url.Content(@Model.ActiveUnit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @Model.ActiveUnit.ProfilePicture))" /></td>
-                <td><h4>@Model.ActiveUnit.Name</h4></td>
-            </tr>
-        </table>
+    <div class="dynamic-card-title">
+        <img alt="@Url.Content(@Model.ActiveUnit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @Model.ActiveUnit.ProfilePicture))" />
+        <div>@Model.ActiveUnit.Name</div>
     </div>
-
     <div class="dynamic-card-content">
         <table>
-            @* Abilities at start *@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Start))
-            {
-                <tr>
-                    <th>Start Turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Start))
+            @foreach (var ability in @Model.CurrentActivationSynergies)
             {
                 @if (ability is not null)
                 {
                     <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
+                        <td><img alt="@Url.Content(@ability.Weilder)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
+                        <td><img alt="@Url.Content(@ability.Type.ToString())" src="@Url.Content(String.Format("~/img/abilities/{0}.png", ability.Type))" /></td>
                         <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
-                        </td>
-                    </tr>
-                }
-            }
-            @* Abilities when active *@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
-            {
-                <tr>
-                    <th>During Turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.Active || x.Timing == Timing.AnotherActive))
-            {
-                @if (ability is not null)
-                {
-                    <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
-                        <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
-                        </td>
-                    </tr>
-                }
-            }
-            @* Abilities when turn ends*@
-            @if (@Model.CurrentActivationSynergies.Any(x => x.Timing == Timing.End))
-            {
-                <tr>
-                    <th>End of the turn</th>
-                    <td></td>
-                </tr>
-            }
-            @foreach (var ability in @Model.CurrentActivationSynergies.Where(x => x.Timing == Timing.End))
-            {
-                @if (ability is not null)
-                {
-                    <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
-                        <td>
-                            <h4>@ability.Name</h4>
-                            <p>@Html.Raw(@ability.Text)</p>
+                            <div class="ability-content">
+                                <div class="ability-title">
+                                    <h4>@ability.Name</h4>
+                                    <div>
+                                        @for (int i = 0; i < ability.Cost; i++)
+                                        {
+                                            <img class="force-logo" alt="@Url.Content(@ability.Cost.ToString())" src="@Url.Content("~/img/abilities/force.png")" />
+                                        }
+                                    </div>
+                                </div>
+                                <p>@Html.Raw(@ability.Text)</p>
+                            </div>
                         </td>
                     </tr>
                 }

@@ -1,0 +1,65 @@
+﻿@using ShatterpointReferences.Model;
+@using ShatterpointReferences.Units;
+
+@model List<Unit>
+
+@section Scripts {
+
+    <script>
+
+        function ActivateUnit(unitName) {
+            $.ajax({
+                url: "@Url.Action("ActivateUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $('#activeUnitId').html(result);
+                    $('#targetedUnitId').empty();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    Alert("error");
+                }
+            });
+        }
+
+        function TargetUnit(unitName) {
+            $.ajax({
+                url: "@Url.Action("TargetUnit", "Build")" + "?unitname=" + unitName,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $('#targetedUnitId').html(result);
+                    $('#activeUnitId').empty();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    Alert("error");
+                }
+            });
+        }
+
+    </script>
+}
+
+<div>
+    @* Clickable miniatures *@
+    @if (@Model is null || !@Model.Any() || @Model.Where(x => x is null).Count() == 6)
+    {
+        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
+    }
+    @if (@Model is not null)
+    {
+        @foreach (var unit in @Model)
+        {
+            @if (unit is not null)
+            {
+                <a href="#" onclick="ActivateUnit('@unit.Name');return false;">
+                    <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", unit.ProfilePicture))" />
+                </a>
+            }
+        }
+    }
+</div>
+
+<div id="activeUnitId">
+</div>
+
+<div id="targetedUnitId">
+</div>

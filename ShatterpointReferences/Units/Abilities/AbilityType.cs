@@ -2,9 +2,10 @@
 {
     public enum AbilityType
     {
-        Automatic, 
-        Active, 
+        Tactic,
+        Active,
         Reactive,
-        Permanent
+        Inate,
+        Identity
     }
 }

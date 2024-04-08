@@ -35,85 +35,38 @@
             });
         }
 
-        function ActivateUnit(unitName) {
-            $.ajax({
-                url: "@Url.Action("ActivateUnit", "Build")" + "?unitname=" + unitName,
-                contentType: "application/json; charset=utf-8",
-                success: function (result) {
-                    $('#activeUnitId').html(result);
-                    $('#targetedUnitId').empty();
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    Alert("error");
-                }
-            });
-        }
-
-        function TargetUnit(unitName) {
-            $.ajax({
-                url: "@Url.Action("TargetUnit", "Build")" + "?unitname=" + unitName,
-                contentType: "application/json; charset=utf-8",
-                success: function (result) {
-                    $('#targetedUnitId').html(result);
-                    $('#activeUnitId').empty();
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    Alert("error");
-                }
-            });
-        }
-
     </script>
 }
 
+<div class="unit-selection-table">
+    <h1>Units available</h1>
+    <p>Chose up to 6 Units</p>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var unit in @Model.UnitList)
+        {
+            <tr>
+                <td>
+                    <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", @unit.ProfilePicture))" />
+                    @unit.Name
+                </td>
+                <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Add</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
 <div>
-    <div>
-        <h1>Unit available</h1>
-        <p>Chose up to 6 Units</p>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Action</td>
-            </tr>
-            @foreach (var unit in @Model.UnitList)
-            {
-                <tr>
-                    <td>@unit.Name</td>
-                    <td><a href="#" onclick="SelectUnit('@unit.Name');return false;">Add</a></td>
-                </tr>
-            }
-        </table>
-    </div>
-
-    <div>
-        <h1>Selected Units</h1>
-        <a href="#" onclick="ClearSelectedUnits();return false;">Clear selection</a>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-            @foreach (var unit in @Model.SelectedUnits)
-            {
-                @if (unit is not null)
-                {
-                    <tr>
-                        <td>@unit.Name</td>
-                        <td>
-                            <a href="#" onclick="ActivateUnit('@unit.Name');return false;">Active</a>
-                            /
-                            <a href="#" onclick="TargetUnit('@unit.Name');return false;">Target</a>
-                        </td>
-                    </tr>
-                }
-            }
-        </table>
-    </div>
-
-    <div id="activeUnitId">
-    </div>
-
-    <div id="targetedUnitId">
-    </div>
-
+    <h1>Selected Units</h1>
+    <div><a href="#" onclick="ClearSelectedUnits();return false;">Clear selection</a></div>
+    @foreach (var unit in @Model.SelectedUnits)
+    {
+        @if (unit is not null)
+        {
+            <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", unit.ProfilePicture))" />
+        }
+    }
 </div>
