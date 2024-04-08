@@ -1,5 +1,5 @@
-﻿using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+﻿using Shatterpoint.Maui.Units;
+using Shatterpoint.Maui.Units.Abilities;
 
 namespace Shatterpoint.Maui.Services
 {

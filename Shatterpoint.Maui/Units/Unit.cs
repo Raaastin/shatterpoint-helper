@@ -1,6 +1,6 @@
-﻿using ShatterpointReferences.Units.Abilities;
+﻿using Shatterpoint.Maui.Units.Abilities;
 
-namespace ShatterpointReferences.Units
+namespace Shatterpoint.Maui.Units
 {
     public class Unit
     {

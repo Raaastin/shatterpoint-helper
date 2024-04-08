@@ -1,4 +1,4 @@
-﻿namespace ShatterpointReferences.Units
+﻿namespace Shatterpoint.Maui.Units
 {
     public class KeyWords
     {

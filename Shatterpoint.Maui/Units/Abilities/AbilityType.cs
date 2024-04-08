@@ -1,4 +1,4 @@
-﻿namespace ShatterpointReferences.Units.Abilities
+﻿namespace Shatterpoint.Maui.Units.Abilities
 {
     public enum AbilityType
     {

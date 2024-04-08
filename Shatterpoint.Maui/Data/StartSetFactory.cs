@@ -1,7 +1,7 @@
-﻿using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+﻿using Shatterpoint.Maui.Units;
+using Shatterpoint.Maui.Units.Abilities;
 
-namespace ShatterpointReferences.Services
+namespace Shatterpoint.Maui.Services
 {
     public static class StartSetFactory
     {
