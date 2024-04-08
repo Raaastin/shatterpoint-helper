@@ -1,5 +1,6 @@
 ﻿@using ShatterpointReferences.Model;
 @using ShatterpointReferences.Units.Abilities;
+@using ShatterpointReferences.Extensions;
 
 @model ActiveUnitPartialModel
 
@@ -28,7 +29,9 @@
                                         }
                                     </div>
                                 </div>
-                                <p>@Html.Raw(@ability.Text)</p>
+                                <p>
+                                    @Html.Raw(@ability.Text.ToRawHtmlDescription())
+                                </p>
                             </div>
                         </td>
                     </tr>
