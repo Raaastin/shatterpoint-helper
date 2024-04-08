@@ -71,18 +71,22 @@ body {
     margin: 5px;
 }
 
-    .dynamic-card-content table td img {
-        height: 35px;
-        width: 35px;
+    .dynamic-card-content table td {
+        vertical-align: top;
     }
 
-    .dynamic-card-content table td h4 {
-        font-size: 15px;
-        font-weight: 700;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        padding: 0px;
-        margin: 0px;
-    }
+        .dynamic-card-content table td img {
+            height: 35px;
+            width: 35px;
+        }
+
+        .dynamic-card-content table td h4 {
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 0px;
+            margin: 0px;
+        }
 
 .ability-title * {
     display: inline-block;
