@@ -1,0 +1,36 @@
+﻿@using Shatterpoint.Maui.Services;
+
+@page "/counter"
+@inject SelectedUnitsService SelectedUnitsService
+@inject UnitDataBaseService UnitDataBaseService
+
+<h1>Counter</h1>
+
+<div>
+
+    @if (!@SelectedUnitsService.SelectedUnits.Any())
+    {
+        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
+    }
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits)
+    {
+        <a href="#" @onclick="ActivateUnit(unit);">
+            <img alt="@unit.ProfilePicture" src="@GetPpUrl(unit.ProfilePicture)" />
+        </a>
+        <img  />
+    }
+</div>
+
+@code {
+
+    public void ActivateUnit(Unit unit){
+        SelectedUnitsService.ActivateUnit(unit);
+    }
+
+    public string GetPpUrl(string ppName)
+    {
+        var ppUrl = "/img/pp/" + ppName;
+        return ppUrl;
+
+    }
+}
