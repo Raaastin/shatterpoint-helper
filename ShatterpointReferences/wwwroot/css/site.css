@@ -21,6 +21,16 @@ body {
     margin-bottom: 60px;
 }
 
+/* Table for unit selection */
+.unit-selection-table {
+    display: inline;
+}
+
+    .unit-selection-table table td img {
+        height: 15px;
+        width: 15px;
+    }
+
 /* Card Title*/
 .dynamic-card {
     border: 2px solid black;
@@ -64,9 +74,6 @@ body {
     .dynamic-card-content table td img {
         height: 35px;
         width: 35px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .dynamic-card-content table td h4 {
@@ -81,6 +88,12 @@ body {
     display: inline-block;
 }
 
+.dynamic-card-content table td .force-logo {
+    width: 15px;
+    height: 15px;
+}
+
+/* Card text */
 .dynamic-card-content table td p {
     font-size: 13px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

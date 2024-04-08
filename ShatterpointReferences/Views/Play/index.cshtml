@@ -1,4 +1,4 @@
-﻿@using ShatterpointReferences.Model
+﻿@using ShatterpointReferences.Model;
 @using ShatterpointReferences.Units;
 
 @model List<Unit>
@@ -40,13 +40,20 @@
 
 <div>
     @* Clickable miniatures *@
-    @foreach (var unit in @Model)
+    @if (@Model is null || !@Model.Any() || @Model.Where(x => x is null).Count() == 6)
     {
-        @if (unit is not null)
+        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
+    }
+    @if (@Model is not null)
+    {
+        @foreach (var unit in @Model)
         {
-            <a href="#" onclick="ActivateUnit('@unit.Name');return false;">
-                <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", unit.ProfilePicture))" />
-            </a>
+            @if (unit is not null)
+            {
+                <a href="#" onclick="ActivateUnit('@unit.Name');return false;">
+                    <img alt="@Url.Content(@unit.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", unit.ProfilePicture))" />
+                </a>
+            }
         }
     }
 </div>

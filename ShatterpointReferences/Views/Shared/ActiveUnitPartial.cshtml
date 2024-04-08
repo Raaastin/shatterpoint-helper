@@ -15,7 +15,7 @@
                 @if (ability is not null)
                 {
                     <tr>
-                        <td><img alt="@Url.Content(@ability.Name)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
+                        <td><img alt="@Url.Content(@ability.Weilder)" src="@Url.Content(String.Format("~/img/pp/{0}", ability.WeilderProfilePicture))" /></td>
                         <td><img alt="@Url.Content(@ability.Type.ToString())" src="@Url.Content(String.Format("~/img/abilities/{0}.png", ability.Type))" /></td>
                         <td>
                             <div class="ability-content">
@@ -24,7 +24,7 @@
                                     <div>
                                         @for (int i = 0; i < ability.Cost; i++)
                                         {
-                                            <span><img alt="@Url.Content(@ability.Cost.ToString())" src="@Url.Content("~/img/abilities/force.png")" /></span>
+                                            <img class="force-logo" alt="@Url.Content(@ability.Cost.ToString())" src="@Url.Content("~/img/abilities/force.png")" />
                                         }
                                     </div>
                                 </div>
