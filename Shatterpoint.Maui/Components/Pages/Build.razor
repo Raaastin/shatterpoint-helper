@@ -7,6 +7,8 @@
 <div class="unit-selection-table">
     <h1>Units available</h1>
     <p>Chose up to 6 Units</p>
+
+
     <table>
         <tr>
             <td>Name</td>
@@ -16,6 +18,7 @@
         {
             <tr>
                 <td>
+                    <img atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
                     @unit.Name
                 </td>
                 <td><a href="#" @onclick="() => AddUnit(unit.Name)">Add</a></td>
@@ -31,9 +34,10 @@
     {
         @if (unit is not null)
         {
-            <div>@unit.Name</div>
+            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
         }
     }
+
 </div>
 
 @code {

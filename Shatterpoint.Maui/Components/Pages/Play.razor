@@ -2,6 +2,7 @@
 @using Shatterpoint.Lib.Units
 @using Shatterpoint.Lib.Units.Abilities
 @using Shatterpoint.Lib.Model;
+@using Shatterpoint.Lib.Extensions;
 
 @page "/play"
 @inject SelectedUnitsService SelectedUnitsService
@@ -49,7 +50,7 @@
                                         </div>
                                     </div>
                                     <p>
-                                        @ability.Text
+                                        @ability.Text.ToRawHtmlDescription()
                                     </p>
                                 </div>
                             </td>
