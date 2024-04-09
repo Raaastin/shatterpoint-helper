@@ -119,8 +119,10 @@ namespace ShatterpointReferences.Controllers
             return Ok();
         }
 
-        private Unit[] ReadSelectedUnits()
+        private List<Unit> ReadSelectedUnits()
         {
+            selectedUnitsService.ClearSelectedUnits();
+
             var unit1 = Request.Cookies[unit_1] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_1]) : null;
             var unit2 = Request.Cookies[unit_2] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_2]) : null;
             var unit3 = Request.Cookies[unit_3] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_3]) : null;
@@ -137,7 +139,16 @@ namespace ShatterpointReferences.Controllers
                 unit5,
                 unit6
             };
-            return arrayUnit;
+
+            foreach(var unit in arrayUnit)
+            {
+                if (unit is not null)
+                {
+                    selectedUnitsService.AddUnit(unit);
+                }
+            }
+
+            return selectedUnitsService.SelectedUnits;
         }
     }
 }
