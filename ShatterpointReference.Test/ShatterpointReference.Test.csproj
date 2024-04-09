@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShatterpointReferences\ShatterpointReferences.csproj" />
+    <ProjectReference Include="..\Shatterpoint.Lib\Shatterpoint.Lib.csproj" />
   </ItemGroup>
 
 </Project>

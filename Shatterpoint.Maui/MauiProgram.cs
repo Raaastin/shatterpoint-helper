@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Shatterpoint.Maui.Services;
+using Shatterpoint.Lib.Services;
 
 namespace Shatterpoint.Maui
 {

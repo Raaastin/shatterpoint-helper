@@ -1,0 +1,9 @@
+/* Table for unit selection */
+.unit-selection-table {
+    display: inline;
+}
+
+    .unit-selection-table table td img {
+        height: 15px;
+        width: 15px;
+    }

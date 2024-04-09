@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ShatterpointReferences.Model;
-using ShatterpointReferences.Services;
-using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+using Shatterpoint.Lib.Services;
+using Shatterpoint.Lib.Units;
+using Shatterpoint.Lib.Units.Abilities;
 
 namespace ShatterpointReferences.Controllers
 {
@@ -14,10 +14,12 @@ namespace ShatterpointReferences.Controllers
     public class PlayController : Controller
     {
         private readonly UnitDataBaseService db;
+        private readonly SelectedUnitsService selectedUnitsService;
 
-        public PlayController(UnitDataBaseService unitDataBaseService)
+        public PlayController(UnitDataBaseService unitDataBaseService, SelectedUnitsService selectedUnitsService)
         {
             db = unitDataBaseService;
+            this.selectedUnitsService = selectedUnitsService;
         }
 
 
@@ -64,7 +66,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = ActivateUnitService.ActivateUnit(unit, ReadSelectedUnits().ToList());
+            var activeAbilities = selectedUnitsService.ActivateUnit(unit);
 
             var data = new ActiveUnitPartialModel();
             data.ActiveUnit = unit;
@@ -80,7 +82,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = ActivateUnitService.GettingTargeted(unit, ReadSelectedUnits().ToList());
+            var activeAbilities = selectedUnitsService.GettingTargeted(unit);
 
             var data = new TargetedUnitPartialModel();
             data.SelectedUnit = unit;

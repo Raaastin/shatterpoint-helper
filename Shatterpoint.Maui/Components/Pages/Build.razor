@@ -1,0 +1,68 @@
+﻿@using Shatterpoint.Lib.Services;
+
+@page "/"
+@inject UnitDataBaseService UnitDataBaseService
+@inject SelectedUnitsService SelectedUnitsService
+
+<div class="unit-selection-table">
+    <h1>Units available</h1>
+    <p>Chose up to 6 Units</p>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Action</td>
+        </tr>
+        @foreach (var unit in @UnitDataBaseService.UnitList)
+        {
+            <tr>
+                <td>
+                    @unit.Name
+                </td>
+                <td><a href="#" @onclick="() => AddUnit(unit.Name)">Add</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <h1>Selected Units</h1>
+    <div><a href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits)
+    {
+        @if (unit is not null)
+        {
+            <div>@unit.Name</div>
+        }
+    }
+</div>
+
+@code {
+
+    public void ClearSelectedUnits(){
+        SelectedUnitsService.ClearSelectedUnits();
+    }
+
+    public void AddUnit(string unitName)
+    {
+        var selectedUnits = SelectedUnitsService.SelectedUnits;
+
+        // Case: Already exists
+        var alreadyExists = selectedUnits.Any(x => x.Name == unitName);
+        if (alreadyExists)
+            return;
+
+        // Case: this name unit does not exist
+        var unit = UnitDataBaseService.UnitList.FirstOrDefault(x => x.Name == unitName);
+        if (unit is null)
+            return;
+
+        // Case: array full
+        var notFull = selectedUnits.Count() < 6;
+        if (!notFull)
+            return;
+
+        //Save to the first empty location
+        SelectedUnitsService.AddUnit(unit);
+    }
+
+}

@@ -1,30 +1,31 @@
-using ShatterpointReferences.Services;
-using ShatterpointReferences.Units;
+using Shatterpoint.Lib.Services;
+using Shatterpoint.Lib.Units;
 
 namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
     public class ActivateUnit_Should
     {
-        public List<Unit> selecteUnits { get; set; } = new();
+        public SelectedUnitsService selectedUnitsService { get; set; }
         public UnitDataBaseService db;
 
         public ActivateUnit_Should()
         {
             db = new();
+            selectedUnitsService = new();
 
-            selecteUnits.Add(db.Get("Kalani, Super Tactical Robot"));
-            selecteUnits.Add(db.Get("B1 Battle Droids"));
-            selecteUnits.Add(db.Get("Asaji Ventress, Sith Assassin"));
-            selecteUnits.Add(db.Get("Lord Maul"));
-            selecteUnits.Add(db.Get("Gar Saxon, Merciless Commander"));
-            selecteUnits.Add(db.Get("Mandalorian Super Commandos"));
+            selectedUnitsService.AddUnit(db.Get("Kalani, Super Tactical Robot"));
+            selectedUnitsService.AddUnit(db.Get("B1 Battle Droids"));
+            selectedUnitsService.AddUnit(db.Get("Asaji Ventress, Sith Assassin"));
+            selectedUnitsService.AddUnit(db.Get("Lord Maul"));
+            selectedUnitsService.AddUnit(db.Get("Gar Saxon, Merciless Commander"));
+            selectedUnitsService.AddUnit(db.Get("Mandalorian Super Commandos"));
         }
 
         [Fact]
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithKalani()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("Kalani, Super Tactical Robot"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("Kalani, Super Tactical Robot"));
 
             // Arrange
             Assert.Equal(6, result.Count);
@@ -40,7 +41,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithBattleDroids()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("B1 Battle Droids"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("B1 Battle Droids"));
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -54,7 +55,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithVentress()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("Asaji Ventress, Sith Assassin"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("Asaji Ventress, Sith Assassin"));
 
             // Arrange
             Assert.Equal(3, result.Count);
@@ -67,7 +68,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_LordMaul()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("Lord Maul"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("Lord Maul"));
 
             // Arrange
             Assert.Equal(4, result.Count);
@@ -81,7 +82,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_GarSaxon()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("Gar Saxon, Merciless Commander"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("Gar Saxon, Merciless Commander"));
 
             // Arrange
             Assert.Equal(5, result.Count);
@@ -96,7 +97,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_MandalorianSuperCommandos()
         {
             // Act
-            var result = ActivateUnitService.ActivateUnit(db.Get("Mandalorian Super Commandos"), selecteUnits);
+            var result = selectedUnitsService.ActivateUnit(db.Get("Mandalorian Super Commandos")    );
 
             // Arrange
             Assert.Equal(3, result.Count);
