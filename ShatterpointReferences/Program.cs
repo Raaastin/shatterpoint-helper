@@ -1,4 +1,4 @@
-using ShatterpointReferences.Services;
+using Shatterpoint.Lib.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
