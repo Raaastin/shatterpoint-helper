@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                     <p>
-                                        @ability.Text.ToRawHtmlDescription()
+                                        @((MarkupString)@ability.Text.ToRawHtmlDescription())
                                     </p>
                                 </div>
                             </td>
