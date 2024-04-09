@@ -82,7 +82,7 @@
       <Content Update="wwwroot\img\abilities\Active.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\Force.png">
+      <Content Update="wwwroot\img\abilities\force.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Update="wwwroot\img\abilities\Identity.png">
