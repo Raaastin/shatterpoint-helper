@@ -40,7 +40,7 @@ namespace Shatterpoint.Lib.Services
                         Weilder = "Kalani, Super Tactical Robot",
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
-                        Cost = 0,
+                        Cost = 1,
                         Text = "Chose another allied Battle Droid character within 4. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
                         Synergies = new List<Synergy>()
                         {

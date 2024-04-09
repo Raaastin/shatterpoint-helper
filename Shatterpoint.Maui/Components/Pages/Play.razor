@@ -14,10 +14,17 @@
     {
         <p>There is no selected unit. Visit /build/index to select your 6 units</p>
     }
-    @foreach (var unit in @SelectedUnitsService.SelectedUnits)
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
     {
         <a @onclick="() => ActivateUnit(unit)">
-            <img alt="@unit.ProfilePicture" src="@GetPpUrl(unit.ProfilePicture)" />
+            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+        </a>
+    }
+    <br />
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
+    {
+        <a @onclick="() => ActivateUnit(unit)">
+            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
         </a>
     }
 </div>
@@ -42,12 +49,12 @@
                                 <div class="ability-content">
                                     <div class="ability-title">
                                         <h4>@ability.Name</h4>
-                                        <div>
-                                            @for (int i = 0; i < ability.Cost; i++)
-                                            {
+                                        @for (int i = 0; i < ability.Cost; i++)
+                                        {
+                                            <div>
                                                 <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
-                                            }
-                                        </div>
+                                            </div>
+                                        }
                                     </div>
                                     <p>
                                         @((MarkupString)@ability.Text.ToRawHtmlDescription())
@@ -71,11 +78,5 @@
         SelectedUnitsService.ActiveUnit = new ActiveUnitModel();
         SelectedUnitsService.ActiveUnit.ActiveUnit = unit;
         SelectedUnitsService.ActiveUnit.CurrentActivationSynergies = activeAbilities;
-    }
-
-    public string GetPpUrl(string ppName)
-    {
-        var ppUrl = "/img/pp/" + ppName;
-        return ppUrl;
     }
 }

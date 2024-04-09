@@ -8,3 +8,4 @@ Shatterpoint.Maui/bin/
 Shatterpoint.Maui/obj/
 Shatterpoint.Lib/obj/
 Shatterpoint.Lib/bin/
+*.keystore

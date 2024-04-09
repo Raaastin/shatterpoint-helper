@@ -8,7 +8,6 @@
     <h1>Units available</h1>
     <p>Chose up to 6 Units</p>
 
-
     <table>
         <tr>
             <td>Name</td>
@@ -30,19 +29,25 @@
 <div>
     <h1>Selected Units</h1>
     <div><a href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
-    @foreach (var unit in @SelectedUnitsService.SelectedUnits)
+    
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
     {
-        @if (unit is not null)
-        {
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-        }
+        <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+    }
+    <br/>
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
+    {
+        <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
     }
 
 </div>
 
 @code {
+    public int countOfSelection { get; set; } = 0;
 
-    public void ClearSelectedUnits(){
+    public void ClearSelectedUnits()
+    {
+        countOfSelection = 0;
         SelectedUnitsService.ClearSelectedUnits();
     }
 
@@ -66,6 +71,7 @@
             return;
 
         //Save to the first empty location
+        countOfSelection++;
         SelectedUnitsService.AddUnit(unit);
     }
 

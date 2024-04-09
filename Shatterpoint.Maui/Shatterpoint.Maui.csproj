@@ -79,22 +79,22 @@
       <Content Update="wwwroot\favicon.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\active.png">
+      <Content Update="wwwroot\img\abilities\Active.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\force.png">
+      <Content Update="wwwroot\img\abilities\Force.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\identity.png">
+      <Content Update="wwwroot\img\abilities\Identity.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\inate.png">
+      <Content Update="wwwroot\img\abilities\Inate.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\reactive.png">
+      <Content Update="wwwroot\img\abilities\Reactive.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\abilities\tactic.png">
+      <Content Update="wwwroot\img\abilities\Tactic.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Update="wwwroot\img\card\title-back-red.png">
