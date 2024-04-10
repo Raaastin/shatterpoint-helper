@@ -3,7 +3,7 @@ using Shatterpoint.Lib.Units.Abilities;
 
 namespace Shatterpoint.Lib.Services
 {
-    public static class StartSetFactory
+    public static class StarterBoxFactory
     {
 
         public static Unit Kalani()
@@ -23,7 +23,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Roger, Roger",
                         Type = AbilityType.Tactic,
                         Cost = 0,
-                        Text = "At the start of this Unit's activation, each allied Battle Droid Supporting character withing 4 of a character in this Unit may dash",
+                        Text = "At the start of this Unit's activation, each allied Battle Droid Supporting character within 4 *range* of a character in this Unit may dash",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -41,7 +41,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
                         Cost = 1,
-                        Text = "Chose another allied Battle Droid character within 4. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
+                        Text = "Chose another allied Battle Droid character within 4 *range*. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -59,7 +59,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Target, Concentrate All Firepower",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When an allied Battle Droid character makes an attack, if the targeted character is withing 4 of one or more other allied Battle Droid characters, the attacking character adds 1 die to its attack roll.",
+                        Text = "When an allied Battle Droid character makes an attack, if the targeted character is within 4 *range* of one or more other allied Battle Droid characters, the attacking character adds 1 die to its attack roll.",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -102,7 +102,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Combat A.I. Protocols",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "After an allied Battle Droid Unit makes a combat action, choose one of the targeted characters that is within 4 of all character in this Unit if able. the chosen character gains Constrain or Exposed.",
+                        Text = "After an allied Battle Droid Unit makes a combat action, choose one of the targeted characters that is within 4 *range* of all character in this Unit if able. the chosen character gains Constrain or Exposed.",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -167,7 +167,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Force Push",
                         Type = AbilityType.Active,
                         Cost = 2,
-                        Text = "Choose a character in this Unit and an enemy character within 3 of that character. Push the choosen enemy character 3 away from the choosen allied character",
+                        Text = "Choose a character in this Unit and an enemy character within 3 *range*  of that character. Push the choosen enemy character 3 *range* away from the choosen allied character",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -249,7 +249,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "There is No Place to Run",
                         Type = AbilityType.Active,
                         Cost = 2,
-                        Text = "Choose a character in this Unit and an enemy character within 3 of that character. Pull the chosen enemy character 2 Toward the chosen allied character. Then the chosen enemy character gains Exposed",
+                        Text = "Choose a character in this Unit and an enemy character within 3 *range* of that character. Pull the chosen enemy character 2 *range* Toward the chosen allied character. Then the chosen enemy character gains Exposed",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -324,7 +324,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this Unit immediately makes a focus action",
+                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within 2 *range* of another allied Mandalorian character, this Unit immediately makes a focus action",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -387,7 +387,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is withing 2 of another allied Mandalorian character, this unit immediately makes a focus action",
+                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within 2 *range* of another allied Mandalorian character, this unit immediately makes a focus action",
                         Synergies = new List<Synergy>()
                         {
                         },

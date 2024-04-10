@@ -21,7 +21,7 @@
     display: grid;
     text-align: center;
 }
-
+    /* cible of 1st cell */
     .dynamic-card-title tr td:first-child {
         width: 80px;
     }
@@ -50,7 +50,7 @@
         vertical-align: top;
     }
 
-        .dynamic-card-content table td img {
+        .dynamic-card-content table td > img {
             height: 35px;
             width: 35px;
         }
@@ -75,7 +75,7 @@
 }
 
 /* Card text */
-.dynamic-card-content table td p {
+.ability-content p {
     font-size: 13px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0px;
