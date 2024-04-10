@@ -1,0 +1,74 @@
+/* Card Title*/
+.dynamic-card {
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.dynamic-card-title {
+    border-radius: 17px 17px 0px 0px;
+    background-image: url(../img/card/title-back-red.png);
+}
+
+    .dynamic-card-title * {
+        display: inline;
+    }
+
+    .dynamic-card-title img {
+        height: 45px;
+        width: 45px;
+        margin: 5px 0px 3px 10px;
+    }
+
+    .dynamic-card-title div {
+        font-weight: 700;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: black;
+        width: 100%;
+        margin-top: -45px;
+        display: inline-block;
+        text-align: center;
+        padding: 5px 0px 5px 0px;
+        float: left;
+    }
+
+/* Card */
+.dynamic-card-content {
+    margin: 5px;
+}
+
+    .dynamic-card-content table td {
+        vertical-align: top;
+    }
+
+        .dynamic-card-content table td img {
+            height: 35px;
+            width: 35px;
+        }
+
+        .dynamic-card-content table td h4 {
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 0px;
+            margin: 0px;
+        }
+
+.ability-title * {
+    display: inline-block;
+}
+
+.dynamic-card-content table td .force-logo {
+    width: 15px;
+    height: 15px;
+}
+
+/* Card text */
+.dynamic-card-content table td p {
+    font-size: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    line-height: 1;
+}

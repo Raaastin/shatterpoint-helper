@@ -4,3 +4,10 @@ ShatterpointReferences/obj/
 ShatterpointReference.Test/bin/
 ShatterpointReference.Test/obj/
 .vs/
+Shatterpoint.Maui/bin/
+Shatterpoint.Maui/obj/
+Shatterpoint.Lib/obj/
+Shatterpoint.Lib/bin/
+*.keystore
+Shatterpoint.Test/bin/
+Shatterpoint.Test/obj/

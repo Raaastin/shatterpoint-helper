@@ -1,5 +1,5 @@
-﻿using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+﻿using Shatterpoint.Lib.Units;
+using Shatterpoint.Lib.Units.Abilities;
 
 namespace ShatterpointReferences.Model
 {

@@ -1,5 +1,5 @@
 ﻿@using ShatterpointReferences.Model;
-@using ShatterpointReferences.Units;
+@using Shatterpoint.Lib.Units;
 
 @model List<Unit>
 
@@ -9,28 +9,28 @@
 
         function ActivateUnit(unitName) {
             $.ajax({
-                url: "@Url.Action("ActivateUnit", "Build")" + "?unitname=" + unitName,
+                url: "@Url.Action("ActivateUnit", "Play")" + "?unitname=" + unitName,
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
                     $('#activeUnitId').html(result);
                     $('#targetedUnitId').empty();
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    Alert("error");
+                    alert("error");
                 }
             });
         }
 
         function TargetUnit(unitName) {
             $.ajax({
-                url: "@Url.Action("TargetUnit", "Build")" + "?unitname=" + unitName,
+                url: "@Url.Action("TargetUnit", "Play")" + "?unitname=" + unitName,
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
                     $('#targetedUnitId').html(result);
                     $('#activeUnitId').empty();
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    Alert("error");
+                    alert("error");
                 }
             });
         }

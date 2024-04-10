@@ -1,12 +1,9 @@
-﻿using System;
-using System.Net;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ShatterpointReferences.Model;
-using ShatterpointReferences.Services;
-using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+using Shatterpoint.Lib.Services;
+using Shatterpoint.Lib.Units;
+using Shatterpoint.Lib.Units.Abilities;
 
 namespace ShatterpointReferences.Controllers
 {
@@ -14,10 +11,12 @@ namespace ShatterpointReferences.Controllers
     public class BuildController : Controller
     {
         private readonly UnitDataBaseService db;
+        private readonly SelectedUnitsService selectedUnitsService;
 
-        public BuildController(UnitDataBaseService unitDataBaseService)
+        public BuildController(UnitDataBaseService unitDataBaseService, SelectedUnitsService selectedUnitsService)
         {
             db = unitDataBaseService;
+            this.selectedUnitsService = selectedUnitsService;
         }
 
 
@@ -55,6 +54,7 @@ namespace ShatterpointReferences.Controllers
             Response.Cookies.Delete(unit_4);
             Response.Cookies.Delete(unit_5);
             Response.Cookies.Delete(unit_6);
+            selectedUnitsService.ClearSelectedUnits();
             return Ok();
         }
 
@@ -107,6 +107,7 @@ namespace ShatterpointReferences.Controllers
                         var unitToSave = JsonConvert.SerializeObject(unit);
                         Response.Cookies.Append("selected_unit_" + index, unitToSave);
                         saved = true;
+                        selectedUnitsService.AddUnit(unit);
                         break;
                     }
                     index++;
@@ -118,40 +119,10 @@ namespace ShatterpointReferences.Controllers
             return Ok();
         }
 
-        [HttpGet("activate-unit")]
-        public ActionResult ActivateUnit([FromQuery] string unitName)
+        private List<Unit> ReadSelectedUnits()
         {
-            var unit = db.UnitList.FirstOrDefault(x => x.Name == unitName);
-            if (unit is null)
-                return NotFound();
+            selectedUnitsService.ClearSelectedUnits();
 
-            var activeAbilities = ActivateUnitService.ActivateUnit(unit, ReadSelectedUnits().ToList());
-
-            var data = new ActiveUnitPartialModel();
-            data.ActiveUnit = unit;
-            data.CurrentActivationSynergies = activeAbilities;
-
-            return PartialView("ActiveUnitPartial", data);
-        }
-
-        [HttpGet("target-unit")]
-        public ActionResult TargetUnit([FromQuery] string unitName)
-        {
-            var unit = db.UnitList.FirstOrDefault(x => x.Name == unitName);
-            if (unit is null)
-                return NotFound();
-
-            var activeAbilities = ActivateUnitService.GettingTargeted(unit, ReadSelectedUnits().ToList());
-
-            var data = new TargetedUnitPartialModel();
-            data.SelectedUnit = unit;
-            data.CurrentTargetSynergies = activeAbilities;
-
-            return PartialView("TargetedUnitPartial", data);
-        }
-
-        private Unit[] ReadSelectedUnits()
-        {
             var unit1 = Request.Cookies[unit_1] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_1]) : null;
             var unit2 = Request.Cookies[unit_2] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_2]) : null;
             var unit3 = Request.Cookies[unit_3] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_3]) : null;
@@ -168,7 +139,16 @@ namespace ShatterpointReferences.Controllers
                 unit5,
                 unit6
             };
-            return arrayUnit;
+
+            foreach(var unit in arrayUnit)
+            {
+                if (unit is not null)
+                {
+                    selectedUnitsService.AddUnit(unit);
+                }
+            }
+
+            return selectedUnitsService.SelectedUnits;
         }
     }
 }

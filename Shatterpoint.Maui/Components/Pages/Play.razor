@@ -1,0 +1,82 @@
+﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Lib.Units
+@using Shatterpoint.Lib.Units.Abilities
+@using Shatterpoint.Lib.Model;
+@using Shatterpoint.Lib.Extensions;
+
+@page "/play"
+@inject SelectedUnitsService SelectedUnitsService
+@inject UnitDataBaseService UnitDataBaseService
+
+<div>
+
+    @if (!@SelectedUnitsService.SelectedUnits.Any())
+    {
+        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
+    }
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
+    {
+        <a @onclick="() => ActivateUnit(unit)">
+            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+        </a>
+    }
+    <br />
+    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
+    {
+        <a @onclick="() => ActivateUnit(unit)">
+            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+        </a>
+    }
+</div>
+
+@if (@SelectedUnitsService.ActiveUnit is not null)
+{
+    <div class="dynamic-card">
+        <div class="dynamic-card-title">
+            <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
+            <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
+        </div>
+        <div class="dynamic-card-content">
+            <table>
+                @foreach (var ability in @SelectedUnitsService.ActiveUnit.CurrentActivationSynergies)
+                {
+                    @if (ability is not null)
+                    {
+                        <tr>
+                            <td><img alt="@ability.Weilder" src="@String.Format("/img/pp/{0}", ability.WeilderProfilePicture)" /></td>
+                            <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
+                            <td>
+                                <div class="ability-content">
+                                    <div class="ability-title">
+                                        <h4>@ability.Name</h4>
+                                        @for (int i = 0; i < ability.Cost; i++)
+                                        {
+                                            <div>
+                                                <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
+                                            </div>
+                                        }
+                                    </div>
+                                    <p>
+                                        @((MarkupString)@ability.Text.ToRawHtmlDescription())
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+}
+
+@code {
+
+    public void ActivateUnit(Unit unit)
+    {
+        var activeAbilities = SelectedUnitsService.ActivateUnit(unit);
+
+        SelectedUnitsService.ActiveUnit = new ActiveUnitModel();
+        SelectedUnitsService.ActiveUnit.ActiveUnit = unit;
+        SelectedUnitsService.ActiveUnit.CurrentActivationSynergies = activeAbilities;
+    }
+}

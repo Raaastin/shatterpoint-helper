@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ShatterpointReferences.Model;
-using ShatterpointReferences.Services;
-using ShatterpointReferences.Units;
-using ShatterpointReferences.Units.Abilities;
+using Shatterpoint.Lib.Services;
+using Shatterpoint.Lib.Units;
+using Shatterpoint.Lib.Units.Abilities;
 
 namespace ShatterpointReferences.Controllers
 {
@@ -14,10 +14,12 @@ namespace ShatterpointReferences.Controllers
     public class PlayController : Controller
     {
         private readonly UnitDataBaseService db;
+        private readonly SelectedUnitsService selectedUnitsService;
 
-        public PlayController(UnitDataBaseService unitDataBaseService)
+        public PlayController(UnitDataBaseService unitDataBaseService, SelectedUnitsService selectedUnitsService)
         {
             db = unitDataBaseService;
+            this.selectedUnitsService = selectedUnitsService;
         }
 
 
@@ -36,8 +38,10 @@ namespace ShatterpointReferences.Controllers
         private const string unit_5 = "selected_unit_5";
         private const string unit_6 = "selected_unit_6";
 
-        private Unit[] ReadSelectedUnits()
+        private List<Unit> ReadSelectedUnits()
         {
+            selectedUnitsService.ClearSelectedUnits();
+
             var unit1 = Request.Cookies[unit_1] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_1]) : null;
             var unit2 = Request.Cookies[unit_2] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_2]) : null;
             var unit3 = Request.Cookies[unit_3] is not null ? JsonConvert.DeserializeObject<Unit>(Request.Cookies[unit_3]) : null;
@@ -54,7 +58,16 @@ namespace ShatterpointReferences.Controllers
                 unit5,
                 unit6
             };
-            return arrayUnit;
+
+            foreach (var unit in arrayUnit)
+            {
+                if (unit is not null)
+                {
+                    selectedUnitsService.AddUnit(unit);
+                }
+            }
+
+            return selectedUnitsService.SelectedUnits;
         }
 
         [HttpGet("activate-unit")]
@@ -64,7 +77,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = ActivateUnitService.ActivateUnit(unit, ReadSelectedUnits().ToList());
+            var activeAbilities = selectedUnitsService.ActivateUnit(unit);
 
             var data = new ActiveUnitPartialModel();
             data.ActiveUnit = unit;
@@ -80,7 +93,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = ActivateUnitService.GettingTargeted(unit, ReadSelectedUnits().ToList());
+            var activeAbilities = selectedUnitsService.GettingTargeted(unit);
 
             var data = new TargetedUnitPartialModel();
             data.SelectedUnit = unit;
