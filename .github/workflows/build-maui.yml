@@ -17,7 +17,7 @@ jobs:
     - name: Setup kstf
       run: |
         echo "${{ secrets.KSTF }}" > shatterpointhelper.keystore.asc
-        gpg -d --passphrase "${{ secrets.GPGP }}" --batch shatterpointhelper.keystore.asc > shatterpointhelper.keystore
+        gpg -d --passphrase "${{ secrets.GPGP }}" --batch shatterpointhelper.keystore.asc > Shatterpoint.Maui/shatterpointhelper.keystore
       
     - name: List Files
       run: ls -l
