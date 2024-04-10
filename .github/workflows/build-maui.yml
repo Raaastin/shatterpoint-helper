@@ -1,5 +1,3 @@
-name: Build MAUI
-
 on:
   push:
     branches: [ "main" ]
