@@ -19,6 +19,9 @@ jobs:
         echo "${{ secrets.KSTF }}" > shatterpointhelper.keystore.asc
         gpg -d --passphrase "${{ secrets.GPGP }}" --batch shatterpointhelper.keystore.asc > shatterpointhelper.keystore
       
+    - name: List Files
+      run: ls -l
+      
     - name: Install .NET MAUI
       run: dotnet workload install maui   
       
