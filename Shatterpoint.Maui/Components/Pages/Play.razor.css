@@ -1,7 +1,8 @@
 /* Selected units */
-.selected-pp div{
+.selected-pp div {
     display: inline-block;
 }
+
 .selected-pp a {
     padding: 0px 5px 0px 0px;
 }
@@ -17,7 +18,13 @@
     border-radius: 17px 17px 0px 0px;
     background-image: url(../img/card/title-back-red.png);
     padding: 5px;
+    display: grid;
+    text-align: center;
 }
+
+    .dynamic-card-title tr td:first-child {
+        width: 80px;
+    }
 
     .dynamic-card-title img {
         height: 45px;
