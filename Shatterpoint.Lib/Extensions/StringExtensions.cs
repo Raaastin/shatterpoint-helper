@@ -27,7 +27,18 @@ namespace Shatterpoint.Lib.Extensions
                 result = result.Replace("Supporting", $"<b>Supporting</b>");
             }
 
+            // Apply "range" logo
+            if (result.Contains("*range*"))
+            {
+                result = result.Replace("*range*", $"<img style=\"{logoStyle()}\" alt=\"range\" src=\"/img/rule/range.png\" />");
+            }
+
             return result;
+        }
+
+        private static string logoStyle()
+        {
+            return "    width: 15px;\r\n    margin: 0px;\r\n    vertical-align: bottom;";
         }
     }
 }

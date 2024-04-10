@@ -25,12 +25,12 @@ namespace Shatterpoint.Lib.Services
         {
             UnitList = new();
 
-            UnitList.Add(StartSetFactory.Kalani());
-            UnitList.Add(StartSetFactory.B1BAttleDroids());
-            UnitList.Add(StartSetFactory.AsajiVentress());
-            UnitList.Add(StartSetFactory.LordMaul());
-            UnitList.Add(StartSetFactory.GarSaxon());
-            UnitList.Add(StartSetFactory.MandalorianSuperCommandos());
+            UnitList.Add(StarterBoxFactory.Kalani());
+            UnitList.Add(StarterBoxFactory.B1BAttleDroids());
+            UnitList.Add(StarterBoxFactory.AsajiVentress());
+            UnitList.Add(StarterBoxFactory.LordMaul());
+            UnitList.Add(StarterBoxFactory.GarSaxon());
+            UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
         }
     }
 }
