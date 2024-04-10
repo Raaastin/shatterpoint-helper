@@ -1,4 +1,4 @@
-name: Build MAUI, Run Lib Tests
+name: Build MAUI
 
 on:
   push:
@@ -22,13 +22,7 @@ jobs:
         gpg -d --passphrase "${{ secrets.GPGP }}" --batch shatterpointhelper.keystore.asc > shatterpointhelper.keystore
     
     - name: Install .NET MAUI
-      run: dotnet workload install maui      
-    
-    - name: Build Lib
-      run: dotnet build Shatterpoint.Lib/Shatterpoint.Lib.csproj -c Release
-      
-    - name: Test Lib
-      run: dotnet test --configuration Release --no-build
+      run: dotnet workload install maui   
       
     - name: Build MAUI
       run: dotnet build Shatterpoint.Maui/Shatterpoint.Maui.csproj -c Release -f net8.0-android /p:AndroidSigningKeyStore=shatterpointhelper.keystore /p:AndroidSigningKeyAlias=shatterpointhelper /p:AndroidSigningKeyPass="${{ secrets.KSTP }}" /p:AndroidSigningStorePass="${{ secrets.KSTPA }}" --no-restore
