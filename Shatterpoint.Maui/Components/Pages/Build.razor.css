@@ -7,3 +7,12 @@
         height: 15px;
         width: 15px;
     }
+
+/* Selected units */
+.selected-pp div {
+    display: inline-block;
+}
+
+.selected-pp img {
+    padding: 0px 5px 0px 0px;
+}

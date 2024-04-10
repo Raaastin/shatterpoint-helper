@@ -8,33 +8,44 @@
 @inject SelectedUnitsService SelectedUnitsService
 @inject UnitDataBaseService UnitDataBaseService
 
-<div>
+<div class="selected-pp">
 
     @if (!@SelectedUnitsService.SelectedUnits.Any())
     {
         <p>There is no selected unit. Visit /build/index to select your 6 units</p>
     }
-    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
-    {
-        <a @onclick="() => ActivateUnit(unit)">
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-        </a>
-    }
-    <br />
-    @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
-    {
-        <a @onclick="() => ActivateUnit(unit)">
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-        </a>
-    }
+    <div>
+        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
+        {
+            <a @onclick="() => ActivateUnit(unit)">
+                <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+            </a>
+        }
+    </div>
+    <div>
+        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
+        {
+            <a @onclick="() => ActivateUnit(unit)">
+                <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+            </a>
+        }
+    </div>
 </div>
 
 @if (@SelectedUnitsService.ActiveUnit is not null)
 {
     <div class="dynamic-card">
         <div class="dynamic-card-title">
-            <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
-            <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
+            <table>
+                <tr>
+                    <td>
+                        <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
+                    </td>
+                    <td>
+                        <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="dynamic-card-content">
             <table>
