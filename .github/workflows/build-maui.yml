@@ -19,11 +19,11 @@ jobs:
         echo "${{ secrets.KSTF }}" > shatterpointhelper.keystore.asc
         gpg -d --passphrase "${{ secrets.GPGP }}" --batch shatterpointhelper.keystore.asc > shatterpointhelper.keystore
       
-    - name: Restore dependencies
-      run: dotnet restore
-      
     - name: Install .NET MAUI
       run: dotnet workload install maui   
+      
+    - name: Restore dependencies
+      run: dotnet restore
       
     - name: Build MAUI
       run: dotnet build Shatterpoint.Maui/Shatterpoint.Maui.csproj -c Release -f net8.0-android34.0 /p:AndroidSigningKeyStore=shatterpointhelper.keystore /p:AndroidSigningKeyAlias=shatterpointhelper /p:AndroidSigningKeyPass="${{ secrets.KSTP }}" /p:AndroidSigningStorePass="${{ secrets.KSTPA }}" --no-restore
