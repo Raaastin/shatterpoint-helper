@@ -65,11 +65,13 @@
 
 .ability-title * {
     display: inline-block;
+    vertical-align: top;
 }
 
 .dynamic-card-content table td .force-logo {
     width: 15px;
     height: 15px;
+    margin-left: 3px;
 }
 
 /* Card text */
@@ -79,4 +81,6 @@
     padding: 0px;
     margin: 0px;
     line-height: 1;
+    margin-bottom: 8px;
+    vertical-align: top;
 }
