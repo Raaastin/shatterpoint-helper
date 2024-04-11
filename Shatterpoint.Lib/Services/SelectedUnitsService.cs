@@ -10,6 +10,8 @@ namespace Shatterpoint.Lib.Services
 
         public ActiveUnitModel ActiveUnit { get; set; }
 
+        public List<Ability> PayAttentionAbilities { get; set; }
+
         public SelectedUnitsService()
         {
             SelectedUnits = new();
@@ -64,6 +66,11 @@ namespace Shatterpoint.Lib.Services
             return result;
         }
 
+        /// <summary>
+        /// Get abilities that are relevant when the selected unit is targeted by an attack
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
         public List<Ability> GettingTargeted(Unit unit)
         {
             var result = new List<Ability>();
@@ -83,6 +90,26 @@ namespace Shatterpoint.Lib.Services
                     {
                         result.Add(ability);
                     }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get all relevant abilities when any opponent unit does something
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public List<Ability> PayAttention()
+        {
+            var result = new List<Ability>();
+
+            foreach (var ally in SelectedUnits)
+            {
+                foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.Opponent)))
+                {
+                    result.Add(ability);
                 }
             }
 
