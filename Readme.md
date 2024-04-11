@@ -1,5 +1,5 @@
 # Shatterpoint dynamic cards
-Small app to help when playing board game star wars shatterpoint.
+Small app to help when playing the board game star wars shatterpoint.
 This app creates dynamic digital cards that display only relevant abilities for when a unit is activated during the game.
 
 Currently: just a concept.
@@ -7,7 +7,6 @@ Currently: just a concept.
 Choose up to 6 units:
 
 ![image](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/62fe4c5a-318a-4165-809e-1860db13838d)
-
 
 Then activate the unit:
 
