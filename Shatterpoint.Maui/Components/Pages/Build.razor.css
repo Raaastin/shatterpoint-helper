@@ -1,18 +1,22 @@
-/* Table for unit selection */
-.unit-selection-table {
-    display: inline;
-}
 
-    .unit-selection-table table td img {
-        height: 15px;
-        width: 15px;
-    }
+.unit-selection-table table td img {
+    height: 30px;
+    width: 30px;
+}
 
 /* Selected units */
-.selected-pp div {
-    display: inline-block;
+.selected-pp {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
 }
 
-.selected-pp img {
-    padding: 0px 5px 0px 0px;
-}
+    .selected-pp a {
+        flex: 1;
+        padding: 0px 5px 0px 0px;
+    }
+
+        .selected-pp a img {
+            height: 35px;
+            width: 35px;
+        }
