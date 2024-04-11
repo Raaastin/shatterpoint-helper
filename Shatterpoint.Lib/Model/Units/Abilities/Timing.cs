@@ -1,5 +1,8 @@
 ﻿namespace Shatterpoint.Lib.Units.Abilities
 {
+    /// <summary>
+    /// Timing for ability
+    /// </summary>
     public enum Timing
     {
         /// <summary>
@@ -15,7 +18,7 @@
         /// </summary>
         AnotherActive,
         /// <summary>
-        /// In opponent's turn, when the unit is targeted
+        /// When the unit is targeted
         /// </summary>
         Targeted,
         /// <summary>

@@ -192,8 +192,8 @@
         // Disable "pay attention" abilities
         SelectedUnitsService.PayAttentionAbilities = null;
 
-        var activeAbilities = SelectedUnitsService.ActivateUnit(unit);
-        var targetedAbilities = SelectedUnitsService.GettingTargeted(unit);
+        var activeAbilities = SelectedUnitsService.GetAbilitiesForTheActiveUnit(unit);
+        var targetedAbilities = SelectedUnitsService.GetAbilitiesForTheTargetedUnit(unit);
 
         SelectedUnitsService.ActiveUnit = new ActiveUnitModel();
         SelectedUnitsService.ActiveUnit.ActiveUnit = unit;

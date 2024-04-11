@@ -3,6 +3,9 @@ using Shatterpoint.Lib.Units.Abilities;
 
 namespace Shatterpoint.Lib.Services
 {
+    /// <summary>
+    /// Factory for Starter Box
+    /// </summary>
     public static class StarterBoxFactory
     {
 
@@ -23,7 +26,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Roger, Roger",
                         Type = AbilityType.Tactic,
                         Cost = 0,
-                        Text = "At the start of this Unit's activation, each allied Battle Droid Supporting character within *range*4 of a character in this Unit may dash",
+                        Text = "At the start of this Unit's activation, each allied Battle Droid Supporting character within *range*4 of a character in this Unit may *dash*",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -41,7 +44,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
                         Cost = 1,
-                        Text = "Chose another allied Battle Droid character within *range*4. The chosen Character may dash, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
+                        Text = "Chose another allied Battle Droid character within *range*4. The chosen Character may *dash*, then may gain Crouch, remove one condition from itself, or make a 5 dice attack",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -261,7 +264,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When this Unit is Wounded by a melee attack, after the attack is resolved, one character in this Unit may immediately dash and make a 5 dive melee attack targeting the character that Wounded it.",
+                        Text = "When this Unit is Wounded by a melee attack, after the attack is resolved, one character in this Unit may immediately *dash* and make a 5 dive melee attack targeting the character that Wounded it.",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -399,7 +402,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "No Mercy",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When an enemy character that is Engaged with one or more characters in this Unit advance or dash, after the move is resolved, the moving character's unit suffers 2D if the moving character is no longer engaged with one or more characters in this Unit.",
+                        Text = "When an enemy character that is Engaged with one or more characters in this Unit advance or *dash*, after the move is resolved, the moving character's unit suffers 2D if the moving character is no longer engaged with one or more characters in this Unit.",
                         Synergies = new List<Synergy>()
                         {
                         },

@@ -2,6 +2,9 @@
 
 namespace Shatterpoint.Lib.Extensions
 {
+    /// <summary>
+    /// String extensions
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
@@ -36,9 +39,14 @@ namespace Shatterpoint.Lib.Extensions
             return result;
         }
 
+        /// <summary>
+        /// Return logo style (css). 
+        /// Workaround for when css is not applied
+        /// </summary>
+        /// <returns></returns>
         private static string logoStyle()
         {
-            return "    width: 15px;\r\n    margin: 0px;\r\n    vertical-align: bottom;";
+            return "width: 15px; margin: 0px; vertical-align: bottom;";
         }
     }
 }

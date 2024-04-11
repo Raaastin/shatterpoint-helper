@@ -77,7 +77,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = selectedUnitsService.ActivateUnit(unit);
+            var activeAbilities = selectedUnitsService.GetAbilitiesForTheActiveUnit(unit);
 
             var data = new ActiveUnitPartialModel();
             data.ActiveUnit = unit;
@@ -93,7 +93,7 @@ namespace ShatterpointReferences.Controllers
             if (unit is null)
                 return NotFound();
 
-            var activeAbilities = selectedUnitsService.GettingTargeted(unit);
+            var activeAbilities = selectedUnitsService.GetAbilitiesForTheTargetedUnit(unit);
 
             var data = new TargetedUnitPartialModel();
             data.SelectedUnit = unit;
