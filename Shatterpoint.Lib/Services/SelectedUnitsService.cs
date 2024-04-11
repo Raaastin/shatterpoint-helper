@@ -18,6 +18,7 @@ namespace Shatterpoint.Lib.Services
         public void ClearSelectedUnits()
         {
             SelectedUnits.Clear();
+            ActiveUnit = null;
         }
 
         public void AddUnit(Unit unit)
