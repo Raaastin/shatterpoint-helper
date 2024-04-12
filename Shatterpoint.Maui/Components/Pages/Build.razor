@@ -26,20 +26,24 @@
     </table>
 </div>
 
-<div class="selected-pp">
+<div>
     <h1>Selected Units</h1>
     <a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a>
-
-    <div>
-        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
+    <div class="selected-pp">
+        @for (int i = 0; i < 6; i++)
         {
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-        }
-    </div>
-    <div>
-        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
-        {
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+            @if (@SelectedUnitsService.SelectedUnits.Count > i)
+            {
+                <a>
+                    <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].ProfilePicture)" />
+                </a>
+            }
+            else
+            {
+                <a>
+                    <img alt="empty" src="/img/pp/empty.png" />
+                </a>
+            }
         }
     </div>
 
