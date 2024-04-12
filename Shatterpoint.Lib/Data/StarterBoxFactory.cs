@@ -62,7 +62,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Target, Concentrate All Firepower",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When an allied Battle Droid character makes an attack, if the targeted character is within *range* 4 of one or more other allied Battle Droid characters, the attacking character adds 1 die to its attack roll.",
+                        Text = "When an allied Battle Droid character makes an attack, if the targeted character is within *range*4 of one or more other allied Battle Droid characters, the attacking character adds 1 die to its attack roll.",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
