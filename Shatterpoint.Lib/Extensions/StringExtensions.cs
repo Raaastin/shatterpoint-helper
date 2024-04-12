@@ -33,7 +33,13 @@ namespace Shatterpoint.Lib.Extensions
             // Apply "range" logo
             if (result.Contains("*range*"))
             {
-                result = result.Replace("*range*", $"<img style=\"{logoStyle()}\" alt=\"range\" src=\"/img/rule/range.png\" />");
+                result = result.Replace("*range*", $"<img style=\"{logoStyle("bottom")}\" alt=\"range\" src=\"/img/rule/range.png\" />");
+            }
+
+            // Apply "dash" logo
+            if (result.Contains("*dash*"))
+            {
+                result = result.Replace("*dash*", $"<img style=\"{logoStyle("baseline")}\" alt=\"dash\" src=\"/img/rule/dash.png\" />");
             }
 
             return result;
@@ -44,9 +50,9 @@ namespace Shatterpoint.Lib.Extensions
         /// Workaround for when css is not applied
         /// </summary>
         /// <returns></returns>
-        private static string logoStyle()
+        private static string logoStyle(string verticalAlign)
         {
-            return "width: 15px; margin: 0px; vertical-align: bottom;";
+            return "width: 15px; margin: 0px; vertical-align: " + verticalAlign + ";";
         }
     }
 }

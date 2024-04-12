@@ -121,6 +121,9 @@
       <Content Update="wwwroot\img\pp\supercommando-pp.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Update="wwwroot\img\rule\dash.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
