@@ -1,4 +1,5 @@
-﻿using Shatterpoint.Lib.Units;
+﻿using System.Net.NetworkInformation;
+using Shatterpoint.Lib.Units;
 
 namespace Shatterpoint.Lib.Extensions
 {
@@ -29,18 +30,13 @@ namespace Shatterpoint.Lib.Extensions
             {
                 result = result.Replace("Supporting", $"<b>Supporting</b>");
             }
-
-            // Apply "range" logo
-            if (result.Contains("*range*"))
-            {
-                result = result.Replace("*range*", $"<img style=\"{logoStyle("bottom")}\" alt=\"range\" src=\"/img/rule/range.png\" />");
-            }
-
-            // Apply "dash" logo
-            if (result.Contains("*dash*"))
-            {
-                result = result.Replace("*dash*", $"<img style=\"{logoStyle("baseline")}\" alt=\"dash\" src=\"/img/rule/dash.png\" />");
-            }
+            
+            //Apply logo
+            result = result.ReplaceWithLogo("range", "bottom");
+            result = result.ReplaceWithLogo("dash", "baseline");
+            result = result.ReplaceWithLogo("jump", "baseline");
+            result = result.ReplaceWithLogo("strained", "bottom");
+            result = result.ReplaceWithLogo("hunker", "baseline");
 
             return result;
         }
@@ -53,6 +49,24 @@ namespace Shatterpoint.Lib.Extensions
         private static string logoStyle(string verticalAlign)
         {
             return "width: 15px; margin: 0px; vertical-align: " + verticalAlign + ";";
+        }
+
+        /// <summary>
+        /// Replace the *logoname* with <img> of source: logo.png
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="logoname"></param>
+        /// <param name="vertivalAlign"></param>
+        /// <returns></returns>
+        private static string ReplaceWithLogo(this string content, string logoname, string vertivalAlign)
+        {
+            var textToReplace = $"*{logoname}*";
+            var logopath = $"/img/rule/{logoname}.png";
+            if (content.Contains(textToReplace))
+            {
+                content = content.Replace(textToReplace, $"<img style=\"{logoStyle(vertivalAlign)}\" alt=\"{logoname}\" src=\"{logopath}\" />");
+            }
+            return content;
         }
     }
 }
