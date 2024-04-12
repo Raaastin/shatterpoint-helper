@@ -182,7 +182,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Riposte",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After a melee attack targetting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more Fail results, the attacking Unit suffers 2D",
+                        Text = "After a *melee* attack targetting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more Fail results, the attacking Unit suffers 2D",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -194,7 +194,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Slip Away",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "When another Dathomirian or Separatist Alliance character targets an enemy character that is Engaged with one of more characters in this Unit with an attackn this Unit may use this ability. One character in this Unit that is Engaged with the target character may immediately repos. If it does, this unit gains *hunker*",
+                        Text = "When another Dathomirian or Separatist Alliance character targets an enemy character that is Engaged with one of more characters in this Unit with an attack, this Unit may use this ability. One character in this Unit that is Engaged with the target character may immediately repos. If it does, this unit gains *hunker*",
                         Synergies = new List<Synergy>()
                         {
                             new Synergy()
@@ -212,7 +212,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Sith Assassin",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may heal 3. If it Wounded a Primary Unit or Secondary Unit, it may also move or *jump*. If it Wounder a primary Unit, refresh 2F.",
+                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may *heal**heal**heal*. If it Wounded a Primary Unit or Secondary Unit, it may also *advance* or *jump*. If it Wounder a primary Unit, refresh 2F.",
                         Synergies = new List<Synergy>()
                         {
 
@@ -240,7 +240,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Force Speed",
                         Type = AbilityType.Active,
                         Cost = 1,
-                        Text = "Each character in this Unit may move.",
+                        Text = "Each character in this Unit may *advance*.",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -264,7 +264,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When this Unit is Wounded by a melee attack, after the attack is resolved, one character in this Unit may immediately *dash* and make a 5 dive melee attack targeting the character that Wounded it.",
+                        Text = "When this Unit is Wounded by a *melee* attack, after the attack is resolved, one character in this Unit may immediately *dash* and make a 5 dive *melee* attack targeting the character that Wounded it.",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -276,7 +276,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Sustained By Rage",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer D equal to the cost of the ability instead. For every 3D this Unit has, characters in this Unit add 1 die to their melee Attack rolls. For each injured token, this Unit has, characters in this Unit add 3 dice to their melee attack rolls.",
+                        Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer *damage* equal to the cost of the ability instead. For every 3 *damage* this Unit has, characters in this Unit add 1 die to their *melee* Attack rolls. For each injured token this Unit has, characters in this Unit add 3 dice to their *melee* attack rolls.",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -339,7 +339,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "I've Got You In My Sights",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "Characters in this Unit have Sharpshooter(2). When a character in this Unit makes a ranged attack, the target does not benefit from Cover. After this Unit Makes a focus action, it gains *hunker*",
+                        Text = "Characters in this Unit have Sharpshooter(2). When a character in this Unit makes a *ranged* attack, the target does not benefit from Cover. After this Unit Makes a focus action, it gains *hunker*",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -351,7 +351,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Pack Hunter",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When a character in this Unit makes a melee attack targeting an enemy character that is Engaged with another allied Mandalorian character, it adds 2 dice to the attack roll",
+                        Text = "When a character in this Unit makes a *melee* attack targeting an enemy character that is Engaged with another allied Mandalorian character, it adds 2 dice to the attack roll",
                         Synergies = new List<Synergy>()
                         {
                         },
@@ -402,7 +402,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "No Mercy",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When an enemy character that is Engaged with one or more characters in this Unit advance or *dash*, after the move is resolved, the moving character's unit suffers 2D if the moving character is no longer engaged with one or more characters in this Unit.",
+                        Text = "When an enemy character that is Engaged with one or more characters in this Unit *advance* or *dash*, after the move is resolved, the moving character's unit suffers *damage**damage* if the moving character is no longer engaged with one or more characters in this Unit.",
                         Synergies = new List<Synergy>()
                         {
                         },
