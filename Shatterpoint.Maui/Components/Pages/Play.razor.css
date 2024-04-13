@@ -1,10 +1,37 @@
 /* Selected units */
-.selected-pp div {
-    display: inline-block;
+.selected-pp {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.selected-pp a {
-    padding: 0px 5px 0px 0px;
+    .selected-pp a {
+        flex: 1;
+    }
+
+        .selected-pp a img {
+            height: 35px;
+            width: 35px;
+        }
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: blueviolet;
+    max-height: 170px;
+    overflow-y: scroll;
+}
+
+.fixed {
+    position: sticky;
+    top: 0;
+    padding: 0 1rem 0 1rem;
+    background-color: #f0f0f0; /* Couleur de fond pour la div fixe */
+    z-index: 1;
+}
+
+.scrollable {
+    z-index: 0;
 }
 
 /* Card Title*/
@@ -12,6 +39,7 @@
     border: 2px solid black;
     border-radius: 20px;
     margin: 5px;
+    position: relative;
 }
 
 .dynamic-card-title {

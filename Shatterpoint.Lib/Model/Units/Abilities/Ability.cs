@@ -1,5 +1,8 @@
 ﻿namespace Shatterpoint.Lib.Units.Abilities
 {
+    /// <summary>
+    /// Ability model
+    /// </summary>
     public class Ability
     {
         public Ability(string weilderPp)

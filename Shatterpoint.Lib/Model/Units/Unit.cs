@@ -2,6 +2,9 @@
 
 namespace Shatterpoint.Lib.Units
 {
+    /// <summary>
+    /// Represent a unit
+    /// </summary>
     public class Unit
     {
         /// <summary>

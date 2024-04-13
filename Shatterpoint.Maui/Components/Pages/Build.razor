@@ -7,39 +7,47 @@
 <div class="unit-selection-table">
     <h1>Units available</h1>
     <p>Chose up to 6 Units</p>
-
     <table>
-        <tr>
-            <td>Name</td>
-            <td>Action</td>
-        </tr>
         @foreach (var unit in @UnitDataBaseService.UnitList)
         {
             <tr>
                 <td>
-                    <img atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
-                    @unit.Name
+                    <a @onclick="() => AddUnit(unit.Name)">
+                        <div class="image-container">
+                            <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
+                            <div class="overlay"></div>
+                        </div>
+                        @unit.Name
+                    </a>
                 </td>
-                <td><a href="#" @onclick="() => AddUnit(unit.Name)">Add</a></td>
             </tr>
         }
     </table>
 </div>
 
-<div class="selected-pp">
+<div>
     <h1>Selected Units</h1>
     <a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a>
-
-    <div>
-        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Take(3))
+    <div class="selected-pp footer">
+        @for (int i = 0; i < 6; i++)
         {
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-        }
-    </div>
-    <div>
-        @foreach (var unit in @SelectedUnitsService.SelectedUnits.Skip(3))
-        {
-            <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+            @if (@SelectedUnitsService.SelectedUnits.Count > i)
+            {
+                <a>
+                    <div class="image-container">
+                        <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].ProfilePicture)" />
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+            }
+            else
+            {
+                <a>
+                    <div class="image-container">
+                        <div class="overlay dashed"></div>
+                    </div>
+                </a>
+            }
         }
     </div>
 

@@ -9,21 +9,36 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public class UnitDataBaseService
     {
+        /// <summary>
+        /// All the available units
+        /// </summary>
         public List<Unit> UnitList { get; set; }
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public UnitDataBaseService()
         {
-            InitStartedSet();
+            InitStarterBox();
         }
 
+        /// <summary>
+        /// Get a unit by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Unit Get(string name)
         {
             return UnitList.FirstOrDefault(x => x.Name == name);
         }
 
-        private void InitStartedSet()
+        /// <summary>
+        /// Generate data for StartedBox
+        /// </summary>
+        private void InitStarterBox()
         {
-            UnitList = new();
+            if (UnitList is null)
+                UnitList = new();
 
             UnitList.Add(StarterBoxFactory.Kalani());
             UnitList.Add(StarterBoxFactory.B1BAttleDroids());

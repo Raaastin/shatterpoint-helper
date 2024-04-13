@@ -1,7 +1,11 @@
-﻿using Shatterpoint.Lib.Units;
+﻿using System.Net.NetworkInformation;
+using Shatterpoint.Lib.Units;
 
 namespace Shatterpoint.Lib.Extensions
 {
+    /// <summary>
+    /// String extensions
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
@@ -26,19 +30,56 @@ namespace Shatterpoint.Lib.Extensions
             {
                 result = result.Replace("Supporting", $"<b>Supporting</b>");
             }
+            
+            //Apply logo
+            result = result.ReplaceWithLogo("range", "bottom");
 
-            // Apply "range" logo
-            if (result.Contains("*range*"))
-            {
-                result = result.Replace("*range*", $"<img style=\"{logoStyle()}\" alt=\"range\" src=\"/img/rule/range.png\" />");
-            }
+            result = result.ReplaceWithLogo("advance", "bottom");
+            result = result.ReplaceWithLogo("dash", "bottom");
+            result = result.ReplaceWithLogo("jump", "bottom");
+            result = result.ReplaceWithLogo("climp", "bottom");
+            result = result.ReplaceWithLogo("reposition", "bottom");
+
+            result = result.ReplaceWithLogo("melee", "bottom");
+            result = result.ReplaceWithLogo("ranged", "bottom");
+            result = result.ReplaceWithLogo("heal", "bottom");
+            result = result.ReplaceWithLogo("damage", "bottom");
+
+            result = result.ReplaceWithLogo("hunker", "bottom");
+            result = result.ReplaceWithLogo("strained", "bottom");
+            result = result.ReplaceWithLogo("disarmed", "bottom");
+            result = result.ReplaceWithLogo("pinned", "bottom");
+            result = result.ReplaceWithLogo("exposed", "bottom");
 
             return result;
         }
 
-        private static string logoStyle()
+        /// <summary>
+        /// Return logo style (css). 
+        /// Workaround for when css is not applied
+        /// </summary>
+        /// <returns></returns>
+        private static string logoStyle(string verticalAlign)
         {
-            return "    width: 15px;\r\n    margin: 0px;\r\n    vertical-align: bottom;";
+            return "height: 15px; margin-right: 2px; vertical-align: " + verticalAlign + ";";
+        }
+
+        /// <summary>
+        /// Replace the *logoname* with <img> of source: logo.png
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="logoname"></param>
+        /// <param name="vertivalAlign"></param>
+        /// <returns></returns>
+        private static string ReplaceWithLogo(this string content, string logoname, string vertivalAlign)
+        {
+            var textToReplace = $"*{logoname}*";
+            var logopath = $"/img/rule/{logoname}.png";
+            if (content.Contains(textToReplace))
+            {
+                content = content.Replace(textToReplace, $"<img style=\"{logoStyle(vertivalAlign)}\" alt=\"{logoname}\" src=\"{logopath}\" />");
+            }
+            return content;
         }
     }
 }

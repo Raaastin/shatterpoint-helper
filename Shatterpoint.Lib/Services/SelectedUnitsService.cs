@@ -4,22 +4,54 @@ using Shatterpoint.Lib.Units.Abilities;
 
 namespace Shatterpoint.Lib.Services
 {
+    /// <summary>
+    /// Service for every unit selection operation
+    /// </summary>
     public class SelectedUnitsService
     {
+        /// <summary>
+        /// Unit selected to play
+        /// </summary>
         public List<Unit> SelectedUnits { get; set; }
 
+        /// <summary>
+        /// Current active unit and compatible abilities
+        /// </summary>
         public ActiveUnitModel ActiveUnit { get; set; }
 
+        /// <summary>
+        /// Every abilities that shall be relevant when the opponent do something
+        /// </summary>
+        public List<Ability> PayAttentionAbilities { get; set; }
+
+        #region Ctor
+
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public SelectedUnitsService()
         {
             SelectedUnits = new();
         }
 
+        #endregion
+
+
+        #region Public methods 
+
+        /// <summary>
+        /// Clear the units selection
+        /// </summary>
         public void ClearSelectedUnits()
         {
             SelectedUnits.Clear();
+            ActiveUnit = null;
         }
 
+        /// <summary>
+        /// Add a unit to the selection
+        /// </summary>
+        /// <param name="unit"></param>
         public void AddUnit(Unit unit)
         {
             SelectedUnits.Add(unit);
@@ -31,7 +63,7 @@ namespace Shatterpoint.Lib.Services
         /// <param name="unit"></param>
         /// <param name="selectedUnit"></param>
         /// <returns></returns>
-        public List<Ability> ActivateUnit(Unit unit)
+        public List<Ability> GetAbilitiesForTheActiveUnit(Unit unit)
         {
             var result = new List<Ability>();
 
@@ -63,7 +95,12 @@ namespace Shatterpoint.Lib.Services
             return result;
         }
 
-        public List<Ability> GettingTargeted(Unit unit)
+        /// <summary>
+        /// Get abilities that are relevant when the unit is targeted by an attack
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public List<Ability> GetAbilitiesForTheTargetedUnit(Unit unit)
         {
             var result = new List<Ability>();
 
@@ -87,5 +124,28 @@ namespace Shatterpoint.Lib.Services
 
             return result;
         }
+
+        /// <summary>
+        /// Get all relevant abilities that may be used, out of player's turn, or being targeted sequence.
+        /// (ex: When someone disengage from "Mandolarian Super Commandos"
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public List<Ability> PayAttention()
+        {
+            var result = new List<Ability>();
+
+            foreach (var ally in SelectedUnits)
+            {
+                foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.Opponent)))
+                {
+                    result.Add(ability);
+                }
+            }
+
+            return result;
+        }
+
+        #endregion
     }
 }

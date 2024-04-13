@@ -1,5 +1,8 @@
 ﻿namespace Shatterpoint.Lib.Units
 {
+    /// <summary>
+    /// Hard coded const for keywords
+    /// </summary>
     public class KeyWords
     {
         public const string BattleDroid = "Battle Droid";
@@ -16,6 +19,9 @@
         public const string Mandalorian = "Mandalorian";
         public const string SuperCommando = "SuperCommando";
 
+        /// <summary>
+        /// All available keywords
+        /// </summary>
         public static List<string> KeyWordsList = new()
         {
             BattleDroid, Droid, SeparatistAlliance, Trooper,
