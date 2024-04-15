@@ -58,6 +58,15 @@ namespace Shatterpoint.Lib.Services
         }
 
         /// <summary>
+        /// Remove a unit from the selection
+        /// </summary>
+        /// <param name="unit"></param>
+        public void RemoveUnit(Unit unit)
+        {
+            SelectedUnits.Remove(unit);
+        }
+
+        /// <summary>
         /// Get all the available abilities of a unit during it's activation
         /// </summary>
         /// <param name="unit"></param>

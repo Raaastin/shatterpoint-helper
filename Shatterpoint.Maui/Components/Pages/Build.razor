@@ -5,7 +5,6 @@
 @inject SelectedUnitsService SelectedUnitsService
 
 <div class="unit-selection-panel">
-    <h1>Units available</h1>
     <p>Chose up to 6 Units</p>
     <table>
         @foreach (var unit in @UnitDataBaseService.UnitList)
@@ -32,20 +31,20 @@
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
-                <a>
+                <div class="flex-container">
                     <div class="image-container">
                         <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].ProfilePicture)" />
                         <div class="overlay"></div>
                     </div>
-                </a>
+                </div>
             }
             else
             {
-                <a>
+                <div class="flex-container">
                     <div class="image-container">
                         <div class="overlay dashed"></div>
                     </div>
-                </a>
+                </div>
             }
         }
     </div>
@@ -71,22 +70,25 @@
     {
         var selectedUnits = SelectedUnitsService.SelectedUnits;
 
-        // Case: Already exists
-        var alreadyExists = selectedUnits.Any(x => x.Name == unitName);
-        if (alreadyExists)
+        // Case: Already exists => remove from the selection
+        var unitFound = selectedUnits.Where(x => x.Name == unitName).FirstOrDefault();
+        if (unitFound is not null)
+        {
+            SelectedUnitsService.RemoveUnit(unitFound);
             return;
+        }
 
-        // Case: this name unit does not exist
+        // Case: this name unit does not exist => do nothing
         var unit = UnitDataBaseService.UnitList.FirstOrDefault(x => x.Name == unitName);
         if (unit is null)
             return;
 
-        // Case: array full
+        // Case: array full => do nothing
         var notFull = selectedUnits.Count() < 6;
         if (!notFull)
             return;
 
-        //Save to the first empty location
+        // Case: nominal => add Unit to the selection
         SelectedUnitsService.AddUnit(unit);
     }
 

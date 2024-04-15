@@ -42,7 +42,7 @@
 .footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: -webkit-fill-available;
     height: 70px;
     background-color: #f0f0f0; /* Set your desired background color */
     align-content: center;
@@ -52,13 +52,17 @@
 .selected-pp {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px
+    padding: 5px;
 }
 
     .selected-pp a {
         flex: 1;
         padding: 0px 5px 0px 0px;
     }
+
+.flex-container {
+    flex: auto;
+}
 
 .image-container {
     position: relative;
