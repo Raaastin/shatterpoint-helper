@@ -9,14 +9,61 @@
 @inject UnitDataBaseService UnitDataBaseService
 
 
-<div class=".main-container">
 
-    @* Panel scrollable *@
-    <div class="scrollable">
+@* Panel scrollable *@
+<div class="scrollable">
 
-        @if (@SelectedUnitsService.ActiveUnit is not null)
+    @if (@SelectedUnitsService.ActiveUnit is not null)
+    {
+        /* Card: Unit active */
+        <div class="dynamic-card">
+            <div class="dynamic-card-title">
+                <table>
+                    <tr>
+                        <td>
+                            <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
+                        </td>
+                        <td>
+                            <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dynamic-card-content">
+                <table>
+                    @foreach (var ability in @SelectedUnitsService.ActiveUnit.CurrentActivationSynergies)
+                    {
+                        @if (ability is not null)
+                        {
+                            <tr>
+                                <td><img alt="@ability.Weilder" src="@String.Format("/img/pp/{0}", ability.WeilderProfilePicture)" /></td>
+                                <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
+                                <td>
+                                    <div class="ability-content">
+                                        <div class="ability-title">
+                                            <h4>@ability.Name</h4>
+                                            @for (int i = 0; i < ability.Cost; i++)
+                                            {
+                                                <div>
+                                                    <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
+                                                </div>
+                                            }
+                                        </div>
+                                        <p>
+                                            @((MarkupString)@ability.Text.ToRawHtmlDescription())
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+
+        /* Card: Unit is targeted*/
+        @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
         {
-            /* Card: Unit active */
             <div class="dynamic-card">
                 <div class="dynamic-card-title">
                     <table>
@@ -32,7 +79,7 @@
                 </div>
                 <div class="dynamic-card-content">
                     <table>
-                        @foreach (var ability in @SelectedUnitsService.ActiveUnit.CurrentActivationSynergies)
+                        @foreach (var ability in @SelectedUnitsService.ActiveUnit.GettingTargetedSynegies)
                         {
                             @if (ability is not null)
                             {
@@ -61,130 +108,80 @@
                     </table>
                 </div>
             </div>
+        }
+    }
 
-            /* Card: Unit is targeted*/
-            @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
-            {
-                <div class="dynamic-card">
-                    <div class="dynamic-card-title">
-                        <table>
+    @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
+    {
+        /* Card: Pay attention */
+        <div class="dynamic-card">
+            <div class="dynamic-card-title">
+                <table>
+                    <tr>
+                        <td>
+                            <div>Pay Attention</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dynamic-card-content">
+                <table>
+                    @foreach (var ability in @SelectedUnitsService.PayAttentionAbilities)
+                    {
+                        @if (ability is not null)
+                        {
                             <tr>
+                                <td><img alt="@ability.Weilder" src="@String.Format("/img/pp/{0}", ability.WeilderProfilePicture)" /></td>
+                                <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
                                 <td>
-                                    <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
-                                </td>
-                                <td>
-                                    <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
+                                    <div class="ability-content">
+                                        <div class="ability-title">
+                                            <h4>@ability.Name</h4>
+                                            @for (int i = 0; i < ability.Cost; i++)
+                                            {
+                                                <div>
+                                                    <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
+                                                </div>
+                                            }
+                                        </div>
+                                        <p>
+                                            @((MarkupString)@ability.Text.ToRawHtmlDescription())
+                                        </p>
+                                    </div>
                                 </td>
                             </tr>
-                        </table>
-                    </div>
-                    <div class="dynamic-card-content">
-                        <table>
-                            @foreach (var ability in @SelectedUnitsService.ActiveUnit.GettingTargetedSynegies)
-                            {
-                                @if (ability is not null)
-                                {
-                                    <tr>
-                                        <td><img alt="@ability.Weilder" src="@String.Format("/img/pp/{0}", ability.WeilderProfilePicture)" /></td>
-                                        <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
-                                        <td>
-                                            <div class="ability-content">
-                                                <div class="ability-title">
-                                                    <h4>@ability.Name</h4>
-                                                    @for (int i = 0; i < ability.Cost; i++)
-                                                    {
-                                                        <div>
-                                                            <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
-                                                        </div>
-                                                    }
-                                                </div>
-                                                <p>
-                                                    @((MarkupString)@ability.Text.ToRawHtmlDescription())
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </table>
-                    </div>
-                </div>
-            }
-        }
-
-        @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
-        {
-            /* Card: Pay attention */
-            <div class="dynamic-card">
-                <div class="dynamic-card-title">
-                    <table>
-                        <tr>
-                            <td>
-                                <div>Pay Attention</div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="dynamic-card-content">
-                    <table>
-                        @foreach (var ability in @SelectedUnitsService.PayAttentionAbilities)
-                        {
-                            @if (ability is not null)
-                            {
-                                <tr>
-                                    <td><img alt="@ability.Weilder" src="@String.Format("/img/pp/{0}", ability.WeilderProfilePicture)" /></td>
-                                    <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
-                                    <td>
-                                        <div class="ability-content">
-                                            <div class="ability-title">
-                                                <h4>@ability.Name</h4>
-                                                @for (int i = 0; i < ability.Cost; i++)
-                                                {
-                                                    <div>
-                                                        <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
-                                                    </div>
-                                                }
-                                            </div>
-                                            <p>
-                                                @((MarkupString)@ability.Text.ToRawHtmlDescription())
-                                            </p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
                         }
-                    </table>
-                </div>
+                    }
+                </table>
             </div>
-        }
+        </div>
+    }
 
-    </div>
+</div>
 
-    @* Fixed unit selection*@
-    <div class="selected-pp footer">
+@* Fixed unit selection*@
+<div class="selected-pp footer">
 
-        @if (!@SelectedUnitsService.SelectedUnits.Any())
+    @if (!@SelectedUnitsService.SelectedUnits.Any())
+    {
+        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
+    }
+    else
+    {
+        @foreach (var unit in @SelectedUnitsService.SelectedUnits)
         {
-            <p>There is no selected unit. Visit /build/index to select your 6 units</p>
-        }
-        else
-        {
-            @foreach (var unit in @SelectedUnitsService.SelectedUnits)
-            {
-                <a @onclick="() => SelectUnit(unit)">
-                    <div class="image-container">
-                        <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            }
-            <a @onclick="() => PayAttention()">
-                <img alt="Op turn" src="fakepath.png" />
-                <div class="overlay"></div>
+            <a @onclick="() => SelectUnit(unit)">
+                <div class="image-container">
+                    <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+                    <div class="overlay"></div>
+                </div>
             </a>
         }
-    </div>
-
+        <a @onclick="() => PayAttention()">
+            <img alt="Op turn" src="fakepath.png" />
+            <div class="overlay"></div>
+        </a>
+    }
 </div>
 
 
