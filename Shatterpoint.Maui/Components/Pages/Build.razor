@@ -4,7 +4,7 @@
 @inject UnitDataBaseService UnitDataBaseService
 @inject SelectedUnitsService SelectedUnitsService
 
-<div class="unit-selection-table">
+<div class="unit-selection-panel">
     <h1>Units available</h1>
     <p>Chose up to 6 Units</p>
     <table>
@@ -12,12 +12,12 @@
         {
             <tr>
                 <td>
-                    <a @onclick="() => AddUnit(unit.Name)">
-                        <div class="image-container">
+                    <a @onclick="() => AddUnit(unit.Name)" class="@GetClass(unit.Name)">
+                        <div class="pp image-container">
                             <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
                             <div class="overlay"></div>
                         </div>
-                        @unit.Name
+                        <div class="unitname">@unit.Name</div>
                     </a>
                 </td>
             </tr>
@@ -25,10 +25,9 @@
     </table>
 </div>
 
-<div>
-    <h1>Selected Units</h1>
-    <a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a>
-    <div class="selected-pp footer">
+<div class=" footer">
+    <div><a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
+    <div class="selected-pp">
         @for (int i = 0; i < 6; i++)
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
@@ -50,16 +49,22 @@
             }
         }
     </div>
-
 </div>
 
 @code {
-    public int countOfSelection { get; set; } = 0;
-
     public void ClearSelectedUnits()
     {
-        countOfSelection = 0;
         SelectedUnitsService.ClearSelectedUnits();
+    }
+
+    public string GetClass(string name)
+    {
+        var selectedUnits = SelectedUnitsService.SelectedUnits;
+
+        if (selectedUnits.Any(x => x.Name == name))
+            return "row-selected";
+        else
+            return "row-not-selected";
     }
 
     public void AddUnit(string unitName)
@@ -82,7 +87,6 @@
             return;
 
         //Save to the first empty location
-        countOfSelection++;
         SelectedUnitsService.AddUnit(unit);
     }
 
