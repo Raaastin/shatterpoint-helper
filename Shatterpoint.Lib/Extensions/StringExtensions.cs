@@ -1,4 +1,6 @@
 ﻿using System.Net.NetworkInformation;
+using System.Security.Claims;
+using Shatterpoint.Lib.Data;
 using Shatterpoint.Lib.Units;
 
 namespace Shatterpoint.Lib.Extensions
@@ -32,24 +34,24 @@ namespace Shatterpoint.Lib.Extensions
             }
             
             //Apply logo
-            result = result.ReplaceWithLogo("range", "bottom");
+            result = result.ReplaceWithLogo("range", IconReferences.rangeicon, "bottom");
 
-            result = result.ReplaceWithLogo("advance", "bottom");
-            result = result.ReplaceWithLogo("dash", "bottom");
-            result = result.ReplaceWithLogo("jump", "bottom");
-            result = result.ReplaceWithLogo("climp", "bottom");
-            result = result.ReplaceWithLogo("reposition", "bottom");
+            result = result.ReplaceWithLogo("advance", IconReferences.advanceicon, "bottom");
+            result = result.ReplaceWithLogo("dash", IconReferences.dashicon, "bottom");
+            result = result.ReplaceWithLogo("jump", IconReferences.jumpicon, "bottom");
+            result = result.ReplaceWithLogo("climb", "/img/rule/climb.png", "bottom");
+            result = result.ReplaceWithLogo("reposition", IconReferences.repositionicon, "bottom");
 
-            result = result.ReplaceWithLogo("melee", "bottom");
-            result = result.ReplaceWithLogo("ranged", "bottom");
-            result = result.ReplaceWithLogo("heal", "bottom");
-            result = result.ReplaceWithLogo("damage", "bottom");
+            result = result.ReplaceWithLogo("melee", IconReferences.meleeicon, "bottom");
+            result = result.ReplaceWithLogo("ranged", IconReferences.rangedicon, "bottom");
+            result = result.ReplaceWithLogo("heal", IconReferences.healicon, "bottom");
+            result = result.ReplaceWithLogo("damage", IconReferences.damageicon, "bottom");
 
-            result = result.ReplaceWithLogo("hunker", "bottom");
-            result = result.ReplaceWithLogo("strained", "bottom");
-            result = result.ReplaceWithLogo("disarmed", "bottom");
-            result = result.ReplaceWithLogo("pinned", "bottom");
-            result = result.ReplaceWithLogo("exposed", "bottom");
+            result = result.ReplaceWithLogo("hunker", IconReferences.hunkericon, "bottom");
+            result = result.ReplaceWithLogo("strained", "/img/rule/strained.png", "bottom");
+            result = result.ReplaceWithLogo("disarmed", "/img/rule/disarmed.png", "bottom");
+            result = result.ReplaceWithLogo("pinned", "/img/rule/pinned.png", "bottom");
+            result = result.ReplaceWithLogo("exposed", IconReferences.exposeicon, "bottom");
 
             return result;
         }
@@ -71,13 +73,12 @@ namespace Shatterpoint.Lib.Extensions
         /// <param name="logoname"></param>
         /// <param name="vertivalAlign"></param>
         /// <returns></returns>
-        private static string ReplaceWithLogo(this string content, string logoname, string vertivalAlign)
+        private static string ReplaceWithLogo(this string content, string logoname, string src, string vertivalAlign)
         {
             var textToReplace = $"*{logoname}*";
-            var logopath = $"/img/rule/{logoname}.png";
             if (content.Contains(textToReplace))
             {
-                content = content.Replace(textToReplace, $"<img style=\"{logoStyle(vertivalAlign)}\" alt=\"{logoname}\" src=\"{logopath}\" />");
+                content = content.Replace(textToReplace, $"<img style=\"{logoStyle(vertivalAlign)}\" alt=\"{logoname}\" src=\"{src}\" />");
             }
             return content;
         }

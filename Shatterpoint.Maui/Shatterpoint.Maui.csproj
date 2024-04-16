@@ -124,15 +124,6 @@
       <Content Update="wwwroot\img\pp\supercommando-pp.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Update="wwwroot\img\rule\dash.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
-      <Content Update="wwwroot\img\rule\hunker.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
-      <Content Update="wwwroot\img\rule\jump.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
       <Content Update="wwwroot\img\rule\strained.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
