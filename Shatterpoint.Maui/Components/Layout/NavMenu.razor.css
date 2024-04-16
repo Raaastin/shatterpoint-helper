@@ -7,4 +7,12 @@
 
     .flex .flex-auto {
         flex: auto;
+        border: 1px dotted orange;
+        margin: 5px;
     }
+
+img.units-icon {
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+}
