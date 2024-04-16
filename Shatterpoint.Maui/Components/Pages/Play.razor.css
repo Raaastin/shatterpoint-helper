@@ -6,6 +6,8 @@
 
     .selected-pp a {
         flex: 1;
+        display: flex;
+        justify-content: center;
     }
 
         .selected-pp a img {
