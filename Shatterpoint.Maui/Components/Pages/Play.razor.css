@@ -6,12 +6,21 @@
 
     .selected-pp a {
         flex: 1;
+        display: flex;
+        justify-content: center;
     }
 
         .selected-pp a img {
             height: 35px;
             width: 35px;
         }
+
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .footer {
