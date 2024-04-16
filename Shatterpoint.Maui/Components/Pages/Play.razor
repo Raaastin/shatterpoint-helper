@@ -171,15 +171,17 @@
         @foreach (var unit in @SelectedUnitsService.SelectedUnits)
         {
             <a @onclick="() => SelectUnit(unit)">
-                <div class="image-container">
+                <div class="image-container .img-center ">
                     <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
                     <div class="overlay"></div>
                 </div>
             </a>
         }
         <a @onclick="() => PayAttention()">
-            <img alt="Op turn" src="fakepath.png" />
-            <div class="overlay"></div>
+            <div class="image-container .img-center ">
+                <img alt="Op turn" src="fakepath.png" />
+                <div class="overlay"></div>
+            </div>
         </a>
     }
 </div>

@@ -32,7 +32,7 @@
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
                 <div class="flex-container">
-                    <div class="image-container">
+                    <div class="image-container img-center">
                         <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].ProfilePicture)" />
                         <div class="overlay"></div>
                     </div>
@@ -41,7 +41,7 @@
             else
             {
                 <div class="flex-container">
-                    <div class="image-container">
+                    <div class="image-container img-center">
                         <div class="overlay dashed"></div>
                     </div>
                 </div>
