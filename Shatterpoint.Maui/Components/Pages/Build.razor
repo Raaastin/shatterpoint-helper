@@ -1,4 +1,5 @@
 ﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Maui.Components.Reusable;
 
 @page "/"
 @inject UnitDataBaseService UnitDataBaseService
@@ -10,12 +11,11 @@
         @foreach (var unit in @UnitDataBaseService.UnitList)
         {
             <li class="@GetClass(unit.Name)">
-                <a @onclick="() => AddUnit(unit.Name)" >
-                    <div>
-                        <div class="image-cropper">
-                            <img class="my-picture" src="/img/pp/Untitled.png" alt="Image" />
-                        </div>
-                    </div>
+                <a @onclick="() => AddUnit(unit.Name)">
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="0.5"/>
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="0.7" />
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="1" />
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="1.2" />
 
                     @* <div class="image-container">
                 <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
