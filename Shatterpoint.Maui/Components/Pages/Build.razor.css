@@ -6,24 +6,50 @@
     overflow-y: auto;
 }
 
-    .unit-selection-panel table {
-        width: -webkit-fill-available;
+    .unit-selection-panel ul {
+        padding: 0;
+        list-style-type: none;
     }
 
-        .unit-selection-panel table tr {
+        .unit-selection-panel ul li {
             border-bottom: 1px dotted grey;
+            padding:10px;
         }
 
-            .unit-selection-panel table tr td a {
+            .unit-selection-panel ul li a {
                 display: flex;
-                align-items: center;
-                padding: 5px;
             }
 
-                .unit-selection-panel table tr td a .unitname {
-                    padding-left: 10px;
-                }
+            .unit-selection-panel ul li div {
+            }
 
+            .unit-selection-panel ul li a div.unitname {
+                padding-left: 10px;
+                justify-content: center;
+                align-content: center;
+                font-weight: 700;
+            }
+
+.image-cropper {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border: 4px solid black;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.my-picture {
+    position: absolute;
+    left: -232px;
+    top: -39px;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 350px;
+}
 
 .row-selected {
     background-color: #FFDE96;
