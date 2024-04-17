@@ -11,8 +11,8 @@
 
 .image {
     position: absolute;
-    left: calc(-326px * var(--scale));
-    top: calc(-52px * var(--scale));
+    left: calc(var(--offset-left) * var(--scale));
+    top: calc(var(--offset-top) * var(--scale));
     display: block;
     margin: 0 auto;
     height: auto;
