@@ -1,0 +1,64 @@
+﻿@using Shatterpoint.Lib.Extensions
+@using Shatterpoint.Lib.Units
+@using Shatterpoint.Lib.Units.Abilities
+
+
+<div class="dynamic-card">
+    <div class="dynamic-card-title">
+        <table>
+            <tr>
+                <td>
+                    <ProfilePicture Unit="@Unit" Scale="0.5" />
+                </td>
+                <td>
+                    <div>@Unit.Name</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="dynamic-card-content">
+        <table>
+            @foreach (var ability in @Abilities)
+            {
+                @if (ability is not null)
+                {
+                    <tr>
+                        <td> </td>
+                        <td>
+                            @if (ability.Weilder.Name != @Unit.Name)
+                            {
+                                <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                            }
+                            <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                        </td>
+                        <td>
+                            <div class="ability-content">
+                                <div class="ability-title">
+                                    <h4>@ability.Name</h4>
+                                    @for (int i = 0; i < ability.Cost; i++)
+                                    {
+                                        <div>
+                                            <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
+                                        </div>
+                                    }
+                                </div>
+                                <p>
+                                    @((MarkupString)@ability.Text.ToRawHtmlDescription())
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public Unit Unit { get; set; }
+
+    [Parameter]
+    public List<Ability> Abilities { get; set; }
+}

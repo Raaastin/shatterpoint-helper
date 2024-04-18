@@ -23,7 +23,6 @@
                     <tr>
                         <td>
                             <ProfilePicture Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Scale="0.5" />
-                            @* <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl" src="@SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl" /> *@
                         </td>
                         <td>
                             <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
@@ -38,8 +37,14 @@
                         @if (ability is not null)
                         {
                             <tr>
-                                <td> <ProfilePicture Unit="@ability.Weilder" Scale="0.3" /></td>
-                                <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
+                                <td> </td>
+                                <td>
+                                    <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                                    @if (ability.Weilder.Name != SelectedUnitsService.ActiveUnit.ActiveUnit.Name)
+                                    {
+                                        <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                                    }
+                                </td>
                                 <td>
                                     <div class="ability-content">
                                         <div class="ability-title">
@@ -86,8 +91,13 @@
                             @if (ability is not null)
                             {
                                 <tr>
-                                    <td> <ProfilePicture Unit="@ability.Weilder" Scale="0.3" /></td>
-                                    <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
+                                    <td>
+                                        <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                                        @if (ability.Weilder.Name != SelectedUnitsService.ActiveUnit.ActiveUnit.Name)
+                                        {
+                                            <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                                        }
+                                    </td>
                                     <td>
                                         <div class="ability-content">
                                             <div class="ability-title">
@@ -133,8 +143,11 @@
                         @if (ability is not null)
                         {
                             <tr>
-                                <td> <ProfilePicture Unit="@ability.Weilder" Scale="0.3" /></td>
-                                <td><img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" /></td>
+                                <td>
+                                    <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                                    <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+
+                                </td>
                                 <td>
                                     <div class="ability-content">
                                         <div class="ability-title">
