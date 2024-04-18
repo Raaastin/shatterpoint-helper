@@ -23,13 +23,14 @@
                 @if (ability is not null)
                 {
                     <tr>
-                        <td> </td>
                         <td>
                             @if (ability.Weilder.Name != @Unit.Name)
                             {
-                                <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                                <div class="specific-ability-weilder">
+                                    <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                                </div>
                             }
-                            <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                            <img class="ability-type" alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
                         </td>
                         <td>
                             <div class="ability-content">
