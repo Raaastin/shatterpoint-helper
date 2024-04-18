@@ -1,8 +1,13 @@
-﻿.image-cropper {
+﻿.component {
+    display: flex; /* the component is a flex box*/
+    justify-content: center;
+}
+
+.image-cropper {
     width: calc(100px * var(--scale) );
     height: calc(100px * var(--scale) );
     position: relative;
-    outline: 4px solid black;
+    outline: 2px solid black;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -18,8 +23,6 @@
     height: auto;
     width: calc(500px * var(--scale));
 }
-
-
 
 /*
 

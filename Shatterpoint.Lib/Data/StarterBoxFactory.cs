@@ -11,18 +11,21 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Kalani()
         {
-            return new Unit()
+            var unit = new Unit()
             {
                 Name = "Kalani, Super Tactical Robot",
-                PictureUrl = "kalani-pp.png",
+                //PictureUrl = "kalani-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "Kalani",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance },
-                Abilities = new List<Ability>()
+            };
+
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("kalani-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Kalani, Super Tactical Robot",
+                        Weilder = unit,
                         Name = "Roger, Roger",
                         Type = AbilityType.Tactic,
                         Cost = 0,
@@ -38,9 +41,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new (){ Timing.Start }
                     },
-                    new Ability("kalani-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Kalani, Super Tactical Robot",
+                        Weilder = unit,
                         Name = "Tactical Network",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -56,9 +59,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new () { Timing.Active }
                     },
-                    new Ability("kalani-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Kalani, Super Tactical Robot",
+                        Weilder = unit,
                         Name = "Target, Concentrate All Firepower",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -74,9 +77,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new () { Timing.Active, Timing.AnotherActive }
                     },
-                    new Ability("kalani-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Kalani, Super Tactical Robot",
+                        Weilder = unit,
                         Name = "Complete Analysis",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -84,24 +87,28 @@ namespace Shatterpoint.Lib.Services
                         Synergies = new List<Synergy>(),
                         Timing = new (){ Timing.Start }
                     }
-                }
-            };
+                };
+            return unit;
         }
 
         public static Unit B1BAttleDroids()
         {
-            return new Unit()
+            var unit = new Unit()
             {
                 Name = "B1 Battle Droids",
-                PictureUrl = "b1-pp.png",
+                //PictureUrl = "b1-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper },
-                Abilities = new List<Ability>()
+
+            };
+
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("b1-pp.png")
+                    new Ability()
                     {
-                        Weilder = "B1 Battle Droids",
+                        Weilder =unit,
                         Name = "Combat A.I. Protocols",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -117,9 +124,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active, Timing.AnotherActive }
                     },
-                    new Ability("b1-pp.png")
+                    new Ability()
                     {
-                        Weilder = "B1 Battle Droids",
+                        Weilder = unit,
                         Name = "Well, I Guess I'm in Charge Now",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -127,9 +134,9 @@ namespace Shatterpoint.Lib.Services
                         Synergies = new List<Synergy>(),
                         Timing = new() { Timing.Start }
                     },
-                    new Ability("b1-pp.png")
+                    new Ability()
                     {
-                        Weilder = "B1 Battle Droids",
+                        Weilder = unit,
                         Name = "I Hate This Job",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -137,24 +144,30 @@ namespace Shatterpoint.Lib.Services
                         Synergies = new List<Synergy>(),
                         Timing = new() { Timing.Targeted }
                     }
-                }
-            };
+                };
+
+            return unit;
+
+
         }
 
         public static Unit AsajiVentress()
         {
-            return new Unit()
+            var unit = new Unit()
             {
-                Name = "Asaji Ventress, Sith Assassin",
-                PictureUrl = "asaji-pp.png",
+                Name = "Asajj Ventress, Sith Assassin",
+                //PictureUrl = "asaji-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "Asaji Ventress",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.SeparatistAlliance },
-                Abilities = new List<Ability>()
+
+            };
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("asaji-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Asaji Ventress, Sith Assassin",
+                        Weilder = unit,
                         Name = "Dathomirian Dexterity",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -164,9 +177,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("asaji-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Asaji Ventress, Sith Assassin",
+                        Weilder = unit,
                         Name = "Force Push",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -176,9 +189,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("asaji-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Asaji Ventress, Sith Assassin",
+                        Weilder = unit,
                         Name = "Riposte",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -188,9 +201,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Targeted }
                     },
-                    new Ability("asaji-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Asaji Ventress, Sith Assassin",
+                        Weilder = unit,
                         Name = "Slip Away",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -206,9 +219,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.AnotherActive }
                     },
-                    new Ability("asaji-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Asaji Ventress, Sith Assassin",
+                        Weilder = unit,
                         Name = "Sith Assassin",
                         Type = AbilityType.Identity,
                         Cost = 0,
@@ -219,24 +232,29 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     }
-                }
-            };
+                };
+
+            return unit;
         }
 
         public static Unit LordMaul()
         {
-            return new Unit()
+            var unit = new Unit()
             {
                 Name = "Lord Maul",
-                PictureUrl = "lordmaul-pp.png",
+                //PictureUrl = "lordmaul-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "Maul",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
-                Abilities = new List<Ability>()
+
+            };
+
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("lordmaul-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Lord Maul",
+                        Weilder = unit,
                         Name = "Force Speed",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -246,9 +264,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("lordmaul-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Lord Maul",
+                        Weilder = unit,
                         Name = "There is No Place to Run",
                         Type = AbilityType.Active,
                         Cost = 2,
@@ -258,9 +276,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("lordmaul-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Lord Maul",
+                        Weilder = unit,
                         Name = "Revenge, I Myst Have Revenge",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -270,9 +288,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Targeted }
                     },
-                    new Ability("lordmaul-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Lord Maul",
+                        Weilder = unit,
                         Name = "Sustained By Rage",
                         Type = AbilityType.Identity,
                         Cost = 0,
@@ -282,24 +300,28 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     }
-                }
-            };
+                };
+
+            return unit;
         }
 
         public static Unit GarSaxon()
         {
-            return new Unit()
+            var unit = new Unit()
             {
                 Name = "Gar Saxon, Merciless Commander",
-                PictureUrl = "garsaxon-pp.png",
+                //PictureUrl = "garsaxon-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "Gar Saxon",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
-                Abilities = new List<Ability>()
+
+            };
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("garsaxon-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Gar Saxon, Merciless Commander",
+                        Weilder = unit,
                         Name = "Pride of the Mandalor",
                         Type = AbilityType.Tactic,
                         Cost = 0,
@@ -309,9 +331,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Start }
                     },
-                    new Ability("garsaxon-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Gar Saxon, Merciless Commander",
+                        Weilder = unit,
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -321,9 +343,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("garsaxon-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Gar Saxon, Merciless Commander",
+                        Weilder = unit,
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -333,9 +355,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("garsaxon-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Gar Saxon, Merciless Commander",
+                        Weilder = unit,
                         Name = "I've Got You In My Sights",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -345,9 +367,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("garsaxon-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Gar Saxon, Merciless Commander",
+                        Weilder = unit,
                         Name = "Pack Hunter",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -357,24 +379,29 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     }
-                }
-            };
+                };
+
+            return unit;
         }
 
         public static Unit MandalorianSuperCommandos()
         {
-            return new Unit()
+            var unit = new Unit()
             {
                 Name = "Mandalorian Super Commandos",
-                PictureUrl = "supercommando-pp.png",
+                //PictureUrl = "supercommando-pp.png",
+                PictureUrl = "/img/pp/Untitled.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },
-                Abilities = new List<Ability>()
+
+            };
+
+            unit.Abilities = new List<Ability>()
                 {
-                    new Ability("supercommando-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Mandalorian Super Commandos",
+                        Weilder = unit,
                         Name = "Jet Pack",
                         Type = AbilityType.Active,
                         Cost = 1,
@@ -384,9 +411,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("supercommando-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Mandalorian Super Commandos",
+                        Weilder = unit,
                         Name = "Mandalorians are Stronger Together",
                         Type = AbilityType.Reactive,
                         Cost = 0,
@@ -396,9 +423,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     },
-                    new Ability("supercommando-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Mandalorian Super Commandos",
+                        Weilder = unit,
                         Name = "No Mercy",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -408,9 +435,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Opponent }
                     },
-                    new Ability("supercommando-pp.png")
+                    new Ability()
                     {
-                        Weilder = "Mandalorian Super Commandos",
+                        Weilder = unit,
                         Name = "Victory or Death!",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -420,8 +447,9 @@ namespace Shatterpoint.Lib.Services
                         },
                         Timing = new() { Timing.Active }
                     }
-                }
-            };
+                };
+
+            return unit;
         }
     }
 }
