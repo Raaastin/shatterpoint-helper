@@ -482,7 +482,7 @@ namespace Shatterpoint.Lib.Services
                         Synergies = new List<Synergy>()
                         {
                         },
-                        Timing = new() { Timing.Active, Timing.AnotherActive, Timing.Opponent }
+                        Timing = new() { Timing.Active }
                     },
                     new Ability()
                     {
@@ -515,7 +515,7 @@ namespace Shatterpoint.Lib.Services
                                 Type = null
                             }
                         },
-                        Timing = new() { Timing.Active, Timing.Opponent }
+                        Timing = new() { Timing.Active }
                     }
             };
             return unit;

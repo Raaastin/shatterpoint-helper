@@ -28,51 +28,7 @@
 
     @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
     {
-        /* Card: Pay attention */
-        <div class="dynamic-card">
-            <div class="dynamic-card-title">
-                <table>
-                    <tr>
-                        <td>
-                            <div>Pay Attention</div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="dynamic-card-content">
-                <table>
-                    @foreach (var ability in @SelectedUnitsService.PayAttentionAbilities)
-                    {
-                        @if (ability is not null)
-                        {
-                            <tr>
-                                <td>
-                                    <img alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
-                                    <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
-
-                                </td>
-                                <td>
-                                    <div class="ability-content">
-                                        <div class="ability-title">
-                                            <h4>@ability.Name</h4>
-                                            @for (int i = 0; i < ability.Cost; i++)
-                                            {
-                                                <div>
-                                                    <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
-                                                </div>
-                                            }
-                                        </div>
-                                        <p>
-                                            @((MarkupString)@ability.Text.ToRawHtmlDescription())
-                                        </p>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </table>
-            </div>
-        </div>
+        <AbilityCard Unit="null" Abilities="@SelectedUnitsService.PayAttentionAbilities" />
     }
 
 </div>
