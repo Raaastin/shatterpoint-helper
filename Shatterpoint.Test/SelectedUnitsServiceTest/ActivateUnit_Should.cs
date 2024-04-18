@@ -15,7 +15,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 
             selectedUnitsService.AddUnit(db.Get("Kalani, Super Tactical Robot"));
             selectedUnitsService.AddUnit(db.Get("B1 Battle Droids"));
-            selectedUnitsService.AddUnit(db.Get("Asaji Ventress, Sith Assassin"));
+            selectedUnitsService.AddUnit(db.Get("Asajj Ventress, Sith Assassin"));
             selectedUnitsService.AddUnit(db.Get("Lord Maul"));
             selectedUnitsService.AddUnit(db.Get("Gar Saxon, Merciless Commander"));
             selectedUnitsService.AddUnit(db.Get("Mandalorian Super Commandos"));
@@ -55,7 +55,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contain_StartAbilities_ActiveAbilities_Synergies_WithVentress()
         {
             // Act
-            var result = selectedUnitsService.GetAbilitiesForTheActiveUnit(db.Get("Asaji Ventress, Sith Assassin"));
+            var result = selectedUnitsService.GetAbilitiesForTheActiveUnit(db.Get("Asajj Ventress, Sith Assassin"));
 
             // Arrange
             Assert.Equal(3, result.Count);

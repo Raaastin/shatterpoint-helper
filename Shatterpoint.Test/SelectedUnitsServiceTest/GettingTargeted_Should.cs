@@ -46,7 +46,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
         public void Contains_ReactiveOrDefensive_abilities_Ventress()
         {
             // Act
-            var result = selectedUnitsService.GetAbilitiesForTheTargetedUnit(db.Get("Asaji Ventress, Sith Assassin"));
+            var result = selectedUnitsService.GetAbilitiesForTheTargetedUnit(db.Get("Asajj Ventress, Sith Assassin"));
 
             // Arrange
             Assert.Single(result);
