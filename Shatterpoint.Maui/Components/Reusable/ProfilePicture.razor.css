@@ -1,0 +1,47 @@
+﻿.image-cropper {
+    width: calc(100px * var(--scale) );
+    height: calc(100px * var(--scale) );
+    position: relative;
+    outline: 4px solid black;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    left: calc(var(--offset-left) * var(--scale));
+    top: calc(var(--offset-top) * var(--scale));
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: calc(500px * var(--scale));
+}
+
+
+
+/*
+
+BASE
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 4px solid black;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    left: -330px;
+    top: -54px;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 500px;
+}*/

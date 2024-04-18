@@ -21,7 +21,7 @@
                 <table>
                     <tr>
                         <td>
-                            <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
+                            <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl)" />
                         </td>
                         <td>
                             <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
@@ -69,7 +69,7 @@
                     <table>
                         <tr>
                             <td>
-                                <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.ProfilePicture)" />
+                                <img alt="@SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl" src="@String.Format("/img/pp/{0}", SelectedUnitsService.ActiveUnit.ActiveUnit.PictureUrl)" />
                             </td>
                             <td>
                                 <div>@SelectedUnitsService.ActiveUnit.ActiveUnit.Name</div>
@@ -172,7 +172,7 @@
         {
             <a @onclick="() => SelectUnit(unit)">
                 <div class="image-container .img-center ">
-                    <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.ProfilePicture)" />
+                    <img alt="@unit.Name" src="@String.Format("/img/pp/{0}", unit.PictureUrl)" />
                     <div class="overlay"></div>
                 </div>
             </a>

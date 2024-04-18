@@ -6,24 +6,26 @@
     overflow-y: auto;
 }
 
-    .unit-selection-panel table {
-        width: -webkit-fill-available;
+    .unit-selection-panel ul {
+        padding: 0;
+        list-style-type: none;
     }
 
-        .unit-selection-panel table tr {
+        .unit-selection-panel ul li {
             border-bottom: 1px dotted grey;
+            padding: 10px;
         }
 
-            .unit-selection-panel table tr td a {
+            .unit-selection-panel ul li a {
                 display: flex;
-                align-items: center;
-                padding: 5px;
             }
 
-                .unit-selection-panel table tr td a .unitname {
+                .unit-selection-panel ul li a div.unitname {
                     padding-left: 10px;
+                    justify-content: center;
+                    align-content: center;
+                    font-weight: 700;
                 }
-
 
 .row-selected {
     background-color: #FFDE96;

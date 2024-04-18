@@ -14,7 +14,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "Kalani, Super Tactical Robot",
-                ProfilePicture = "kalani-pp.png",
+                PictureUrl = "kalani-pp.png",
                 UniqueName = "Kalani",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance },
@@ -93,7 +93,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "B1 Battle Droids",
-                ProfilePicture = "b1-pp.png",
+                PictureUrl = "b1-pp.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper },
@@ -146,7 +146,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "Asaji Ventress, Sith Assassin",
-                ProfilePicture = "asaji-pp.png",
+                PictureUrl = "asaji-pp.png",
                 UniqueName = "Asaji Ventress",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.SeparatistAlliance },
@@ -228,7 +228,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "Lord Maul",
-                ProfilePicture = "lordmaul-pp.png",
+                PictureUrl = "lordmaul-pp.png",
                 UniqueName = "Maul",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
@@ -291,7 +291,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "Gar Saxon, Merciless Commander",
-                ProfilePicture = "garsaxon-pp.png",
+                PictureUrl = "garsaxon-pp.png",
                 UniqueName = "Gar Saxon",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
@@ -366,7 +366,7 @@ namespace Shatterpoint.Lib.Services
             return new Unit()
             {
                 Name = "Mandalorian Super Commandos",
-                ProfilePicture = "supercommando-pp.png",
+                PictureUrl = "supercommando-pp.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },

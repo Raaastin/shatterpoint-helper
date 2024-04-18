@@ -1,4 +1,5 @@
 ﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Maui.Components.Reusable;
 
 @page "/"
 @inject UnitDataBaseService UnitDataBaseService
@@ -6,22 +7,25 @@
 
 <div class="unit-selection-panel">
     <p>Chose up to 6 Units</p>
-    <table>
+    <ul>
         @foreach (var unit in @UnitDataBaseService.UnitList)
         {
-            <tr>
-                <td>
-                    <a @onclick="() => AddUnit(unit.Name)" class="@GetClass(unit.Name)">
-                        <div class="pp image-container">
-                            <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="unitname">@unit.Name</div>
-                    </a>
-                </td>
-            </tr>
+            <li class="@GetClass(unit.Name)">
+                <a @onclick="() => AddUnit(unit.Name)">
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="0.5"/>
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="0.7" />
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="1" />
+                    <ProfilePicture Src="/img/pp/Untitled.png" Unit="unit" Scale="1.2" />
+
+                    @* <div class="image-container">
+                <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
+                <div class="overlay"></div>
+                </div> *@
+                    <div class="unitname">@unit.Name</div>
+                </a>
+            </li>
         }
-    </table>
+    </ul>
 </div>
 
 <div class=" footer">
@@ -33,7 +37,7 @@
             {
                 <div class="flex-container">
                     <div class="image-container img-center">
-                        <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].ProfilePicture)" />
+                        <img alt="@SelectedUnitsService.SelectedUnits[i].Name" src="@String.Format("/img/pp/{0}", @SelectedUnitsService.SelectedUnits[i].PictureUrl)" />
                         <div class="overlay"></div>
                     </div>
                 </div>
