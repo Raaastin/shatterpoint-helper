@@ -1,0 +1,12 @@
+﻿.filter ul {
+    list-style: none;
+    padding: 0;
+}
+
+    .filter ul li {
+        padding-bottom: 5px;
+    }
+
+.filter-item label {
+    border: 1px dashed black;
+}
