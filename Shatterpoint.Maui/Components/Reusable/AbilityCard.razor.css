@@ -1,43 +1,4 @@
-/* Selected units */
-.selected-pp {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-    .selected-pp a {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-        .selected-pp a img {
-            height: 35px;
-            width: 35px;
-        }
-
-
-.img-center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: -webkit-fill-available;
-    height: 70px;
-    background-color: #f0f0f0; /* Set your desired background color */
-    align-content: center;
-}
-
-.scrollable {
-    position: relative;
-    height: calc(100vh - 70px - 3.5rem); /* 100% - navbar - footer */
-    overflow-y: auto;
-}
-
+﻿
 /* Card Title*/
 .dynamic-card {
     border: 2px solid black;
@@ -58,11 +19,6 @@
         width: 80px;
     }
 
-    .dynamic-card-title img {
-        height: 45px;
-        width: 45px;
-    }
-
     .dynamic-card-title div {
         font-weight: 700;
         color: white;
@@ -78,21 +34,18 @@
     margin: 5px;
 }
 
-    .dynamic-card-content table td {
-        vertical-align: top;
+    .dynamic-card-content .specific-ability-weilder {
+        padding-bottom: 5px;
     }
 
-        .dynamic-card-content table td > img {
+    .dynamic-card-content table td {
+        vertical-align: top;
+        padding: 3px;
+    }
+
+        .dynamic-card-content table td .ability-type {
             height: 35px;
             width: 35px;
-        }
-
-        .dynamic-card-content table td h4 {
-            font-size: 15px;
-            font-weight: 700;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding: 0px;
-            margin: 0px;
         }
 
 .ability-title * {
@@ -100,7 +53,15 @@
     vertical-align: top;
 }
 
-.dynamic-card-content table td .force-logo {
+.ability-title h4 {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+.ability-title .force-logo {
     width: 15px;
     height: 15px;
     margin-left: 3px;

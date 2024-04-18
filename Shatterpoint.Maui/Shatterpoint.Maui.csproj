@@ -64,7 +64,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Components\Reusable\AbilityCard.razor.css" />
       <None Remove="Resources\mipmap\appicon.svg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Components\Reusable\AbilityCard.razor.css" />
     </ItemGroup>
 
     <ItemGroup>

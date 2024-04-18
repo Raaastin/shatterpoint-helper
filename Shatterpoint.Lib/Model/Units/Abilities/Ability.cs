@@ -5,13 +5,7 @@
     /// </summary>
     public class Ability
     {
-        public Ability(string weilderPp)
-        {
-            WeilderProfilePicture = weilderPp;
-        }
-
-        public string Weilder { get; set; }
-        public string WeilderProfilePicture { get; set; }
+        public Unit Weilder { get; set; }
         public string Name { get; set; }
         public AbilityType Type { get; set; }
         public int Cost { get; set; }
