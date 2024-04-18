@@ -11,7 +11,7 @@ namespace Shatterpoint.Lib.Data
         public const string dashicon = "https://shatterpointdb.com/media/alghdi20/shatterpointdashicon.png";
         public const string repositionicon = "https://shatterpointdb.com/media/tr0dtvzm/shatterpointrepositionicon.png";
         public const string advanceicon = "https://shatterpointdb.com/media/lwyf322i/shatterpointadvanceicon.png";
-        public const string jumpicon = "https://shatterpointdb.com/media/qiijrdv5/jump-photoroompng-photoroom.pngz";
+        public const string jumpicon = "https://shatterpointdb.com/media/qiijrdv5/jump-photoroompng-photoroom.png";
 
         public const string hunkericon = "https://shatterpointdb.com/media/53ijhcpu/shatterpointhunkericon.png";
         public const string exposeicon = "https://shatterpointdb.com/media/f04kdnbs/shatterpointexposeicon.png";
