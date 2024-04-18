@@ -15,7 +15,7 @@ namespace Shatterpoint.Lib.Services
             {
                 Name = "Kalani, Super Tactical Robot",
                 //PictureUrl = "kalani-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/rsnodu4s/kalani-stance-card.png",
                 UniqueName = "Kalani",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance },
@@ -96,8 +96,7 @@ namespace Shatterpoint.Lib.Services
             var unit = new Unit()
             {
                 Name = "B1 Battle Droids",
-                //PictureUrl = "b1-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/bi4hxev0/b1-stance-card.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper },
@@ -156,8 +155,7 @@ namespace Shatterpoint.Lib.Services
             var unit = new Unit()
             {
                 Name = "Asajj Ventress, Sith Assassin",
-                //PictureUrl = "asaji-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png",
                 UniqueName = "Asaji Ventress",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.SeparatistAlliance },
@@ -242,8 +240,7 @@ namespace Shatterpoint.Lib.Services
             var unit = new Unit()
             {
                 Name = "Lord Maul",
-                //PictureUrl = "lordmaul-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/3jxhjwvb/maulstance2.png",
                 UniqueName = "Maul",
                 Type = UnitType.Primary,
                 KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
@@ -310,8 +307,7 @@ namespace Shatterpoint.Lib.Services
             var unit = new Unit()
             {
                 Name = "Gar Saxon, Merciless Commander",
-                //PictureUrl = "garsaxon-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/xu1pp1jl/star-wars-shatterpoint-gar-saxon-stance.png",
                 UniqueName = "Gar Saxon",
                 Type = UnitType.Secondary,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
@@ -389,8 +385,7 @@ namespace Shatterpoint.Lib.Services
             var unit = new Unit()
             {
                 Name = "Mandalorian Super Commandos",
-                //PictureUrl = "supercommando-pp.png",
-                PictureUrl = "/img/pp/Untitled.png",
+                PictureUrl = "https://shatterpointdb.com/media/umplqvvr/star-wars-mandalorian-super-commandos-stance.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },
@@ -449,6 +444,80 @@ namespace Shatterpoint.Lib.Services
                     }
                 };
 
+            return unit;
+        }
+
+        public static Unit Anakin()
+        {
+            var unit = new Unit()
+            {
+                Name = "General Anakin Skywalker",
+                PictureUrl = "https://shatterpointdb.com/media/htydlen3/starwarsshatterpointanakinskywalkerstancetwo.png",
+                UniqueName = "Anakin Skywalker",
+                Type = UnitType.Primary,
+                KeyWords = new List<string> { KeyWords._501ST, KeyWords.ForceUser, KeyWords.GalacticRepublic, KeyWords.Jedi },
+
+            };
+            unit.Abilities = new List<Ability>()
+            {
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Force Jump",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Each character in this unit may *jump*",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = new() { Timing.Active }
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "I'm going to end this",
+                        Type = AbilityType.Reactive,
+                        Cost = 2,
+                        Text = "After this Unit makes a combat action, it may use this ability. One character in this unit may make an attack targeting one of the same enemy characters within range and LOS",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = new() { Timing.Active, Timing.AnotherActive, Timing.Opponent }
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Deflect",
+                        Type = AbilityType.Reactive,
+                        Cost = 0,
+                        Text = "After a *ranged* attack targeting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*.",
+                        Synergies = new List<Synergy>()
+                        {
+                        },
+                        Timing = new() { Timing.Targeted }
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "This is where the fun begins",
+                        Type = AbilityType.Identity,
+                        Cost = 0,
+                        Text = "When a character in this Unit Wounds an enemy Primary Unit or enemy Secondary Unit, after this effect is resolved, move the Struggle token one space toward your Momentum tokens. Then, if the Wounded Unit is a Primary Unit, each allied Galactic Republic character may *heal*.",
+                        Synergies = new List<Synergy>()
+                        {
+                            new Synergy()
+                            {
+                                KeyWords = new List<string>()
+                                {
+                                    KeyWords.GalacticRepublic
+                                },
+                                Name = null,
+                                Type = null
+                            }
+                        },
+                        Timing = new() { Timing.Active, Timing.Opponent }
+                    }
+            };
             return unit;
         }
     }

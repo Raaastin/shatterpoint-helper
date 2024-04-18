@@ -21,7 +21,7 @@
     display: block;
     margin: 0 auto;
     height: auto;
-    width: calc(500px * var(--scale));
+    width: calc(1100px * var(--scale));
 }
 
 /*

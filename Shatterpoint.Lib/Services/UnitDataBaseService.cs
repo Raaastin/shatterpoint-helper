@@ -46,6 +46,8 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.LordMaul());
             UnitList.Add(StarterBoxFactory.GarSaxon());
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
+
+            UnitList.Add(StarterBoxFactory.Anakin());
         }
     }
 }

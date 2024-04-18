@@ -13,10 +13,6 @@
             <li class="@GetClass(unit.Name)">
                 <a @onclick="() => AddUnit(unit.Name)">
                     <ProfilePicture Unit="unit" Scale="0.7" />
-                    @* <div class="image-container">
-                <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
-                <div class="overlay"></div>
-                </div> *@
                     <div class="unitname">@unit.Name</div>
                 </a>
             </li>

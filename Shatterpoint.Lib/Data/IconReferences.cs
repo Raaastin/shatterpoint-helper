@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shatterpoint.Lib.Data
 {
-    internal class IconReferences
+    public class IconReferences
     {
         public const string dashicon = "https://shatterpointdb.com/media/alghdi20/shatterpointdashicon.png";
         public const string repositionicon = "https://shatterpointdb.com/media/tr0dtvzm/shatterpointrepositionicon.png";

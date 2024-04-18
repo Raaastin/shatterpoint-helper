@@ -28,11 +28,11 @@ namespace Shatterpoint.Lib.Extensions
             }
 
             // Bold additional words: 
-            if (result.Contains("Supporting"))
-            {
-                result = result.Replace("Supporting", $"<b>Supporting</b>");
-            }
-            
+            result = result.Replace("Supporting", $"<b>Supporting</b>");
+            result = result.Replace("Primary Unit", $"<b>Primary Unit</b>");
+            result = result.Replace("Secondary Unit", $"<b>Secondary Unit</b>");
+            result = result.Replace("Protection", $"<b>Protection</b>");
+
             //Apply logo
             result = result.ReplaceWithLogo("range", IconReferences.rangeicon, "bottom");
 
@@ -46,6 +46,7 @@ namespace Shatterpoint.Lib.Extensions
             result = result.ReplaceWithLogo("ranged", IconReferences.rangedicon, "bottom");
             result = result.ReplaceWithLogo("heal", IconReferences.healicon, "bottom");
             result = result.ReplaceWithLogo("damage", IconReferences.damageicon, "bottom");
+            result = result.ReplaceWithLogo("failure", IconReferences.failureicon, "bottom");
 
             result = result.ReplaceWithLogo("hunker", IconReferences.hunkericon, "bottom");
             result = result.ReplaceWithLogo("strained", "/img/rule/strained.png", "bottom");
