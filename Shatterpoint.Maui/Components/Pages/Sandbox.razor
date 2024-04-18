@@ -1,0 +1,12 @@
+﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Maui.Components.Reusable;
+
+@page "/sandbox"
+@inject UnitDataBaseService UnitDataBaseService;
+@inject SelectedUnitsService SelectedUnitsService;
+
+<AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies"/>
+
+@code {
+
+}

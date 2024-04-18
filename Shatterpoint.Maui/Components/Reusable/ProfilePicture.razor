@@ -1,0 +1,17 @@
+﻿@using Shatterpoint.Lib.Units
+
+<div class="component">
+    <div class="image-cropper" style="--scale:@Scale;">
+        <img class="image" style="--scale:@Scale; --offset-left:@Unit.Left; --offset-top:@Unit.Top" src="@Unit.PictureUrl" alt="@Unit.Name" loading="lazy" />
+    </div>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public Unit Unit { get; set; }
+    [Parameter]
+    public string Scale { get; set; }
+
+}

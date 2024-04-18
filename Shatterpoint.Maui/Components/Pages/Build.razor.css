@@ -6,24 +6,26 @@
     overflow-y: auto;
 }
 
-    .unit-selection-panel table {
-        width: -webkit-fill-available;
+    .unit-selection-panel ul {
+        padding: 0;
+        list-style-type: none;
     }
 
-        .unit-selection-panel table tr {
+        .unit-selection-panel ul li {
             border-bottom: 1px dotted grey;
+            padding: 10px;
         }
 
-            .unit-selection-panel table tr td a {
+            .unit-selection-panel ul li a {
                 display: flex;
-                align-items: center;
-                padding: 5px;
             }
 
-                .unit-selection-panel table tr td a .unitname {
+                .unit-selection-panel ul li a div.unitname {
                     padding-left: 10px;
+                    justify-content: center;
+                    align-content: center;
+                    font-weight: 700;
                 }
-
 
 .row-selected {
     background-color: #FFDE96;
@@ -49,44 +51,16 @@
 }
 
 /* Selected units */
-.selected-pp {
+.selected-unit-panel {
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
 }
 
-.flex-container {
+.flex-auto {
     flex: auto;
 }
 
-.img-center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.flex {
+    display: flex;
 }
-
-.image-container {
-    position: relative;
-    width: 35px;
-    height: 35px;
-}
-
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .image-container .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid black;
-    }
-
-        .image-container .overlay.dashed {
-            border: 2px dashed black;
-        }

@@ -1,0 +1,14 @@
+﻿.component {
+    display: flex;
+    justify-content: center;
+}
+
+.dashed-circle {
+    width: calc(100px * var(--scale) );
+    height: calc(100px * var(--scale) );
+    position: relative;
+    outline: 2px dashed black;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
