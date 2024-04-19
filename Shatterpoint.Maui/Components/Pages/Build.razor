@@ -8,31 +8,36 @@
 @inject SelectedUnitsService SelectedUnitsService
 
 <div class="unit-selection-panel">
-    <p>Chose up to 6 Units</p>
     <ul>
         @foreach (var unit in @UnitDataBaseService.UnitList)
         {
-            <li class="@GetClass(unit.Name)">
-                <a @onclick="() => AddUnit(unit.Name)">
-                    <ProfilePicture Unit="unit" Scale="0.5" />
-                    <div class="unit-summary">
-                        <div class="unit-name">@unit.Name</div>
-                        <div class="unit-type">@unit.Type</div>
-                        <div class="unit-keywords">@GetKeywords(unit)</div>
-                    </div>
-                </a>
-                <div class="icon-detail-container">
-                    <a href="/cards/@unit.Name" @onclick="() => ShowDetail(unit)">
-                        <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
-                    </a>
-                </div>
-            </li>
+            @if (FilterByName(unit.Name))
+            {
+                @if (FilterByKeyword(unit.KeyWords))
+                {
+                    <li class="@GetClass(unit.Name)">
+                        <a @onclick="() => AddUnit(unit.Name)">
+                            <ProfilePicture Unit="unit" Scale="0.5" />
+                            <div class="unit-summary">
+                                <div class="unit-name">@unit.Name</div>
+                                <div class="unit-type">@unit.Type</div>
+                                <div class="unit-keywords">@GetKeywords(unit)</div>
+                            </div>
+                        </a>
+                        <div class="icon-detail-container">
+                            <a href="/cards/@unit.Name" @onclick="() => ShowDetail(unit)">
+                                <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
+                            </a>
+                        </div>
+                    </li>
+                }
+            }
         }
     </ul>
 </div>
 
 <div class="footer">
-    <UnitFilter></UnitFilter>
+    <UnitFilter @bind-FieldName="FieldName" @bind-FieldKeyword="FieldKeyword"></UnitFilter>
     <div><a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
     <div class="selected-unit-panel">
         @for (int i = 0; i < 6; i++)
@@ -46,7 +51,7 @@
             else
             {
                 <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.7" />
+                    <ProfilePictureEmpty Scale="0.6" />
                 </div>
             }
         }
@@ -54,6 +59,9 @@
 </div>
 
 @code {
+
+    public string FieldName { get; set; }
+    public string FieldKeyword { get; set; }
 
     public void ShowDetail(Unit unit)
     {
@@ -110,5 +118,24 @@
 
         // Case: nominal => add Unit to the selection
         SelectedUnitsService.AddUnit(unit);
+    }
+
+    /// <summary>
+    /// Return true when the name matches the filter
+    /// </summary>
+    /// <returns></returns>
+    private bool FilterByName(string unitName)
+    {
+        return string.IsNullOrWhiteSpace(FieldName) || unitName.ToLower().Contains(FieldName.ToLower());
+    }
+
+    /// <summary>
+    /// Return true when at least 1 keyword matches the filter
+    /// </summary>
+    /// <param name="keywords"></param>
+    /// <returns></returns>
+    private bool FilterByKeyword(List<string> keywords)
+    {
+        return string.IsNullOrWhiteSpace(FieldKeyword) || keywords.Any(x => x.ToLower().Contains(FieldKeyword.ToLower()));
     }
 }

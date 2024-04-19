@@ -5,8 +5,8 @@
         <ul>
             <li>
                 <div class="input-text-container">
-                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name" />
-                    <input type="button" class="input-name-clear-button" onclick="document.getElementById('input-name').value = ''"/>
+                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name" @oninput="OnFieldNameChanged" @bind-value="FieldName" />
+                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldName = null; FieldNameChanged.InvokeAsync(FieldName); }" />
                 </div>
             </li>
             <li>
@@ -27,8 +27,8 @@
             </li>
             <li>
                 <div class="input-text-container">
-                    <input id="input-keyword" class="filter-item-input-text" type="text" placeholder="keyword" />
-                    <input type="button" class="input-name-clear-button" onclick="document.getElementById('input-keyword').value = ''" value="X" />
+                    <input id="input-keyword" class="filter-item-input-text" type="text" placeholder="keyword" @oninput="OnFieldKeywordChanged" @bind-value="FieldKeyword" />
+                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldKeyword = null; FieldKeywordChanged.InvokeAsync(FieldKeyword); }" />
                 </div>
             </li>
         </ul>
@@ -40,6 +40,26 @@
     private bool IsPrimaryChecked { get; set; } = true;
     private bool IsSecondaryChecked { get; set; } = true;
     private bool IsSupportChecked { get; set; } = true;
+
+    [Parameter]
+    public string FieldName { get; set; }
+    [Parameter]
+    public EventCallback<string> FieldNameChanged { get; set; }
+    private Task OnFieldNameChanged(ChangeEventArgs e)
+    {
+        FieldName = e.Value.ToString();
+        return FieldNameChanged.InvokeAsync(FieldName);
+    }
+
+    [Parameter]
+    public string FieldKeyword { get; set; }
+    [Parameter]
+    public EventCallback<string> FieldKeywordChanged { get; set; }
+    private Task OnFieldKeywordChanged(ChangeEventArgs e)
+    {
+        FieldKeyword = e.Value.ToString();
+        return FieldKeywordChanged.InvokeAsync(FieldKeyword);
+    }
 
     public string GetCheckboxStyle(bool isChecked)
     {
