@@ -48,6 +48,18 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
 
             UnitList.Add(StarterBoxFactory.Anakin());
+
+#if DEBUG
+            foreach(var unit in UnitList)
+            {
+                unit.PictureUrl = "/img/examples/Untitled.png";
+
+                foreach (var item in unit.Abilities)
+                {
+                    item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
+                }
+            }
+#endif
         }
     }
 }
