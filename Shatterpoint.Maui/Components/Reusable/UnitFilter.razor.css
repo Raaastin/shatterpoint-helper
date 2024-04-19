@@ -1,16 +1,24 @@
-﻿.filter ul {
+﻿.component {
+    padding: 5px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.filter ul {
     list-style: none; /* Hide dot*/
     padding: 0;
-    background-color:lightblue
+    margin: 0;
 }
 
     .filter ul li {
-        padding-bottom: 5px;
+        padding: 5px
     }
 
 .filter-item-input-text {
     flex: 1;
     margin-right: 5px;
+    border-radius: 5px;
+    height: 2rem;
 }
 
 .checkbox-container {
@@ -26,6 +34,7 @@
     margin-left: 5px;
     display: flex;
     justify-content: center; /* display checked box text in the middle of its container */
+    font-weight: 700;
 }
 
 .checkbox-style-checked {
@@ -37,6 +46,7 @@
     display: flex;
     justify-content: center;
     background-color: orange;
+    font-weight: 700;
 }
 
 .filter-item-input-cb {
@@ -59,7 +69,7 @@ input[type=button] {
     width: 30px;
     height: 30px;
     color: #ffffff; /* Couleur du texte */
-    border: 1px solid black; 
+    border: 1px solid black;
     cursor: pointer; /* Curseur de type main */
     border-radius: 50px; /* Coins arrondis */
 }

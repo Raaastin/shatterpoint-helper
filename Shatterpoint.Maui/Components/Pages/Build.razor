@@ -31,22 +31,23 @@
     </ul>
 </div>
 
-<div class=" footer">
+<div class="footer">
+    <UnitFilter></UnitFilter>
     <div><a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
     <div class="selected-unit-panel">
         @for (int i = 0; i < 6; i++)
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
-                        <div class="flex-auto">
-                            <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.7" />
-                        </div>
+                <div class="flex-auto">
+                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.6" />
+                </div>
             }
             else
             {
-                        <div class="flex-auto">
-                            <ProfilePictureEmpty Scale="0.7" />
-                        </div>
+                <div class="flex-auto">
+                    <ProfilePictureEmpty Scale="0.7" />
+                </div>
             }
         }
     </div>
