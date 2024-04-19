@@ -1,5 +1,7 @@
 ﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Lib.Units;
 @using Shatterpoint.Maui.Components.Reusable;
+@using System.Text;
 
 @page "/"
 @inject UnitDataBaseService UnitDataBaseService
@@ -12,8 +14,12 @@
         {
             <li class="@GetClass(unit.Name)">
                 <a @onclick="() => AddUnit(unit.Name)">
-                    <ProfilePicture Unit="unit" Scale="0.7" />
-                    <div class="unitname">@unit.Name</div>
+                    <ProfilePicture Unit="unit" Scale="0.5" />
+                    <div>
+                        <div class="unit-name">@unit.Name</div>
+                        <div class="unit-type">@unit.Type</div>
+                        <div class="unit-keywords">@GetKeywords(unit)</div>
+                    </div>
                 </a>
             </li>
         }
@@ -28,13 +34,13 @@
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
                 <div class="flex-auto">
-                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.4" />
+                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.7" />
                 </div>
             }
             else
             {
                 <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.4" />
+                    <ProfilePictureEmpty Scale="0.7" />
                 </div>
             }
         }
@@ -42,6 +48,19 @@
 </div>
 
 @code {
+
+    public string GetKeywords(Unit unit)
+    {
+        var sb = new StringBuilder();
+
+        foreach(var keyword in unit.KeyWords)
+        {
+            sb.Append($"{keyword} | ");
+        }
+
+        return sb.ToString();
+    }
+
     public void ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();
