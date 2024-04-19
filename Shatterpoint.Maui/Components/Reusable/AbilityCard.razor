@@ -1,6 +1,7 @@
 ﻿@using Shatterpoint.Lib.Extensions
 @using Shatterpoint.Lib.Units
 @using Shatterpoint.Lib.Units.Abilities
+@using Shatterpoint.Lib.Data;
 
 
 <div class="dynamic-card">
@@ -8,10 +9,13 @@
         <table>
             <tr>
                 <td>
-                    <ProfilePicture Unit="@Unit" Scale="0.5" />
+                    @if (@Unit is not null)
+                    {
+                        <ProfilePicture Unit="@Unit" Scale="0.5" />
+                    }
                 </td>
                 <td>
-                    <div>@Unit.Name</div>
+                    <div>@Unit?.Name</div>
                 </td>
             </tr>
         </table>
@@ -24,7 +28,7 @@
                 {
                     <tr>
                         <td>
-                            @if (ability.Weilder.Name != @Unit.Name)
+                            @if (ability.Weilder.Name != @Unit?.Name)
                             {
                                 <div class="specific-ability-weilder">
                                     <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
@@ -39,7 +43,7 @@
                                     @for (int i = 0; i < ability.Cost; i++)
                                     {
                                         <div>
-                                            <img class="force-logo" alt="Cost" src="/img/abilities/force.png" />
+                                            <img class="force-logo" alt="Cost" src="@IconReferences.forceicon" />
                                         </div>
                                     }
                                 </div>

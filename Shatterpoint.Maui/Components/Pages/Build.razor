@@ -1,5 +1,7 @@
 ﻿@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Lib.Units;
 @using Shatterpoint.Maui.Components.Reusable;
+@using System.Text;
 
 @page "/"
 @inject UnitDataBaseService UnitDataBaseService
@@ -12,13 +14,18 @@
         {
             <li class="@GetClass(unit.Name)">
                 <a @onclick="() => AddUnit(unit.Name)">
-                    <ProfilePicture Unit="unit" Scale="0.7" />
-                    @* <div class="image-container">
-                <img class="image" atl="@unit.ProfilePicture" src="@String.Format("/img/pp/{0}", @unit.ProfilePicture)" />
-                <div class="overlay"></div>
-                </div> *@
-                    <div class="unitname">@unit.Name</div>
+                    <ProfilePicture Unit="unit" Scale="0.5" />
+                    <div class="unit-summary">
+                        <div class="unit-name">@unit.Name</div>
+                        <div class="unit-type">@unit.Type</div>
+                        <div class="unit-keywords">@GetKeywords(unit)</div>
+                    </div>
                 </a>
+                <div class="icon-detail-container">
+                    <a href="/cards/@unit.Name" @onclick="() => ShowDetail(unit)">
+                        <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
+                    </a>
+                </div>
             </li>
         }
     </ul>
@@ -31,21 +38,38 @@
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
-                <div class="flex-auto">
-                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.4" />
-                </div>
+                        <div class="flex-auto">
+                            <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.7" />
+                        </div>
             }
             else
             {
-                <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.4" />
-                </div>
+                        <div class="flex-auto">
+                            <ProfilePictureEmpty Scale="0.7" />
+                        </div>
             }
         }
     </div>
 </div>
 
 @code {
+
+    public void ShowDetail(Unit unit)
+    {
+    }
+
+    public string GetKeywords(Unit unit)
+    {
+        var sb = new StringBuilder();
+
+        foreach (var keyword in unit.KeyWords)
+        {
+            sb.Append($"{keyword} | ");
+        }
+
+        return sb.ToString();
+    }
+
     public void ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();

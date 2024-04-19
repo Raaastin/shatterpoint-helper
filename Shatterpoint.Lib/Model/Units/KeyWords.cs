@@ -19,6 +19,10 @@
         public const string Mandalorian = "Mandalorian";
         public const string SuperCommando = "SuperCommando";
 
+        public const string _501ST = "501ST";
+        public const string GalacticRepublic = "Galactic Republic";
+        public const string Jedi = "Jedi";
+
         /// <summary>
         /// All available keywords
         /// </summary>

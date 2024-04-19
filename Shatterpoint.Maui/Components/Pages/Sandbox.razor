@@ -5,7 +5,10 @@
 @inject UnitDataBaseService UnitDataBaseService;
 @inject SelectedUnitsService SelectedUnitsService;
 
-<UnitFilter></UnitFilter>
+@if (@SelectedUnitsService?.ActiveUnit?.ActiveUnit is not null)
+{
+    <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" />
+}
 
 @code {
 

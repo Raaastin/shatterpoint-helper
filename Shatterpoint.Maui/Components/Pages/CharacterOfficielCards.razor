@@ -1,0 +1,19 @@
+﻿@using Shatterpoint.Lib.Services;
+
+
+@page "/cards/{UnitName}"
+@inject UnitDataBaseService UnitDataBaseService
+
+<div>
+    @UnitName
+</div>
+
+<img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="/img/examples/Untitled.png" />
+<img class="card-landscape" alt="Stance: @UnitDataBaseService.Get(UnitName).Name" src="/img/examples/Untitled.png" />
+
+
+@code {
+
+    [Parameter]
+    public string UnitName { get; set; }
+}
