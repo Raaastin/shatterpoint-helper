@@ -1,6 +1,7 @@
 ﻿.filter ul {
-    list-style: none;
+    list-style: none; /* Hide dot*/
     padding: 0;
+    background-color:lightblue
 }
 
     .filter ul li {
@@ -8,16 +9,62 @@
     }
 
 .filter-item-input-text {
-    width: -webkit-fill-available;
+    flex: 1;
+    margin-right: 5px;
 }
 
 .checkbox-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* All checked box in 1 row */
 }
 
 .checkbox-style {
+    flex: auto; /* Checkboxes to share equally available space */
     border: 1px dashed black;
-    border-radius: 5%;
+    border-radius: 10px;
     padding: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center; /* display checked box text in the middle of its container */
 }
+
+.checkbox-style-checked {
+    flex: auto;
+    border: 1px dashed black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+}
+
+.filter-item-input-cb {
+    display: none;
+}
+
+input[type="text"]:not(:placeholder-shown) {
+    background-color: orange;
+}
+
+.input-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* clear button style */
+input[type=button] {
+    background-color: orange; /* Couleur de fond */
+    width: 30px;
+    height: 30px;
+    color: #ffffff; /* Couleur du texte */
+    border: 1px solid black; 
+    cursor: pointer; /* Curseur de type main */
+    border-radius: 50px; /* Coins arrondis */
+}
+
+    /* Style au survol */
+    input[type=button]:hover {
+        background-color: orangered; /* Couleur de fond au survol */
+    }

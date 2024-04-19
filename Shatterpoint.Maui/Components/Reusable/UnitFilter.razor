@@ -4,29 +4,31 @@
     <div class="filter">
         <ul>
             <li>
-                <div>
-                    <input class="filter-item-input-text" type="text" placeholder="Unit name" />
+                <div class="input-text-container">
+                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name" />
+                    <input type="button" class="input-name-clear-button" onclick="document.getElementById('input-name').value = ''"/>
                 </div>
             </li>
             <li>
                 <div class="checkbox-container">
-                    <label class="checkbox-style">
+                    <label class="@GetCheckboxStyle(IsPrimaryChecked)">
                         Primary
-                        <input class="filter-item-input-cb" type="checkbox" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@IsPrimaryChecked" @onclick="() => { IsPrimaryChecked = !IsPrimaryChecked;}" />
                     </label>
-                    <label class="checkbox-style">
+                    <label class="@GetCheckboxStyle(IsSecondaryChecked)">
                         Secondary
-                        <input class="filter-item-input-cb" type="checkbox" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@IsSecondaryChecked" @onclick="() => { IsSecondaryChecked = !IsSecondaryChecked;}" />
                     </label>
-                    <label class="checkbox-style">
+                    <label class="@GetCheckboxStyle(IsSupportChecked)">
                         Support
-                        <input class="filter-item-input-cb" type="checkbox" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@IsSupportChecked" @onclick="() => { IsSupportChecked = !IsSupportChecked;}" />
                     </label>
                 </div>
             </li>
             <li>
-                <div>
-                    <input class="filter-item-input-text" type="text" placeholder="keyword" />
+                <div class="input-text-container">
+                    <input id="input-keyword" class="filter-item-input-text" type="text" placeholder="keyword" />
+                    <input type="button" class="input-name-clear-button" onclick="document.getElementById('input-keyword').value = ''" value="X" />
                 </div>
             </li>
         </ul>
@@ -35,5 +37,15 @@
 
 
 @code {
+    private bool IsPrimaryChecked { get; set; } = true;
+    private bool IsSecondaryChecked { get; set; } = true;
+    private bool IsSupportChecked { get; set; } = true;
 
+    public string GetCheckboxStyle(bool isChecked)
+    {
+        if (isChecked)
+            return "checkbox-style-checked";
+        else
+            return "checkbox-style";
+    }
 }
