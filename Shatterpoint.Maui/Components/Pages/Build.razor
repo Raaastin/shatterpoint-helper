@@ -12,16 +12,21 @@
     <ul>
         @foreach (var unit in @UnitDataBaseService.UnitList)
         {
-            <li class="@GetClass(unit.Name)">
-                <a @onclick="() => AddUnit(unit.Name)">
-                    <ProfilePicture Unit="unit" Scale="0.5" />
-                    <div>
-                        <div class="unit-name">@unit.Name</div>
-                        <div class="unit-type">@unit.Type</div>
-                        <div class="unit-keywords">@GetKeywords(unit)</div>
+                <li class="@GetClass(unit.Name)">
+                    <a @onclick="() => AddUnit(unit.Name)">
+                        <ProfilePicture Unit="unit" Scale="0.5" />
+                        <div class="unit-summary">
+                            <div class="unit-name">@unit.Name</div>
+                            <div class="unit-type">@unit.Type</div>
+                            <div class="unit-keywords">@GetKeywords(unit)</div>
+                        </div>
+                    </a>
+                    <div class="icon-detail-container">
+                        <a href="/cards/@unit.Name" @onclick="() => ShowDetail(unit)">
+                            <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
+                        </a>
                     </div>
-                </a>
-            </li>
+                </li>
         }
     </ul>
 </div>
@@ -33,15 +38,15 @@
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
-                <div class="flex-auto">
-                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.7" />
-                </div>
+                        <div class="flex-auto">
+                            <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.7" />
+                        </div>
             }
             else
             {
-                <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.7" />
-                </div>
+                        <div class="flex-auto">
+                            <ProfilePictureEmpty Scale="0.7" />
+                        </div>
             }
         }
     </div>
@@ -49,11 +54,15 @@
 
 @code {
 
+    public void ShowDetail(Unit unit)
+    {
+    }
+
     public string GetKeywords(Unit unit)
     {
         var sb = new StringBuilder();
 
-        foreach(var keyword in unit.KeyWords)
+        foreach (var keyword in unit.KeyWords)
         {
             sb.Append($"{keyword} | ");
         }

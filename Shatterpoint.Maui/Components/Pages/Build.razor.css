@@ -12,13 +12,23 @@
     }
 
         .unit-selection-panel ul li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             border-bottom: 1px dotted grey;
             padding: 10px;
         }
 
             .unit-selection-panel ul li a {
                 display: flex;
+                flex-direction: row;
+                flex:1;
             }
+
+                .unit-selection-panel ul li a unit-summary {
+                    display: flex;
+                    flex-direction: column;
+                }
 
                 .unit-selection-panel ul li a div.unit-name {
                     padding-left: 10px;
@@ -39,6 +49,17 @@
                     font-weight: 300;
                     font-size: 0.8rem;
                 }
+
+
+    .unit-selection-panel icon-detail-container {
+        flex: 10;
+    }
+
+    .unit-selection-panel img.icon-detail {
+        width: 40px;
+        height: auto;
+        border-radius: 50%;
+    }
 
 .row-selected {
     background-color: #FFDE96;
