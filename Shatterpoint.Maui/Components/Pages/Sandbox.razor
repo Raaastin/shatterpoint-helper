@@ -2,13 +2,8 @@
 @using Shatterpoint.Maui.Components.Reusable;
 
 @page "/sandbox"
-@inject UnitDataBaseService UnitDataBaseService;
-@inject SelectedUnitsService SelectedUnitsService;
 
-@if (@SelectedUnitsService?.ActiveUnit?.ActiveUnit is not null)
-{
-    <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" />
-}
+<UnitFilter></UnitFilter>
 
 @code {
 

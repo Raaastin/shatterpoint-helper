@@ -7,6 +7,17 @@
         padding-bottom: 5px;
     }
 
-.filter-item label {
+.filter-item-input-text {
+    width: -webkit-fill-available;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox-style {
     border: 1px dashed black;
+    border-radius: 5%;
+    padding: 5px;
 }
