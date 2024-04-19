@@ -2,7 +2,7 @@
 
 .unit-selection-panel {
     position: relative;
-    height: calc(100vh - 70px - 3.5rem); /* 100% - navbar - footer */
+    height: calc(100vh - 100px - 47px); /* 100%  footer - navbar - */
     overflow-y: auto;
 }
 
@@ -12,20 +12,54 @@
     }
 
         .unit-selection-panel ul li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             border-bottom: 1px dotted grey;
             padding: 10px;
         }
 
             .unit-selection-panel ul li a {
                 display: flex;
+                flex-direction: row;
+                flex:1;
             }
 
-                .unit-selection-panel ul li a div.unitname {
-                    padding-left: 10px;
-                    justify-content: center;
-                    align-content: center;
-                    font-weight: 700;
+                .unit-selection-panel ul li a unit-summary {
+                    display: flex;
+                    flex-direction: column;
                 }
+
+                .unit-selection-panel ul li a div.unit-name {
+                    padding-left: 10px;
+                    padding-bottom: 2px;
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+
+                .unit-selection-panel ul li a div.unit-type {
+                    padding-left: 10px;
+                    padding-bottom: 2px;
+                    font-weight: 400;
+                    font-size: 0.9rem;
+                }
+
+                .unit-selection-panel ul li a div.unit-keywords {
+                    padding-left: 10px;
+                    font-weight: 300;
+                    font-size: 0.8rem;
+                }
+
+
+    .unit-selection-panel icon-detail-container {
+        flex: 10;
+    }
+
+    .unit-selection-panel img.icon-detail {
+        width: 40px;
+        height: auto;
+        border-radius: 50%;
+    }
 
 .row-selected {
     background-color: #FFDE96;
@@ -45,9 +79,11 @@
     position: fixed;
     bottom: 0;
     width: -webkit-fill-available;
-    height: 70px;
+    height: 100px;
     background-color: #f0f0f0; /* Set your desired background color */
     align-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Selected units */
