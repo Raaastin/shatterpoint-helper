@@ -11,17 +11,17 @@
             </li>
             <li>
                 <div class="checkbox-container">
-                    <label class="@GetCheckboxStyle(IsPrimaryChecked)">
+                    <label class="@GetCheckboxStyle(PrimaryChecked)">
                         Primary
-                        <input class="filter-item-input-cb" type="checkbox" checked="@IsPrimaryChecked" @onclick="() => { IsPrimaryChecked = !IsPrimaryChecked;}" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="OnPrimaryCheckClicked" />
                     </label>
-                    <label class="@GetCheckboxStyle(IsSecondaryChecked)">
+                    <label class="@GetCheckboxStyle(SecondaryChecked)">
                         Secondary
-                        <input class="filter-item-input-cb" type="checkbox" checked="@IsSecondaryChecked" @onclick="() => { IsSecondaryChecked = !IsSecondaryChecked;}" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="OnSecondaryCheckedClicked" />
                     </label>
-                    <label class="@GetCheckboxStyle(IsSupportChecked)">
+                    <label class="@GetCheckboxStyle(SupportChecked)">
                         Support
-                        <input class="filter-item-input-cb" type="checkbox" checked="@IsSupportChecked" @onclick="() => { IsSupportChecked = !IsSupportChecked;}" />
+                        <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="OnSupportCheckedClicked" />
                     </label>
                 </div>
             </li>
@@ -37,9 +37,6 @@
 
 
 @code {
-    private bool IsPrimaryChecked { get; set; } = true;
-    private bool IsSecondaryChecked { get; set; } = true;
-    private bool IsSupportChecked { get; set; } = true;
 
     [Parameter]
     public string FieldName { get; set; }
@@ -59,6 +56,36 @@
     {
         FieldKeyword = e.Value.ToString();
         return FieldKeywordChanged.InvokeAsync(FieldKeyword);
+    }
+
+    [Parameter]
+    public bool PrimaryChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> PrimaryCheckedChanged { get; set; }
+    public Task OnPrimaryCheckClicked()
+    {
+        PrimaryChecked = !PrimaryChecked;
+        return PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
+    }
+
+    [Parameter]
+    public bool SecondaryChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> SecondaryCheckedChanged { get; set; }
+    public Task OnSecondaryCheckedClicked()
+    {
+        SecondaryChecked = !SecondaryChecked;
+        return SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
+    }
+
+    [Parameter]
+    public bool SupportChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> SupportCheckedChanged { get; set; }
+    public Task OnSupportCheckedClicked()
+    {
+        SupportChecked = !SupportChecked;
+        return SupportCheckedChanged.InvokeAsync(SupportChecked);
     }
 
     public string GetCheckboxStyle(bool isChecked)

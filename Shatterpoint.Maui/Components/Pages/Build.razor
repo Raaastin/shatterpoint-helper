@@ -15,21 +15,24 @@
             {
                 @if (FilterByKeyword(unit.KeyWords))
                 {
-                    <li class="@GetClass(unit.Name)">
-                        <a @onclick="() => AddUnit(unit.Name)">
-                            <ProfilePicture Unit="unit" Scale="0.5" />
-                            <div class="unit-summary">
-                                <div class="unit-name">@unit.Name</div>
-                                <div class="unit-type">@unit.Type</div>
-                                <div class="unit-keywords">@GetKeywords(unit)</div>
-                            </div>
-                        </a>
-                        <div class="icon-detail-container">
-                            <a href="/cards/@unit.Name" @onclick="() => ShowDetail(unit)">
-                                <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
+                    @if (FilterByUnitType(unit.Type))
+                    {
+                        <li class="@GetClass(unit.Name)">
+                            <a @onclick="() => AddUnit(unit.Name)">
+                                <ProfilePicture Unit="unit" Scale="0.5" />
+                                <div class="unit-summary">
+                                    <div class="unit-name">@unit.Name</div>
+                                    <div class="unit-type">@unit.Type</div>
+                                    <div class="unit-keywords">@GetKeywords(unit)</div>
+                                </div>
                             </a>
-                        </div>
-                    </li>
+                            <div class="icon-detail-container">
+                                <a href="/cards/@unit.Name">
+                                    <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
+                                </a>
+                            </div>
+                        </li>
+                    }
                 }
             }
         }
@@ -37,7 +40,12 @@
 </div>
 
 <div class="footer">
-    <UnitFilter @bind-FieldName="FieldName" @bind-FieldKeyword="FieldKeyword"></UnitFilter>
+    <UnitFilter @bind-FieldName="FieldName"
+                @bind-FieldKeyword="FieldKeyword"
+                @bind-PrimaryChecked="PrimaryChecked"
+                @bind-SecondaryChecked="SecondaryChecked"
+                @bind-SupportChecked="SupportChecked">
+    </UnitFilter>
     <div><a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
     <div class="selected-unit-panel">
         @for (int i = 0; i < 6; i++)
@@ -63,9 +71,9 @@
     public string FieldName { get; set; }
     public string FieldKeyword { get; set; }
 
-    public void ShowDetail(Unit unit)
-    {
-    }
+    public bool PrimaryChecked { get; set; } = true;
+    public bool SecondaryChecked { get; set; } = true;
+    public bool SupportChecked { get; set; } = true;
 
     public string GetKeywords(Unit unit)
     {
@@ -137,5 +145,17 @@
     private bool FilterByKeyword(List<string> keywords)
     {
         return string.IsNullOrWhiteSpace(FieldKeyword) || keywords.Any(x => x.ToLower().Contains(FieldKeyword.ToLower()));
+    }
+
+    /// <summary>
+    /// Return true when the unit type has checkbox checked
+    /// </summary>
+    /// <param name="unitType"></param>
+    /// <returns></returns>
+    private bool FilterByUnitType(UnitType unitType)
+    {
+        return unitType == UnitType.Primary && PrimaryChecked
+        || unitType == UnitType.Secondary && SecondaryChecked
+        || unitType == UnitType.Support && SupportChecked;
     }
 }
