@@ -17,4 +17,4 @@ This includes abilities from the current unit, and any relevant abilities from t
 
 # Copyright 
 **I do not own** any picture, text, name or rule element that are displayed when running this application. 
-Every images, names and rule elements are the property of their author, or AtomicMassGame (AMG), or LucasFilm (Ltd), or all at once.
+Every images, names and rule elements are the property of their author, or AtomicMassGame (AMG), or LucasFilm (Ltd), or Disney, or all at once.
