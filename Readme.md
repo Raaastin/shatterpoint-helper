@@ -15,6 +15,6 @@ Then activate the unit:
 The card only displays the abilities that are compatible with the current activation. 
 This includes abilities from the current unit, and any relevant abilities from the other allied units. 
 
-# Copryright 
+# Copyright 
 **I do not own** any picture, text, name or rule element that are displayed when running this application. 
 Every images, names and rule elements are the property of their author, or AtomicMassGame (AMG), or LucasFilm (Ltd), or all at once.
