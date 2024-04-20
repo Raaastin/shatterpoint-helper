@@ -22,6 +22,12 @@
         public const string _501ST = "501ST";
         public const string GalacticRepublic = "Galactic Republic";
         public const string Jedi = "Jedi";
+        public const string CloneTrooper = "Clone Trooper";
+
+        public const string ClanKryze = "Clan Kryze";
+        public const string NiteOwls = "Nite Owls";
+
+        public const string DeathWatch = "Death Watch";
 
         /// <summary>
         /// All available keywords
