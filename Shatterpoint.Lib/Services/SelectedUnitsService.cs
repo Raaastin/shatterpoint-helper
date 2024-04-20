@@ -119,12 +119,13 @@ namespace Shatterpoint.Lib.Services
             // Ability from other units for when getting targeted
             foreach (var ally in SelectedUnits.Where(x => x is not null && x.Name != unit.Name))
             {
-                foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.Targeted)))
+                foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.AlliedTargeted)))
                 {
                     if (ability.Synergies.Any(x =>
                         (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords.Any() && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) // Synergy by Keyword
-                    ))
+                        (x.KeyWords.Any() && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) // Synergy by Keyword                        
+                    ) || 
+                    !ability.Synergies.Any()) // case: all allies synergy
                     {
                         result.Add(ability);
                     }

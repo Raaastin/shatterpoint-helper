@@ -733,11 +733,11 @@ namespace Shatterpoint.Lib.Services
                         Name = "Fierce Protector",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "When an enemy character Wounds another allied Unit, after the effect is resolved, one character in this Unit may *advance* toward the enemy character that caused the effect. Then, the character that moved may *heal**heal**heal or, if that character is Engaged with the enemy character, it may make a 5 dice *melee* attack targeting that enemy character.",
+                        Text = "When an enemy character Wounds another allied Unit, after the effect is resolved, one character in this Unit may *advance* toward the enemy character that caused the effect. Then, the character that moved may *heal**heal**heal* or, if that character is Engaged with the enemy character, it may make a 5 dice *melee* attack targeting that enemy character.",
                         Synergies = new List<Synergy>()
                         {
                         },
-                        Timing = new() { Timing.Opponent }
+                        Timing = new() { Timing.Opponent, Timing.AlliedTargeted }
                     },
 
             };
