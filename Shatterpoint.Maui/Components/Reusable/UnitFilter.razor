@@ -38,6 +38,13 @@
 
 @code {
 
+    // Filter binding explained: 
+    // input value is "FieldName"
+    // input @onclick: OnFieldNameChanged
+    // @onclick method SHALL invoke: FieldNameChanged
+    // When parent binds @bind-FieldName, the callback FieldNameChanged SHALL exists with this exact name
+    // The parent binds one of its properties with the result of FieldNameChanged event.
+
     [Parameter]
     public string FieldName { get; set; }
     [Parameter]
