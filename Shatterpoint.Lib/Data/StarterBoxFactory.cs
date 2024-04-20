@@ -11,13 +11,11 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Kalani()
         {
-            var unit = new Unit()
+            var unit = new Unit("Kalani, Super Tactical Robot", "Kalani", UnitType.Secondary)
             {
-                Name = "Kalani, Super Tactical Robot",
-                //PictureUrl = "kalani-pp.png",
-                PictureUrl = "https://shatterpointdb.com/media/rsnodu4s/kalani-stance-card.png",
-                UniqueName = "Kalani",
-                Type = UnitType.Secondary,
+                MainCardUrl = "https://shatterpointdb.com/media/gtbfzv2n/star-wars-shatterpoint-kalani-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/2mykdrxq/star-wars-shatterpoint-kalani-abilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/rsnodu4s/kalani-stance-card.png",
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance },
             };
 
@@ -93,14 +91,12 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit B1BAttleDroids()
         {
-            var unit = new Unit()
+            var unit = new Unit("B1 Battle Droids", "", UnitType.Support)
             {
-                Name = "B1 Battle Droids",
-                PictureUrl = "https://shatterpointdb.com/media/bi4hxev0/b1-stance-card.png",
-                UniqueName = "",
-                Type = UnitType.Support,
+                MainCardUrl = "https://shatterpointdb.com/media/arpd4hfq/star-wars-shatterpoint-b1-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/xf5l5vmw/star-wars-shatterpoint-b1-abilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/bi4hxev0/b1-stance-card.png",
                 KeyWords = new List<string> { KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper },
-
             };
 
             unit.Abilities = new List<Ability>()
@@ -152,12 +148,12 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit AsajiVentress()
         {
-            var unit = new Unit()
+            var unit = new Unit("Asajj Ventress, Sith Assassin", "Asaji Ventress", UnitType.Primary)
             {
-                Name = "Asajj Ventress, Sith Assassin",
-                PictureUrl = "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png",
-                UniqueName = "Asaji Ventress",
-                Type = UnitType.Primary,
+                MainCardUrl = "https://shatterpointdb.com/media/vcsl0v33/star-wars-shatterpoint-asajj-ventress.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/gtbhclqv/star-wars-shatterpoint-asajj-ventress-abilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/4f3chjdq/star-wars-shatterpoint-asajj-ventress-stance-one.png",
+                StanceCardUrl2 = "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png",
                 KeyWords = new List<string> { KeyWords.SeparatistAlliance },
 
             };
@@ -237,12 +233,12 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit LordMaul()
         {
-            var unit = new Unit()
+            var unit = new Unit("Lord Maul", "Maul", UnitType.Primary)
             {
-                Name = "Lord Maul",
-                PictureUrl = "https://shatterpointdb.com/media/3jxhjwvb/maulstance2.png",
-                UniqueName = "Maul",
-                Type = UnitType.Primary,
+                MainCardUrl = "https://shatterpointdb.com/media/klehavye/swp01_maul_unit_article-1.png?height=600&v=1d978862f118b50",
+                AbilityCardUrl = "https://shatterpointdb.com/media/i3vdw20w/maulabilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/3jxhjwvb/maulstance2.png",
+                StanceCardUrl2 = "https://shatterpointdb.com/media/kkgn3wv2/maulstance1.png",
                 KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective },
 
             };
@@ -304,12 +300,11 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit GarSaxon()
         {
-            var unit = new Unit()
+            var unit = new Unit("Gar Saxon, Merciless Commander", "Gar Saxon", UnitType.Secondary)
             {
-                Name = "Gar Saxon, Merciless Commander",
-                PictureUrl = "https://shatterpointdb.com/media/xu1pp1jl/star-wars-shatterpoint-gar-saxon-stance.png",
-                UniqueName = "Gar Saxon",
-                Type = UnitType.Secondary,
+                MainCardUrl = "https://shatterpointdb.com/media/sp4njwnf/star-wars-shatterpoint-gar-saxon-character-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/ffmjwwbz/star-wars-shatterpoint-gar-saxon-abilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/xu1pp1jl/star-wars-shatterpoint-gar-saxon-stance.png",
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando },
 
             };
@@ -382,10 +377,11 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit MandalorianSuperCommandos()
         {
-            var unit = new Unit()
+            var unit = new Unit("Mandalorian Super Commandos", "", UnitType.Support)
             {
-                Name = "Mandalorian Super Commandos",
-                PictureUrl = "https://shatterpointdb.com/media/umplqvvr/star-wars-mandalorian-super-commandos-stance.png",
+                MainCardUrl = "https://shatterpointdb.com/media/hdxbgbol/star-wars-shatterpoint-mandalorian-super-commando-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/fzcj52gl/star-wars-shatterpoint-mandalorian-super-commandos-abilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/umplqvvr/star-wars-mandalorian-super-commandos-stance.png",
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = new List<string> { KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper },
@@ -449,12 +445,12 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Anakin()
         {
-            var unit = new Unit()
+            var unit = new Unit("General Anakin Skywalker", "Anakin Skywalker", UnitType.Primary)
             {
-                Name = "General Anakin Skywalker",
-                PictureUrl = "https://shatterpointdb.com/media/htydlen3/starwarsshatterpointanakinskywalkerstancetwo.png",
-                UniqueName = "Anakin Skywalker",
-                Type = UnitType.Primary,
+                MainCardUrl = "https://shatterpointdb.com/media/nn3k0her/starwarsshatterpointanakinskywalker.png?height=600&v=1d978866fce1d70",
+                AbilityCardUrl = "https://shatterpointdb.com/media/kvroyyyq/starwarsshatterpointanakinskywalkerabilities.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/zf4bstny/starwarsshatterpointanakinskywalkerstanceone.png",
+                StanceCardUrl2 = "https://shatterpointdb.com/media/htydlen3/starwarsshatterpointanakinskywalkerstancetwo.png",
                 KeyWords = new List<string> { KeyWords._501ST, KeyWords.ForceUser, KeyWords.GalacticRepublic, KeyWords.Jedi },
 
             };

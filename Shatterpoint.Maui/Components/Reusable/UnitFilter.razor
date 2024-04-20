@@ -1,0 +1,105 @@
+﻿@using Shatterpoint.Lib.Units
+
+<div class="component">
+    <div class="filter">
+        <ul>
+            <li>
+                <div class="input-text-container">
+                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name" @oninput="OnFieldNameChanged" @bind-value="FieldName" />
+                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldName = null; FieldNameChanged.InvokeAsync(FieldName); }" />
+                </div>
+            </li>
+            <li>
+                <div class="checkbox-container">
+                    <label class="@GetCheckboxStyle(PrimaryChecked)">
+                        Primary
+                        <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="OnPrimaryCheckClicked" />
+                    </label>
+                    <label class="@GetCheckboxStyle(SecondaryChecked)">
+                        Secondary
+                        <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="OnSecondaryCheckedClicked" />
+                    </label>
+                    <label class="@GetCheckboxStyle(SupportChecked)">
+                        Support
+                        <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="OnSupportCheckedClicked" />
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="input-text-container">
+                    <input id="input-keyword" class="filter-item-input-text" type="text" placeholder="keyword" @oninput="OnFieldKeywordChanged" @bind-value="FieldKeyword" />
+                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldKeyword = null; FieldKeywordChanged.InvokeAsync(FieldKeyword); }" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+@code {
+
+    // Filter binding explained: 
+    // input value is "FieldName"
+    // input @onclick: OnFieldNameChanged
+    // @onclick method SHALL invoke: FieldNameChanged
+    // When parent binds @bind-FieldName, the callback FieldNameChanged SHALL exists with this exact name
+    // The parent binds one of its properties with the result of FieldNameChanged event.
+
+    [Parameter]
+    public string FieldName { get; set; }
+    [Parameter]
+    public EventCallback<string> FieldNameChanged { get; set; }
+    private Task OnFieldNameChanged(ChangeEventArgs e)
+    {
+        FieldName = e.Value.ToString();
+        return FieldNameChanged.InvokeAsync(FieldName);
+    }
+
+    [Parameter]
+    public string FieldKeyword { get; set; }
+    [Parameter]
+    public EventCallback<string> FieldKeywordChanged { get; set; }
+    private Task OnFieldKeywordChanged(ChangeEventArgs e)
+    {
+        FieldKeyword = e.Value.ToString();
+        return FieldKeywordChanged.InvokeAsync(FieldKeyword);
+    }
+
+    [Parameter]
+    public bool PrimaryChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> PrimaryCheckedChanged { get; set; }
+    public Task OnPrimaryCheckClicked()
+    {
+        PrimaryChecked = !PrimaryChecked;
+        return PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
+    }
+
+    [Parameter]
+    public bool SecondaryChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> SecondaryCheckedChanged { get; set; }
+    public Task OnSecondaryCheckedClicked()
+    {
+        SecondaryChecked = !SecondaryChecked;
+        return SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
+    }
+
+    [Parameter]
+    public bool SupportChecked { get; set; } = true;
+    [Parameter]
+    public EventCallback<bool> SupportCheckedChanged { get; set; }
+    public Task OnSupportCheckedClicked()
+    {
+        SupportChecked = !SupportChecked;
+        return SupportCheckedChanged.InvokeAsync(SupportChecked);
+    }
+
+    public string GetCheckboxStyle(bool isChecked)
+    {
+        if (isChecked)
+            return "checkbox-style-checked";
+        else
+            return "checkbox-style";
+    }
+}

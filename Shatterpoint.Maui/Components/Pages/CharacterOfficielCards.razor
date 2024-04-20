@@ -4,12 +4,17 @@
 @page "/cards/{UnitName}"
 @inject UnitDataBaseService UnitDataBaseService
 
-<div>
-    @UnitName
-</div>
-
-<img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="/img/examples/Untitled.png" />
-<img class="card-landscape" alt="Stance: @UnitDataBaseService.Get(UnitName).Name" src="/img/examples/Untitled.png" />
+<img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).AbilityCardUrl" />
+<br>
+<img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).StanceCardUrl1" />
+<br>
+@if(!string.IsNullOrWhiteSpace(@UnitDataBaseService.Get(UnitName).StanceCardUrl2))
+{    
+    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).StanceCardUrl2" />
+<br>
+}
+<img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).MainCardUrl" />
+<br>
 
 
 @code {
