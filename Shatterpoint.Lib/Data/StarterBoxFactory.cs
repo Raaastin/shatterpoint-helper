@@ -836,7 +836,7 @@ namespace Shatterpoint.Lib.Services
                                 }
                             }
                         },
-                        Timing = new() { Timing.Targeted, Timing.Opponent}
+                        Timing = new() { Timing.Targeted, Timing.AlliedTargeted, Timing.Opponent}
                     }
 
             };
