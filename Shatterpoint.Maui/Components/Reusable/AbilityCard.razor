@@ -17,6 +17,16 @@
                 <td>
                     <div>@Unit?.Name</div>
                 </td>
+                <td>
+                    @if (IsActive)
+                    {
+                        <img class="sabre-active-logo" src="/img/card/sabres-active.jpeg" />
+                    }
+                    else
+                    {
+                        <img class="sabre-active-logo" src="/img/card/cible.png" />
+                    }
+                </td>
             </tr>
         </table>
     </div>
@@ -39,7 +49,7 @@
                         <td>
                             <div class="ability-content">
                                 <div class="ability-title">
-                                    <h4>@ability.Name</h4>
+                                    <h4>@((MarkupString)@ability.Name)</h4>
                                     @for (int i = 0; i < ability.Cost; i++)
                                     {
                                         <div>
@@ -62,6 +72,9 @@
 @code {
 
     [Parameter]
+    public bool IsActive { get; set; }
+
+    [Parameter]
     public Unit Unit { get; set; }
 
     [Parameter]
@@ -75,7 +88,7 @@
                 return "background-image: url(../img/card/title-back-red.png);";
             case UnitCardColor.Blue:
                 return "background-image: url(../img/card/title-back-blue.png);";
-            default:            
+            default:
                 return "background-image: url(../img/card/title-back-blue.png);";
         }
     }

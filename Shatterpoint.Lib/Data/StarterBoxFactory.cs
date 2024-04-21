@@ -1,4 +1,5 @@
-﻿using Shatterpoint.Lib.Units;
+﻿using Shatterpoint.Lib.Extensions;
+using Shatterpoint.Lib.Units;
 using Shatterpoint.Lib.Units.Abilities;
 
 namespace Shatterpoint.Lib.Services
@@ -135,7 +136,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "I Hate This Job",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "While a character in this Unit is contesting one or more Active objectives, it has protection",
+                        Text = "While a character in this Unit is contesting one or more Active objectives, it has Protection",
                         Synergies = new List<Synergy>(),
                         Timing = new() { Timing.Targeted }
                     }
@@ -645,7 +646,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Coordinated fire: [strain]",
+                        Name = ("Coordinated fire: *strained*").ToRawHtmlDescription(),
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When a character in another allied Galactic Republic Unit makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. If the targeted character is within *range*5 of a character in this Unit, the target Unit gains *strained*.",

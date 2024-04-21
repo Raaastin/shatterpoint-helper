@@ -17,15 +17,15 @@
     @if (@SelectedUnitsService.ActiveUnit is not null)
     {
         /* Card: Unit active */
-        <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" />
+        <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" IsActive="@true" />
 
         /* Card: Unit is targeted*/
         @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
         {
-            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" />
+            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" IsActive="@false" />
         }
     }
-
+    @* Card: Unit active *@
     @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
     {
         <AbilityCard Unit="null" Abilities="@SelectedUnitsService.PayAttentionAbilities" />

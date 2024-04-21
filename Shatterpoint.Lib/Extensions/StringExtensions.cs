@@ -32,6 +32,8 @@ namespace Shatterpoint.Lib.Extensions
             result = result.Replace("Primary Unit", $"<b>Primary Unit</b>");
             result = result.Replace("Secondary Unit", $"<b>Secondary Unit</b>");
             result = result.Replace("Protection", $"<b>Protection</b>");
+            result = result.Replace("Impact", $"<b>Impact</b>");
+            result = result.Replace("Sharpshooter", $"<b>Sharpshooter</b>");
 
             //Apply logo
             result = result.ReplaceWithLogo("range", IconReferences.rangeicon, "bottom");
