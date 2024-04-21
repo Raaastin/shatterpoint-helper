@@ -34,7 +34,7 @@
                                     <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
                                 </div>
                             }
-                            <img class="ability-type" alt="@ability.Type.ToString()" src="@String.Format("/img/abilities/{0}.png", ability.Type)" />
+                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetabilityCard(ability.Type)" />
                         </td>
                         <td>
                             <div class="ability-content">
@@ -77,6 +77,19 @@
                 return "background-image: url(../img/card/title-back-blue.png);";
             default:            
                 return "background-image: url(../img/card/title-back-blue.png);";
+        }
+    }
+
+    public string GetabilityCard(AbilityType type)
+    {
+        switch (Unit.CardColor)
+        {
+            case UnitCardColor.Red:
+                return @String.Format("/img/abilities/{0}.png", type);
+            case UnitCardColor.Blue:
+                return @String.Format("/img/abilities/{0}-blue.png", type);
+            default:
+                return @String.Format("/img/abilities/{0}.png", type);
         }
     }
 }
