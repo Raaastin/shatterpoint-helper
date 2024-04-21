@@ -13,9 +13,21 @@
                     {
                         <ProfilePicture Unit="@Unit" Scale="0.5" />
                     }
+                    else if (IsActive is null)
+                    {
+                        <img class="sabre-active-logo" src="/img/card/exclamation.jpg" />
+                    }
                 </td>
                 <td>
-                    <div>@Unit?.Name</div>
+                    @if (@Unit?.Name is not null)
+                    {
+                        <div>@Unit?.Name</div>
+                    }
+                    @* Case: Pay attention *@
+                    else if (IsActive is null)
+                    {
+                        <div>Pay attention</div>
+                    }
                 </td>
                 <td>
                     @if (IsActive is true)
