@@ -18,11 +18,11 @@
                     <div>@Unit?.Name</div>
                 </td>
                 <td>
-                    @if (IsActive)
+                    @if (IsActive is true)
                     {
                         <img class="sabre-active-logo" src="/img/card/sabres-active.jpeg" />
                     }
-                    else
+                    @if (IsActive is false)
                     {
                         <img class="sabre-active-logo" src="/img/card/cible.png" />
                     }
@@ -44,7 +44,7 @@
                                     <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
                                 </div>
                             }
-                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetabilityCard(ability.Type)" />
+                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetAbilityCard(ability)" />
                         </td>
                         <td>
                             <div class="ability-content">
@@ -72,7 +72,7 @@
 @code {
 
     [Parameter]
-    public bool IsActive { get; set; }
+    public bool? IsActive { get; set; }
 
     [Parameter]
     public Unit Unit { get; set; }
@@ -82,6 +82,9 @@
 
     public string GetBackgroundImage()
     {
+        if (Unit is null)
+            return "background-image: url(../img/card/title-back-blue.png);";
+
         switch (Unit.CardColor)
         {
             case UnitCardColor.Red:
@@ -93,16 +96,16 @@
         }
     }
 
-    public string GetabilityCard(AbilityType type)
+    public string GetAbilityCard(Ability ability)
     {
-        switch (Unit.CardColor)
+        switch (ability.Weilder.CardColor)
         {
             case UnitCardColor.Red:
-                return @String.Format("/img/abilities/{0}.png", type);
+                return @String.Format("/img/abilities/{0}.png", ability.Type);
             case UnitCardColor.Blue:
-                return @String.Format("/img/abilities/{0}-blue.png", type);
+                return @String.Format("/img/abilities/{0}-blue.png", ability.Type);
             default:
-                return @String.Format("/img/abilities/{0}.png", type);
+                return @String.Format("/img/abilities/{0}.png", ability.Type);
         }
     }
 }
