@@ -8,8 +8,7 @@
 }
 
 .dynamic-card-title {
-    border-radius: 17px 17px 0px 0px;
-    background-image: url(../img/card/title-back-red.png);
+    border-radius: 17px 17px 0px 0px;    
     padding: 5px;
     display: grid;
     text-align: center;

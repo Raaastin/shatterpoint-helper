@@ -22,6 +22,10 @@
         /// </summary>
         Targeted,
         /// <summary>
+        /// When an allied Unit is targeted
+        /// </summary>
+        AlliedTargeted,
+        /// <summary>
         /// At any time during the opponent's turn
         /// </summary>
         Opponent, 

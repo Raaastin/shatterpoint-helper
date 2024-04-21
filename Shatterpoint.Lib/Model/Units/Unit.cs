@@ -7,11 +7,12 @@ namespace Shatterpoint.Lib.Units
     /// </summary>
     public class Unit
     {
-        public Unit(string name, string uniqueName, UnitType type)
+        public Unit(string name, string uniqueName, UnitType type, UnitCardColor cardColor)
         {
             Name = name;
             UniqueName = uniqueName;
             Type = type;
+            CardColor = cardColor;
         }
 
         /// <summary>
@@ -57,6 +58,12 @@ namespace Shatterpoint.Lib.Units
         /// Type of unit
         /// </summary>
         public UnitType Type { get; set; }
+
+        /// <summary>
+        /// Type of unit
+        /// </summary>
+        public UnitCardColor CardColor { get; set; }
+
         /// <summary>
         /// List of abilities
         /// </summary>

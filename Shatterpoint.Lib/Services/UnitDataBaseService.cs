@@ -48,6 +48,11 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
 
             UnitList.Add(StarterBoxFactory.Anakin());
+            UnitList.Add(StarterBoxFactory.CaptainRex());
+            UnitList.Add(StarterBoxFactory._501StCloneTroopers());
+            UnitList.Add(StarterBoxFactory.AhsokeJediNoMore());
+            UnitList.Add(StarterBoxFactory.BoKatanKryze());
+            UnitList.Add(StarterBoxFactory.ClanKryzeMandalorians());
 
 #if DEBUG
             //foreach (var unit in UnitList)
