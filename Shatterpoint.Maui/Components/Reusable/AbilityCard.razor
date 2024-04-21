@@ -5,7 +5,7 @@
 
 
 <div class="dynamic-card">
-    <div class="dynamic-card-title">
+    <div style="@GetBackgroundImage()" class="dynamic-card-title">
         <table>
             <tr>
                 <td>
@@ -66,4 +66,17 @@
 
     [Parameter]
     public List<Ability> Abilities { get; set; }
+
+    public string GetBackgroundImage()
+    {
+        switch (Unit.CardColor)
+        {
+            case UnitCardColor.Red:
+                return "background-image: url(../img/card/title-back-red.png);";
+            case UnitCardColor.Blue:
+                return "background-image: url(../img/card/title-back-blue.png);";
+            default:            
+                return "background-image: url(../img/card/title-back-blue.png);";
+        }
+    }
 }
