@@ -34,9 +34,10 @@
         /// </summary>
         public static List<string> KeyWordsList = new()
         {
-            BattleDroid, Droid, SeparatistAlliance, Trooper,
+            BattleDroid, Droid, SeparatistAlliance, 
             Dathomirian,
-            NightSister, ForceUser, Scoundrel, ShadowCollective, Mandalorian, SuperCommando
+            NightSister, ForceUser, Scoundrel, ShadowCollective, Mandalorian, SuperCommando,
+            _501ST, GalacticRepublic, Jedi, CloneTrooper, ClanKryze, NiteOwls, DeathWatch, Trooper
         };
     }
 }

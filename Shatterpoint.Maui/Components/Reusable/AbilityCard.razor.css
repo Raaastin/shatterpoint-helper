@@ -8,7 +8,7 @@
 }
 
 .dynamic-card-title {
-    border-radius: 17px 17px 0px 0px;    
+    border-radius: 17px 17px 0px 0px;
     padding: 5px;
     display: grid;
     text-align: center;
@@ -26,6 +26,13 @@
         text-align: center;
         padding: 5px;
         border-radius: 10px;
+    }
+
+    .dynamic-card-title .sabre-active-logo {
+        border-radius: 50%;
+        width: 45px;
+        height: auto;
+        border: 2px solid black;
     }
 
 /* Card */

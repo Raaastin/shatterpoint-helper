@@ -17,15 +17,15 @@
     @if (@SelectedUnitsService.ActiveUnit is not null)
     {
         /* Card: Unit active */
-        <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" />
+        <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" IsActive="@true" />
 
         /* Card: Unit is targeted*/
         @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
         {
-            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" />
+            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" IsActive="@false" />
         }
     }
-
+    @* Card: Unit active *@
     @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
     {
         <AbilityCard Unit="null" Abilities="@SelectedUnitsService.PayAttentionAbilities" />
@@ -49,10 +49,7 @@
             </a>
         }
         <a @onclick="() => PayAttention()">
-            <div class="image-container .img-center ">
-                <img alt="Op turn" src="fakepath.png" />
-                <div class="overlay"></div>
-            </div>
+            <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black;" alt="Op turn" src="img/card/exclamation.jpg" />
         </a>
     }
 </div>

@@ -13,9 +13,31 @@
                     {
                         <ProfilePicture Unit="@Unit" Scale="0.5" />
                     }
+                    else if (IsActive is null)
+                    {
+                        <img class="sabre-active-logo" src="/img/card/exclamation.jpg" />
+                    }
                 </td>
                 <td>
-                    <div>@Unit?.Name</div>
+                    @if (@Unit?.Name is not null)
+                    {
+                        <div>@Unit?.Name</div>
+                    }
+                    @* Case: Pay attention *@
+                    else if (IsActive is null)
+                    {
+                        <div>Pay attention</div>
+                    }
+                </td>
+                <td>
+                    @if (IsActive is true)
+                    {
+                        <img class="sabre-active-logo" src="/img/card/sabres-active.jpeg" />
+                    }
+                    @if (IsActive is false)
+                    {
+                        <img class="sabre-active-logo" src="/img/card/cible.png" />
+                    }
                 </td>
             </tr>
         </table>
@@ -34,12 +56,12 @@
                                     <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
                                 </div>
                             }
-                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetabilityCard(ability.Type)" />
+                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetAbilityCard(ability)" />
                         </td>
                         <td>
                             <div class="ability-content">
                                 <div class="ability-title">
-                                    <h4>@ability.Name</h4>
+                                    <h4>@((MarkupString)@ability.Name)</h4>
                                     @for (int i = 0; i < ability.Cost; i++)
                                     {
                                         <div>
@@ -62,6 +84,9 @@
 @code {
 
     [Parameter]
+    public bool? IsActive { get; set; }
+
+    [Parameter]
     public Unit Unit { get; set; }
 
     [Parameter]
@@ -69,27 +94,30 @@
 
     public string GetBackgroundImage()
     {
+        if (Unit is null)
+            return "background-image: url(../img/card/title-back-blue.png);";
+
         switch (Unit.CardColor)
         {
             case UnitCardColor.Red:
                 return "background-image: url(../img/card/title-back-red.png);";
             case UnitCardColor.Blue:
                 return "background-image: url(../img/card/title-back-blue.png);";
-            default:            
+            default:
                 return "background-image: url(../img/card/title-back-blue.png);";
         }
     }
 
-    public string GetabilityCard(AbilityType type)
+    public string GetAbilityCard(Ability ability)
     {
-        switch (Unit.CardColor)
+        switch (ability.Weilder.CardColor)
         {
             case UnitCardColor.Red:
-                return @String.Format("/img/abilities/{0}.png", type);
+                return @String.Format("/img/abilities/{0}.png", ability.Type);
             case UnitCardColor.Blue:
-                return @String.Format("/img/abilities/{0}-blue.png", type);
+                return @String.Format("/img/abilities/{0}-blue.png", ability.Type);
             default:
-                return @String.Format("/img/abilities/{0}.png", type);
+                return @String.Format("/img/abilities/{0}.png", ability.Type);
         }
     }
 }
