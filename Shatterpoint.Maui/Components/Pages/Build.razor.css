@@ -2,7 +2,7 @@
 
 .unit-selection-panel {
     position: relative;
-    height: calc(100vh - 52px - 47px); /* 100%  footer - navbar - */
+    height: calc(100vh - 130px - 47px); /* 100%  footer - navbar - */
     overflow-y: auto;
 }
 
