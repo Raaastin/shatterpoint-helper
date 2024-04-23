@@ -7,9 +7,12 @@
 main {
     flex: 1;
 }
+.content {
+    background-color: #121212;
+}
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-color: #252530;
 }
 
 .top-row {

@@ -28,13 +28,13 @@
     bottom: 0;
     width: -webkit-fill-available;
     height: 70px;
-    background-color: #f0f0f0; /* Set your desired background color */
+    background-color: #252530; /* Set your desired background color */
     align-content: center;
 }
 
 .scrollable {
     position: relative;
-    height: calc(100vh - 70px - 3.5rem); /* 100% - navbar - footer */
+    height: calc(100vh - 70px - 46px); /* 100% - footer - navbar*/
     overflow-y: auto;
 }
 

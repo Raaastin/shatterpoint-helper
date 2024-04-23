@@ -7,7 +7,7 @@
     width: calc(100px * var(--scale) );
     height: calc(100px * var(--scale) );
     position: relative;
-    outline: 2px solid black;
+    outline: 2px solid Black;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;

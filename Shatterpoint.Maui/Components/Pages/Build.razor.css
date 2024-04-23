@@ -4,6 +4,8 @@
     position: relative;
     height: calc(100vh - 130px - 47px); /* 100%  footer - navbar - */
     overflow-y: auto;
+    background-color: #121212;
+    color: #b2e2d5;
 }
 
     .unit-selection-panel ul {
@@ -62,8 +64,18 @@
         border-radius: 50%;
     }
 
+.unit-name {
+    color: #33cea4;
+}
+.unit-type {
+    color: #02b182;
+}
+.unit-keywords {
+    color: #038764;
+}
+
 .row-selected {
-    background-color: #FFDE96;
+    background-color: #252530;
     outline: none;
     color: inherit;
     text-decoration: none;
@@ -81,11 +93,10 @@
     bottom: 0;
     left: 0;
     width: -webkit-fill-available;
-    background-color: lightyellow; /* Set your desired background color */
+    background-color: #252530; /* Set your desired background color */
     align-content: center;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
 }
 
 /* Selected units */

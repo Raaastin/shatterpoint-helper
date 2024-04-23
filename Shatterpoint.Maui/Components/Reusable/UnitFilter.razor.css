@@ -1,6 +1,5 @@
 ﻿.component {
     padding: 5px;
-    background-color: lightblue;
 }
 
 .filter {
@@ -39,6 +38,7 @@
     display: flex;
     justify-content: center; /* display checked box text in the middle of its container */
     font-weight: 700;
+    color:wheat;
 }
 
 .checkbox-style-checked {
