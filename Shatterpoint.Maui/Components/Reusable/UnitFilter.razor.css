@@ -22,6 +22,8 @@
     margin-right: 5px;
     border-radius: 5px;
     height: 2rem;
+    background-color: black;
+    color: wheat;
 }
 
 .checkbox-container {
@@ -38,7 +40,7 @@
     display: flex;
     justify-content: center; /* display checked box text in the middle of its container */
     font-weight: 700;
-    color:wheat;
+    color: wheat;
 }
 
 .checkbox-style-checked {
@@ -59,10 +61,6 @@
 
 .filter-item-input-cb {
     display: none;
-}
-
-input[type="text"]:not(:placeholder-shown) {
-    background-color: orange;
 }
 
 .input-text-container {
@@ -102,6 +100,7 @@ input[type="text"]:not(:placeholder-shown) {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .button-expanded {
     background-image: url('../img/icons/collapse.png');
     background-repeat: no-repeat;

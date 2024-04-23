@@ -16,7 +16,7 @@
             {
                 <li class="@GetClass(unit.Name)">
                     <a @onclick="() => AddUnit(unit.Name)">
-                        <ProfilePicture Unit="unit" Scale="0.5" />
+                        <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
                             <div class="unit-name">@unit.Name</div>
                             <div class="unit-type">@unit.Type</div>
@@ -40,23 +40,29 @@
                 @bind-SecondaryChecked="SecondaryChecked"
                 @bind-SupportChecked="SupportChecked">
     </UnitFilter>
-    <div><a style="display:block" href="#" @onclick="ClearSelectedUnits">Clear selection</a></div>
     <div class="selected-unit-panel">
         @for (int i = 0; i < 6; i++)
         {
             @if (@SelectedUnitsService.SelectedUnits.Count > i)
             {
+                var unit = SelectedUnitsService.SelectedUnits[i];
                 <div class="flex-auto">
-                    <ProfilePicture Unit="@SelectedUnitsService.SelectedUnits[i]" Scale="0.5" />
+                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name"/>
                 </div>
             }
             else
             {
                 <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.5" />
+                    <ProfilePictureEmpty Scale="0.4" />
                 </div>
             }
         }
+
+        <div class="flex-auto">
+            <a style="display:flex; justify-content:center;" href="#" @onclick="ClearSelectedUnits">
+                <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
+            </a>
+        </div>
     </div>
 </div>
 
