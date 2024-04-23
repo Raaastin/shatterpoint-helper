@@ -10,8 +10,7 @@
 
 <div class="unit-selection-panel">
     <ul>
-        @foreach (var unit in @UnitDataBaseService.UnitList)
-        {
+        <Virtualize Items="@GetFilteredList(UnitDataBaseService.UnitList)" Context="unit">
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
                 <li class="@GetClass(unit.Name)">
@@ -30,7 +29,7 @@
                     </div>
                 </li>
             }
-        }
+        </Virtualize>
     </ul>
 </div>
 
@@ -47,7 +46,7 @@
             {
                 var unit = SelectedUnitsService.SelectedUnits[i];
                 <div class="flex-auto">
-                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name"/>
+                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                 </div>
             }
             else
@@ -126,13 +125,27 @@
         SelectedUnitsService.AddUnit(unit);
     }
 
+    private List<Unit> GetFilteredList(List<Unit> source)
+    {
+        var result = new List<Unit>();
+
+        foreach (var unit in source)
+        {
+            if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
+            {
+                result.Add(unit);
+            }
+        }
+
+        return result;
+    }
+
     /// <summary>
     /// Return true when the name matches the filter
     /// </summary>
     /// <returns></returns>
     private bool FilterByText(string unitName, List<string> keywords)
     {
-
         return string.IsNullOrWhiteSpace(FieldText) // if field empty
         || unitName.ToLower().Contains(FieldText.ToLower()) // or name matches
         || keywords.Any(x => x.ToLower().Contains(FieldText.ToLower())) // or keyword matches
