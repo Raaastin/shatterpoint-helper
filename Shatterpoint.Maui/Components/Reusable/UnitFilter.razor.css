@@ -4,11 +4,11 @@
     border-radius: 10px;
 }
 
-.filter, .filter-collapsed {
+.filter {
     display: flex;
 }
 
-    .filter ul, .filter-collapsed ul {
+    .filter ul {
         flex: 1;
         list-style: none; /* Hide dot*/
         padding: 0;
@@ -91,15 +91,20 @@ input[type="text"]:not(:placeholder-shown) {
     height: 30px;
 }
 
-.button-collapsed {
+.button-collapsed, .button-expanded {
     margin-top: 5px;
-    width: 30px;
-    height: 30px;
-}
-
-.button-expanded {
-    margin-top: 5px;
+    margin-bottom: 5px;
     width: 30px;
     height: auto;
 }
 
+.button-collapsed {
+    background-image: url('../img/icons/expand.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.button-expanded {
+    background-image: url('../img/icons/collapse.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
