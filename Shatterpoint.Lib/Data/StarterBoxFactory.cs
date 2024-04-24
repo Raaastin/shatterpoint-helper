@@ -737,7 +737,7 @@ namespace Shatterpoint.Lib.Services
                         Synergies = new List<Synergy>()
                         {
                         },
-                        Timing = new() { Timing.Opponent, Timing.AlliedTargeted }
+                        Timing = new() { Timing.AlliedTargeted }
                     },
 
             };
@@ -835,7 +835,7 @@ namespace Shatterpoint.Lib.Services
                                 }
                             }
                         },
-                        Timing = new() { Timing.Targeted, Timing.AlliedTargeted, Timing.Opponent}
+                        Timing = new() { Timing.Targeted, Timing.AlliedTargeted }
                     }
 
             };
