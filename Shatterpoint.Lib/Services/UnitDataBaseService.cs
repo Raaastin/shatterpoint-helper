@@ -55,16 +55,20 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.ClanKryzeMandalorians());
 
 #if DEBUG
-            //foreach (var unit in UnitList)
-            //{
-            //    unit.StanceCardUrl1 = "/img/examples/Untitled.png";
+            foreach (var unit in UnitList)
+            {
+                unit.StanceCardUrl1 = "/img/examples/Untitled.png";
+                unit.StanceCardUrl2 = "/img/examples/Untitled.png";
+                unit.MainCardUrl = "/img/examples/Untitled.png";
+                unit.AbilityCardUrl = "/img/examples/Untitled.png";
 
-            //    foreach (var item in unit.Abilities)
-            //    {
-            //        item.Cost = 0;
-            //        item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
-            //    }
-            //}
+                foreach (var item in unit.Abilities)
+                {
+                    item.Name = "Lorem ipsum dolor sit amet";
+                    item.Cost = 0;
+                    item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
+                }
+            }
 #endif
         }
     }
