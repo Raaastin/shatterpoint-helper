@@ -37,8 +37,7 @@ namespace Shatterpoint.Lib.Services
         /// </summary>
         private void InitStarterBox()
         {
-            if (UnitList is null)
-                UnitList = new();
+            UnitList ??= [];
 
             UnitList.Add(StarterBoxFactory.Kalani());
             UnitList.Add(StarterBoxFactory.B1BAttleDroids());
