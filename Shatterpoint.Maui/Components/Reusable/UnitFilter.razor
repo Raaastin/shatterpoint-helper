@@ -7,7 +7,7 @@
                 <li>
                     <div class="input-text-container">
                         <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name or keyword" @oninput="OnFieldTextChanged" @bind-value="FieldText" />
-                        <input type="button" class="button-style input-name-clear-button" @onclick="() => { FieldText = null; FieldTextChanged.InvokeAsync(FieldText); }" />
+                        <input type="button" class="button-style input-name-clear-button" @onclick="OnClear" />
                     </div>
                 </li>
                 @if (IsExpanded)
@@ -84,6 +84,19 @@
     {
         SupportChecked = !SupportChecked;
         return SupportCheckedChanged.InvokeAsync(SupportChecked);
+    }
+
+    public void OnClear()
+    {
+        FieldText = null;
+        IsExpanded = false;
+        PrimaryChecked = true;
+        SecondaryChecked = true;
+        SupportChecked = true;
+        FieldTextChanged.InvokeAsync(FieldText);
+        PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
+        SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
+        SupportCheckedChanged.InvokeAsync(SupportChecked);
     }
 
     public string GetCheckboxStyle(bool isChecked)
