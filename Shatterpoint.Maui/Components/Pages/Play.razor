@@ -9,27 +9,66 @@
 @inject SelectedUnitsService SelectedUnitsService
 @inject UnitDataBaseService UnitDataBaseService
 
-
-
 @* Panel scrollable *@
 <div class="scrollable">
-
-    @if (@SelectedUnitsService.ActiveUnit is not null)
+    @* Case: List is empty *@
+    @if (!@SelectedUnitsService.SelectedUnits.Any())
     {
-        /* Card: Unit active */
-        <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" IsActive="@true" />
-
-        /* Card: Unit is targeted*/
-        @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
+        <p style="color: wheat; padding: 5px;">
+            Select up to 6 units in the unit selection tab, then comme back here to enable the feature.
+        </p>
+    }
+    @* Case: List is ready *@
+    else
+    {
+        @* When a character is selected *@
+        if (@SelectedUnitsService.ActiveUnit is not null)
         {
-            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" IsActive="@false" />
+            /* Card: Unit active */
+            <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.CurrentActivationSynergies" IsActive="@true" />
+
+            /* Card: Unit is targeted*/
+            @if (@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies.Any())
+            {
+                <AbilityCard Unit="@SelectedUnitsService.ActiveUnit.ActiveUnit" Abilities="@SelectedUnitsService.ActiveUnit.GettingTargetedSynegies" IsActive="@false" />
+            }
+
+            <ul style="color: wheat; ">
+                <li style="padding: 5px; ">The 1st card shows all abilities usable for when the unit is doing something</li>
+                <li style="padding: 5px; ">The 2nd card (if any) shows any ability for when the unit is the target of an attack.</li>
+            </ul>
         }
+        @* When "Pay attention" is selected *@
+        else if (@SelectedUnitsService.PayAttentionAbilities is not null)
+        {
+            if (@SelectedUnitsService.PayAttentionAbilities.Any())
+            {
+                <AbilityCard Unit="null" Abilities="@SelectedUnitsService.PayAttentionAbilities" />
+            }
+            else
+            {
+                <p style="color: wheat; padding: 5px;">
+                    The current list presents no ability to display at this timing.
+                </p>
+            }
+
+            <p style="color: wheat; padding: 5px;">
+                The "Pay attention" button will display all abilities that require your attention when your opponent is playing.
+            </p>
+        }
+        @* Case: No selection *@
+        else
+        {
+            <p style="color: wheat; padding: 5px;">
+                Select a character to display available abilities.
+            </p>
+        }
+
+        <p style="color: wheat; padding: 5px;">
+            Tap the same selected character to display the original cards.
+        </p>
     }
-    @* Card: Unit active *@
-    @if (@SelectedUnitsService.PayAttentionAbilities is not null && @SelectedUnitsService.PayAttentionAbilities.Any())
-    {
-        <AbilityCard Unit="null" Abilities="@SelectedUnitsService.PayAttentionAbilities" />
-    }
+
 
 </div>
 
@@ -45,7 +84,7 @@
         @foreach (var unit in @SelectedUnitsService.SelectedUnits)
         {
             <a @onclick="() => SelectUnit(unit)">
-                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name"/>
+                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
             </a>
         }
         <a @onclick="() => PayAttention()">
