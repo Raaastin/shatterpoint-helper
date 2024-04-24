@@ -189,7 +189,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Riposte",
                         Type = AbilityType.Reactive,
                         Cost = 0,
-                        Text = "After a *melee* attack targetting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more Fail results, the attacking Unit suffers 2D",
+                        Text = "After a *melee* attack targetting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*",
                         Synergies = new List<Synergy>()
                         {
                         },
