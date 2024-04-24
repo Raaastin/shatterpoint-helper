@@ -272,7 +272,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Revenge, I Myst Have Revenge",
+                        Name = "Revenge, I Must Have Revenge",
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When this Unit is Wounded by a *melee* attack, after the attack is resolved, one character in this Unit may immediately *dash* and make a 5 dive *melee* attack targeting the character that Wounded it.",
