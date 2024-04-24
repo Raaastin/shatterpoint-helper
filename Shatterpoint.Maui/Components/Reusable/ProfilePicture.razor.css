@@ -14,6 +14,10 @@
     overflow: hidden;
 }
 
+.halo {
+    box-shadow: 0 0 10px 8px #6890d2;
+}
+
 .image {
     position: absolute;
     left: calc(var(--offset-left) * var(--scale));

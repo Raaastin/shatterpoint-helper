@@ -83,12 +83,12 @@
     {
         @foreach (var unit in @SelectedUnitsService.SelectedUnits)
         {
-            <a @onclick="() => SelectUnit(unit)">
-                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
+            <a @onclick="() => SelectUnit(unit)" href="@GetHref(unit.Name)">
+                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(unit.Name)" />
             </a>
         }
         <a @onclick="() => PayAttention()">
-            <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black;" alt="Op turn" src="img/card/exclamation.jpg" />
+            <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black;" alt="Op turn" src="img/card/exclamation.jpg" class="@GetHalo()" />
         </a>
     }
 </div>
@@ -96,10 +96,21 @@
 
 @code {
 
+
+    public bool PayAttentionSelected { get; set; }
+    public string GetHalo()
+    {
+        if (PayAttentionSelected)
+            return "halo";
+        else
+            return null;
+    }
+
     public void SelectUnit(Unit unit)
     {
         // Disable "pay attention" abilities
         SelectedUnitsService.PayAttentionAbilities = null;
+        PayAttentionSelected = false;
 
         var activeAbilities = SelectedUnitsService.GetAbilitiesForTheActiveUnit(unit);
         var targetedAbilities = SelectedUnitsService.GetAbilitiesForTheTargetedUnit(unit);
@@ -111,10 +122,24 @@
 
     }
 
+    public bool IsSelected(string unitName)
+    {
+        return SelectedUnitsService?.ActiveUnit?.ActiveUnit?.Name == unitName;
+    }
+
+    public string GetHref(string unitName)
+    {
+        if (IsSelected(unitName))
+            return $"/cards/{unitName}";
+        else
+            return null;
+    }
+
     public void PayAttention()
     {
         // Disable active unit:
         SelectedUnitsService.ActiveUnit = null;
+        PayAttentionSelected = true;
 
         var abilities = SelectedUnitsService.PayAttention();
         SelectedUnitsService.PayAttentionAbilities = abilities;

@@ -1,7 +1,7 @@
 ﻿@using Shatterpoint.Lib.Units;
 
 <div class="component">
-    <div class="image-cropper" style="--scale:@Scale;">
+    <div class="image-cropper @GetHalo()" style="--scale:@Scale;">
         <img class="image" style="--scale:@Scale; --offset-left:@Left; --offset-top:@Top" src="@Src" alt="@Alt" loading="lazy" />
     </div>
 </div>
@@ -20,4 +20,13 @@
     [Parameter]
     public string Scale { get; set; }
 
+    [Parameter]
+    public bool IsSelected { get; set; }
+
+    private string GetHalo()
+    {
+        if (IsSelected)
+            return "halo";
+        return string.Empty;
+    }
 }
