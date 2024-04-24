@@ -2,10 +2,9 @@
 
 .unit-selection-panel {
     position: relative;
-    height: calc(100vh - 102px - 46px); /* 100%  footer - navbar - */
+    height: calc(100vh - 117px - 46px); /* 100%  footer - navbar - */
     overflow-y: auto;
     background-color: #121212;
-    color: #b2e2d5;
 }
 
     .unit-selection-panel ul {
@@ -105,7 +104,8 @@
 .selected-unit-panel {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
+    height: 70px;
+    align-content: center;
 }
 
 .flex-auto {
