@@ -42,7 +42,7 @@ namespace Shatterpoint.Lib.Services
 
             UnitList.Add(StarterBoxFactory.Kalani());
             UnitList.Add(StarterBoxFactory.B1BAttleDroids());
-            UnitList.Add(StarterBoxFactory.AsajiVentress());
+            UnitList.Add(StarterBoxFactory.AsajjVentress());
             UnitList.Add(StarterBoxFactory.LordMaul());
             UnitList.Add(StarterBoxFactory.GarSaxon());
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
@@ -57,7 +57,7 @@ namespace Shatterpoint.Lib.Services
 #if DEBUG
             //foreach (var unit in UnitList)
             //{
-            //    unit.PictureUrl = "/img/examples/Untitled.png";
+            //    unit.StanceCardUrl1 = "/img/examples/Untitled.png";
 
             //    foreach (var item in unit.Abilities)
             //    {

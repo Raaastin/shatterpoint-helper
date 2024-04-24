@@ -147,7 +147,7 @@ namespace Shatterpoint.Lib.Services
 
         }
 
-        public static Unit AsajiVentress()
+        public static Unit AsajjVentress()
         {
             var unit = new Unit("Asajj Ventress, Sith Assassin", "Asaji Ventress", UnitType.Primary, UnitCardColor.Red)
             {
@@ -155,8 +155,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/gtbhclqv/star-wars-shatterpoint-asajj-ventress-abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/4f3chjdq/star-wars-shatterpoint-asajj-ventress-stance-one.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png",
-                KeyWords = new List<string> { KeyWords.SeparatistAlliance },
-
+                KeyWords = new List<string> { KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.NightSister, KeyWords.SeparatistAlliance },
             };
             unit.Abilities = new List<Ability>()
                 {
