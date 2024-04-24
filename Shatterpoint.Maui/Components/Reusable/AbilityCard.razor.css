@@ -53,6 +53,7 @@
         .dynamic-card-content table td .ability-type {
             height: 35px;
             width: 35px;
+            margin-bottom:5px;
         }
 
 .ability-title * {

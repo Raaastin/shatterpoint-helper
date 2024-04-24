@@ -50,13 +50,13 @@
                 {
                     <tr>
                         <td>
+                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetAbilityCard(ability)" />
                             @if (ability.Weilder.Name != @Unit?.Name)
                             {
                                 <div class="specific-ability-weilder">
                                     <ProfilePicture Scale="0.3" Top="@ability.Weilder.Top" Left="@ability.Weilder.Left" Src="@ability.Weilder.StanceCardUrl1" Alt="@ability.Weilder.Name" />
                                 </div>
                             }
-                            <img class="ability-type" alt="@ability.Type.ToString()" src="@GetAbilityCard(ability)" />
                         </td>
                         <td>
                             <div class="ability-content">
