@@ -2,7 +2,7 @@
 
 <div class="component">
     <div class="image-cropper" style="--scale:@Scale;">
-        <img class="image" style="--scale:@Scale; --offset-left:@Unit.Left; --offset-top:@Unit.Top" src="@Unit.StanceCardUrl1" alt="@Unit.Name" loading="lazy" />
+        <img class="image" style="--scale:@Scale; --offset-left:@Left; --offset-top:@Top" src="@Src" alt="@Alt" loading="lazy" />
     </div>
 </div>
 
@@ -10,7 +10,13 @@
 @code {
 
     [Parameter]
-    public Unit Unit { get; set; }
+    public string Top { get; set; }
+    [Parameter]
+    public string Left { get; set; }
+    [Parameter]
+    public string Src { get; set; }
+    [Parameter]
+    public string Alt { get; set; }
     [Parameter]
     public string Scale { get; set; }
 

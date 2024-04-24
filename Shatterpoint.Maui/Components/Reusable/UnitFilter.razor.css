@@ -1,24 +1,29 @@
 ﻿.component {
     padding: 5px;
-    background-color: lightblue;
-    border-radius: 10px;
 }
 
-.filter ul {
-    list-style: none; /* Hide dot*/
-    padding: 0;
-    margin: 0;
+.filter {
+    display: flex;
 }
 
-    .filter ul li {
-        padding: 5px
+    .filter ul {
+        flex: 1;
+        list-style: none; /* Hide dot*/
+        padding: 0;
+        margin: 0;
     }
+
+        .filter ul li {
+            padding: 5px
+        }
 
 .filter-item-input-text {
     flex: 1;
     margin-right: 5px;
     border-radius: 5px;
     height: 2rem;
+    background-color: black;
+    color: wheat;
 }
 
 .checkbox-container {
@@ -35,6 +40,7 @@
     display: flex;
     justify-content: center; /* display checked box text in the middle of its container */
     font-weight: 700;
+    color: wheat;
 }
 
 .checkbox-style-checked {
@@ -49,12 +55,12 @@
     font-weight: 700;
 }
 
+    .checkbox-style:first-child, .checkbox-style-checked:first-child {
+        margin-left: 0px;
+    }
+
 .filter-item-input-cb {
     display: none;
-}
-
-input[type="text"]:not(:placeholder-shown) {
-    background-color: orange;
 }
 
 .input-text-container {
@@ -63,18 +69,40 @@ input[type="text"]:not(:placeholder-shown) {
     align-items: center;
 }
 
-/* clear button style */
-input[type=button] {
+/* Button style */
+.button-style {
     background-color: orange; /* Couleur de fond */
-    width: 30px;
-    height: 30px;
     color: #ffffff; /* Couleur du texte */
     border: 1px solid black;
     cursor: pointer; /* Curseur de type main */
-    border-radius: 50px; /* Coins arrondis */
+    border-radius: 10px; /* Coins arrondis */
 }
-
     /* Style au survol */
-    input[type=button]:hover {
+    .button-style:hover {
         background-color: orangered; /* Couleur de fond au survol */
     }
+
+
+.input-name-clear-button {
+    width: 30px;
+    height: 30px;
+}
+
+.button-collapsed, .button-expanded {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 30px;
+    height: auto;
+}
+
+.button-collapsed {
+    background-image: url('../img/icons/expand.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.button-expanded {
+    background-image: url('../img/icons/collapse.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

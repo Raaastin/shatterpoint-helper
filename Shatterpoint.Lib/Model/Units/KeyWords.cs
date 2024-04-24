@@ -15,9 +15,9 @@
         public const string ForceUser = "Force User";
 
         public const string Scoundrel = "Scoundrel";
-        public const string ShadowCollective = "ShadowCollective";
+        public const string ShadowCollective = "Shadow Collective";
         public const string Mandalorian = "Mandalorian";
-        public const string SuperCommando = "SuperCommando";
+        public const string SuperCommando = "Super Commando";
 
         public const string _501ST = "501ST";
         public const string GalacticRepublic = "Galactic Republic";

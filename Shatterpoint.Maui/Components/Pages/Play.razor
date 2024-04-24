@@ -45,7 +45,7 @@
         @foreach (var unit in @SelectedUnitsService.SelectedUnits)
         {
             <a @onclick="() => SelectUnit(unit)">
-                <ProfilePicture Unit="unit" Scale="0.4" />
+                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name"/>
             </a>
         }
         <a @onclick="() => PayAttention()">

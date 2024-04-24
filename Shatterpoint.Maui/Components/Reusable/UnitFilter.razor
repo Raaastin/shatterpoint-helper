@@ -1,68 +1,59 @@
 ﻿@using Shatterpoint.Lib.Units
 
 <div class="component">
-    <div class="filter">
-        <ul>
-            <li>
-                <div class="input-text-container">
-                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name" @oninput="OnFieldNameChanged" @bind-value="FieldName" />
-                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldName = null; FieldNameChanged.InvokeAsync(FieldName); }" />
-                </div>
-            </li>
-            <li>
-                <div class="checkbox-container">
-                    <label class="@GetCheckboxStyle(PrimaryChecked)">
-                        Primary
-                        <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="OnPrimaryCheckClicked" />
-                    </label>
-                    <label class="@GetCheckboxStyle(SecondaryChecked)">
-                        Secondary
-                        <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="OnSecondaryCheckedClicked" />
-                    </label>
-                    <label class="@GetCheckboxStyle(SupportChecked)">
-                        Support
-                        <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="OnSupportCheckedClicked" />
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="input-text-container">
-                    <input id="input-keyword" class="filter-item-input-text" type="text" placeholder="keyword" @oninput="OnFieldKeywordChanged" @bind-value="FieldKeyword" />
-                    <input type="button" class="input-name-clear-button" @onclick="() => { FieldKeyword = null; FieldKeywordChanged.InvokeAsync(FieldKeyword); }" />
-                </div>
-            </li>
-        </ul>
-    </div>
+        <div class="filter">
+            <input type="button" class="@GetExpandedStyle(IsExpanded)" @onclick="() => { IsExpanded = !IsExpanded; }" />
+            <ul>               
+                <li>
+                    <div class="input-text-container">
+                        <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name or keyword" @oninput="OnFieldTextChanged" @bind-value="FieldText" />
+                        <input type="button" class="button-style input-name-clear-button" @onclick="() => { FieldText = null; FieldTextChanged.InvokeAsync(FieldText); }" />
+                    </div>
+                </li>
+                @if (IsExpanded)
+                {
+                    <li>
+                        <div class="checkbox-container">
+                            <label class="@GetCheckboxStyle(PrimaryChecked)">
+                                Primary
+                                <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="OnPrimaryCheckClicked" />
+                            </label>
+                            <label class="@GetCheckboxStyle(SecondaryChecked)">
+                                Secondary
+                                <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="OnSecondaryCheckedClicked" />
+                            </label>
+                            <label class="@GetCheckboxStyle(SupportChecked)">
+                                Support
+                                <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="OnSupportCheckedClicked" />
+                            </label>
+                        </div>
+                    </li>
+                } 
+            </ul>
+        </div>
 </div>
 
 
 @code {
 
-    // Filter binding explained: 
-    // input value is "FieldName"
-    // input @onclick: OnFieldNameChanged
-    // @onclick method SHALL invoke: FieldNameChanged
-    // When parent binds @bind-FieldName, the callback FieldNameChanged SHALL exists with this exact name
-    // The parent binds one of its properties with the result of FieldNameChanged event.
+    [Parameter]
+    public bool IsExpanded { get; set; } = false;
+
+    // Filter binding explained:
+    // input value is "FieldText"
+    // input @onclick: OnFieldTextChanged
+    // @onclick method SHALL invoke: FieldTextChanged
+    // When parent binds @bind-FieldText, the callback FieldTextChanged SHALL exists with this exact name
+    // The parent binds one of its properties with the result of FieldTextChanged event.
 
     [Parameter]
-    public string FieldName { get; set; }
+    public string FieldText { get; set; }
     [Parameter]
-    public EventCallback<string> FieldNameChanged { get; set; }
-    private Task OnFieldNameChanged(ChangeEventArgs e)
+    public EventCallback<string> FieldTextChanged { get; set; }
+    private Task OnFieldTextChanged(ChangeEventArgs e)
     {
-        FieldName = e.Value.ToString();
-        return FieldNameChanged.InvokeAsync(FieldName);
-    }
-
-    [Parameter]
-    public string FieldKeyword { get; set; }
-    [Parameter]
-    public EventCallback<string> FieldKeywordChanged { get; set; }
-    private Task OnFieldKeywordChanged(ChangeEventArgs e)
-    {
-        FieldKeyword = e.Value.ToString();
-        return FieldKeywordChanged.InvokeAsync(FieldKeyword);
+        FieldText = e.Value.ToString();
+        return FieldTextChanged.InvokeAsync(FieldText);
     }
 
     [Parameter]
@@ -101,5 +92,12 @@
             return "checkbox-style-checked";
         else
             return "checkbox-style";
+    }
+
+    public string GetExpandedStyle(bool isExpanded){
+        if(isExpanded)
+            return "button-style button-expanded";
+        else
+            return "button-style button-collapsed";
     }
 }

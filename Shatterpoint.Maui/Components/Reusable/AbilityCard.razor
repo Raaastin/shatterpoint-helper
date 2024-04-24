@@ -11,7 +11,7 @@
                 <td>
                     @if (@Unit is not null)
                     {
-                        <ProfilePicture Unit="@Unit" Scale="0.5" />
+                        <ProfilePicture Scale="0.5" Top="@Unit.Top" Left="@Unit.Left" Src="@Unit.StanceCardUrl1" Alt="@Unit.Name"/>
                     }
                     else if (IsActive is null)
                     {
@@ -53,7 +53,7 @@
                             @if (ability.Weilder.Name != @Unit?.Name)
                             {
                                 <div class="specific-ability-weilder">
-                                    <ProfilePicture Unit="@ability.Weilder" Scale="0.3" />
+                                    <ProfilePicture Scale="0.3" Top="@ability.Weilder.Top" Left="@ability.Weilder.Left" Src="@ability.Weilder.StanceCardUrl1" Alt="@ability.Weilder.Name" />
                                 </div>
                             }
                             <img class="ability-type" alt="@ability.Type.ToString()" src="@GetAbilityCard(ability)" />
