@@ -2,12 +2,22 @@
 
 
 <div class="component">
-    <div class="dashed-circle" style="--scale:@Scale;" />
+    <div class="@GetHalo()" style="--scale:@Scale;" />
 </div>
 
 @code {
 
     [Parameter]
+    public bool IsSelected { get; set; }
+
+    [Parameter]
     public string Scale { get; set; }
 
+
+    private string GetHalo()
+    {
+        if (IsSelected)
+            return "dashed-circle halo";
+        return "dashed-circle";
+    }
 }

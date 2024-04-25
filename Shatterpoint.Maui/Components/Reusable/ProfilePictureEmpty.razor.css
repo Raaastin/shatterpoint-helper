@@ -12,3 +12,7 @@
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
+
+.halo {
+    box-shadow: 0 0 10px 8px #6890d2;
+}
