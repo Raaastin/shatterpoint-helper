@@ -12,7 +12,7 @@ namespace Shatterpoint.Lib.Services
         /// <summary>
         /// Unit selected to play
         /// </summary>
-        public List<Unit> SelectedUnits { get; set; }
+        public Unit[] UnitSelectionArray { get; set; }
 
         /// <summary>
         /// Current active unit and compatible abilities
@@ -31,7 +31,7 @@ namespace Shatterpoint.Lib.Services
         /// </summary>
         public SelectedUnitsService()
         {
-            SelectedUnits = [];
+            UnitSelectionArray = new Unit[6];
         }
 
         #endregion
@@ -44,7 +44,10 @@ namespace Shatterpoint.Lib.Services
         /// </summary>
         public void ClearSelectedUnits()
         {
-            SelectedUnits.Clear();
+            for (int i = 0; i < 6; i++)
+            {
+                UnitSelectionArray[i] = null;
+            }
             ActiveUnit = null;
         }
 
@@ -52,18 +55,18 @@ namespace Shatterpoint.Lib.Services
         /// Add a unit to the selection
         /// </summary>
         /// <param name="unit"></param>
-        public void AddUnit(Unit unit)
+        public void AddUnit(Unit unit, int index)
         {
-            SelectedUnits.Add(unit);
+            UnitSelectionArray[index] = unit;
         }
 
         /// <summary>
         /// Remove a unit from the selection
         /// </summary>
         /// <param name="unit"></param>
-        public void RemoveUnit(Unit unit)
+        public void RemoveUnit(int index)
         {
-            SelectedUnits.Remove(unit);
+            UnitSelectionArray[index] = null;
         }
 
         /// <summary>
@@ -82,7 +85,7 @@ namespace Shatterpoint.Lib.Services
 
             // Add abilities from other units: Reactive, Inate (then order
             var synergyAbilities = new List<Ability>();
-            foreach (var ally in SelectedUnits.Where(x => x is not null && x.Name != unit.Name))
+            foreach (var ally in UnitSelectionArray.Where(x => x is not null && x.Name != unit.Name))
             {
                 foreach (var ability in ally.Abilities.Where(x =>
                     (x.Timing.Contains(Timing.AnotherActive)) &&
@@ -117,14 +120,14 @@ namespace Shatterpoint.Lib.Services
             result.AddRange(unit.Abilities.Where(x => x.Timing.Contains(Timing.Targeted)));
 
             // Ability from other units for when getting targeted
-            foreach (var ally in SelectedUnits.Where(x => x is not null && x.Name != unit.Name))
+            foreach (var ally in UnitSelectionArray.Where(x => x is not null && x.Name != unit.Name))
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.AlliedTargeted)))
                 {
                     if (ability.Synergies.Any(x =>
                         (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
                         (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) // Synergy by Keyword                        
-                    ) || 
+                    ) ||
                     ability.Synergies.Count == 0) // case: all allies synergy
                     {
                         result.Add(ability);
@@ -145,7 +148,7 @@ namespace Shatterpoint.Lib.Services
         {
             var result = new List<Ability>();
 
-            foreach (var ally in SelectedUnits)
+            foreach (var ally in UnitSelectionArray)
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.Opponent)))
                 {

@@ -34,25 +34,27 @@
 </div>
 
 <div class="footer">
-    <UnitFilter @bind-FieldText="FieldText"
+    <UnitFilter @ref="FilterItem" @bind-FieldText="FieldText"
                 @bind-PrimaryChecked="PrimaryChecked"
                 @bind-SecondaryChecked="SecondaryChecked"
-                @bind-SupportChecked="SupportChecked">
+                @bind-SupportChecked="SupportChecked"
+                OnFilterChanged="HandleFieldChanged">
     </UnitFilter>
     <div class="selected-unit-panel">
         @for (int i = 0; i < 6; i++)
         {
-            @if (@SelectedUnitsService.SelectedUnits.Count > i)
+            int buffer = i;
+            var unit = SelectedUnitsService.UnitSelectionArray[i];
+            @if (unit is not null)
             {
-                var unit = SelectedUnitsService.SelectedUnits[i];
                 <div class="flex-auto">
                     <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                 </div>
             }
             else
             {
-                <div class="flex-auto">
-                    <ProfilePictureEmpty Scale="0.4" />
+                <div class="flex-auto" @onclick="() => OnEmptyClick(buffer)">
+                    <ProfilePictureEmpty Scale="0.4" IsSelected="@IsSelected(buffer)" />
                 </div>
             }
         }
@@ -66,7 +68,6 @@
 </div>
 
 @code {
-
     public string FieldText { get; set; }
     public bool PrimaryChecked { get; set; } = true;
     public bool SecondaryChecked { get; set; } = true;
@@ -84,34 +85,106 @@
         return sb.ToString();
     }
 
+    UnitFilter FilterItem;
+
     public void ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();
+        SelectedIndex = -1;
     }
 
     public string GetClass(string name)
     {
-        var selectedUnits = SelectedUnitsService.SelectedUnits;
+        var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
-        if (selectedUnits.Any(x => x.Name == name))
+        if (selectedUnits.Any(x => x?.Name == name))
             return "row-selected";
         else
             return "row-not-selected";
     }
 
+    public bool IsSelected(int index)
+    {
+        return index == SelectedIndex;
+    }
+
+    private void RemoveUnitFromSelectionArray(Unit unit)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (SelectedUnitsService.UnitSelectionArray[i]?.Name == unit.Name)
+                SelectedUnitsService.UnitSelectionArray[i] = null;
+        }
+    }
+
+    public int SelectedIndex { get; set; } = -1;
+
+    public void OnEmptyClick(int index)
+    {
+        // Case: select
+        if (SelectedIndex != index)
+        {
+            SelectedIndex = index;
+
+            // Filter
+            PrimaryChecked = index == 0 || index == 3;
+            SecondaryChecked = index == 1 || index == 4;
+            SupportChecked = index == 2 || index == 5;
+        }
+        // Case: unselect
+        else
+        {
+            SelectedIndex = -1;
+            FilterItem.OnClear();
+        }
+
+    }
+
+    public void HandleFieldChanged(bool changed)
+    {
+        SelectedIndex = -1;
+    }
+
+    private void AddUnitToSelectionArray(Unit unit)
+    {
+        // Add unit to the unit selection
+        switch (unit.Type)
+        {
+            case UnitType.Primary:
+                if (SelectedUnitsService.UnitSelectionArray[0] is null && SelectedIndex != 3)
+                    SelectedUnitsService.UnitSelectionArray[0] = unit;
+                else
+                    SelectedUnitsService.UnitSelectionArray[3] = unit;
+                break;
+            case UnitType.Secondary:
+                if (SelectedUnitsService.UnitSelectionArray[1] is null && SelectedIndex != 4)
+                    SelectedUnitsService.UnitSelectionArray[1] = unit;
+                else
+                    SelectedUnitsService.UnitSelectionArray[4] = unit;
+                break;
+            case UnitType.Support:
+                if (SelectedUnitsService.UnitSelectionArray[2] is null && SelectedIndex != 5)
+                    SelectedUnitsService.UnitSelectionArray[2] = unit;
+                else
+                    SelectedUnitsService.UnitSelectionArray[5] = unit;
+                break;
+        }
+    }
+
     public void AddUnit(string unitName)
     {
-        var selectedUnits = SelectedUnitsService.SelectedUnits;
+        var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
         // Case: Already exists => remove from the selection
-        var unitFound = selectedUnits.Where(x => x.Name == unitName).FirstOrDefault();
+        var unitFound = selectedUnits.Where(x => x?.Name == unitName).FirstOrDefault();
         if (unitFound is not null)
         {
-            SelectedUnitsService.RemoveUnit(unitFound);
+            SelectedUnitsService.RemoveUnit(Array.IndexOf(selectedUnits, unitFound));
             if (unitName == SelectedUnitsService.ActiveUnit?.ActiveUnit?.Name)
             {
                 SelectedUnitsService.ActiveUnit = null;
             }
+            RemoveUnitFromSelectionArray(unitFound);
             return;
         }
 
@@ -120,13 +193,13 @@
         if (unit is null)
             return;
 
-        // Case: array full => do nothing
-        var notFull = selectedUnits.Count() < 6;
-        if (!notFull)
+        // Case: Unit type full
+        if (SelectedUnitsService.UnitSelectionArray.Where(x => x?.Type == unit.Type).Count() >= 2)
             return;
 
         // Case: nominal => add Unit to the selection
-        SelectedUnitsService.AddUnit(unit);
+        AddUnitToSelectionArray(unit);
+        SelectedIndex = -1;
     }
 
     private List<Unit> GetFilteredList(List<Unit> source)
