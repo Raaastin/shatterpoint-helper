@@ -44,7 +44,7 @@
         @for (int i = 0; i < 6; i++)
         {
             int buffer = i;
-            var unit = UnitSelectionArray[i];
+            var unit = SelectedUnitsService.UnitSelectionArray[i];
             @if (unit is not null)
             {
                 <div class="flex-auto">
@@ -68,8 +68,6 @@
 </div>
 
 @code {
-    public Unit[] UnitSelectionArray { get; set; } = new Unit[6];
-
     public string FieldText { get; set; }
     public bool PrimaryChecked { get; set; } = true;
     public bool SecondaryChecked { get; set; } = true;
@@ -92,15 +90,14 @@
     public void ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();
-        UnitSelectionArray = new Unit[6];
         SelectedIndex = -1;
     }
 
     public string GetClass(string name)
     {
-        var selectedUnits = SelectedUnitsService.SelectedUnits;
+        var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
-        if (selectedUnits.Any(x => x.Name == name))
+        if (selectedUnits.Any(x => x?.Name == name))
             return "row-selected";
         else
             return "row-not-selected";
@@ -115,8 +112,8 @@
     {
         for (int i = 0; i < 6; i++)
         {
-            if (UnitSelectionArray[i]?.Name == unit.Name)
-                UnitSelectionArray[i] = null;
+            if (SelectedUnitsService.UnitSelectionArray[i]?.Name == unit.Name)
+                SelectedUnitsService.UnitSelectionArray[i] = null;
         }
     }
 
@@ -154,35 +151,35 @@
         switch (unit.Type)
         {
             case UnitType.Primary:
-                if (UnitSelectionArray[0] is null && SelectedIndex != 3)
-                    UnitSelectionArray[0] = unit;
+                if (SelectedUnitsService.UnitSelectionArray[0] is null && SelectedIndex != 3)
+                    SelectedUnitsService.UnitSelectionArray[0] = unit;
                 else
-                    UnitSelectionArray[3] = unit;
+                    SelectedUnitsService.UnitSelectionArray[3] = unit;
                 break;
             case UnitType.Secondary:
-                if (UnitSelectionArray[1] is null && SelectedIndex != 4)
-                    UnitSelectionArray[1] = unit;
+                if (SelectedUnitsService.UnitSelectionArray[1] is null && SelectedIndex != 4)
+                    SelectedUnitsService.UnitSelectionArray[1] = unit;
                 else
-                    UnitSelectionArray[4] = unit;
+                    SelectedUnitsService.UnitSelectionArray[4] = unit;
                 break;
             case UnitType.Support:
-                if (UnitSelectionArray[2] is null && SelectedIndex != 5)
-                    UnitSelectionArray[2] = unit;
+                if (SelectedUnitsService.UnitSelectionArray[2] is null && SelectedIndex != 5)
+                    SelectedUnitsService.UnitSelectionArray[2] = unit;
                 else
-                    UnitSelectionArray[5] = unit;
+                    SelectedUnitsService.UnitSelectionArray[5] = unit;
                 break;
         }
     }
 
     public void AddUnit(string unitName)
     {
-        var selectedUnits = SelectedUnitsService.SelectedUnits;
+        var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
         // Case: Already exists => remove from the selection
-        var unitFound = selectedUnits.Where(x => x.Name == unitName).FirstOrDefault();
+        var unitFound = selectedUnits.Where(x => x?.Name == unitName).FirstOrDefault();
         if (unitFound is not null)
         {
-            SelectedUnitsService.RemoveUnit(unitFound);
+            SelectedUnitsService.RemoveUnit(Array.IndexOf(selectedUnits, unitFound));
             if (unitName == SelectedUnitsService.ActiveUnit?.ActiveUnit?.Name)
             {
                 SelectedUnitsService.ActiveUnit = null;
@@ -197,17 +194,10 @@
             return;
 
         // Case: Unit type full
-        if (UnitSelectionArray.Where(x => x is not null && x.Type == unit.Type).Count() >= 2)
-            return;
-
-
-        // Case: array full => do nothing
-        var notFull = selectedUnits.Count() < 6;
-        if (!notFull)
+        if (SelectedUnitsService.UnitSelectionArray.Where(x => x?.Type == unit.Type).Count() >= 2)
             return;
 
         // Case: nominal => add Unit to the selection
-        SelectedUnitsService.AddUnit(unit);
         AddUnitToSelectionArray(unit);
         SelectedIndex = -1;
     }

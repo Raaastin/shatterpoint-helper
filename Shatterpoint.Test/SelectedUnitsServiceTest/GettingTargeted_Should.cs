@@ -13,12 +13,12 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             db = new();
             selectedUnitsService = new();
 
-            selectedUnitsService.AddUnit(db.Get("Kalani, Super Tactical Robot"));
-            selectedUnitsService.AddUnit(db.Get("B1 Battle Droids"));
-            selectedUnitsService.AddUnit(db.Get("Asaji Ventress, Sith Assassin"));
-            selectedUnitsService.AddUnit(db.Get("Lord Maul"));
-            selectedUnitsService.AddUnit(db.Get("Gar Saxon, Merciless Commander"));
-            selectedUnitsService.AddUnit(db.Get("Mandalorian Super Commandos"));
+            selectedUnitsService.AddUnit(db.Get("Kalani, Super Tactical Robot"), 0);
+            selectedUnitsService.AddUnit(db.Get("B1 Battle Droids"), 1);
+            selectedUnitsService.AddUnit(db.Get("Asaji Ventress, Sith Assassin"), 2);
+            selectedUnitsService.AddUnit(db.Get("Lord Maul"), 3);
+            selectedUnitsService.AddUnit(db.Get("Gar Saxon, Merciless Commander"), 4);
+            selectedUnitsService.AddUnit(db.Get("Mandalorian Super Commandos"), 5);
         }
 
         [Fact]

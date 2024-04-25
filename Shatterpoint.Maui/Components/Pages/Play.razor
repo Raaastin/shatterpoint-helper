@@ -12,7 +12,7 @@
 @* Panel scrollable *@
 <div class="scrollable">
     @* Case: List is empty *@
-    @if (!@SelectedUnitsService.SelectedUnits.Any())
+    @if (!@SelectedUnitsService.UnitSelectionArray.Any(x => x is not null))
     {
         <p style="color: wheat; padding: 5px;">
             Select up to 6 units in the unit selection tab, then comme back here to enable the feature.
@@ -74,23 +74,15 @@
 
 @* Fixed unit selection*@
 <div class="selected-pp footer">
-
-    @if (!@SelectedUnitsService.SelectedUnits.Any())
+    @foreach (var unit in @SelectedUnitsService.UnitSelectionArray.Where(x => x is not null))
     {
-        <p>There is no selected unit. Visit /build/index to select your 6 units</p>
-    }
-    else
-    {
-        @foreach (var unit in @SelectedUnitsService.SelectedUnits)
-        {
-            <a @onclick="() => SelectUnit(unit)" href="@GetHref(unit.Name)">
-                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(unit.Name)" />
-            </a>
-        }
-        <a @onclick="() => PayAttention()">
-            <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black;" alt="Op turn" src="img/card/exclamation.jpg" class="@GetHalo()" />
+        <a @onclick="() => SelectUnit(unit)" href="@GetHref(unit.Name)">
+            <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(unit.Name)" />
         </a>
     }
+    <a @onclick="() => PayAttention()">
+        <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black;" alt="Op turn" src="img/card/exclamation.jpg" class="@GetHalo()" />
+    </a>
 </div>
 
 

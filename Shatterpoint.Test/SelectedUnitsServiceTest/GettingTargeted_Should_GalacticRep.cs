@@ -13,12 +13,12 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             db = new();
             selectedUnitsService = new();
 
-            selectedUnitsService.AddUnit(db.Get("General Anakin Skywalker"));
-            selectedUnitsService.AddUnit(db.Get("CC-7567 Captain Rex"));
-            selectedUnitsService.AddUnit(db.Get("CC501st Clone Troopers"));
-            selectedUnitsService.AddUnit(db.Get("Ahsoka Tano, Jedi no more"));
-            selectedUnitsService.AddUnit(db.Get("Bo-Katan Kryze"));
-            selectedUnitsService.AddUnit(db.Get("Clan Kryze Mandalorians"));
+            selectedUnitsService.AddUnit(db.Get("General Anakin Skywalker"), 0);
+            selectedUnitsService.AddUnit(db.Get("CC-7567 Captain Rex"), 1);
+            selectedUnitsService.AddUnit(db.Get("CC501st Clone Troopers"), 2);
+            selectedUnitsService.AddUnit(db.Get("Ahsoka Tano, Jedi no more"), 3);
+            selectedUnitsService.AddUnit(db.Get("Bo-Katan Kryze"), 4);
+            selectedUnitsService.AddUnit(db.Get("Clan Kryze Mandalorians"), 5);
         }
 
         [Fact]
