@@ -108,6 +108,10 @@
         if (unitFound is not null)
         {
             SelectedUnitsService.RemoveUnit(unitFound);
+            if (unitName == SelectedUnitsService.ActiveUnit?.ActiveUnit?.Name)
+            {
+                SelectedUnitsService.ActiveUnit = null;
+            }
             return;
         }
 

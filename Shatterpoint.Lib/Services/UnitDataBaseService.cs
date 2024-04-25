@@ -37,12 +37,11 @@ namespace Shatterpoint.Lib.Services
         /// </summary>
         private void InitStarterBox()
         {
-            if (UnitList is null)
-                UnitList = new();
+            UnitList ??= [];
 
             UnitList.Add(StarterBoxFactory.Kalani());
             UnitList.Add(StarterBoxFactory.B1BAttleDroids());
-            UnitList.Add(StarterBoxFactory.AsajiVentress());
+            UnitList.Add(StarterBoxFactory.AsajjVentress());
             UnitList.Add(StarterBoxFactory.LordMaul());
             UnitList.Add(StarterBoxFactory.GarSaxon());
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
@@ -57,10 +56,14 @@ namespace Shatterpoint.Lib.Services
 #if DEBUG
             //foreach (var unit in UnitList)
             //{
-            //    unit.PictureUrl = "/img/examples/Untitled.png";
+            //    unit.StanceCardUrl1 = "/img/examples/Untitled.png";
+            //    unit.StanceCardUrl2 = "/img/examples/Untitled.png";
+            //    unit.MainCardUrl = "/img/examples/Untitled.png";
+            //    unit.AbilityCardUrl = "/img/examples/Untitled.png";
 
             //    foreach (var item in unit.Abilities)
             //    {
+            //        item.Name = "Lorem ipsum dolor sit amet";
             //        item.Cost = 0;
             //        item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
             //    }

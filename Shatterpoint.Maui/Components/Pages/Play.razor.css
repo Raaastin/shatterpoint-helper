@@ -116,3 +116,9 @@
     margin-bottom: 8px;
     vertical-align: top;
 }
+
+
+/* Other */
+.halo {
+    box-shadow: 0 0 10px 8px #6890d2;
+}

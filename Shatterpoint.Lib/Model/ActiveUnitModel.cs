@@ -15,10 +15,10 @@ namespace Shatterpoint.Lib.Model
         /// <summary>
         /// All abilities available when this unit is active
         /// </summary>
-        public List<Ability> CurrentActivationSynergies { get; set; } = new List<Ability>();
+        public List<Ability> CurrentActivationSynergies { get; set; } = [];
         /// <summary>
         /// All abilities available when this unit is targeted
         /// </summary>
-        public List<Ability> GettingTargetedSynegies { get; set; } = new List<Ability>();
+        public List<Ability> GettingTargetedSynegies { get; set; } = [];
     }
 }
