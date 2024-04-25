@@ -44,9 +44,7 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\mipmap\appicon.svg">
-          <Color>#512BD4</Color>
-          <ForegroundFile>Resources\AppIcon\appiconfg.svg</ForegroundFile>
+        <MauiIcon Include="Resources\mipmap\appicon.png">
         </MauiIcon>
 
         <!-- Splash Screen -->
