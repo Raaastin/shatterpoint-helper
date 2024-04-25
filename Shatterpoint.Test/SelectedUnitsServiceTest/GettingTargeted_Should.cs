@@ -61,7 +61,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 
             // Arrange
             Assert.Single(result);
-            Assert.Equal("Revenge, I Myst Have Revenge", result[0].Name);
+            Assert.Equal("Revenge, I Must Have Revenge", result[0].Name);
         }
 
         [Fact]
