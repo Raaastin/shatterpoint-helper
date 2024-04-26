@@ -1,4 +1,17 @@
+.main-color {
+    background-color: #121212;
+}
 
+.tab-selected {
+    background-color: #252530;
+    border-top: 1px solid lightslategrey;
+    border-right: 1px solid lightslategrey;
+    border-left: 1px solid lightslategrey;
+}
+
+.tab-not-selected {
+    border-bottom: 1px solid lightslategrey;
+}
 
 .flex {
     display: flex;
@@ -7,11 +20,23 @@
 
     .flex .flex-auto {
         flex: auto;
-        border: 1px dotted orange;
-        margin: 5px;
+        padding: 5px;
     }
 
 img.units-icon {
     width: 35px;
     height: 35px;
+}
+
+div.page-title {
+    display: none;
+}
+
+div.page-title-selected {
+    display: block;
+    color: wheat;
+    font-weight: 700;
+    padding: 5px;
+    background-color: #252530;
+    border-bottom: 1px dashed lightslategrey;
 }
