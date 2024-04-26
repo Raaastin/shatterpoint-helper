@@ -148,7 +148,7 @@ namespace Shatterpoint.Lib.Services
                                 Type = UnitType.Support,
                                 KeyWords = [KeyWords.CloneTrooper]
                             }],
-                        Timing = [Timing.End]
+                        Timing = [Timing.Start]
                     }
                 ];
             return unit;
