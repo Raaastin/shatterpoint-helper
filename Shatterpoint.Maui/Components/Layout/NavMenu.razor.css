@@ -7,6 +7,7 @@
     border-top: 1px solid lightslategrey;
     border-right: 1px solid lightslategrey;
     border-left: 1px solid lightslategrey;
+    box-shadow: 0 0px 25px 1px #6890d2
 }
 
 .tab-not-selected {
