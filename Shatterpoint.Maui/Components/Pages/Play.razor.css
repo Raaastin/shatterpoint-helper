@@ -34,7 +34,7 @@
 
 .scrollable {
     position: relative;
-    height: calc(100vh - 70px - 46px); /* 100% - footer - navbar*/
+    height: calc(100vh - 70px - 75px); /* 100% - footer - navbar*/
     overflow-y: auto;
 }
 
