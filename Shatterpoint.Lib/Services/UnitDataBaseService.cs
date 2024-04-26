@@ -53,6 +53,11 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.BoKatanKryze());
             UnitList.Add(StarterBoxFactory.ClanKryzeMandalorians());
 
+
+            UnitList.Add(ThisPartyIsOverFactory.MaceWindu());
+            UnitList.Add(ThisPartyIsOverFactory.CommanderPonds());
+            UnitList.Add(ThisPartyIsOverFactory.ArfTrooper());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{

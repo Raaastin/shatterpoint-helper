@@ -28,6 +28,7 @@
         public const string NiteOwls = "Nite Owls";
 
         public const string DeathWatch = "Death Watch";
+        public const string CloneCommando = "Clone Commando";
 
         /// <summary>
         /// All available keywords
@@ -37,7 +38,8 @@
             BattleDroid, Droid, SeparatistAlliance, 
             Dathomirian,
             NightSister, ForceUser, Scoundrel, ShadowCollective, Mandalorian, SuperCommando,
-            _501ST, GalacticRepublic, Jedi, CloneTrooper, ClanKryze, NiteOwls, DeathWatch, Trooper
+            _501ST, GalacticRepublic, Jedi, CloneTrooper, ClanKryze, NiteOwls, DeathWatch, Trooper,
+            CloneCommando
         };
     }
 }
