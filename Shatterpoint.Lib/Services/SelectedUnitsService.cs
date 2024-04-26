@@ -148,7 +148,7 @@ namespace Shatterpoint.Lib.Services
         {
             var result = new List<Ability>();
 
-            foreach (var ally in UnitSelectionArray)
+            foreach (var ally in UnitSelectionArray.Where(x => x is not null))
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.Opponent)))
                 {
