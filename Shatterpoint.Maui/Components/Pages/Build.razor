@@ -10,7 +10,8 @@
 
 <div class="unit-selection-panel">
     <ul>
-        <Virtualize Items="@GetFilteredList(UnitDataBaseService.UnitList)" Context="unit">
+        @foreach (var unit in UnitDataBaseService.UnitList)
+        {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
                 <li class="@GetClass(unit.Name)">
@@ -29,7 +30,7 @@
                     </div>
                 </li>
             }
-        </Virtualize>
+        }
     </ul>
 </div>
 
