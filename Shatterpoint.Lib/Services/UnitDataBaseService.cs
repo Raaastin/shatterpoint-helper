@@ -58,6 +58,10 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(ThisPartyIsOverFactory.CommanderPonds());
             UnitList.Add(ThisPartyIsOverFactory.ArfTrooper());
 
+            UnitList.Add(WeAreBraveFactory.QueenPadmé());
+            UnitList.Add(WeAreBraveFactory.Sabé());
+            UnitList.Add(WeAreBraveFactory.NabooHandmainden());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{

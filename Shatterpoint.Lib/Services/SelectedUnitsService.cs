@@ -126,8 +126,9 @@ namespace Shatterpoint.Lib.Services
                 {
                     if (ability.Synergies.Any(x =>
                         (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) // Synergy by Keyword                        
-                    ) ||
+                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
+                        ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        ) ||
                     ability.Synergies.Count == 0) // case: all allies synergy
                     {
                         result.Add(ability);

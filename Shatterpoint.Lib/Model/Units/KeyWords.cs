@@ -30,6 +30,8 @@
         public const string DeathWatch = "Death Watch";
         public const string CloneCommando = "Clone Commando";
 
+        public const string Handmaiden = "Handmaiden";
+
         /// <summary>
         /// All available keywords
         /// </summary>
