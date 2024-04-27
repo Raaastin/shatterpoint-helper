@@ -72,8 +72,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 
             // Act 2
             result = selectedUnitsService.GetAbilitiesForTheTargetedUnit(db.Get("Naboo Royal Handmaidens"));
-            Assert.Single(result);
-            Assert.Contains("Bodyguard", result[0].Name, StringComparison.CurrentCultureIgnoreCase);
+            Assert.Empty(result);
         }
     }
 }

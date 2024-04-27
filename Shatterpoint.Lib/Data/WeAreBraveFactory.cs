@@ -187,7 +187,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Expose Flank",
                         Type = AbilityType.Active,
                         Cost = 1,
-                        Text = "AtEach character in this Unit may *climb*. If any character ends this movement at a higher elevation than it began, characters in this Unit have Sharpshooter [1] until the end of the Turn and this Unit immediately makes a focus action.\r\n\r\n",
+                        Text = "Each character in this Unit may *climb*. If any character ends this movement at a higher elevation than it began, characters in this Unit have Sharpshooter [1] until the end of the Turn and this Unit immediately makes a focus action.",
                         Synergies =
                         [
                             new Synergy()
@@ -223,7 +223,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Intercede",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "While this Unit is not Wounded, enemy characters Engaged with one or more characters in this Unit cannot target allied Primary characters or allied Secondary characters with attacks.\r\n\r\n",
+                        Text = "While this Unit is not Wounded, enemy characters Engaged with one or more characters in this Unit cannot target allied Primary characters or allied Secondary characters with attacks.",
                         Synergies = [
                             new Synergy(){
                                 Type = UnitType.Primary,

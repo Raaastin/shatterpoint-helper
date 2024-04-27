@@ -62,6 +62,10 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(WeAreBraveFactory.Sabé());
             UnitList.Add(WeAreBraveFactory.NabooHandmainden());
 
+            UnitList.Add(AppetiteForDestructionFactory.Grievous());
+            UnitList.Add(AppetiteForDestructionFactory.Kraken());
+            UnitList.Add(AppetiteForDestructionFactory.B2BAttleDroids());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{
