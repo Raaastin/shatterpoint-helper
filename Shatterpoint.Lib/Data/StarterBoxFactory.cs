@@ -97,7 +97,7 @@ namespace Shatterpoint.Lib.Services
                 MainCardUrl = "https://shatterpointdb.com/media/arpd4hfq/star-wars-shatterpoint-b1-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/xf5l5vmw/star-wars-shatterpoint-b1-abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/bi4hxev0/b1-stance-card.png",
-                KeyWords = [KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper],
+                KeyWords = [KeyWords.B1, KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper],
             };
 
             unit.Abilities =

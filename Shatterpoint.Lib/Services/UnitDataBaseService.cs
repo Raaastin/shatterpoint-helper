@@ -53,6 +53,19 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(StarterBoxFactory.BoKatanKryze());
             UnitList.Add(StarterBoxFactory.ClanKryzeMandalorians());
 
+
+            UnitList.Add(ThisPartyIsOverFactory.MaceWindu());
+            UnitList.Add(ThisPartyIsOverFactory.CommanderPonds());
+            UnitList.Add(ThisPartyIsOverFactory.ArfTrooper());
+
+            UnitList.Add(WeAreBraveFactory.QueenPadmé());
+            UnitList.Add(WeAreBraveFactory.Sabé());
+            UnitList.Add(WeAreBraveFactory.NabooHandmainden());
+
+            UnitList.Add(AppetiteForDestructionFactory.Grievous());
+            UnitList.Add(AppetiteForDestructionFactory.Kraken());
+            UnitList.Add(AppetiteForDestructionFactory.B2BAttleDroids());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{
