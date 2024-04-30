@@ -182,7 +182,7 @@
     {
         var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
-        // Case: Already exists => remove from the selection
+        // Case: Already exists => Remove from the selection
         var unitFound = selectedUnits.Where(x => x?.Name == unitName).FirstOrDefault();
         if (unitFound is not null)
         {
@@ -195,20 +195,24 @@
             return;
         }
 
+
         // Case: this name unit does not exist => do nothing
         var unit = UnitDataBaseService.UnitList.FirstOrDefault(x => x.Name == unitName);
         if (unit is null)
             return;
 
+
+        // Case: Only if a slot is selected: replace the slot.
+        if (SelectedIndex >= 0)
+        {
+            SelectedUnitsService.UnitSelectionArray[SelectedIndex] = unit;
+            SelectedIndex = -1;
+            return;
+        }
+
         // Case: Unit type full
         if (SelectedUnitsService.UnitSelectionArray.Where(x => x?.Type == unit.Type).Count() >= 2)
         {
-            // Case: Only if a slot is selected: replace the slot.
-            if (SelectedIndex >= 0)
-            {
-                SelectedUnitsService.UnitSelectionArray[SelectedIndex] = unit;
-                SelectedIndex = -1;
-            }
             return;
         }
 
