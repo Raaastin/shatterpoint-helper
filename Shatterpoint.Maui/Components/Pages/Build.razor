@@ -46,18 +46,17 @@
         {
             int buffer = i;
             var unit = SelectedUnitsService.UnitSelectionArray[i];
-            @if (unit is not null)
-            {
-                <div class="flex-auto">
-                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
-                </div>
-            }
-            else
-            {
-                <div class="flex-auto" @onclick="() => OnEmptyClick(buffer)">
+            <div class="flex-auto" @onclick="() => OnEmptyClick(buffer)">
+                @if (unit is not null)
+                {
+                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(buffer)" />
+                }
+                else
+                {
                     <ProfilePictureEmpty Scale="0.4" IsSelected="@IsSelected(buffer)" />
-                </div>
-            }
+
+                }
+            </div>
         }
 
         <div class="flex-auto">
@@ -106,7 +105,7 @@
 
     public string IsSelectable(UnitType type)
     {
-        if (SelectedUnitsService.UnitSelectionArray.Count(x => x is not null && x.Type == type) >= 2)
+        if (SelectedUnitsService.UnitSelectionArray.Count(x => x is not null && x.Type == type) >= 2 && SelectedIndex == -1)
             return "not-selectable";
         return null;
     }
@@ -203,7 +202,15 @@
 
         // Case: Unit type full
         if (SelectedUnitsService.UnitSelectionArray.Where(x => x?.Type == unit.Type).Count() >= 2)
+        {
+            // Case: Only if a slot is selected: replace the slot.
+            if (SelectedIndex >= 0)
+            {
+                SelectedUnitsService.UnitSelectionArray[SelectedIndex] = unit;
+                SelectedIndex = -1;
+            }
             return;
+        }
 
         // Case: nominal => add Unit to the selection
         AddUnitToSelectionArray(unit);
