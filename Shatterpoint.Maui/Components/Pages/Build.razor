@@ -14,7 +14,7 @@
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
-                <li class="@GetClass(unit.Name)">
+                <li class="@GetClass(unit.Name, unit.Type)">
                     <a @onclick="() => AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
@@ -94,14 +94,21 @@
         SelectedIndex = -1;
     }
 
-    public string GetClass(string name)
+    public string GetClass(string name, UnitType type)
     {
         var selectedUnits = SelectedUnitsService.UnitSelectionArray;
 
         if (selectedUnits.Any(x => x?.Name == name))
             return "row-selected";
         else
-            return "row-not-selected";
+            return "row-not-selected " + IsSelectable(type);
+    }
+
+    public string IsSelectable(UnitType type)
+    {
+        if (SelectedUnitsService.UnitSelectionArray.Count(x => x is not null && x.Type == type) >= 2)
+            return "not-selectable";
+        return null;
     }
 
     public bool IsSelected(int index)
