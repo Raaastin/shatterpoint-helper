@@ -236,14 +236,23 @@
         await File.WriteAllTextAsync(fullPath, SelectedUnitsService.UnitSelectionArray.ToJson());
     }
 
-    protected override void OnInitialized()
+    protected async override void OnInitialized()
     {
-        // Load data
         var path = FileSystem.Current.AppDataDirectory;
         var fullPath = Path.Combine(path, "shatterpointlist.json");
+
+        // Create if not exists
+        if (!File.Exists(fullPath))
+        {
+            var emptyUnitList = new Unit[6];
+            await File.WriteAllTextAsync(fullPath, emptyUnitList.ToJson());
+        }
+
+        // Load data
         var arrayNames = File.ReadAllText(fullPath);
         var data = arrayNames.FromJson(UnitDataBaseService);
         SelectedUnitsService.UnitSelectionArray = data;
+
         base.OnInitialized();
     }
 
