@@ -3,11 +3,13 @@
 @using Shatterpoint.Lib.Units;
 @using Shatterpoint.Maui.Components.Reusable;
 @using System.Text;
+@using Shatterpoint.Maui.Services
 
 @page "/"
 @page "/build"
 @inject UnitDataBaseService UnitDataBaseService
 @inject SelectedUnitsService SelectedUnitsService
+@inject NavigationService NavigationService;
 
 <div class="unit-selection-panel">
     <ul>
@@ -25,7 +27,7 @@
                         </div>
                     </a>
                     <div class="icon-detail-container">
-                        <a href="/cards/@unit.Name">
+                        <a @onclick='() => NavigationService.NavigateFromTo("/build", $"/cards/{unit.Name}")'>
                             <img class="icon-detail" alt="details" src="/img/icons/show-details.png" />
                         </a>
                     </div>

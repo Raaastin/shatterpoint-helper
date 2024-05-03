@@ -1,11 +1,16 @@
-﻿<div class="flex main-color">
-    <a class="flex-auto flex @IsSelected(1)" href="/build" @onclick="() => Select(1)">
+﻿@using Shatterpoint.Maui.Services
+
+@inject NavigationService NavigationService;
+@inject NavigationManager NavigationManager;
+
+<div class="flex main-color">
+    <a class="flex-auto flex @IsSelected(1)" @onclick='() => Navigate("/build")'>
         <img class="units-icon" src="/img/icons/list.png" alt="Menu list" />
     </a>
-    <a class="flex-auto flex @IsSelected(2)" href="/play" @onclick="() => Select(2)">
+    <a class="flex-auto flex @IsSelected(2)" @onclick='() => Navigate("/play")'>
         <img class="units-icon" src="/img/icons/cards.png" alt="Menu cards" />
     </a>
-    <a class="flex-auto flex @IsSelected(3)" href="/sandbox" @onclick="() => Select(3)">
+    <a class="flex-auto flex @IsSelected(3)" @onclick='() => Navigate("/sandbox")'>
         <div class="units-icon">sandbox</div>
     </a>
 </div>
@@ -16,11 +21,24 @@
 @code {
     public int SelectedTab { get; set; } = 1;
 
-    public void Select(int i)
+    public void Navigate(string destination)
     {
-        SelectedTab = i;
+        NavigationService.NavigateFromTo(null, destination);
     }
 
+    protected override void OnInitialized()
+    {
+        NavigationService.NavigationChanged += OnNavigationChanged;
+        base.OnInitialized();
+    }
+
+
+    private void OnNavigationChanged(object sender, NavigationChangedEventArgs args)
+    {
+        SelectedTab = args.SelectedTab;
+    }
+
+    public void Dispose() => NavigationService.NavigationChanged -= OnNavigationChanged;
 
     public string IsSelected(int selection)
     {
