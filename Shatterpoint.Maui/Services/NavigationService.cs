@@ -20,7 +20,7 @@ namespace Shatterpoint.Maui.Services
     public class NavigationService
     {
         public event EventHandler<NavigationChangedEventArgs> NavigationChanged;
-        public List<string> NavigationStack { get; set; } = [];
+        public static List<string> NavigationStack { get; set; } = [];
 
         protected NavigationManager NavigationManager { get; }
 

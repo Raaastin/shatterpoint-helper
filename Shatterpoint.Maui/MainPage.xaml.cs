@@ -10,11 +10,5 @@ namespace Shatterpoint.Maui
             NavigationService = navigationService;
             InitializeComponent();
         }
-
-        protected override bool OnBackButtonPressed()
-        {
-            NavigationService.Back();
-            return true;
-        }
     }
 }
