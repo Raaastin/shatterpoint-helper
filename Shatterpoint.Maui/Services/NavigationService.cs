@@ -31,10 +31,10 @@ namespace Shatterpoint.Maui.Services
 
         public void NavigateFromTo(string from, string to)
         {
+            NavigationManager.NavigateTo(to);
             if (!string.IsNullOrWhiteSpace(from))
                 NavigationStack.Add(from);
 
-            NavigationManager.NavigateTo(to);
             NavigationChanged.Invoke(this, new NavigationChangedEventArgs()
             {
                 SelectedTab = GetSelectionTab(to)
@@ -50,6 +50,11 @@ namespace Shatterpoint.Maui.Services
             var backDestination = NavigationStack.Last();
             NavigationStack.RemoveAt(NavigationStack.Count - 1);
             NavigationManager.NavigateTo(backDestination);
+
+            NavigationChanged.Invoke(this, new NavigationChangedEventArgs()
+            {
+                SelectedTab = GetSelectionTab(backDestination)
+            });
         }
 
         private int GetSelectionTab(string url)
