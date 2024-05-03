@@ -1,19 +1,23 @@
-# Shatterpoint dynamic cards
-Small app to help when playing the board game star wars shatterpoint.
-This app creates dynamic digital cards that display only relevant abilities for when a unit is activated during the game.
+# Android App: StrugglePal
+Companion app for the board game SW: Shatterpoint.
 
-Currently: just a concept.
+Save up to 1 list and generate custom cards. 
 
-Choose up to 6 units:
+![strugglepal2](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/d1cf55d7-396e-448e-9ef9-b6c8b1be3b33)
 
-![image](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/62fe4c5a-318a-4165-809e-1860db13838d)
+Custom Cards aggregate all abilities among the selected units into 2 cards: 
+- Abilities the player may use when a unit is activated (and also when the unit perform some bonus action, such as "Tactical Network" from Kalani, for example)
+- Abilities the player may use when the selected unit is the target of an attack
 
-Then activate the unit:
+![strugglepal](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/05a242ed-b5a7-492b-a392-97bf63bd134d)
+![strugglepal3](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/c8e12616-4673-4644-8da2-e1d6ff9dc614)
 
-![image](https://github.com/Raaastin/shatterpoint-helper/assets/160628718/c4d2f8bd-717d-4456-9df7-e56b722b2f8b)
+The purpose of Custom cards is to display only the relevant abilities and hide unecessary information.
+It won't play or decide for you but it ensure that you are not forgetting synergies from your list. 
 
-The card only displays the abilities that are compatible with the current activation. 
-This includes abilities from the current unit, and any relevant abilities from the other allied units. 
+# Current state: 
+Not all units are available. 
+App still in development.
 
 # Copyright 
 **I do not own** any picture, text, name or rule element that are displayed when running this application. 
