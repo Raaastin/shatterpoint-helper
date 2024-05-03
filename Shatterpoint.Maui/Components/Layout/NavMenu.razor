@@ -32,10 +32,10 @@
         base.OnInitialized();
     }
 
-
     private void OnNavigationChanged(object sender, NavigationChangedEventArgs args)
     {
         SelectedTab = args.SelectedTab;
+        StateHasChanged();
     }
 
     public void Dispose() => NavigationService.NavigationChanged -= OnNavigationChanged;
