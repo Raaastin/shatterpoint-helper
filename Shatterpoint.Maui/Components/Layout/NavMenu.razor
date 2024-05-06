@@ -26,10 +26,10 @@
         NavigationService.NavigateFromTo(null, destination);
     }
 
-    protected override void OnInitialized()
+    protected override Task OnInitializedAsync()
     {
         NavigationService.NavigationChanged += OnNavigationChanged;
-        base.OnInitialized();
+        return base.OnInitializedAsync();
     }
 
     private void OnNavigationChanged(object sender, NavigationChangedEventArgs args)

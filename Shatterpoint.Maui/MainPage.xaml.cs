@@ -1,13 +1,9 @@
-﻿using Shatterpoint.Maui.Services;
-
-namespace Shatterpoint.Maui
+﻿namespace Shatterpoint.Maui
 {
     public partial class MainPage : ContentPage
     {
-        public NavigationService NavigationService { get; set; }
-        public MainPage(NavigationService navigationService)
+        public MainPage()
         {
-            NavigationService = navigationService;
             InitializeComponent();
         }
     }
