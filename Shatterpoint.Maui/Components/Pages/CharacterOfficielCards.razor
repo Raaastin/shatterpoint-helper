@@ -3,7 +3,7 @@
 
 @page "/cards/{UnitName}"
 @inject UnitDataBaseService UnitDataBaseService
-
+<div class="scrollable">
 <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).AbilityCardUrl" />
 <br>
 <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).StanceCardUrl1" />
@@ -15,7 +15,7 @@
 }
 <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).MainCardUrl" />
 <br>
-
+</div>
 
 @code {
 

@@ -42,3 +42,18 @@ div.page-title-selected {
     background-color: #252530;
     border-bottom: 1px dashed lightslategrey;
 }
+
+.back-band {
+    color: wheat;
+    background-color: #252530;
+    height: 46px;
+    box-shadow: 0 0px 25px 1px #6890d2;
+    position: relative;
+    z-index: 10;
+}
+
+    .back-band > * {
+        margin: 5px 5px 5px 5px;
+        display: inline;
+        vertical-align: middle;
+    }

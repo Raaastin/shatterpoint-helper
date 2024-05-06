@@ -11,6 +11,7 @@ namespace Shatterpoint.Maui.Services
     public class NavigationChangedEventArgs
     {
         public int SelectedTab { get; set; }
+        public bool Modal { get; set; } = false;
     }
 
     /// <summary>
@@ -37,7 +38,8 @@ namespace Shatterpoint.Maui.Services
 
             NavigationChanged.Invoke(this, new NavigationChangedEventArgs()
             {
-                SelectedTab = GetSelectionTab(to)
+                SelectedTab = GetSelectionTab(to),
+                Modal = IsModal(to)
             });
         }
 
@@ -53,7 +55,8 @@ namespace Shatterpoint.Maui.Services
 
             NavigationChanged.Invoke(this, new NavigationChangedEventArgs()
             {
-                SelectedTab = GetSelectionTab(backDestination)
+                SelectedTab = GetSelectionTab(backDestination),
+                Modal = IsModal(backDestination)
             });
         }
 
@@ -68,7 +71,14 @@ namespace Shatterpoint.Maui.Services
             if (url.Contains("sandbox"))
                 return 3;
 
-            return 1;
+            return -1;
+        }
+
+        private bool IsModal(string url)
+        {
+            if (url.Contains("cards"))
+                return true;
+            return false;
         }
     }
 }

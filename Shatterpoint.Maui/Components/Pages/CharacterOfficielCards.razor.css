@@ -3,3 +3,9 @@
     max-width: 100vw; /* La largeur de l'écran */
     height: auto; /* Hauteur automatique pour conserver le ratio */
 }
+
+.scrollable {
+    position: relative;
+    height: calc(100vh - 75px); /* 100% - navbar*/
+    overflow-y: auto;
+}
