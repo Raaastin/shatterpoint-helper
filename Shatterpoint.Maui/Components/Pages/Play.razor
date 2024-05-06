@@ -4,10 +4,12 @@
 @using Shatterpoint.Lib.Model;
 @using Shatterpoint.Lib.Extensions;
 @using Shatterpoint.Maui.Components.Reusable;
+@using Shatterpoint.Maui.Services
 
 @page "/play"
 @inject SelectedUnitsService SelectedUnitsService
 @inject UnitDataBaseService UnitDataBaseService
+@inject NavigationService NavigationService
 
 @* Panel scrollable *@
 <div class="scrollable">
@@ -76,7 +78,7 @@
 <div class="selected-pp footer">
     @foreach (var unit in @SelectedUnitsService.UnitSelectionArray.Where(x => x is not null))
     {
-        <a @onclick="() => SelectUnit(unit)" href="@GetHref(unit.Name)">
+        <a @onclick="() => SelectUnit(unit)">
             <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(unit.Name)" />
         </a>
     }
@@ -101,6 +103,13 @@
 
     public void SelectUnit(Unit unit)
     {
+        // case: unit is already selected
+        if (SelectedUnitsService.ActiveUnit?.ActiveUnit == unit)
+        {
+            NavigationService.NavigateFromTo("/play", $"/cards/{unit.Name}");
+            return;
+        }
+
         // Disable "pay attention" abilities
         SelectedUnitsService.PayAttentionAbilities = null;
         PayAttentionSelected = false;
@@ -118,14 +127,6 @@
     public bool IsSelected(string unitName)
     {
         return SelectedUnitsService?.ActiveUnit?.ActiveUnit?.Name == unitName;
-    }
-
-    public string GetHref(string unitName)
-    {
-        if (IsSelected(unitName))
-            return $"/cards/{unitName}";
-        else
-            return null;
     }
 
     public void PayAttention()

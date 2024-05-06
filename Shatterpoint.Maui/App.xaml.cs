@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
+﻿using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
 
 namespace Shatterpoint.Maui
 {
@@ -9,7 +8,7 @@ namespace Shatterpoint.Maui
         {
             InitializeComponent();
 
-            MainPage = new MainPage(); 
+            MainPage = new MainPage();
 
             // resize content when virtual keyboard is up
             Current.On<Microsoft.Maui.Controls.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
