@@ -92,18 +92,21 @@
         return SupportCheckedChanged.InvokeAsync(SupportChecked);
     }
 
-    public void OnClear()
+    public async Task OnClear()
     {
         FieldText = null;
         IsExpanded = false;
         PrimaryChecked = true;
         SecondaryChecked = true;
         SupportChecked = true;
-        FieldTextChanged.InvokeAsync(FieldText);
-        PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
-        SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
-        SupportCheckedChanged.InvokeAsync(SupportChecked);
-        OnFilterChanged.InvokeAsync(true);
+
+        var tasks = new List<Task>();
+        tasks.Add(FieldTextChanged.InvokeAsync(FieldText));
+        tasks.Add(PrimaryCheckedChanged.InvokeAsync(PrimaryChecked));
+        tasks.Add(SecondaryCheckedChanged.InvokeAsync(SecondaryChecked));
+        tasks.Add(SupportCheckedChanged.InvokeAsync(SupportChecked));
+        tasks.Add(OnFilterChanged.InvokeAsync(true));
+        await Task.WhenAll(tasks);
     }
 
     public string GetCheckboxStyle(bool isChecked)

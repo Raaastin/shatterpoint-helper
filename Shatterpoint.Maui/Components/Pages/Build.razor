@@ -17,8 +17,8 @@
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
-                <li class="@GetClass(unit.Name, unit.Type)">
-                    <a @onclick="() => AddUnit(unit.Name)">
+                <li class="@GetClass(unit.Name, unit.Type)" @key="unit">
+                    <a @onclick="async () => await AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
                             <div class="unit-name">@unit.Name</div>
@@ -45,11 +45,13 @@
                 OnFilterChanged="HandleFieldChanged">
     </UnitFilter>
     <div class="selected-unit-panel">
-        @for (int i = 0; i < 6; i++)
+        @{
+            int i = 0;
+        }
+        @foreach (var unit in SelectedUnitsService.UnitSelectionArray)
         {
             int buffer = i;
-            var unit = SelectedUnitsService.UnitSelectionArray[i];
-            <div class="flex-auto" @onclick="() => OnEmptyClick(buffer)">
+            <div class="flex-auto" @onclick="async () => await OnEmptyClick(buffer)" @key="unit">
                 @if (unit is not null)
                 {
                     <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(buffer)" />
@@ -60,10 +62,11 @@
 
                 }
             </div>
+            i++;
         }
 
         <div class="flex-auto">
-            <a style="display:flex; justify-content:center;" href="#" @onclick="ClearSelectedUnits">
+            <a style="display:flex; justify-content:center;" href="#" @onclick="async () => await ClearSelectedUnits()">
                 <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
             </a>
         </div>
@@ -90,7 +93,7 @@
 
     UnitFilter FilterItem;
 
-    public async void ClearSelectedUnits()
+    public async Task ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();
         SelectedIndex = -1;
@@ -130,7 +133,7 @@
 
     public int SelectedIndex { get; set; } = -1;
 
-    public void OnEmptyClick(int index)
+    public async Task OnEmptyClick(int index)
     {
         // Case: select
         if (SelectedIndex != index)
@@ -146,7 +149,7 @@
         else
         {
             SelectedIndex = -1;
-            FilterItem.OnClear();
+            await FilterItem.OnClear();
         }
 
     }
@@ -232,10 +235,13 @@
 
     private async Task Save()
     {
-        var path = FileSystem.Current.AppDataDirectory;
-        var fullPath = Path.Combine(path, "shatterpointlist.json");
+        await Task.Run( async () =>
+        {
+            var path = FileSystem.Current.AppDataDirectory;
+            var fullPath = Path.Combine(path, "shatterpointlist.json");
 
-        await File.WriteAllTextAsync(fullPath, SelectedUnitsService.UnitSelectionArray.ToJson());
+            await File.WriteAllTextAsync(fullPath, SelectedUnitsService.UnitSelectionArray.ToJson());
+        });
     }
 
     protected async override void OnInitialized()
@@ -295,5 +301,10 @@
         return unitType == UnitType.Primary && PrimaryChecked
         || unitType == UnitType.Secondary && SecondaryChecked
         || unitType == UnitType.Support && SupportChecked;
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        return base.OnAfterRenderAsync(firstRender);
     }
 }
