@@ -46,14 +46,20 @@ div.page-title-selected {
 .back-band {
     color: wheat;
     background-color: #252530;
-    height: 46px;
     box-shadow: 0 0px 25px 1px #6890d2;
     position: relative;
     z-index: 10;
 }
+    .back-band:hover, .back-band:active, .tab-not-selected:hover, .tab-not-selected:active, .tab-selected:hover, .tab-selected:active {
+        box-shadow: inset 0 0px 25px 1px #6890d2, 0 0px 25px 1px #6890d2;
+    }
 
     .back-band > * {
         margin: 5px 5px 5px 5px;
         display: inline;
-        vertical-align: middle;
+        font-weight: 700;
+    }
+
+    .back-band > img {
+        width: 50px;
     }

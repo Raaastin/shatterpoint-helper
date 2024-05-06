@@ -6,6 +6,6 @@
 
 .scrollable {
     position: relative;
-    height: calc(100vh - 75px); /* 100% - navbar*/
+    height: calc(100vh - 89px); /* 100% - navbar*/
     overflow-y: auto;
 }
