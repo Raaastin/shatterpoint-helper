@@ -17,7 +17,7 @@
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
-                <li class="@GetClass(unit.Name, unit.Type)" @key="unit">
+                <li class="@GetClass(unit.Name, unit.Type) fade-in" @key="unit">
                     <a @onclick="async () => await AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
