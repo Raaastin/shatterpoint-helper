@@ -149,7 +149,7 @@
         else
         {
             SelectedIndex = -1;
-            await FilterItem.OnClear();
+            await FilterItem.OnClearAsync();
         }
 
     }
@@ -235,7 +235,7 @@
 
     private async Task Save()
     {
-        await Task.Run( async () =>
+        await Task.Run(async () =>
         {
             var path = FileSystem.Current.AppDataDirectory;
             var fullPath = Path.Combine(path, "shatterpointlist.json");
@@ -244,7 +244,7 @@
         });
     }
 
-    protected async override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
         var path = FileSystem.Current.AppDataDirectory;
         var fullPath = Path.Combine(path, "shatterpointlist.json");
@@ -257,11 +257,14 @@
         }
 
         // Load data
-        var arrayNames = File.ReadAllText(fullPath);
-        var data = arrayNames.FromJson(UnitDataBaseService);
-        SelectedUnitsService.UnitSelectionArray = data;
+        if (SelectedUnitsService.UnitSelectionArray is null)
+        {
+            var arrayNames = File.ReadAllText(fullPath);
+            var data = arrayNames.FromJson(UnitDataBaseService);
+            SelectedUnitsService.UnitSelectionArray = data;
+        }
 
-        base.OnInitialized();
+        await base.OnInitializedAsync();
     }
 
     private List<Unit> GetFilteredList(List<Unit> source)

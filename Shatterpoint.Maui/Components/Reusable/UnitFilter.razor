@@ -7,7 +7,7 @@
             <li>
                 <div class="input-text-container">
                     <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name or keyword" @oninput="@OnFieldTextChanged" @bind-value="FieldText" />
-                    <input type="button" class="button-style input-name-clear-button" @onclick="async () => await OnClear()" />
+                    <input type="button" class="button-style input-name-clear-button" @onclick="async () => await OnClearAsync()" />
                 </div>
             </li>
             @if (IsExpanded)
@@ -101,7 +101,7 @@
         await Task.WhenAll(tasks);
     }
 
-    public async Task OnClear()
+    public async Task OnClearAsync()
     {
         FieldText = null;
         IsExpanded = false;
