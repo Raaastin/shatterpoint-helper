@@ -4,16 +4,16 @@
 @page "/cards/{UnitName}"
 @inject UnitDataBaseService UnitDataBaseService
 <div class="scrollable fade-in">
-    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).AbilityCardUrl" />
+    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@FormatUrl(UnitDataBaseService.Get(UnitName).AbilityCardUrl)" />
     <br>
-    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).StanceCardUrl1" />
+    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@FormatUrl(UnitDataBaseService.Get(UnitName).StanceCardUrl1)" />
     <br>
-    @if (!string.IsNullOrWhiteSpace(@UnitDataBaseService.Get(UnitName).StanceCardUrl2))
+    @if (!string.IsNullOrWhiteSpace(UnitDataBaseService.Get(UnitName).StanceCardUrl2))
     {
-        <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).StanceCardUrl2" />
+        <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@FormatUrl(UnitDataBaseService.Get(UnitName).StanceCardUrl2)" />
         <br>
     }
-    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@UnitDataBaseService.Get(UnitName).MainCardUrl" />
+    <img class="card-landscape" alt="Abilities: @UnitDataBaseService.Get(UnitName).Name" src="@FormatUrl(UnitDataBaseService.Get(UnitName).MainCardUrl)" />
     <br>
 </div>
 
@@ -21,4 +21,9 @@
 
     [Parameter]
     public string UnitName { get; set; }
+
+    public string FormatUrl(string url)
+    {
+        return $"{url}?width=500";
+    }
 }

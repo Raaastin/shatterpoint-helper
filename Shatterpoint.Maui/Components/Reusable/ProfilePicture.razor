@@ -2,7 +2,7 @@
 
 <div class="component">
     <div class="image-cropper @GetHalo()" style="--scale:@Scale;">
-        <img class="image" style="--scale:@Scale; --offset-left:@Left; --offset-top:@Top" src="@Src" alt="@Alt" loading="lazy" />
+        <img class="image" style="--scale:@Scale; --offset-left:@Left; --offset-top:@Top" src="@FormatSrc(Src)" alt="@Alt" loading="lazy" />
     </div>
 </div>
 
@@ -22,6 +22,11 @@
 
     [Parameter]
     public bool IsSelected { get; set; }
+
+    private string FormatSrc(string url)
+    {
+        return $"{url}?width=500";
+    }
 
     private string GetHalo()
     {
