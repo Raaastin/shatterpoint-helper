@@ -36,6 +36,9 @@ namespace Shatterpoint.Lib.Extensions
             result = result.Replace("Sharpshooter", $"<b>Sharpshooter</b>");
             result = result.Replace("Steadfast", $"<b>Steadfast</b>");
             result = result.Replace("Immunity", $"<b>Immunity</b>");
+            result = result.Replace("Force User", $"<b>Force User</b>");
+            result = result.Replace("Scale", $"<b>Scale</b>");
+            result = result.Replace("Cover", $"<b>Cover</b>");
 
             //Apply logo
             result = result.ReplaceWithLogo("range", IconReferences.rangeicon, "bottom");

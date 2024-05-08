@@ -74,7 +74,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Servant of the People",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "While this Unit is not Wounded and while one or more characters in this Unit are contesting an Active objective, if this Unit's Active Stance is Faith in Diplomacy, allied Galactic Republic Supporting characters can contest the same Active objective, even while they are Wounded.\r\n\r\nWhile this Unit is not Wounded, if this Unit's Active Stance is Aggressive Negotiations, allied Galactic Republic Supporting characters within *range*4 add 1 die to their attack rolls.",
+                        Text = "While this Unit is not Wounded and while one or more characters in this Unit are contesting an Active objective, if this Unit's Active Stance <b>is Faith in Diplomacy</b>, allied Galactic Republic Supporting characters can contest the same Active objective, even while they are Wounded.<br/></br>While this Unit is not Wounded, if this Unit's Active Stance is <b>Aggressive Negotiations</b>, allied Galactic Republic Supporting characters within *range*4 add 1 die to their attack rolls.",
                         Synergies = [
                             new Synergy(){
                                 Type = UnitType.Support,

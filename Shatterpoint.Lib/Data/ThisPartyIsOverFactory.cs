@@ -64,7 +64,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Shatterpoint",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When this Unit is chosen to activate with a Shatterpoint Card, if its Active Stance is Form VII Vaapad, it immediately makes a focus action and characters in this Unit have Impact [2] until the end of the Turn. If its Active Stance is Jedi Master, refresh *forceicon**forceicon* and one character in this Unit may *heal**heal**heal*.",
+                        Text = "When this Unit is chosen to activate with a Shatterpoint Card, if its Active Stance is <b>Form VII Vaapad</b>, it immediately makes a focus action and characters in this Unit have Impact [2] until the end of the Turn. <br/>If its Active Stance is <b>Jedi Master</b>, refresh *forceicon**forceicon* and one character in this Unit may *heal**heal**heal*.",
                         Synergies = [],
                         Timing = [Timing.Start]
                     },
@@ -180,7 +180,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Coordinate Fire: *exposed*",
+                        Name = "Coordinate Fire: *exposed*".ToRawHtmlDescription(),
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When a character in another allied Galactic Republic Unit makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. If the targeted character is within *range*5 of a character in this Unit, the target Unit gains *exposed*.",

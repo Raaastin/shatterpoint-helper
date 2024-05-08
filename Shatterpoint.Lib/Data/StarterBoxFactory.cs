@@ -272,7 +272,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Sustained By Rage",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer *damage* equal to the cost of the ability instead. For every 3 *damage* this Unit has, characters in this Unit add 1 die to their *melee* Attack rolls. For each injured token this Unit has, characters in this Unit add 3 dice to their *melee* attack rolls.",
+                        Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer *damage* equal to the cost of the ability instead.<br/><br/>For every 3 *damage* this Unit has, characters in this Unit add 1 die to their *melee* Attack rolls. <br/>For each injured token this Unit has, characters in this Unit add 3 dice to their *melee* attack rolls.",
                         Synergies = [],
                         Timing = [Timing.Active]
                     }
