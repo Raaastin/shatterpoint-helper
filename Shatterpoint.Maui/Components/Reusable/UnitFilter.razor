@@ -1,42 +1,42 @@
 ﻿@using Shatterpoint.Lib.Units
 
 <div class="component">
-        <div class="filter">
-            <input type="button" class="@GetExpandedStyle(IsExpanded)" @onclick="() => { IsExpanded = !IsExpanded; }" />
-            <ul>               
+    <div class="filter">
+        <input type="button" class="@GetExpandedStyle(IsExpanded)" @onclick="() => { IsExpanded = !IsExpanded; }" />
+        <ul>
+            <li>
+                <div class="input-text-container">
+                    <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name or keyword" @oninput="@OnFieldTextChanged" @bind-value="FieldText" />
+                    <input type="button" class="button-style input-name-clear-button" @onclick="async () => await OnClearAsync()" />
+                </div>
+            </li>
+            @if (IsExpanded)
+            {
                 <li>
-                    <div class="input-text-container">
-                        <input id="input-name" class="filter-item-input-text" type="text" placeholder="Unit name or keyword" @oninput="OnFieldTextChanged" @bind-value="FieldText" />
-                        <input type="button" class="button-style input-name-clear-button" @onclick="OnClear" />
+                    <div class="checkbox-container">
+                        <label class="@GetCheckboxStyle(PrimaryChecked)">
+                            Primary
+                            <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="async () => await OnPrimaryCheckClicked()" />
+                        </label>
+                        <label class="@GetCheckboxStyle(SecondaryChecked)">
+                            Secondary
+                            <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="async () => await OnSecondaryCheckedClicked()" />
+                        </label>
+                        <label class="@GetCheckboxStyle(SupportChecked)">
+                            Support
+                            <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="async () => await OnSupportCheckedClicked()" />
+                        </label>
                     </div>
                 </li>
-                @if (IsExpanded)
-                {
-                    <li>
-                        <div class="checkbox-container">
-                            <label class="@GetCheckboxStyle(PrimaryChecked)">
-                                Primary
-                                <input class="filter-item-input-cb" type="checkbox" checked="@PrimaryChecked" @onclick="OnPrimaryCheckClicked" />
-                            </label>
-                            <label class="@GetCheckboxStyle(SecondaryChecked)">
-                                Secondary
-                                <input class="filter-item-input-cb" type="checkbox" checked="@SecondaryChecked" @onclick="OnSecondaryCheckedClicked" />
-                            </label>
-                            <label class="@GetCheckboxStyle(SupportChecked)">
-                                Support
-                                <input class="filter-item-input-cb" type="checkbox" checked="@SupportChecked" @onclick="OnSupportCheckedClicked" />
-                            </label>
-                        </div>
-                    </li>
-                } 
-            </ul>
-        </div>
+            }
+        </ul>
+    </div>
 </div>
 
 
 @code {
 
-    [Parameter] 
+    [Parameter]
     public EventCallback<bool> OnFilterChanged { get; set; }
 
     [Parameter]
@@ -53,57 +53,69 @@
     public string FieldText { get; set; }
     [Parameter]
     public EventCallback<string> FieldTextChanged { get; set; }
-    private Task OnFieldTextChanged(ChangeEventArgs e)
+    private async Task OnFieldTextChanged(ChangeEventArgs e)
     {
         FieldText = e.Value.ToString();
-        return FieldTextChanged.InvokeAsync(FieldText);
+        await FieldTextChanged.InvokeAsync(FieldText);
     }
 
     [Parameter]
     public bool PrimaryChecked { get; set; } = true;
     [Parameter]
     public EventCallback<bool> PrimaryCheckedChanged { get; set; }
-    public Task OnPrimaryCheckClicked()
+    public async Task OnPrimaryCheckClicked()
     {
         PrimaryChecked = !PrimaryChecked;
-        OnFilterChanged.InvokeAsync(true);
-        return PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
+
+        var tasks = new List<Task>();
+        tasks.Add(OnFilterChanged.InvokeAsync(true));
+        tasks.Add(PrimaryCheckedChanged.InvokeAsync(PrimaryChecked));
+        await Task.WhenAll(tasks);
     }
 
     [Parameter]
     public bool SecondaryChecked { get; set; } = true;
     [Parameter]
     public EventCallback<bool> SecondaryCheckedChanged { get; set; }
-    public Task OnSecondaryCheckedClicked()
+    public async Task OnSecondaryCheckedClicked()
     {
         SecondaryChecked = !SecondaryChecked;
-        OnFilterChanged.InvokeAsync(true);
-        return SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
+
+        var tasks = new List<Task>();
+        tasks.Add(OnFilterChanged.InvokeAsync(true));
+        tasks.Add(SecondaryCheckedChanged.InvokeAsync(SecondaryChecked));
+        await Task.WhenAll(tasks);
     }
 
     [Parameter]
     public bool SupportChecked { get; set; } = true;
     [Parameter]
     public EventCallback<bool> SupportCheckedChanged { get; set; }
-    public Task OnSupportCheckedClicked()
+    public async Task OnSupportCheckedClicked()
     {
         SupportChecked = !SupportChecked;
-        OnFilterChanged.InvokeAsync(true);
-        return SupportCheckedChanged.InvokeAsync(SupportChecked);
+
+        var tasks = new List<Task>();
+        tasks.Add(OnFilterChanged.InvokeAsync(true));
+        tasks.Add(SupportCheckedChanged.InvokeAsync(SupportChecked));
+        await Task.WhenAll(tasks);
     }
 
-    public void OnClear()
+    public async Task OnClearAsync()
     {
         FieldText = null;
         IsExpanded = false;
         PrimaryChecked = true;
         SecondaryChecked = true;
         SupportChecked = true;
-        FieldTextChanged.InvokeAsync(FieldText);
-        PrimaryCheckedChanged.InvokeAsync(PrimaryChecked);
-        SecondaryCheckedChanged.InvokeAsync(SecondaryChecked);
-        SupportCheckedChanged.InvokeAsync(SupportChecked);
-        OnFilterChanged.InvokeAsync(true);
+
+        var tasks = new List<Task>();
+        tasks.Add(FieldTextChanged.InvokeAsync(FieldText));
+        tasks.Add(PrimaryCheckedChanged.InvokeAsync(PrimaryChecked));
+        tasks.Add(SecondaryCheckedChanged.InvokeAsync(SecondaryChecked));
+        tasks.Add(SupportCheckedChanged.InvokeAsync(SupportChecked));
+        tasks.Add(OnFilterChanged.InvokeAsync(true));
+        await Task.WhenAll(tasks);
     }
 
     public string GetCheckboxStyle(bool isChecked)
@@ -114,8 +126,9 @@
             return "checkbox-style";
     }
 
-    public string GetExpandedStyle(bool isExpanded){
-        if(isExpanded)
+    public string GetExpandedStyle(bool isExpanded)
+    {
+        if (isExpanded)
             return "button-style button-expanded";
         else
             return "button-style button-collapsed";

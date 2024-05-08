@@ -20,7 +20,7 @@ namespace Shatterpoint.Lib.Extensions
         /// <returns></returns>
         public static string ToJson(this Unit[] array)
         {
-            var arrayName = array.Select(x => x?.Name).ToArray();
+            var arrayName = array.Select(x => x?.Name);
             return JsonConvert.SerializeObject(arrayName);
         }
 
