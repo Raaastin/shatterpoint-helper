@@ -66,7 +66,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Appetite for Destruction",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "After this Unit makes a combat action, choose an allied Battle Droid supporting character within *range*3. The chosen character may *dash*. Then, that character may make a 5 dice attack targeting one of the same enemy characters within *range* and LOS.",
+                        Text = "After this Unit makes a combat action, choose an allied Battle Droid Supporting character within *range*3. The chosen character may *dash*. Then, that character may make a 5 dice attack targeting one of the same enemy characters within *range* and LOS.",
                         Synergies = [
                             new Synergy(){
                                 Type = UnitType.Support,
