@@ -17,7 +17,7 @@
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
-                <li class="@GetClass(unit.Name, unit.Type) fade-in" @key="unit">
+                <li class="@GetClass(unit.Name, unit.Type)" @key="unit">
                     <a @onclick="async () => await AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
@@ -66,7 +66,7 @@
         }
 
         <div class="flex-auto">
-            <a style="display:flex; justify-content:center;" href="#" @onclick="async () => await ClearSelectedUnits()">
+            <a  class="poubelle fade-in" href="#" @onclick="async () => await ClearSelectedUnits()">
                 <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
             </a>
         </div>

@@ -120,6 +120,10 @@
     display: flex;
 }
 
+.poubelle {
+    display: flex;
+    justify-content: center;
+}
 
 .fade-in {
     animation: fadeIn 1s;
