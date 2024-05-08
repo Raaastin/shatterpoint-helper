@@ -57,6 +57,9 @@ namespace Shatterpoint.Lib.Services
         /// <param name="unit"></param>
         public void AddUnit(Unit unit, int index)
         {
+            if (UnitSelectionArray is null)
+                UnitSelectionArray = new Unit[6];
+
             UnitSelectionArray[index] = unit;
         }
 
