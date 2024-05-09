@@ -9,6 +9,7 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class StarterBoxFactory
     {
+        private const string warbandname = "Starter Box";
 
         public static Unit Kalani()
         {
@@ -18,6 +19,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/2mykdrxq/star-wars-shatterpoint-kalani-abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/rsnodu4s/kalani-stance-card.png",
                 KeyWords = [KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -98,6 +100,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/xf5l5vmw/star-wars-shatterpoint-b1-abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/bi4hxev0/b1-stance-card.png",
                 KeyWords = [KeyWords.B1, KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -156,6 +159,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/4f3chjdq/star-wars-shatterpoint-asajj-ventress-stance-one.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png",
                 KeyWords = [KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.NightSister, KeyWords.SeparatistAlliance],
+                WarBandName = warbandname
             };
             unit.Abilities =
                 [
@@ -231,6 +235,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/3jxhjwvb/maulstance2.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/kkgn3wv2/maulstance1.png",
                 KeyWords = [KeyWords.Dathomirian, KeyWords.ForceUser, KeyWords.Scoundrel, KeyWords.ShadowCollective],
+                WarBandName = warbandname
 
             };
 
@@ -289,6 +294,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/ffmjwwbz/star-wars-shatterpoint-gar-saxon-abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/xu1pp1jl/star-wars-shatterpoint-gar-saxon-stance.png",
                 KeyWords = [KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -358,6 +364,7 @@ namespace Shatterpoint.Lib.Services
                 UniqueName = "",
                 Type = UnitType.Support,
                 KeyWords = [KeyWords.Mandalorian, KeyWords.ShadowCollective, KeyWords.SuperCommando, KeyWords.Trooper],
+                WarBandName = warbandname
 
             };
 
@@ -417,6 +424,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/zf4bstny/starwarsshatterpointanakinskywalkerstanceone.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/htydlen3/starwarsshatterpointanakinskywalkerstancetwo.png",
                 KeyWords = [KeyWords._501ST, KeyWords.ForceUser, KeyWords.GalacticRepublic, KeyWords.Jedi],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -484,6 +492,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/ecyhahod/shatterpointrexabilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/cwol20ni/shatterpointrexstance.png",
                 KeyWords = [KeyWords._501ST, KeyWords.GalacticRepublic, KeyWords.CloneTrooper],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -581,6 +590,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/rtnnk45u/shatterpoint501abilities.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/wv2bnq24/shatterpoint501stance.png",
                 KeyWords = [KeyWords._501ST, KeyWords.GalacticRepublic, KeyWords.CloneTrooper],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -638,6 +648,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/lbfpcqyb/swp01_ahsoka_stance_article-2.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/mwkpmor3/swp01_ahsoka_stance_article-1.png",
                 KeyWords = [KeyWords.ForceUser, KeyWords.GalacticRepublic],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -695,6 +706,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/rjph4i5n/star-wars-shatterpoint-bo-katan-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/v2qpb3kj/star-wars-shatterpoint-bo-katan-stance-card.png",
                 KeyWords = [KeyWords.ClanKryze, KeyWords.Mandalorian, KeyWords.NiteOwls],
+                WarBandName = warbandname
 
             };
             unit.Abilities =
@@ -789,6 +801,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/1s0eunhx/star-wars-shatterpoint-kryze-mandos-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/ggfiaj3j/star-wars-shatterpoint-kryze-mandos-stance-card.png",
                 KeyWords = [KeyWords.ClanKryze, KeyWords.Mandalorian, KeyWords.DeathWatch, KeyWords.Trooper],
+                WarBandName = warbandname
 
             };
             unit.Abilities =

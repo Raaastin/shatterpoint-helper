@@ -9,6 +9,8 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class ThisPartyIsOverFactory
     {
+        private const string warbandname = "This Party Is Over";
+
         public static Unit MaceWindu()
         {
             var unit = new Unit("Jedi Master Mace Windu", "Mace Windu", UnitType.Primary, UnitCardColor.Blue, 6, 11, 3, 4)
@@ -18,6 +20,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/ho1k44sh/star-wars-shatterpoint-mace-windu-stance-two-card.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/5jnbib52/star-wars-shatterpoint-mace-windu-stance-one-card.png",
                 KeyWords = [KeyWords.ForceUser, KeyWords.GalacticRepublic, KeyWords.Jedi],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -92,6 +95,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/oxalgs52/star-wars-shatterpoint-commander-ponds-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/vqmlpyk5/star-wars-shatterpoint-commander-ponds-stance-card.png",
                 KeyWords = [KeyWords.CloneCommando, KeyWords.CloneTrooper, KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -161,6 +165,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/wwvnjxcc/star-wars-shatterpoint-arf-clone-troopers-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/f10hbmu2/star-wars-shatterpoint-arf-clone-troopers-stance-card.png",
                 KeyWords = [KeyWords.CloneCommando, KeyWords.CloneTrooper, KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =

@@ -9,6 +9,7 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class WeAreBraveFactory
     {
+        public static string warbandname = "We Are Brave";
         public static Unit QueenPadmé()
         {
             var unit = new Unit("Queen Padmé Amidala", "Padmé Amidala", UnitType.Primary, UnitCardColor.Blue, 8, 9, 3, 3)
@@ -18,6 +19,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl1 = "https://shatterpointdb.com/media/0lvnicoy/shatterpoint-padme-amidala-stance-onecard.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/cv0k4bme/shatterpoint-padme-amidala-stance-two-card.png",
                 KeyWords = [KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -94,6 +96,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/zqxg2tvz/shatterpoint-sabe-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/nuddiknt/shatterpoint-sabe-stance-card.png",
                 KeyWords = [KeyWords.GalacticRepublic, KeyWords.Handmaiden],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -177,6 +180,7 @@ namespace Shatterpoint.Lib.Services
                 AbilityCardUrl = "https://shatterpointdb.com/media/cofheu2y/shatterpoint-haindmaden-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/miyhunki/shatterpoint-haindmaden-stance-card.png",
                 KeyWords = [KeyWords.GalacticRepublic, KeyWords.Handmaiden, KeyWords.Trooper],
+                WarBandName = warbandname
             };
 
             unit.Abilities =

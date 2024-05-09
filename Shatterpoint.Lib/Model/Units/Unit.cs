@@ -27,6 +27,11 @@ namespace Shatterpoint.Lib.Units
         }
 
         /// <summary>
+        /// WarBandName
+        /// </summary>
+        public string WarBandName { get; set; }
+
+        /// <summary>
         /// Allowed injured token before being dead
         /// </summary>
         public int InjurePool { get; set; }
