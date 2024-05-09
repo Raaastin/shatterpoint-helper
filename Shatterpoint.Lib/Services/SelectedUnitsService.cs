@@ -31,7 +31,7 @@ namespace Shatterpoint.Lib.Services
         /// </summary>
         public SelectedUnitsService()
         {
-            UnitSelectionArray = null; // default value: null. Initialized on data load
+            UnitSelectionArray = new Unit[6];
         }
 
         #endregion

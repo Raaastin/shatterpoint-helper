@@ -259,7 +259,7 @@
         // Load data
         if (SelectedUnitsService.UnitSelectionArray is null)
         {
-            var arrayNames = File.ReadAllText(fullPath);
+            var arrayNames = await File.ReadAllTextAsync(fullPath);
             var data = arrayNames.FromJson(UnitDataBaseService);
             SelectedUnitsService.UnitSelectionArray = data;
         }

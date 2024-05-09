@@ -82,7 +82,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Complete Analysis",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When you spend 1F to place this Unit's Order Card in reserve, spend 1 less F",
+                        Text = "When you spend *forceicon* to place this Unit's Order Card in reserve, spend 1 less *forceicon*",
                         Synergies = [],
                         Timing = [Timing.Start]
                     }
@@ -213,7 +213,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Sith Assassin",
                         Type = AbilityType.Identity,
                         Cost = 0,
-                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may *heal**heal**heal*. If it Wounded a Primary Unit or Secondary Unit, it may also *advance* or *jump*. If it Wounder a primary Unit, refresh 2F.",
+                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may *heal**heal**heal*. If it Wounded a Primary Unit or Secondary Unit, it may also *advance* or *jump*. If it Wounder a primary Unit, refresh *forceicon**forceicon*.",
                         Synergies = [],
                         Timing = [Timing.Active]
                     }

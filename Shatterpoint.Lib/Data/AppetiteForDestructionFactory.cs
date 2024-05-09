@@ -80,7 +80,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Another fine addition to my collection",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that character may *heal**heal*. Then, if the Wounded Unit was a Force User, refresh 2F.",
+                        Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that character may *heal**heal*. Then, if the Wounded Unit was a Force User, refresh *forceicon**forceicon*.",
                         Synergies = [],
                         Timing = [Timing.Active]
                     }
@@ -142,7 +142,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Complete Analysis",
                         Type = AbilityType.Inate,
                         Cost = 0,
-                        Text = "When you spend 1F to place this Unit's Order Card in reserve, spend one less F.",
+                        Text = "When you spend *forceicon* to place this Unit's Order Card in reserve, spend one less *forceicon*.",
                         Synergies = [],
                         Timing = [Timing.Start]
                     },
