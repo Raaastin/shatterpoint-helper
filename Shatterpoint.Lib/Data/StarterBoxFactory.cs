@@ -12,7 +12,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Kalani()
         {
-            var unit = new Unit("Kalani, Super Tactical Robot", "Kalani", UnitType.Secondary, UnitCardColor.Red, 5)
+            var unit = new Unit("Kalani, Super Tactical Robot", "Kalani", UnitType.Secondary, UnitCardColor.Red, 5, 10, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/gtbfzv2n/star-wars-shatterpoint-kalani-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/2mykdrxq/star-wars-shatterpoint-kalani-abilities.png",
@@ -92,7 +92,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit B1BAttleDroids()
         {
-            var unit = new Unit("B1 Battle Droids", "", UnitType.Support, UnitCardColor.Red, 3)
+            var unit = new Unit("B1 Battle Droids", "", UnitType.Support, UnitCardColor.Red, 3, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/arpd4hfq/star-wars-shatterpoint-b1-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/xf5l5vmw/star-wars-shatterpoint-b1-abilities.png",
@@ -149,7 +149,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit AsajjVentress()
         {
-            var unit = new Unit("Asajj Ventress, Sith Assassin", "Asaji Ventress", UnitType.Primary, UnitCardColor.Red, 8, 3)
+            var unit = new Unit("Asajj Ventress, Sith Assassin", "Asaji Ventress", UnitType.Primary, UnitCardColor.Red, 8, 9, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/vcsl0v33/star-wars-shatterpoint-asajj-ventress.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/gtbhclqv/star-wars-shatterpoint-asajj-ventress-abilities.png",
@@ -224,7 +224,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit LordMaul()
         {
-            var unit = new Unit("Lord Maul", "Maul", UnitType.Primary, UnitCardColor.Red, 8, 3)
+            var unit = new Unit("Lord Maul", "Maul", UnitType.Primary, UnitCardColor.Red, 8, 11, 2, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/klehavye/swp01_maul_unit_article-1.png?height=600&v=1d978862f118b50",
                 AbilityCardUrl = "https://shatterpointdb.com/media/i3vdw20w/maulabilities.png",
@@ -283,7 +283,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit GarSaxon()
         {
-            var unit = new Unit("Gar Saxon, Merciless Commander", "Gar Saxon", UnitType.Secondary, UnitCardColor.Red, 4)
+            var unit = new Unit("Gar Saxon, Merciless Commander", "Gar Saxon", UnitType.Secondary, UnitCardColor.Red, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/sp4njwnf/star-wars-shatterpoint-gar-saxon-character-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/ffmjwwbz/star-wars-shatterpoint-gar-saxon-abilities.png",
@@ -350,7 +350,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit MandalorianSuperCommandos()
         {
-            var unit = new Unit("Mandalorian Super Commandos", "", UnitType.Support, UnitCardColor.Red, 4)
+            var unit = new Unit("Mandalorian Super Commandos", "", UnitType.Support, UnitCardColor.Red, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/hdxbgbol/star-wars-shatterpoint-mandalorian-super-commando-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/fzcj52gl/star-wars-shatterpoint-mandalorian-super-commandos-abilities.png",
@@ -410,7 +410,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Anakin()
         {
-            var unit = new Unit("General Anakin Skywalker", "Anakin Skywalker", UnitType.Primary, UnitCardColor.Blue, 7, 4)
+            var unit = new Unit("General Anakin Skywalker", "Anakin Skywalker", UnitType.Primary, UnitCardColor.Blue, 7, 11, 3, 4)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/nn3k0her/starwarsshatterpointanakinskywalker.png?height=600&v=1d978866fce1d70",
                 AbilityCardUrl = "https://shatterpointdb.com/media/kvroyyyq/starwarsshatterpointanakinskywalkerabilities.png",
@@ -478,7 +478,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit CaptainRex()
         {
-            var unit = new Unit("CC-7567 Captain Rex", "CC-7567", UnitType.Secondary, UnitCardColor.Blue, 4, 0)
+            var unit = new Unit("CC-7567 Captain Rex", "CC-7567", UnitType.Secondary, UnitCardColor.Blue, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/w3ieriga/shatterpointrexunit.png?height=600&v=1d9788610a5ea80",
                 AbilityCardUrl = "https://shatterpointdb.com/media/ecyhahod/shatterpointrexabilities.png",
@@ -575,7 +575,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit _501StCloneTroopers()
         {
-            var unit = new Unit("CC501st Clone Troopers", "", UnitType.Support, UnitCardColor.Blue, 3)
+            var unit = new Unit("CC501st Clone Troopers", "", UnitType.Support, UnitCardColor.Blue, 3, 7, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/olaptf5u/shatterpoint501unit.png?height=600&v=1d978861b7a7020",
                 AbilityCardUrl = "https://shatterpointdb.com/media/rtnnk45u/shatterpoint501abilities.png",
@@ -631,7 +631,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit AhsokeJediNoMore()
         {
-            var unit = new Unit("Ahsoka Tano, Jedi no more", "Ahsoka", UnitType.Primary, UnitCardColor.Blue, 8, 3)
+            var unit = new Unit("Ahsoka Tano, Jedi no more", "Ahsoka", UnitType.Primary, UnitCardColor.Blue, 8, 9, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/os1lmren/swp01_ahsoka_unit_article-1.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/lzzju4ow/swp01_ahsoka_unit_article-2.png",
@@ -689,7 +689,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit BoKatanKryze()
         {
-            var unit = new Unit("Bo-Katan Kryze", "Bo-Katan", UnitType.Secondary, UnitCardColor.Blue, 4)
+            var unit = new Unit("Bo-Katan Kryze", "Bo-Katan", UnitType.Secondary, UnitCardColor.Blue, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/uh5b3qvr/star-wars-shatterpoint-bo-katan-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/rjph4i5n/star-wars-shatterpoint-bo-katan-abilities-card.png",
@@ -783,7 +783,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit ClanKryzeMandalorians()
         {
-            var unit = new Unit("Clan Kryze Mandalorians", "", UnitType.Support, UnitCardColor.Blue, 4)
+            var unit = new Unit("Clan Kryze Mandalorians", "", UnitType.Support, UnitCardColor.Blue, 4, 7, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/gptniics/star-wars-shatterpoint-kryze-mandos-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/1s0eunhx/star-wars-shatterpoint-kryze-mandos-abilities-card.png",

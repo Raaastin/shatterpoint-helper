@@ -11,7 +11,7 @@ namespace Shatterpoint.Lib.Services
     {
         public static Unit QueenPadmé()
         {
-            var unit = new Unit("Queen Padmé Amidala", "Padmé Amidala", UnitType.Primary, UnitCardColor.Blue, 8, 3)
+            var unit = new Unit("Queen Padmé Amidala", "Padmé Amidala", UnitType.Primary, UnitCardColor.Blue, 8, 9, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/g2hnmz1n/shatterpoint-padme-amidala-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/w0akessn/shatterpoint-padme-amidala-abilities-card.png",
@@ -88,7 +88,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Sabé()
         {
-            var unit = new Unit("Sabé, Royal Bodyguard", "Sabé", UnitType.Secondary, UnitCardColor.Blue, 4, 0)
+            var unit = new Unit("Sabé, Royal Bodyguard", "Sabé", UnitType.Secondary, UnitCardColor.Blue, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/yexheddv/shatterpoint-sabe-unit-card.png?height=600&v=1d9d65d0ca039b0",
                 AbilityCardUrl = "https://shatterpointdb.com/media/zqxg2tvz/shatterpoint-sabe-abilities-card.png",
@@ -171,7 +171,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit NabooHandmainden()
         {
-            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue, 4)
+            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue, 8, 2, 4)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/c4xfmpuj/shatterpoint-haindmaden-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/cofheu2y/shatterpoint-haindmaden-abilities-card.png",

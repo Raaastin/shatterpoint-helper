@@ -7,7 +7,7 @@ namespace Shatterpoint.Lib.Units
     /// </summary>
     public class Unit
     {
-        public Unit(string name, string uniqueName, UnitType type, UnitCardColor cardColor, int point, int force = 0)
+        public Unit(string name, string uniqueName, UnitType type, UnitCardColor cardColor, int point, int wound, int injure, int force = 0)
         {
             Name = name;
             UniqueName = uniqueName;
@@ -21,7 +21,19 @@ namespace Shatterpoint.Lib.Units
             {
                 PC = point;
             }
+            InjurePool = injure;
+            WoundPool = wound;
         }
+
+        /// <summary>
+        /// Allowed injured token before being dead
+        /// </summary>
+        public int InjurePool { get; set; }
+
+        /// <summary>
+        /// Allowed damage before being injured
+        /// </summary>
+        public int WoundPool { get; set; }
 
         /// <summary>
         /// Force points

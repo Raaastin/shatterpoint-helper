@@ -11,7 +11,7 @@ namespace Shatterpoint.Lib.Services
     {
         public static Unit Grievous()
         {
-            var unit = new Unit("General Grievous", "General Grievous", UnitType.Primary, UnitCardColor.Red, 8, 3)
+            var unit = new Unit("General Grievous", "General Grievous", UnitType.Primary, UnitCardColor.Red, 8, 11, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/fx4lex3u/star-wars-shatterpoint-grievous-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/5rda1caq/star-wars-shatterpoint-grievous-abilities-card.png",
@@ -90,7 +90,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Kraken()
         {
-            var unit = new Unit("Kraken, Super Tactical Droid", "Kraken", UnitType.Secondary, UnitCardColor.Red, 4)
+            var unit = new Unit("Kraken, Super Tactical Droid", "Kraken", UnitType.Secondary, UnitCardColor.Red, 4, 10, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/30hehhkx/star-wars-shatterpoint-kraken-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/2knlge30/star-wars-shatterpoint-kraken-abilities-card.png",
@@ -162,7 +162,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit B2BAttleDroids()
         {
-            var unit = new Unit("B2 Battle Droids", "", UnitType.Support, UnitCardColor.Red, 4)
+            var unit = new Unit("B2 Battle Droids", "", UnitType.Support, UnitCardColor.Red, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/dttcpher/star-wars-shatterpoint-b2-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/0xfnvtbi/star-wars-shatterpoint-b2-abilities-card.png",
