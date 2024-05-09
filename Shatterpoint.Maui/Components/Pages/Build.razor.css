@@ -27,9 +27,8 @@
                 padding: 10px;
             }
 
-                .unit-selection-panel ul li a unit-summary {
-                    display: flex;
-                    flex-direction: column;
+                .unit-selection-panel ul li a .unit-summary {
+                    width: -webkit-fill-available;
                 }
 
                 .unit-selection-panel ul li a div.unit-name {
@@ -65,10 +64,6 @@
 
 .unit-name {
     color: #ffd4ac;
-}
-
-.unit-type {
-    color: #ff6d6d;
 }
 
 .unit-keywords {
@@ -118,6 +113,33 @@
 
 .flex {
     display: flex;
+}
+
+.values {
+    width: -webkit-fill-available;
+    text-align: right;
+}
+
+.type {
+    color: #ff6d6d;
+}
+
+.force-cost {
+    display: inline;
+    padding-left: 5px;
+    color: #6dceff;
+}
+
+.sp {
+    display: inline;
+    padding-left: 5px;
+    color: #ff6cb8;
+}
+
+.pc {
+    display: inline;
+    padding-left: 5px;
+    color: #7bff71;
 }
 
 .poubelle {

@@ -23,6 +23,7 @@ namespace Shatterpoint.Lib.Units
             }
             InjurePool = injure;
             WoundPool = wound;
+            Force = force;
         }
 
         /// <summary>

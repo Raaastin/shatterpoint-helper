@@ -22,7 +22,23 @@
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
                             <div class="unit-name">@unit.Name</div>
-                            <div class="unit-type">@unit.Type</div>
+                            <div class="unit-type flex">
+                                <div class="type">@unit.Type </div>
+                                <div class="values">
+                                    @if (unit.Force > 0)
+                                    {
+                                        <div class="force-cost">F: @unit.Force</div>
+                                    }
+                                    @if (unit.Type is UnitType.Primary)
+                                    {
+                                        <div class="sp">SP: @unit.SP</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="pc">PC: @unit.PC</div>
+                                    }
+                                </div>
+                            </div>
                             <div class="unit-keywords">@GetKeywords(unit)</div>
                         </div>
                     </a>
@@ -66,7 +82,7 @@
         }
 
         <div class="flex-auto">
-            <a  class="poubelle fade-in" href="#" @onclick="async () => await ClearSelectedUnits()">
+            <a class="poubelle fade-in" href="#" @onclick="async () => await ClearSelectedUnits()">
                 <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
             </a>
         </div>
