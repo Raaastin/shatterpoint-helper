@@ -170,7 +170,7 @@ namespace Shatterpoint.Lib.Services
                         Weilder = unit,
                         Name = "Defensive Maneuver",
                         Type = AbilityType.Active,
-                        Cost = 0,
+                        Cost = 1,
                         Text = "Each character in this Unit may *dash*. If any characters *dash*, this Unit gains *hunker*.",
                         Synergies =
                         [
