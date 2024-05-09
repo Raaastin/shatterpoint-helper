@@ -42,6 +42,7 @@ namespace Shatterpoint.Lib.Extensions
 
             //Apply logo
             result = result.ReplaceWithLogo("range", IconReferences.rangeicon, "bottom");
+            result = result.ReplaceWithLogo("forceicon", IconReferences.forceicon, "bottom");
 
             result = result.ReplaceWithLogo("advance", IconReferences.advanceicon, "bottom");
             result = result.ReplaceWithLogo("dash", IconReferences.dashicon, "bottom");

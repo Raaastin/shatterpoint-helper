@@ -80,7 +80,7 @@ namespace Shatterpoint.Lib.Services
                                 Type = UnitType.Support,
                                 KeyWords = [KeyWords.GalacticRepublic]
                             }],
-                        Timing = [Timing.Active, Timing.AnotherActive]
+                        Timing = [Timing.Active, Timing.AnotherActive, Timing.Opponent]
                     }
                 ];
             return unit;

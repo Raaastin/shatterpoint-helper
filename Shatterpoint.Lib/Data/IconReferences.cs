@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shatterpoint.Lib.Data
+﻿namespace Shatterpoint.Lib.Data
 {
     public class IconReferences
     {
