@@ -103,8 +103,7 @@
         {
             sb.Append($"{keyword} | ");
         }
-
-        return sb.ToString();
+        return sb.Remove(sb.Length - 3, 3).ToString();
     }
 
     UnitFilter FilterItem;
