@@ -244,27 +244,27 @@
         });
     }
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
         var path = FileSystem.Current.AppDataDirectory;
-        var fullPath = Path.Combine(path, "shatterpointlist4.json");
+        var fullPath = Path.Combine(path, "shatterpointlist.json");
 
         // Create if not exists
         if (!File.Exists(fullPath))
         {
             var emptyUnitList = new Unit[6];
-            File.WriteAllText(fullPath, emptyUnitList.ToJson());
+            await File.WriteAllTextAsync(fullPath, emptyUnitList.ToJson());
         }
 
         // Load data
         if (SelectedUnitsService.UnitSelectionArray is null)
         {
-            var arrayNames = File.ReadAllText(fullPath);
+            var arrayNames = await File.ReadAllTextAsync(fullPath);
             var data = arrayNames.FromJson(UnitDataBaseService);
             SelectedUnitsService.UnitSelectionArray = data;
         }
 
-        base.OnInitializedAsync();
+        await base.OnInitializedAsync();
     }
 
     private List<Unit> GetFilteredList(List<Unit> source)
