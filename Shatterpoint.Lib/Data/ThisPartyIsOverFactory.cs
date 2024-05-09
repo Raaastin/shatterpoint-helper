@@ -11,7 +11,7 @@ namespace Shatterpoint.Lib.Services
     {
         public static Unit MaceWindu()
         {
-            var unit = new Unit("Jedi Master Mace Windu", "Mace Windu", UnitType.Primary, UnitCardColor.Blue)
+            var unit = new Unit("Jedi Master Mace Windu", "Mace Windu", UnitType.Primary, UnitCardColor.Blue, 6, 4)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/k3cdg1ey/star-wars-shatterpoint-mace-windu-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/gs1ktczl/star-wars-shatterpoint-mace-windu-abilities-card.png",
@@ -86,7 +86,7 @@ namespace Shatterpoint.Lib.Services
         }
         public static Unit CommanderPonds()
         {
-            var unit = new Unit("CT-411 Commander Ponds", "CT-411", UnitType.Secondary, UnitCardColor.Blue)
+            var unit = new Unit("CT-411 Commander Ponds", "CT-411", UnitType.Secondary, UnitCardColor.Blue, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/p4rh33xl/star-wars-shatterpoint-commander-ponds-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/oxalgs52/star-wars-shatterpoint-commander-ponds-abilities-card.png",
@@ -155,7 +155,7 @@ namespace Shatterpoint.Lib.Services
         }
         public static Unit ArfTrooper()
         {
-            var unit = new Unit("ARF Clone Troopers", "", UnitType.Support, UnitCardColor.Blue)
+            var unit = new Unit("ARF Clone Troopers", "", UnitType.Support, UnitCardColor.Blue, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/qiwogg4e/star-wars-shatterpoint-arf-clone-troopers-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/wwvnjxcc/star-wars-shatterpoint-arf-clone-troopers-abilities-card.png",

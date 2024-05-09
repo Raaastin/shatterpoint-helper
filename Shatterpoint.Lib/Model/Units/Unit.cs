@@ -7,13 +7,36 @@ namespace Shatterpoint.Lib.Units
     /// </summary>
     public class Unit
     {
-        public Unit(string name, string uniqueName, UnitType type, UnitCardColor cardColor)
+        public Unit(string name, string uniqueName, UnitType type, UnitCardColor cardColor, int point, int force = 0)
         {
             Name = name;
             UniqueName = uniqueName;
             Type = type;
             CardColor = cardColor;
+            if (type is UnitType.Primary)
+            {
+                SP = point;
+            }
+            else
+            {
+                PC = point;
+            }
         }
+
+        /// <summary>
+        /// Force points
+        /// </summary>
+        public int Force { get; set; }
+
+        /// <summary>
+        /// SP
+        /// </summary>
+        public int SP { get; set; } = -1;
+
+        /// <summary>
+        /// PC
+        /// </summary>
+        public int PC { get; set; } = -1;
 
         /// <summary>
         /// Name of the unit
