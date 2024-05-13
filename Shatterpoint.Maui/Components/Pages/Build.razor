@@ -74,8 +74,7 @@
                 }
                 else
                 {
-                    <ProfilePictureEmpty Scale="0.4" IsSelected="@IsSelected(buffer)" />
-
+                    <ProfilePictureEmpty AvailablePoint="@GetAvailablePoint(buffer)" Scale="0.4" IsSelected="@IsSelected(buffer)" UnitType="GetUnitType(buffer)" />
                 }
             </div>
             i++;
@@ -324,5 +323,53 @@
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
         return base.OnAfterRenderAsync(firstRender);
+    }
+
+    public UnitType GetUnitType(int index)
+    {
+        switch (index)
+        {
+            case 0:
+            case 3:
+                return UnitType.Primary;
+            case 1:
+            case 4:
+                return UnitType.Secondary;
+            case 2:
+            case 5:
+                return UnitType.Support;
+            default:
+                return UnitType.Primary;
+        }
+    }
+
+    public int GetAvailablePoint(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return (SelectedUnitsService.UnitSelectionArray[1]?.PC ?? 0) + (SelectedUnitsService.UnitSelectionArray[2]?.PC ?? 0);
+            case 3:
+                return (SelectedUnitsService.UnitSelectionArray[4]?.PC ?? 0) + (SelectedUnitsService.UnitSelectionArray[5]?.PC ?? 0);
+            case 1:
+                if (SelectedUnitsService.UnitSelectionArray[0] is null)
+                    return 0;
+                return SelectedUnitsService.UnitSelectionArray[0].SP - (SelectedUnitsService.UnitSelectionArray[2]?.PC ?? 0);
+            case 2:
+                if (SelectedUnitsService.UnitSelectionArray[0] is null)
+                    return 0;
+                return SelectedUnitsService.UnitSelectionArray[0].SP - (SelectedUnitsService.UnitSelectionArray[1]?.PC ?? 0);
+            case 4:
+                if (SelectedUnitsService.UnitSelectionArray[3] is null)
+                    return 0;
+                return SelectedUnitsService.UnitSelectionArray[3].SP - (SelectedUnitsService.UnitSelectionArray[5]?.PC ?? 0);
+            case 5:
+                if (SelectedUnitsService.UnitSelectionArray[3] is null)
+                    return 0;
+                return SelectedUnitsService.UnitSelectionArray[3].SP - (SelectedUnitsService.UnitSelectionArray[4]?.PC ?? 0);
+            default:
+                return 0;
+
+        }
     }
 }

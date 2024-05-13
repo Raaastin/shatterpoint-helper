@@ -2,7 +2,12 @@
 
 
 <div class="component">
-    <div class="@GetHalo()" style="--scale:@Scale;" />
+    <div class="dashed-circle @GetHalo() @GetColor()" style="--scale:@Scale;">
+        @if (AvailablePoint > 0)
+        {
+            @AvailablePoint
+        }
+    </div>
 </div>
 
 @code {
@@ -13,11 +18,29 @@
     [Parameter]
     public string Scale { get; set; }
 
+    [Parameter]
+    public int AvailablePoint { get; set; }
+
+    [Parameter]
+    public UnitType UnitType { get; set; }
+
+    private string GetColor()
+    {
+        switch (UnitType)
+        {
+            case UnitType.Primary:
+                return "sp-color";
+            case UnitType.Secondary:
+            case UnitType.Support:
+            default:
+                return "pc-color";
+        }
+    }
 
     private string GetHalo()
     {
         if (IsSelected)
-            return "dashed-circle halo";
-        return "dashed-circle";
+            return "halo";
+        return "";
     }
 }

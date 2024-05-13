@@ -174,7 +174,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit NabooHandmainden()
         {
-            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue, 8, 2, 4)
+            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue, 4, 8, 2, 4)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/c4xfmpuj/shatterpoint-haindmaden-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/cofheu2y/shatterpoint-haindmaden-abilities-card.png",
