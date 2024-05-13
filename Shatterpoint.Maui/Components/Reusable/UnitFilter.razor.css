@@ -45,7 +45,7 @@
 
 .checkbox-style-checked {
     flex: auto;
-    border: 1px dashed black;
+    border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
     margin-left: 5px;

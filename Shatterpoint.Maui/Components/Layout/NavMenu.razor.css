@@ -7,7 +7,7 @@
     border-top: 1px solid lightslategrey;
     border-right: 1px solid lightslategrey;
     border-left: 1px solid lightslategrey;
-    box-shadow: 0 0px 25px 1px #6890d2
+    border-radius: 20px 20px 0px 0px;
 }
 
 .tab-not-selected {
@@ -46,7 +46,7 @@ div.page-title-selected {
 .back-band {
     color: wheat;
     background-color: #252530;
-    box-shadow: 0 0px 25px 1px #6890d2;
+    border-bottom: 1px dotted lightslategrey;
     position: relative;
     z-index: 10;
 }
