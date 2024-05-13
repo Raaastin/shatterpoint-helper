@@ -11,8 +11,19 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+    text-align: center;
+    display: grid;
+    align-items: center;
 }
 
 .halo {
     box-shadow: 0 0 10px 8px #6890d2;
+}
+
+.pc-color {
+    color: #7bff71;
+}
+
+.sp-color {
+    color: #ff6cb8;
 }

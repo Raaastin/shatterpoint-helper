@@ -9,15 +9,17 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class WeAreBraveFactory
     {
+        public static string warbandname = "We Are Brave";
         public static Unit QueenPadmé()
         {
-            var unit = new Unit("Queen Padmé Amidala", "Padmé Amidala", UnitType.Primary, UnitCardColor.Blue)
+            var unit = new Unit("Queen Padmé Amidala", "Padmé Amidala", UnitType.Primary, UnitCardColor.Blue, 8, 9, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/g2hnmz1n/shatterpoint-padme-amidala-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/w0akessn/shatterpoint-padme-amidala-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/0lvnicoy/shatterpoint-padme-amidala-stance-onecard.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/cv0k4bme/shatterpoint-padme-amidala-stance-two-card.png",
                 KeyWords = [KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -88,12 +90,13 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Sabé()
         {
-            var unit = new Unit("Sabé, Royal Bodyguard", "Sabé", UnitType.Secondary, UnitCardColor.Blue)
+            var unit = new Unit("Sabé, Royal Bodyguard", "Sabé", UnitType.Secondary, UnitCardColor.Blue, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/yexheddv/shatterpoint-sabe-unit-card.png?height=600&v=1d9d65d0ca039b0",
                 AbilityCardUrl = "https://shatterpointdb.com/media/zqxg2tvz/shatterpoint-sabe-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/nuddiknt/shatterpoint-sabe-stance-card.png",
                 KeyWords = [KeyWords.GalacticRepublic, KeyWords.Handmaiden],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -171,12 +174,13 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit NabooHandmainden()
         {
-            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue)
+            var unit = new Unit("Naboo Royal Handmaidens", "", UnitType.Support, UnitCardColor.Blue, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/c4xfmpuj/shatterpoint-haindmaden-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/cofheu2y/shatterpoint-haindmaden-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/miyhunki/shatterpoint-haindmaden-stance-card.png",
                 KeyWords = [KeyWords.GalacticRepublic, KeyWords.Handmaiden, KeyWords.Trooper],
+                WarBandName = warbandname
             };
 
             unit.Abilities =

@@ -9,15 +9,18 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class AppetiteForDestructionFactory
     {
+        private const string warbandname = "Appetite For Destruction";
+
         public static Unit Grievous()
         {
-            var unit = new Unit("General Grievous", "General Grievous", UnitType.Primary, UnitCardColor.Red)
+            var unit = new Unit("General Grievous", "General Grievous", UnitType.Primary, UnitCardColor.Red, 8, 11, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/fx4lex3u/star-wars-shatterpoint-grievous-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/5rda1caq/star-wars-shatterpoint-grievous-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/l2npxem1/star-wars-shatterpoint-grievous-stance-one-card.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/aifflby1/star-wars-shatterpoint-grievous-stance-two-card.png",
                 KeyWords = [KeyWords.Droid, KeyWords.SeparatistAlliance],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -90,12 +93,13 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Kraken()
         {
-            var unit = new Unit("Kraken, Super Tactical Droid", "Kraken", UnitType.Secondary, UnitCardColor.Red)
+            var unit = new Unit("Kraken, Super Tactical Droid", "Kraken", UnitType.Secondary, UnitCardColor.Red, 4, 10, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/30hehhkx/star-wars-shatterpoint-kraken-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/2knlge30/star-wars-shatterpoint-kraken-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/x01daqv1/star-wars-shatterpoint-kraken-stance-card.png",
                 KeyWords = [KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -162,12 +166,13 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit B2BAttleDroids()
         {
-            var unit = new Unit("B2 Battle Droids", "", UnitType.Support, UnitCardColor.Red)
+            var unit = new Unit("B2 Battle Droids", "", UnitType.Support, UnitCardColor.Red, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/dttcpher/star-wars-shatterpoint-b2-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/0xfnvtbi/star-wars-shatterpoint-b2-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/zrwakce5/star-wars-shatterpoint-b2-stance-card.png",
                 KeyWords = [KeyWords.B2, KeyWords.BattleDroid, KeyWords.Droid, KeyWords.SeparatistAlliance, KeyWords.Trooper],
+                WarBandName = warbandname
             };
 
             unit.Abilities =

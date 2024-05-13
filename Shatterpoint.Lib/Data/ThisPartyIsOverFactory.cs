@@ -9,15 +9,18 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class ThisPartyIsOverFactory
     {
+        private const string warbandname = "This Party Is Over";
+
         public static Unit MaceWindu()
         {
-            var unit = new Unit("Jedi Master Mace Windu", "Mace Windu", UnitType.Primary, UnitCardColor.Blue)
+            var unit = new Unit("Jedi Master Mace Windu", "Mace Windu", UnitType.Primary, UnitCardColor.Blue, 6, 11, 3, 4)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/k3cdg1ey/star-wars-shatterpoint-mace-windu-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/gs1ktczl/star-wars-shatterpoint-mace-windu-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/ho1k44sh/star-wars-shatterpoint-mace-windu-stance-two-card.png",
                 StanceCardUrl2 = "https://shatterpointdb.com/media/5jnbib52/star-wars-shatterpoint-mace-windu-stance-one-card.png",
                 KeyWords = [KeyWords.ForceUser, KeyWords.GalacticRepublic, KeyWords.Jedi],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -86,12 +89,13 @@ namespace Shatterpoint.Lib.Services
         }
         public static Unit CommanderPonds()
         {
-            var unit = new Unit("CT-411 Commander Ponds", "CT-411", UnitType.Secondary, UnitCardColor.Blue)
+            var unit = new Unit("CT-411 Commander Ponds", "CT-411", UnitType.Secondary, UnitCardColor.Blue, 3, 7, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/p4rh33xl/star-wars-shatterpoint-commander-ponds-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/oxalgs52/star-wars-shatterpoint-commander-ponds-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/vqmlpyk5/star-wars-shatterpoint-commander-ponds-stance-card.png",
                 KeyWords = [KeyWords.CloneCommando, KeyWords.CloneTrooper, KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
@@ -155,12 +159,13 @@ namespace Shatterpoint.Lib.Services
         }
         public static Unit ArfTrooper()
         {
-            var unit = new Unit("ARF Clone Troopers", "", UnitType.Support, UnitCardColor.Blue)
+            var unit = new Unit("ARF Clone Troopers", "", UnitType.Support, UnitCardColor.Blue, 3, 7, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/qiwogg4e/star-wars-shatterpoint-arf-clone-troopers-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/wwvnjxcc/star-wars-shatterpoint-arf-clone-troopers-abilities-card.png",
                 StanceCardUrl1 = "https://shatterpointdb.com/media/f10hbmu2/star-wars-shatterpoint-arf-clone-troopers-stance-card.png",
                 KeyWords = [KeyWords.CloneCommando, KeyWords.CloneTrooper, KeyWords.GalacticRepublic],
+                WarBandName = warbandname
             };
 
             unit.Abilities =
