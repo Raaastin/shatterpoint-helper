@@ -83,7 +83,7 @@
     text-decoration: none;
 }
 
-.not-selectable .unit-name, .not-selectable .unit-type, .not-selectable .unit-keywords {
+.not-selectable div {
     color: gray;
 }
 
