@@ -1,3 +1,7 @@
+.component {
+    padding-top: 1px;
+}
+
 .main-color {
     background-color: #121212;
 }
