@@ -15,6 +15,11 @@ namespace Shatterpoint.Lib.Services
         public Unit[] UnitSelectionArray { get; set; }
 
         /// <summary>
+        /// number of the list
+        /// </summary>
+        public int FileIndex { get; set; }
+
+        /// <summary>
         /// Current active unit and compatible abilities
         /// </summary>
         public ActiveUnitModel ActiveUnit { get; set; }
@@ -49,6 +54,7 @@ namespace Shatterpoint.Lib.Services
                 UnitSelectionArray[i] = null;
             }
             ActiveUnit = null;
+            FileIndex = 0;
         }
 
         /// <summary>

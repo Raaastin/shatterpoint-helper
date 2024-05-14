@@ -1,0 +1,60 @@
+﻿@using Shatterpoint.Lib.Extensions
+@using Shatterpoint.Lib.Model
+@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Lib.Units;
+@using Shatterpoint.Maui.Components.Reusable;
+@using System.Text;
+@using Shatterpoint.Maui.Services
+
+@page "/"
+@page "/list"
+@inject UnitDataBaseService UnitDataBaseService
+@inject SelectedUnitsService SelectedUnitsService
+@inject NavigationService NavigationService;
+@inject DataAccessLayer DataAccessLayer;
+
+<div>
+    @foreach (var entity in Lists)
+    {
+        <div @onclick="() => SelectList(entity)">
+            <UnitArray ListEntity="entity" @key="entity" />
+        </div>
+    }
+</div>
+<div>
+    <input type="button" value="Add new list" @onclick="AddNewList" />
+</div>
+
+
+@code {
+
+    public List<ListEntity> Lists { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load all data
+        Lists = await DataAccessLayer.LoadLists();
+
+        await base.OnInitializedAsync();
+    }
+
+    public void SelectList(ListEntity listEntity)
+    {
+        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
+        SelectedUnitsService.FileIndex = listEntity.Index;
+        NavigationService.NavigateFromTo("/list", "/build");
+    }
+
+    public void AddNewList()
+    {
+        var indexMax = Lists.LastOrDefault()?.Index ?? 0;
+        var listEntity = new ListEntity()
+            {
+                ArrayUnit = new Unit[6],
+                Index = indexMax + 1
+            };
+        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
+        SelectedUnitsService.FileIndex = listEntity.Index;
+        NavigationService.NavigateFromTo("/list", "/build");
+    }
+}

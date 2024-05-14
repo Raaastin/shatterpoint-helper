@@ -1,0 +1,61 @@
+/* Selected units */
+.selected-unit-panel {
+    display: flex;
+    flex-wrap: wrap;
+    height: 70px;
+    align-content: center;
+}
+
+.flex-auto {
+    flex: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.values {
+    width: -webkit-fill-available;
+    text-align: right;
+}
+
+.type {
+    color: #ff6d6d;
+}
+
+.force-cost {
+    display: inline;
+    padding-left: 5px;
+    color: #6dceff;
+}
+
+.sp {
+    display: inline;
+    padding-left: 5px;
+    color: #ff6cb8;
+}
+
+.pc {
+    display: inline;
+    padding-left: 5px;
+    color: #7bff71;
+}
+
+.poubelle {
+    display: flex;
+    justify-content: center;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

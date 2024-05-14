@@ -25,9 +25,26 @@ namespace Shatterpoint.Maui.Services
         /// <summary>
         /// Load all lists
         /// </summary>
-        public void LoadLists()
+        public async Task<List<ListEntity>> LoadLists()
         {
+            var result = new List<ListEntity>();
 
+            var path = FileSystem.Current.AppDataDirectory;
+            var fileList = Directory.GetFiles(path);
+
+            foreach (var file in fileList)
+            {
+                var fullPath = Path.Combine(path, file);
+                var arrayNames = await File.ReadAllTextAsync(fullPath);
+                var data = arrayNames.FromJson(UnitDataBaseService);
+                result.Add(new ListEntity()
+                {
+                    ArrayUnit = data,
+                    Index = Convert.ToInt32(Path.GetFileNameWithoutExtension(fullPath))
+                });
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -55,13 +72,12 @@ namespace Shatterpoint.Maui.Services
             var path = FileSystem.Current.AppDataDirectory;
             var fullPath = Path.Combine(path, $"{index}.json");
 
-
             var arrayNames = await File.ReadAllTextAsync(fullPath);
             var data = arrayNames.FromJson(UnitDataBaseService);
 
             var entity = new ListEntity()
             {
-                index = index,
+                Index = index,
                 ArrayUnit = data
             };
 
@@ -83,7 +99,9 @@ namespace Shatterpoint.Maui.Services
 
         public void DeleteList(int index)
         {
-
+            var path = FileSystem.Current.AppDataDirectory;
+            var fullPath = Path.Combine(path, $"{index}.json");
+            File.Delete(fullPath);
         }
     }
 }

@@ -5,7 +5,6 @@
 @using System.Text;
 @using Shatterpoint.Maui.Services
 
-@page "/"
 @page "/build"
 @inject UnitDataBaseService UnitDataBaseService
 @inject SelectedUnitsService SelectedUnitsService
@@ -82,7 +81,7 @@
         }
 
         <div class="flex-auto">
-            <a class="poubelle fade-in" href="#" @onclick="async () => await ClearSelectedUnits()">
+            <a class="poubelle fade-in" href="#" @onclick="() => ClearSelectedUnits()">
                 <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
             </a>
         </div>
@@ -108,11 +107,13 @@
 
     UnitFilter FilterItem;
 
-    public async Task ClearSelectedUnits()
+    public void ClearSelectedUnits()
     {
         SelectedUnitsService.ClearSelectedUnits();
         SelectedIndex = -1;
-        await DataAccessLayer.SaveList(SelectedUnitsService.UnitSelectionArray, 1);
+        DataAccessLayer.DeleteList(SelectedUnitsService.FileIndex);
+        NavigationService.NavigateFromTo("/build", "/list");
+
     }
 
     public string GetClass(string name, UnitType type)
@@ -214,7 +215,7 @@
                 SelectedUnitsService.ActiveUnit = null;
             }
             RemoveUnitFromSelectionArray(unitFound);
-            await DataAccessLayer.SaveList(selectedUnits, 1);
+            await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
             return;
         }
 
@@ -231,7 +232,7 @@
             SelectedUnitsService.UnitSelectionArray[SelectedIndex] = unit;
             SelectedIndex = -1;
 
-            await DataAccessLayer.SaveList(selectedUnits, 1);
+            await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
             return;
         }
 
@@ -245,19 +246,16 @@
         AddUnitToSelectionArray(unit);
         SelectedIndex = -1;
 
-        await DataAccessLayer.SaveList(selectedUnits, 1);
+        await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
     }
 
     protected async override Task OnInitializedAsync()
     {
-        var path = FileSystem.Current.AppDataDirectory;
-        var fullPath = Path.Combine(path, "1.json");
-
         // Create if not exists
-        await DataAccessLayer.CreateIfNotExists(1);
+        await DataAccessLayer.CreateIfNotExists(SelectedUnitsService.FileIndex);
 
         // Load data
-        var data = await DataAccessLayer.LoadList(1);
+        var data = await DataAccessLayer.LoadList(SelectedUnitsService.FileIndex);
         SelectedUnitsService.UnitSelectionArray = data.ArrayUnit;
 
         await base.OnInitializedAsync();

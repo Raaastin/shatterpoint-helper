@@ -10,14 +10,17 @@
 
         <div class="flex main-color">
             <a class="img-container flex-auto flex @IsSelected(1)" @onclick='() => Navigate("/build")'>
-                <img class="units-icon" src="/img/icons/list.png" alt="Menu list" />
+                <img class="units-icon" src="/img/icons/list.png" alt="Menu build" />
             </a>
-            <a class="img-container flex-auto flex @IsSelected(2)" @onclick='() => Navigate("/play")'>
+            <a class="img-container flex-auto flex @IsSelected(2)" @onclick='() => Navigate("/list")'>
+                <img class="units-icon" src="/img/icons/not-found.png" alt="Menu list" />
+            </a>
+            <a class="img-container flex-auto flex @IsSelected(3)" @onclick='() => Navigate("/play")'>
                 <img class="units-icon" src="/img/icons/lightsabers.png" alt="Menu cards" />
             </a>
             @if (IfDebug())
             {
-                <a class="img-container flex-auto flex @IsSelected(3)" @onclick='() => Navigate("/sandbox")'>
+                <a class="img-container flex-auto flex @IsSelected(4)" @onclick='() => Navigate("/sandbox")'>
                     <div class="units-icon">sandbox</div>
                 </a>
             }
@@ -33,11 +36,12 @@
     }
 </div>
 <div class="@GetClass(1)">List Building</div>
-<div class="@GetClass(2)">Custom Cards</div>
-<div class="@GetClass(3)">Sandbox</div>
+<div class="@GetClass(2)">Lists</div>
+<div class="@GetClass(3)">Custom Cards</div>
+<div class="@GetClass(4)">Sandbox</div>
 
 @code {
-    public int SelectedTab { get; set; } = 1;
+    public int SelectedTab { get; set; } = 2;
     public bool DisplayBack { get; set; } = false;
 
     public bool IfDebug()

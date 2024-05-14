@@ -63,13 +63,15 @@ namespace Shatterpoint.Maui.Services
         private int GetSelectionTab(string url)
         {
             if (url == "/")
-                return 1;
+                return 2;
             if (url.Contains("build"))
                 return 1;
-            if (url.Contains("play"))
+            if (url.Contains("list"))
                 return 2;
-            if (url.Contains("sandbox"))
+            if (url.Contains("play"))
                 return 3;
+            if (url.Contains("sandbox"))
+                return 4;
 
             return -1;
         }
