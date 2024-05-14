@@ -109,9 +109,9 @@
 
     public void ClearSelectedUnits()
     {
-        SelectedUnitsService.ClearSelectedUnits();
         SelectedIndex = -1;
         DataAccessLayer.DeleteList(SelectedUnitsService.FileIndex);
+        SelectedUnitsService.ClearSelectedUnits();
         NavigationService.NavigateFromTo("/build", "/list");
 
     }
