@@ -13,20 +13,28 @@
 @inject NavigationService NavigationService;
 @inject DataAccessLayer DataAccessLayer;
 
-<div>
-    @foreach (var entity in Lists)
-    {
-        <div @onclick="() => SelectList(entity)">
-            <UnitArray ListEntity="entity" @key="entity" />
-        </div>
-    }
-</div>
-<div>
-    <input type="button" value="Add new list" @onclick="AddNewList" />
+<div class="page-content scrollable">
+    <ul>
+        @{
+            int i = 0;
+        }
+        @foreach (var entity in Lists)
+        {
+            int buffer = i;
+            <li @onclick="() => EditList(entity)">
+                <UnitArray ListEntity="entity" @key="entity" />
+            </li>
+        }
+    </ul>
 </div>
 
 
 @code {
+
+    /// <summary>
+    /// index of opened list panel
+    /// </summary>
+    public int OpenedList { get; set; }
 
     public List<ListEntity> Lists { get; set; } = new();
 
@@ -38,7 +46,14 @@
         await base.OnInitializedAsync();
     }
 
-    public void SelectList(ListEntity listEntity)
+    public void ListDetail(ListEntity listEntity)
+    {
+        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
+        SelectedUnitsService.FileIndex = listEntity.Index;
+        NavigationService.NavigateFromTo("/list", "/build");
+    }
+
+    public void EditList(ListEntity listEntity)
     {
         SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
         SelectedUnitsService.FileIndex = listEntity.Index;
@@ -57,4 +72,9 @@
         SelectedUnitsService.FileIndex = listEntity.Index;
         NavigationService.NavigateFromTo("/list", "/build");
     }
+
+    // public string GetListDetailClass()
+    // {
+
+    // }
 }

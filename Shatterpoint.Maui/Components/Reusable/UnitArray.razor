@@ -1,14 +1,14 @@
 ﻿@using Shatterpoint.Lib.Model
 @using Shatterpoint.Maui.Components.Reusable
 
-<div class="selected-unit-panel">
+<div class="selected-unit-panel fade-in">
     @{
         int i = 0;
     }
     @foreach (var unit in ListEntity.ArrayUnit)
     {
         int buffer = i;
-        <div class="flex-auto fade-in" @key="unit">
+        <div class="flex-auto" @key="unit">
             @if (unit is not null)
             {
                 <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />

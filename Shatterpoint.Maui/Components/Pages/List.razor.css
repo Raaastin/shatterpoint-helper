@@ -1,0 +1,37 @@
+.page-content {
+    background-color: #252530;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable {
+    position: relative;
+    height: calc(100vh - 80px); /* 100% - navbar */
+    overflow-y: auto;
+}
+
+.button-style {
+    width: -webkit-fill-available;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0px 5px 0px 5px;
+    justify-content: center;
+    background-color: orange;
+    font-weight: 700;
+}
+    /* Style au survol */
+    .button-style:hover {
+        background-color: orangered; /* Couleur de fond au survol */
+    }
+
+.list-detail {
+    display: none;
+}
+
+.list-detail-selected {
+    display: block;
+}
