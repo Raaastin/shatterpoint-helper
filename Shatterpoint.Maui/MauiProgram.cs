@@ -21,6 +21,7 @@ namespace Shatterpoint.Maui
 
             builder.Services.AddSingleton<UnitDataBaseService>();
             builder.Services.AddSingleton<SelectedUnitsService>();
+            builder.Services.AddSingleton<DataAccessLayer>();
             builder.Services.AddScoped<NavigationService>();
 
 
