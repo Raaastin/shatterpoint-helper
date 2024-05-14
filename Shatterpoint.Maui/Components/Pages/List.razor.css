@@ -30,8 +30,22 @@ ul {
 
 .list-detail {
     display: none;
+    color: wheat;
 }
 
 .list-detail-selected {
-    display: block;
+    display: flex;
+    color: wheat;
 }
+
+.list-detail-container {
+    align-items: center;
+}
+
+.list-detail-container * {
+    flex:auto;
+}
+
+    .list-detail-container input {
+        height: 50px;
+    }

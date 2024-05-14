@@ -21,20 +21,29 @@
         @foreach (var entity in Lists)
         {
             int buffer = i;
-            <li @onclick="() => EditList(entity)">
+            <li @onclick="() => OpenCloseDetail(buffer)">
                 <UnitArray ListEntity="entity" @key="entity" />
+                <div class="list-detail-container @GetListDetailClass(buffer)">
+                    <Input type="image" src="img/icons/list.png" @onclick="() => EditList(entity)" value="Edit" />
+                    <div>TODO: WRITE SOME LIST DETAIL HERE</div>
+                    <Input type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards(entity)" value="Custom Cards" />
+                </div>
             </li>
+            i++;
         }
     </ul>
+
+    <div>
+        <input class="button-style" type="button" value="Add new list" @onclick="AddNewList" />
+    </div>
 </div>
 
 
 @code {
-
     /// <summary>
     /// index of opened list panel
     /// </summary>
-    public int OpenedList { get; set; }
+    public int OpenedList { get; set; } = -1;
 
     public List<ListEntity> Lists { get; set; } = new();
 
@@ -60,6 +69,13 @@
         NavigationService.NavigateFromTo("/list", "/build");
     }
 
+    public void CustomCards(ListEntity listEntity)
+    {
+        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
+        SelectedUnitsService.FileIndex = listEntity.Index;
+        NavigationService.NavigateFromTo("/list", "/play");
+    }
+
     public void AddNewList()
     {
         var indexMax = Lists.LastOrDefault()?.Index ?? 0;
@@ -73,8 +89,16 @@
         NavigationService.NavigateFromTo("/list", "/build");
     }
 
-    // public string GetListDetailClass()
-    // {
+    public void OpenCloseDetail(int index)
+    {
+        if (OpenedList == index)
+            OpenedList = -1;
+        else
+            OpenedList = index;
+    }
 
-    // }
+    public string GetListDetailClass(int index)
+    {
+        return index != OpenedList ? "list-detail" : "list-detail-selected";
+    }
 }
