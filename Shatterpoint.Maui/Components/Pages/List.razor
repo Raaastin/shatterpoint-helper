@@ -24,9 +24,9 @@
             <li @onclick="() => OpenCloseDetail(buffer)">
                 <UnitArray ListEntity="entity" @key="entity" />
                 <div class="list-detail-container @GetListDetailClass(buffer)">
-                    <Input type="image" src="img/icons/list.png" @onclick="() => EditList(entity)" value="Edit" />
+                    <input type="image" src="img/icons/list.png" @onclick="() => EditList(entity)" value="Edit" />
                     <div>TODO: WRITE SOME LIST DETAIL HERE</div>
-                    <Input type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards(entity)" value="Custom Cards" />
+                    <input type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards(entity)" value="Custom Cards" />
                 </div>
             </li>
             i++;
