@@ -12,12 +12,23 @@
 @inject SelectedUnitsService SelectedUnitsService
 @inject NavigationService NavigationService;
 @inject DataAccessLayer DataAccessLayer;
+@inject IJSRuntime JSRuntime;
+
+<script type="text/javascript">
+    window.getDimensions = function () {
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    };
+</script>
 
 <div class="page-content scrollable">
     <ul>
         @foreach (var entity in Lists)
         {
-            <li class="grid @SlideRight(entity.Index)" @onclick="() => OpenCloseDetail(entity.Index)">
+            <li class="grid @SlideRight(entity.Index)" @onclick="(MouseEventArgs e) => HandleClick(entity.Index, e)">
+                <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList()" value="Edit List" />
                 <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
                 <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
             </li>
@@ -35,11 +46,15 @@
     public List<ListEntity> Lists { get; set; } = new();
 
     public int SelectedListIndex { get; set; } = -1;
+    public int MouseX { get; set; }
+    public int ScreenWidth { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         // Load all data
         Lists = await DataAccessLayer.LoadLists();
+        var dimentions = await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
+        ScreenWidth = dimentions.Width;
 
         await base.OnInitializedAsync();
     }
@@ -82,8 +97,20 @@
         NavigationService.NavigateFromTo("/list", "/build");
     }
 
-    public void OpenCloseDetail(int index)
+    public class BrowserDimension
     {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+    public async Task<BrowserDimension> GetDimensions()
+    {
+        return await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
+    }
+
+    public void HandleClick(int index, MouseEventArgs e)
+    {
+        MouseX = (int)e.PageX;
         if (SelectedListIndex == index)
         {
             SelectedListIndex = -1;
@@ -108,6 +135,12 @@
 
     public string SlideRight(int index)
     {
-        return index != SelectedListIndex ? "" : "slide-right";
+        if (index != SelectedListIndex)
+            return "";
+
+        if (ScreenWidth / MouseX < 2)
+            return "slide-right";
+        else
+            return "slide-left";
     }
 }

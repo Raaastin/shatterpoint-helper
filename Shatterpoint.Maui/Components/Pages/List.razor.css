@@ -16,13 +16,13 @@ li.grid {
 li.slide-right {
     position: relative;
     right: 50px;
-    animation: slide-right 0.25s;
+    animation: slide-right 0.5s;
 }
 
 li.slide-left {
     position: relative;
-    right: 50px;
-    animation: slide-right 0.25s;
+    left: 50px;
+    animation: slide-left 0.5s;
 }
 
 @keyframes slide-right {
@@ -93,6 +93,12 @@ li.slide-left {
     width: 45px;
     position: absolute;
     right: -50px;
+}
+
+.edit-button {
+    width: 45px;
+    position: absolute;
+    left: -50px;
 }
 
 .footer {
