@@ -1,5 +1,6 @@
 .page-content {
     background-color: #252530;
+    /*background-color: #121212;*/
 }
 
 ul {
@@ -7,10 +8,48 @@ ul {
     margin: 0;
 }
 
+li.grid {
+    display: grid;
+    align-items: center;
+}
+
+li.slide-right {
+    position: relative;
+    right: 50px;
+    animation: slide-right 0.25s;
+}
+
+li.slide-left {
+    position: relative;
+    right: 50px;
+    animation: slide-right 0.25s;
+}
+
+@keyframes slide-right {
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        right: 50px;
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        left: 0px;
+    }
+
+    100% {
+        left: 50px;
+    }
+}
+
 .scrollable {
     position: relative;
-    height: calc(100vh - 80px); /* 100% - navbar */
+    height: calc(100vh - 40px - 80px); /* 100% - navbar */
     overflow-y: auto;
+    overflow-x:hidden;
 }
 
 .button-style {
@@ -18,7 +57,7 @@ ul {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
-    margin: 0px 5px 0px 5px;
+    margin: 5px;
     justify-content: center;
     background-color: orange;
     font-weight: 700;
@@ -42,10 +81,59 @@ ul {
     align-items: center;
 }
 
-.list-detail-container * {
-    flex:auto;
-}
+    .list-detail-container * {
+        flex: auto;
+    }
 
     .list-detail-container input {
         height: 50px;
     }
+
+.play-button {
+    width: 45px;
+    position: absolute;
+    right: -50px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: -webkit-fill-available;
+    background-color: #252530;
+    align-content: center;
+}
+
+.panel-detail {
+    color: wheat;
+}
+
+.panel-detail-expanded {
+    animation: expand-panel 0.25s;
+    height: 100px;
+}
+
+.panel-detail-collapsed {
+    animation: collapse-panel 0.25s;
+    height: 0px;
+}
+
+@keyframes expand-panel {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 100px;
+    }
+}
+
+@keyframes collapse-panel {
+    0% {
+        height: 100px;
+    }
+
+    100% {
+        height: 0px;
+    }
+}

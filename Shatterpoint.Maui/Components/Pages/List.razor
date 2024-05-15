@@ -15,37 +15,26 @@
 
 <div class="page-content scrollable">
     <ul>
-        @{
-            int i = 0;
-        }
         @foreach (var entity in Lists)
         {
-            int buffer = i;
-            <li @onclick="() => OpenCloseDetail(buffer)">
-                <UnitArray ListEntity="entity" @key="entity" />
-                <div class="list-detail-container @GetListDetailClass(buffer)">
-                    <input type="image" src="img/icons/list.png" @onclick="() => EditList(entity)" value="Edit" />
-                    <div>TODO: WRITE SOME LIST DETAIL HERE</div>
-                    <input type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards(entity)" value="Custom Cards" />
-                </div>
+            <li class="grid @SlideRight(entity.Index)" @onclick="() => OpenCloseDetail(entity.Index)">
+                <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
+                <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
             </li>
-            i++;
         }
     </ul>
 
-    <div>
+    <div class="footer">
         <input class="button-style" type="button" value="Add new list" @onclick="AddNewList" />
     </div>
 </div>
 
 
 @code {
-    /// <summary>
-    /// index of opened list panel
-    /// </summary>
-    public int OpenedList { get; set; } = -1;
 
     public List<ListEntity> Lists { get; set; } = new();
+
+    public int SelectedListIndex { get; set; } = -1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -55,24 +44,28 @@
         await base.OnInitializedAsync();
     }
 
-    public void ListDetail(ListEntity listEntity)
+    private string GetTotalForce()
     {
-        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
-        SelectedUnitsService.FileIndex = listEntity.Index;
+        int result = 0;
+
+        foreach (var unit in SelectedUnitsService.UnitSelectionArray.Where(x => x is not null))
+        {
+            result += unit.Force;
+        }
+        return result.ToString();
+    }
+
+    public void EditList()
+    {
+        SelectedUnitsService.FileIndex = SelectedListIndex;
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == SelectedListIndex).ArrayUnit;
         NavigationService.NavigateFromTo("/list", "/build");
     }
 
-    public void EditList(ListEntity listEntity)
+    public void CustomCards()
     {
-        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
-        SelectedUnitsService.FileIndex = listEntity.Index;
-        NavigationService.NavigateFromTo("/list", "/build");
-    }
-
-    public void CustomCards(ListEntity listEntity)
-    {
-        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
-        SelectedUnitsService.FileIndex = listEntity.Index;
+        SelectedUnitsService.FileIndex = SelectedListIndex;
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == SelectedListIndex).ArrayUnit;
         NavigationService.NavigateFromTo("/list", "/play");
     }
 
@@ -91,14 +84,30 @@
 
     public void OpenCloseDetail(int index)
     {
-        if (OpenedList == index)
-            OpenedList = -1;
+        if (SelectedListIndex == index)
+        {
+            SelectedListIndex = -1;
+        }
         else
-            OpenedList = index;
+        {
+            SelectedListIndex = index;
+            SelectedUnitsService.FileIndex = index;
+            SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == index).ArrayUnit;
+        }
     }
 
     public string GetListDetailClass(int index)
     {
-        return index != OpenedList ? "list-detail" : "list-detail-selected";
+        return index != SelectedListIndex ? "list-detail" : "list-detail-selected";
+    }
+
+    public string GetExpanded(int index)
+    {
+        return index != SelectedListIndex ? "panel-detail-collapsed" : "panel-detail-expanded";
+    }
+
+    public string SlideRight(int index)
+    {
+        return index != SelectedListIndex ? "" : "slide-right";
     }
 }

@@ -1,11 +1,12 @@
 ﻿@using Shatterpoint.Lib.Model
+@using Shatterpoint.Lib.Units
 @using Shatterpoint.Maui.Components.Reusable
 
 <div class="selected-unit-panel fade-in">
     @{
         int i = 0;
     }
-    @foreach (var unit in ListEntity.ArrayUnit)
+    @foreach (var unit in ArrayUnit)
     {
         int buffer = i;
         <div class="flex-auto" @key="unit">
@@ -23,6 +24,7 @@
 </div>
 
 @code {
+
     [Parameter]
-    public ListEntity ListEntity { get; set; }
+    public Unit[] ArrayUnit { get; set; }
 }
