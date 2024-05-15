@@ -30,7 +30,7 @@ namespace Shatterpoint.Maui.Services
             var result = new List<ListEntity>();
 
             var path = FileSystem.Current.AppDataDirectory;
-            var fileList = Directory.GetFiles(path);
+            var fileList = Directory.GetFiles(path, "*.json");
 
             foreach (var file in fileList)
             {
