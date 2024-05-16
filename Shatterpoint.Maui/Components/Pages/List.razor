@@ -27,8 +27,8 @@
     <ul>
         @foreach (var entity in Lists)
         {
-            <li class="grid @SlideRight(entity.Index)" @onclick="(MouseEventArgs e) => HandleClick(entity.Index, e)">
-                <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList()" value="Edit List" />
+            <li class="grid @SlideRight(entity.Filename)" @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
+                <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
                 <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
                 <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
             </li>
@@ -45,7 +45,8 @@
 
     public List<ListEntity> Lists { get; set; } = new();
 
-    public int SelectedListIndex { get; set; } = -1;
+    public string SelectedFile { get; set; }
+
     public int MouseX { get; set; }
     public int ScreenWidth { get; set; }
 
@@ -53,10 +54,17 @@
     {
         // Load all data
         Lists = await DataAccessLayer.LoadLists();
-        var dimentions = await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
-        ScreenWidth = dimentions.Width;
 
         await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var dimentions = await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
+            ScreenWidth = dimentions.Width;
+        }
     }
 
     private string GetTotalForce()
@@ -70,30 +78,20 @@
         return result.ToString();
     }
 
-    public void EditList()
+    public void EditList(string filename)
     {
-        SelectedUnitsService.FileIndex = SelectedListIndex;
-        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == SelectedListIndex).ArrayUnit;
-        NavigationService.NavigateFromTo("/list", "/build");
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == filename).ArrayUnit;
+        NavigationService.NavigateFromTo("/list", $"/build/{filename}");
     }
 
     public void CustomCards()
     {
-        SelectedUnitsService.FileIndex = SelectedListIndex;
-        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == SelectedListIndex).ArrayUnit;
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == SelectedFile).ArrayUnit;
         NavigationService.NavigateFromTo("/list", "/play");
     }
 
     public void AddNewList()
     {
-        var indexMax = Lists.LastOrDefault()?.Index ?? 0;
-        var listEntity = new ListEntity()
-            {
-                ArrayUnit = new Unit[6],
-                Index = indexMax + 1
-            };
-        SelectedUnitsService.UnitSelectionArray = listEntity.ArrayUnit;
-        SelectedUnitsService.FileIndex = listEntity.Index;
         NavigationService.NavigateFromTo("/list", "/build");
     }
 
@@ -108,34 +106,33 @@
         return await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
     }
 
-    public void HandleClick(int index, MouseEventArgs e)
+    public void HandleClick(string filename, MouseEventArgs e)
     {
         MouseX = (int)e.PageX;
-        if (SelectedListIndex == index)
+        if (SelectedFile == filename)
         {
-            SelectedListIndex = -1;
+            SelectedFile = null;
         }
         else
         {
-            SelectedListIndex = index;
-            SelectedUnitsService.FileIndex = index;
-            SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Index == index).ArrayUnit;
+            SelectedFile = filename;
+            SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == filename).ArrayUnit;
         }
     }
 
-    public string GetListDetailClass(int index)
+    public string GetListDetailClass(string filename)
     {
-        return index != SelectedListIndex ? "list-detail" : "list-detail-selected";
+        return filename != SelectedFile ? "list-detail" : "list-detail-selected";
     }
 
-    public string GetExpanded(int index)
+    public string GetExpanded(string filename)
     {
-        return index != SelectedListIndex ? "panel-detail-collapsed" : "panel-detail-expanded";
+        return filename != SelectedFile ? "panel-detail-collapsed" : "panel-detail-expanded";
     }
 
-    public string SlideRight(int index)
+    public string SlideRight(string filename)
     {
-        if (index != SelectedListIndex)
+        if (filename != SelectedFile)
             return "";
 
         if (ScreenWidth / MouseX < 2)
