@@ -1,0 +1,143 @@
+﻿@using Shatterpoint.Lib.Extensions
+@using Shatterpoint.Lib.Model
+@using Shatterpoint.Lib.Services;
+@using Shatterpoint.Lib.Units;
+@using Shatterpoint.Maui.Components.Reusable;
+@using System.Text;
+@using Shatterpoint.Maui.Services
+
+@page "/"
+@page "/list"
+@inject UnitDataBaseService UnitDataBaseService
+@inject SelectedUnitsService SelectedUnitsService
+@inject NavigationService NavigationService;
+@inject DataAccessLayer DataAccessLayer;
+@inject IJSRuntime JSRuntime;
+
+<script type="text/javascript">
+    window.getDimensions = function () {
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    };
+</script>
+
+<div class="page-content scrollable">
+    <ul>
+        @foreach (var entity in Lists)
+        {
+            <li class="grid @SlideRight(entity.Filename)" @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
+                <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
+                <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
+                <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
+            </li>
+        }
+    </ul>
+
+    <div class="footer">
+        <input class="button-style" type="button" value="Add new list" @onclick="AddNewList" />
+    </div>
+</div>
+
+
+@code {
+
+    public List<ListEntity> Lists { get; set; } = new();
+
+    public string SelectedFile { get; set; }
+
+    public int MouseX { get; set; }
+    public int ScreenWidth { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load all data
+        Lists = await DataAccessLayer.LoadLists();
+
+        await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var dimentions = await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
+            ScreenWidth = dimentions.Width;
+        }
+    }
+
+    private string GetTotalForce()
+    {
+        int result = 0;
+
+        foreach (var unit in SelectedUnitsService.UnitSelectionArray.Where(x => x is not null))
+        {
+            result += unit.Force;
+        }
+        return result.ToString();
+    }
+
+    public void EditList(string filename)
+    {
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == filename).ArrayUnit;
+        NavigationService.NavigateFromTo("/list", $"/build/{filename}");
+    }
+
+    public void CustomCards()
+    {
+        SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == SelectedFile).ArrayUnit;
+        NavigationService.NavigateFromTo("/list", "/play");
+    }
+
+    public void AddNewList()
+    {
+        NavigationService.NavigateFromTo("/list", "/build");
+    }
+
+    public class BrowserDimension
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+    public async Task<BrowserDimension> GetDimensions()
+    {
+        return await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
+    }
+
+    public void HandleClick(string filename, MouseEventArgs e)
+    {
+        MouseX = (int)e.PageX;
+        if (SelectedFile == filename)
+        {
+            SelectedFile = null;
+        }
+        else
+        {
+            SelectedFile = filename;
+            SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == filename).ArrayUnit;
+        }
+    }
+
+    public string GetListDetailClass(string filename)
+    {
+        return filename != SelectedFile ? "list-detail" : "list-detail-selected";
+    }
+
+    public string GetExpanded(string filename)
+    {
+        return filename != SelectedFile ? "panel-detail-collapsed" : "panel-detail-expanded";
+    }
+
+    public string SlideRight(string filename)
+    {
+        if (filename != SelectedFile)
+            return "";
+
+        if (ScreenWidth / MouseX < 2)
+            return "slide-right";
+        else
+            return "slide-left";
+    }
+}

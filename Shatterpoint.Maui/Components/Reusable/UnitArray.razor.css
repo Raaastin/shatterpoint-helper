@@ -1,0 +1,29 @@
+/* Selected units */
+.selected-unit-panel {
+    display: flex;
+    flex-wrap: wrap;
+    height: 70px;
+    align-content: center;
+}
+
+.flex-auto {
+    flex: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
