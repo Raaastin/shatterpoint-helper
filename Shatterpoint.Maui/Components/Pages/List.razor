@@ -29,6 +29,7 @@
         {
             <li class="grid @SlideRight(entity.Index)" @onclick="(MouseEventArgs e) => HandleClick(entity.Index, e)">
                 <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList()" value="Edit List" />
+                <div style="color: white;">@entity.Index</div>
                 <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
                 <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
             </li>
