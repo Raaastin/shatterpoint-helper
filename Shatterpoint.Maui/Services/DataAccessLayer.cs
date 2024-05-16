@@ -40,7 +40,7 @@ namespace Shatterpoint.Maui.Services
                 result.Add(new ListEntity()
                 {
                     ArrayUnit = data,
-                    Index = Convert.ToInt32(Path.GetFileNameWithoutExtension(fullPath))
+                    Filename = Path.GetFileNameWithoutExtension(fullPath)
                 });
             }
 
@@ -51,10 +51,10 @@ namespace Shatterpoint.Maui.Services
         /// Save an empty list if not exists;
         /// </summary>
         /// <param name="index"></param>
-        public async Task CreateIfNotExists(int index)
+        public async Task CreateIfNotExists(string filename)
         {
             var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, $"{index}.json");
+            var fullPath = Path.Combine(path, $"{filename}.json");
 
             if (!File.Exists(fullPath))
             {
@@ -67,17 +67,17 @@ namespace Shatterpoint.Maui.Services
         /// Load list by index
         /// </summary>
         /// <param name="index"></param>
-        public async Task<ListEntity> LoadList(int index)
+        public async Task<ListEntity> LoadList(string filename)
         {
             var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, $"{index}.json");
+            var fullPath = Path.Combine(path, $"{filename}.json");
 
             var arrayNames = await File.ReadAllTextAsync(fullPath);
             var data = arrayNames.FromJson(UnitDataBaseService);
 
             var entity = new ListEntity()
             {
-                Index = index,
+                Filename = filename,
                 ArrayUnit = data
             };
 
@@ -89,18 +89,18 @@ namespace Shatterpoint.Maui.Services
         /// </summary>
         /// <param name="listToSave">unit list to save</param>
         /// <param name="index">index of the list</param>
-        public async Task SaveList(Unit[] listToSave, int index)
+        public async Task SaveList(Unit[] listToSave, string filename)
         {
             var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, $"{index}.json");
+            var fullPath = Path.Combine(path, $"{filename}.json");
 
             await File.WriteAllTextAsync(fullPath, listToSave.ToJson());
         }
 
-        public void DeleteList(int index)
+        public void DeleteList(string filename)
         {
             var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, $"{index}.json");
+            var fullPath = Path.Combine(path, $"{filename}.json");
             File.Delete(fullPath);
         }
     }

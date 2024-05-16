@@ -6,12 +6,11 @@
 @using Shatterpoint.Maui.Services
 
 @page "/build"
+@page "/build/{FileId}"
 @inject UnitDataBaseService UnitDataBaseService
 @inject SelectedUnitsService SelectedUnitsService
 @inject NavigationService NavigationService;
 @inject DataAccessLayer DataAccessLayer;
-
-<div style="color:white;">@SelectedUnitsService.FileIndex</div>
 
 <div class="unit-selection-panel fade-in">
     <ul>
@@ -83,7 +82,7 @@
         }
 
         <div class="flex-auto">
-            <a class="poubelle fade-in" href="#" @onclick="() => ClearSelectedUnits()">
+            <a class="poubelle fade-in" href="#" @onclick="() => DeleteList()">
                 <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
             </a>
         </div>
@@ -91,10 +90,14 @@
 </div>
 
 @code {
+
     public string FieldText { get; set; }
     public bool PrimaryChecked { get; set; } = true;
     public bool SecondaryChecked { get; set; } = true;
     public bool SupportChecked { get; set; } = true;
+
+    [Parameter]
+    public string FileId { get; set; }
 
     public string GetKeywords(Unit unit)
     {
@@ -109,13 +112,12 @@
 
     UnitFilter FilterItem;
 
-    public void ClearSelectedUnits()
+    public void DeleteList()
     {
-        SelectedIndex = -1;
-        DataAccessLayer.DeleteList(SelectedUnitsService.FileIndex);
+        SelectedIndex = -1; // unselect any unit in the array
+        DataAccessLayer.DeleteList(FileId);
         SelectedUnitsService.ClearSelectedUnits();
         NavigationService.NavigateFromTo("/build", "/list");
-
     }
 
     public string GetClass(string name, UnitType type)
@@ -149,6 +151,9 @@
         }
     }
 
+    /// <summary>
+    /// Index for UnitArray (ex: from 0-5 for a strike team)
+    /// </summary>
     public int SelectedIndex { get; set; } = -1;
 
     public async Task OnEmptyClick(int index)
@@ -217,7 +222,7 @@
                 SelectedUnitsService.ActiveUnit = null;
             }
             RemoveUnitFromSelectionArray(unitFound);
-            await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
+            await DataAccessLayer.SaveList(selectedUnits, FileId);
             return;
         }
 
@@ -234,7 +239,7 @@
             SelectedUnitsService.UnitSelectionArray[SelectedIndex] = unit;
             SelectedIndex = -1;
 
-            await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
+            await DataAccessLayer.SaveList(selectedUnits, FileId);
             return;
         }
 
@@ -248,16 +253,19 @@
         AddUnitToSelectionArray(unit);
         SelectedIndex = -1;
 
-        await DataAccessLayer.SaveList(selectedUnits, SelectedUnitsService.FileIndex);
+        await DataAccessLayer.SaveList(selectedUnits, FileId);
     }
 
     protected async override Task OnInitializedAsync()
     {
+        if (string.IsNullOrWhiteSpace(FileId))
+            FileId = DateTime.UtcNow.ToString("ddMMyyyyhhmmss");
+
         // Create if not exists
-        await DataAccessLayer.CreateIfNotExists(SelectedUnitsService.FileIndex);
+        await DataAccessLayer.CreateIfNotExists(FileId);
 
         // Load data
-        var data = await DataAccessLayer.LoadList(SelectedUnitsService.FileIndex);
+        var data = await DataAccessLayer.LoadList(FileId);
         SelectedUnitsService.UnitSelectionArray = data.ArrayUnit;
 
         await base.OnInitializedAsync();
