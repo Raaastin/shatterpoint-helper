@@ -39,10 +39,10 @@ namespace Shatterpoint.Lib.Services
         {
             UnitList ??= [];
 
+            UnitList.Add(StarterBoxFactory.LordMaul());
             UnitList.Add(StarterBoxFactory.Kalani());
             UnitList.Add(StarterBoxFactory.B1BAttleDroids());
             UnitList.Add(StarterBoxFactory.AsajjVentress());
-            UnitList.Add(StarterBoxFactory.LordMaul());
             UnitList.Add(StarterBoxFactory.GarSaxon());
             UnitList.Add(StarterBoxFactory.MandalorianSuperCommandos());
 

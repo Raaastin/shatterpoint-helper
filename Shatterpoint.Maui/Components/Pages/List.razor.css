@@ -3,53 +3,66 @@
     /*background-color: #121212;*/
 }
 
+/* Flex li */
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flex-center {
+    flex-grow: 3;
+    transition: all 0.3s ease;
+}
+
+    .flex-center.expanded {
+        flex-grow: 2;
+    }
+
+.flex-left.collapsed, .flex-right.collapsed {
+    width: 0px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flex-left.expanded, .flex-right.expanded {
+    width: 35px;
+    animation: fadeIn 1s;
+    flex-grow: 1;
+}
+
+.img-button {
+    width: 35px;
+}
+
+@keyframes fadeIn {
+    0% {
+        width: 0px;
+        opacity: 0;
+    }
+
+    100% {
+        width: 35px;
+        opacity: 1;
+    }
+}
+
 ul {
     padding: 0;
     margin: 0;
 }
 
-li.grid {
-    display: grid;
-    align-items: center;
-}
-
-li.slide-right {
-    position: relative;
-    right: 50px;
-    animation: slide-right 0.5s;
-}
-
-li.slide-left {
-    position: relative;
-    left: 50px;
-    animation: slide-left 0.5s;
-}
-
-@keyframes slide-right {
-    0% {
-        right: 0px;
-    }
-
-    100% {
-        right: 50px;
-    }
-}
-
-@keyframes slide-left {
-    0% {
-        left: 0px;
-    }
-
-    100% {
-        left: 50px;
-    }
+li {
+    border-bottom: 1px solid grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .scrollable {
     position: relative;
     height: calc(100vh - 40px - 80px); /* 100% - navbar */
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .button-style {
@@ -67,40 +80,6 @@ li.slide-left {
         background-color: orangered; /* Couleur de fond au survol */
     }
 
-.list-detail {
-    display: none;
-    color: wheat;
-}
-
-.list-detail-selected {
-    display: flex;
-    color: wheat;
-}
-
-.list-detail-container {
-    align-items: center;
-}
-
-    .list-detail-container * {
-        flex: auto;
-    }
-
-    .list-detail-container input {
-        height: 50px;
-    }
-
-.play-button {
-    width: 45px;
-    position: absolute;
-    right: -50px;
-}
-
-.edit-button {
-    width: 45px;
-    position: absolute;
-    left: -50px;
-}
-
 .footer {
     position: fixed;
     bottom: 0;
@@ -108,38 +87,4 @@ li.slide-left {
     width: -webkit-fill-available;
     background-color: #252530;
     align-content: center;
-}
-
-.panel-detail {
-    color: wheat;
-}
-
-.panel-detail-expanded {
-    animation: expand-panel 0.25s;
-    height: 100px;
-}
-
-.panel-detail-collapsed {
-    animation: collapse-panel 0.25s;
-    height: 0px;
-}
-
-@keyframes expand-panel {
-    0% {
-        height: 0px;
-    }
-
-    100% {
-        height: 100px;
-    }
-}
-
-@keyframes collapse-panel {
-    0% {
-        height: 100px;
-    }
-
-    100% {
-        height: 0px;
-    }
 }

@@ -17,7 +17,10 @@
     @if (!@SelectedUnitsService.UnitSelectionArray.Any(x => x is not null))
     {
         <p style="color: wheat; padding: 5px;">
-            Select up to 6 units in the unit selection tab, then comme back here to enable the feature.
+            Hu how, looks like it's empty ...
+        </p>
+        <p style="color: wheat; padding: 5px;">
+            Did you select a non empty list on the tab <input style="width: 30px; position:relative; top:10px;" type="image" src="/img/icons/list-icon.png" alt="list tab" @onclick='() => NavigationService.NavigateFromTo("play", "list")' /> ?
         </p>
     }
     @* Case: List is ready *@
@@ -137,5 +140,15 @@
 
         var abilities = SelectedUnitsService.PayAttention();
         SelectedUnitsService.PayAttentionAbilities = abilities;
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Workaround: Prevent the display of an old active unit
+        if (SelectedUnitsService.ActiveUnit is not null && !SelectedUnitsService.UnitSelectionArray.Any(x => x is not null && x.Name == SelectedUnitsService.ActiveUnit.ActiveUnit.Name))
+            SelectedUnitsService.ActiveUnit = null;
+
+        PayAttentionSelected = false;
+        return base.OnInitializedAsync();
     }
 }

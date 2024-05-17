@@ -27,10 +27,18 @@
     <ul>
         @foreach (var entity in Lists)
         {
-            <li class="grid @SlideRight(entity.Filename)" @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
-                <input class="edit-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
-                <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
-                <input class="play-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
+            <li class="flex-container" @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
+                <div class="flex-container flex-left @FlexExpanded(entity.Filename)">
+                    <input class="img-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
+                </div>
+
+                <div class="flex-center @FlexExpanded(entity.Filename)">
+                    <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
+                </div>
+
+                <div class="flex-container flex-right @FlexExpanded(entity.Filename)">
+                    <input class="img-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
+                </div>
             </li>
         }
     </ul>
@@ -67,17 +75,6 @@
         }
     }
 
-    private string GetTotalForce()
-    {
-        int result = 0;
-
-        foreach (var unit in SelectedUnitsService.UnitSelectionArray.Where(x => x is not null))
-        {
-            result += unit.Force;
-        }
-        return result.ToString();
-    }
-
     public void EditList(string filename)
     {
         SelectedUnitsService.UnitSelectionArray = Lists.FirstOrDefault(x => x.Filename == filename).ArrayUnit;
@@ -92,7 +89,8 @@
 
     public void AddNewList()
     {
-        NavigationService.NavigateFromTo("/list", "/build");
+        var newlist = DateTime.UtcNow.ToString("ddMMyyyyhhmmss");
+        NavigationService.NavigateFromTo("/list", $"/build/{newlist}");
     }
 
     public class BrowserDimension
@@ -101,12 +99,7 @@
         public int Height { get; set; }
     }
 
-    public async Task<BrowserDimension> GetDimensions()
-    {
-        return await JSRuntime.InvokeAsync<BrowserDimension>("getDimensions");
-    }
-
-    public void HandleClick(string filename, MouseEventArgs e)
+    public async Task HandleClick(string filename, MouseEventArgs e)
     {
         MouseX = (int)e.PageX;
         if (SelectedFile == filename)
@@ -120,24 +113,8 @@
         }
     }
 
-    public string GetListDetailClass(string filename)
+    public string FlexExpanded(string filename)
     {
-        return filename != SelectedFile ? "list-detail" : "list-detail-selected";
-    }
-
-    public string GetExpanded(string filename)
-    {
-        return filename != SelectedFile ? "panel-detail-collapsed" : "panel-detail-expanded";
-    }
-
-    public string SlideRight(string filename)
-    {
-        if (filename != SelectedFile)
-            return "";
-
-        if (ScreenWidth / MouseX < 2)
-            return "slide-right";
-        else
-            return "slide-left";
+        return filename != SelectedFile ? "collapsed" : "expanded";
     }
 }

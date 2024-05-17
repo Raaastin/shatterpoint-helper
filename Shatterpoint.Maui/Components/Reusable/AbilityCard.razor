@@ -5,42 +5,44 @@
 
 
 <div class="dynamic-card fade-in">
-    <div style="@GetBackgroundImage()" class="dynamic-card-title">
-        <table>
-            <tr>
-                <td>
-                    @if (@Unit is not null)
-                    {
-                        <ProfilePicture Scale="0.5" Top="@Unit.Top" Left="@Unit.Left" Src="@Unit.StanceCardUrl1" Alt="@Unit.Name"/>
-                    }
-                    else if (IsActive is null)
-                    {
-                        <img class="sabre-active-logo" src="/img/card/exclamation.jpg" />
-                    }
-                </td>
-                <td>
-                    @if (@Unit?.Name is not null)
-                    {
-                        <div>@Unit?.Name</div>
-                    }
-                    @* Case: Pay attention *@
-                    else if (IsActive is null)
-                    {
-                        <div>Pay attention</div>
-                    }
-                </td>
-                <td>
-                    @if (IsActive is true)
-                    {
-                        <img class="sabre-active-logo" src="/img/card/sabres-active.jpeg" />
-                    }
-                    @if (IsActive is false)
-                    {
-                        <img class="sabre-active-logo" src="/img/card/cible.png" />
-                    }
-                </td>
-            </tr>
-        </table>
+    <div style="@GetBackgroundImage()" class="dynamic-card-title flex-row">
+        @if (@Unit is not null)
+        {
+            <div class="flex-1 flex-column">
+                <ProfilePicture Scale="0.5" Top="@Unit.Top" Left="@Unit.Left" Src="@Unit.StanceCardUrl1" Alt="@Unit.Name" />
+            </div>
+        }
+        else if (IsActive is null)
+        {
+            <div class="flex-1 flex-column">
+                <img class="sabre-active-logo flex-1" src="/img/card/exclamation.jpg" />
+            </div>
+        }
+
+        @if (@Unit?.Name is not null)
+        {
+            <div class="flex-5">
+                <div class="card-title ">@Unit?.Name</div>
+            </div>
+        }
+        @* Case: Pay attention *@
+        else if (IsActive is null)
+        {
+            <div class="card-title flex-5">Pay attention</div>
+        }
+
+        @if (IsActive is true)
+        {
+            <div class="flex-1 flex-column">
+                <img class="sabre-active-logo" src="/img/card/sabres-active.jpeg" />
+            </div>
+        }
+        @if (IsActive is false)
+        {
+            <div class="flex-1 flex-column">
+                <img class="sabre-active-logo" src="/img/card/cible.png" />
+            </div>
+        }
     </div>
     <div class="dynamic-card-content">
         <table>

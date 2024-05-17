@@ -259,14 +259,19 @@
     protected async override Task OnInitializedAsync()
     {
         if (string.IsNullOrWhiteSpace(FileId))
+        {
             FileId = DateTime.UtcNow.ToString("ddMMyyyyhhmmss");
+            SelectedUnitsService.UnitSelectionArray = new Unit[6];
+        }
+        else
+        {
+            // Create if not exists
+            await DataAccessLayer.CreateIfNotExists(FileId);
 
-        // Create if not exists
-        await DataAccessLayer.CreateIfNotExists(FileId);
-
-        // Load data
-        var data = await DataAccessLayer.LoadList(FileId);
-        SelectedUnitsService.UnitSelectionArray = data.ArrayUnit;
+            // Load data
+            var data = await DataAccessLayer.LoadList(FileId);
+            SelectedUnitsService.UnitSelectionArray = data.ArrayUnit;
+        }
 
         await base.OnInitializedAsync();
     }
