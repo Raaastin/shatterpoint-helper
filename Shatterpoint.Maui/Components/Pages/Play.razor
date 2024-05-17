@@ -144,6 +144,10 @@
 
     protected override Task OnInitializedAsync()
     {
+        // Workaround: Prevent the display of an old active unit
+        if (SelectedUnitsService.ActiveUnit is not null && !SelectedUnitsService.UnitSelectionArray.Any(x => x is not null && x.Name == SelectedUnitsService.ActiveUnit.ActiveUnit.Name))
+            SelectedUnitsService.ActiveUnit = null;
+
         PayAttentionSelected = false;
         return base.OnInitializedAsync();
     }
