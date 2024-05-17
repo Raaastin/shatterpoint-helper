@@ -89,7 +89,8 @@
 
     public void AddNewList()
     {
-        NavigationService.NavigateFromTo("/list", "/build");
+        var newlist = DateTime.UtcNow.ToString("ddMMyyyyhhmmss");
+        NavigationService.NavigateFromTo("/list", $"/build/{newlist}");
     }
 
     public class BrowserDimension

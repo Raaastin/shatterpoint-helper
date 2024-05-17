@@ -53,8 +53,9 @@ ul {
 }
 
 li {
-    border-bottom: 1px solid #82dbad;
-    padding: 5px;
+    border-bottom: 1px solid grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .scrollable {

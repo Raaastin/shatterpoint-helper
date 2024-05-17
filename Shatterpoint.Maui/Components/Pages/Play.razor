@@ -138,4 +138,11 @@
         var abilities = SelectedUnitsService.PayAttention();
         SelectedUnitsService.PayAttentionAbilities = abilities;
     }
+
+    protected override Task OnInitializedAsync()
+    {
+        SelectedUnitsService.ActiveUnit = null;
+        PayAttentionSelected = false;
+        return base.OnInitializedAsync();
+    }
 }
