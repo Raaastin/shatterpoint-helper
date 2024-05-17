@@ -12,55 +12,64 @@
         list-style-type: none;
     }
 
-        .unit-selection-panel ul li {
+        .unit-selection-panel ul li:not(.warband-name) {
             display: flex;
             flex-direction: row;
             align-items: center;
             border-bottom: 1px dashed lightslategrey;
         }
 
-            .unit-selection-panel ul li a {
-                display: flex;
-                flex-direction: row;
-                flex: 1;
-                align-items: center;
-                padding: 10px;
-            }
+.warband-name {
+    background-color: #ffa736;
+    font-weight: 700;
+    color: #252530;
+    padding: 5px;
+    font-size: 1.5em;
+    border-bottom: 0px dashed lightslategrey;
+}
 
-                .unit-selection-panel ul li a .unit-summary {
-                    width: -webkit-fill-available;
-                }
+.unit-selection-panel ul li a {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    padding: 10px;
+}
 
-                .unit-selection-panel ul li a div.unit-name {
-                    padding-left: 10px;
-                    padding-bottom: 2px;
-                    font-weight: 700;
-                    font-size: 1rem;
-                }
-
-                .unit-selection-panel ul li a div.unit-type {
-                    padding-left: 10px;
-                    padding-bottom: 2px;
-                    font-weight: 400;
-                    font-size: 0.9rem;
-                }
-
-                .unit-selection-panel ul li a div.unit-keywords {
-                    padding-left: 10px;
-                    font-weight: 300;
-                    font-size: 0.8rem;
-                }
-
-
-    .unit-selection-panel icon-detail-container {
-        flex: 10;
+    .unit-selection-panel ul li a .unit-summary {
+        width: -webkit-fill-available;
     }
 
-    .unit-selection-panel img.icon-detail {
-        width: 40px;
-        height: auto;
-        border-radius: 50%;
+    .unit-selection-panel ul li a div.unit-name {
+        padding-left: 10px;
+        padding-bottom: 2px;
+        font-weight: 700;
+        font-size: 1rem;
     }
+
+    .unit-selection-panel ul li a div.unit-type {
+        padding-left: 10px;
+        padding-bottom: 2px;
+        font-weight: 400;
+        font-size: 0.9rem;
+    }
+
+    .unit-selection-panel ul li a div.unit-keywords {
+        padding-left: 10px;
+        font-weight: 300;
+        font-size: 0.8rem;
+    }
+
+
+.unit-selection-panel icon-detail-container {
+    flex: 10;
+}
+
+.unit-selection-panel img.icon-detail {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+}
 
 .unit-name {
     color: #ffd4ac;

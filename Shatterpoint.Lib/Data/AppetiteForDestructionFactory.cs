@@ -5,7 +5,7 @@ using Shatterpoint.Lib.Units.Abilities;
 namespace Shatterpoint.Lib.Services
 {
     /// <summary>
-    /// Factory for Starter Box
+    /// Factory for Grievous friends
     /// </summary>
     public static class AppetiteForDestructionFactory
     {

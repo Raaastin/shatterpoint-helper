@@ -14,10 +14,15 @@
 
 <div class="unit-selection-panel fade-in">
     <ul>
+        @code {Unit previousUnit = null;}
         @foreach (var unit in UnitDataBaseService.UnitList)
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
+                if (previousUnit?.WarBandName != unit.WarBandName)
+                {
+                    <li class="warband-name">@unit.WarBandName</li>
+                }
                 <li class="@GetClass(unit.Name, unit.Type)" @key="unit">
                     <a @onclick="async () => await AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
@@ -49,6 +54,7 @@
                         </a>
                     </div>
                 </li>
+                previousUnit = unit;
             }
         }
     </ul>
