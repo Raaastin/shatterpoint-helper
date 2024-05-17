@@ -3,24 +3,42 @@
 @using Shatterpoint.Maui.Components.Reusable
 
 <div class="selected-unit-panel fade-in">
-    @{
-        int i = 0;
-    }
-    @foreach (var unit in ArrayUnit)
-    {
-        int buffer = i;
-        <div class="flex-auto" @key="unit">
-            @if (unit is not null)
-            {
-                <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
-            }
-            else
-            {
-                <ProfilePictureEmpty Scale="0.4" />
-            }
-        </div>
-        i++;
-    }
+    <div class="flex flex-auto squad-one">
+        @for (int i = 0; i < 3; i++)
+        {
+            int buffer = i;
+            var unit = ArrayUnit[buffer];
+            <div class="flex-auto" @key="unit">
+
+                @if (unit is not null)
+                {
+                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
+                }
+                else
+                {
+                    <ProfilePictureEmpty Scale="0.4" />
+                }
+            </div>
+        }
+    </div>
+    <div class="flex flex-auto squad-two">
+        @for (int i = 3; i < 6; i++)
+        {
+            int buffer = i;
+            var unit = ArrayUnit[buffer];
+            <div class="flex-auto" @key="unit">
+
+                @if (unit is not null)
+                {
+                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
+                }
+                else
+                {
+                    <ProfilePictureEmpty Scale="0.4" />
+                }
+            </div>
+        }
+    </div>
 </div>
 
 @code {
