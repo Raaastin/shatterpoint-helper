@@ -12,11 +12,17 @@
         list-style-type: none;
     }
 
-        .unit-selection-panel ul li:not(.warband-name) {
+        .unit-selection-panel ul li:not(.warband-name, .first) {
             display: flex;
             flex-direction: row;
             align-items: center;
-            border-bottom: 1px dashed lightslategrey;
+            border-top: 1px dashed lightslategrey;
+        }
+
+        .unit-selection-panel ul li.first {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
 
 .warband-name {
@@ -24,8 +30,9 @@
     font-weight: 700;
     color: #252530;
     padding: 5px;
-    font-size: 1.5em;
-    border-bottom: 0px dashed lightslategrey;
+    font-size: 1em;
+    border-top: 0px;
+    border-bottom: 0px;
 }
 
 .unit-selection-panel ul li a {
