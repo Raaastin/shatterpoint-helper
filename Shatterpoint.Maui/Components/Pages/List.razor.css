@@ -3,6 +3,18 @@
     /*background-color: #121212;*/
 }
 
+.text {
+    padding: 5px;
+}
+
+    .text.force {
+        color: aquamarine;
+    }
+
+    .text.list-error {
+        color: mediumvioletred;
+    }
+
 /* Flex li */
 .flex-container {
     display: flex;
@@ -11,12 +23,12 @@
 }
 
 .flex-center {
-    flex-grow: 3;
+    flex-grow: 1;
     transition: all 0.3s ease;
 }
 
     .flex-center.expanded {
-        flex-grow: 2;
+        flex-grow: 0;
     }
 
 .flex-left.collapsed, .flex-right.collapsed {
