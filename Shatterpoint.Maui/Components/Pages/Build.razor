@@ -14,11 +14,18 @@
 
 <div class="unit-selection-panel fade-in">
     <ul>
+        @code {
+            Unit previousUnit = null;
+        }
         @foreach (var unit in UnitDataBaseService.UnitList)
         {
             @if (FilterByText(unit.Name, unit.KeyWords) && FilterByUnitType(unit.Type))
             {
-                <li class="@GetClass(unit.Name, unit.Type)" @key="unit">
+                if (previousUnit?.WarBandName != unit.WarBandName)
+                {
+                    <li class="warband-name">@unit.WarBandName</li>
+                }
+                <li class="@GetClass(unit.Name, unit.Type) @IsFirst(previousUnit?.WarBandName, unit.WarBandName)" @key="unit">
                     <a @onclick="async () => await AddUnit(unit.Name)">
                         <ProfilePicture Scale="0.5" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" />
                         <div class="unit-summary">
@@ -49,6 +56,7 @@
                         </a>
                     </div>
                 </li>
+                previousUnit = unit;
             }
         }
     </ul>
@@ -128,6 +136,11 @@
             return "row-selected";
         else
             return "row-not-selected " + IsSelectable(type);
+    }
+
+    public string IsFirst(string previous, string current)
+    {
+        return previous != current ? "first" : "";
     }
 
     public string IsSelectable(UnitType type)

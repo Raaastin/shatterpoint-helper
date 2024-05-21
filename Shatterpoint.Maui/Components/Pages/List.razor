@@ -27,17 +27,27 @@
     <ul>
         @foreach (var entity in Lists)
         {
-            <li class="flex-container" @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
-                <div class="flex-container flex-left @FlexExpanded(entity.Filename)">
-                    <input class="img-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
-                </div>
+            <li @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
+                <div class="flex-container">
+                    <div class="flex-container flex-left @FlexExpanded(entity.Filename)">
+                        <input class="img-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />
+                    </div>
 
-                <div class="flex-center @FlexExpanded(entity.Filename)">
-                    <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
-                </div>
+                    <div class="flex-center @FlexExpanded(entity.Filename)">
+                        <UnitArray ArrayUnit="entity.ArrayUnit" @key="entity" />
 
-                <div class="flex-container flex-right @FlexExpanded(entity.Filename)">
-                    <input class="img-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
+                    </div>
+
+                    <div class="flex-container flex-right @FlexExpanded(entity.Filename)">
+                        <input class="img-button" type="image" src="img/icons/lightsabers.png" @onclick="() => CustomCards()" value="Custom Cards" />
+                    </div>
+                </div>
+                <div>
+                    <div class="text force">Force: @entity.ArrayUnit.Where(x => x is not null).Sum(x => x.Force)</div>
+                    @foreach (var error in GetListError(entity))
+                    {
+                        <div class="text list-error">@error</div>
+                    }
                 </div>
             </li>
         }
@@ -116,5 +126,26 @@
     public string FlexExpanded(string filename)
     {
         return filename != SelectedFile ? "collapsed" : "expanded";
+    }
+
+    public List<string> GetListError(ListEntity entity)
+    {
+        var result = new List<string>();
+
+        // Squad 1 check:
+        if (entity.ArrayUnit[0] is not null && entity.ArrayUnit[1] is not null && entity.ArrayUnit[2] is not null)
+        {
+            if (entity.ArrayUnit[0].SP < entity.ArrayUnit[1].PC + entity.ArrayUnit[2].PC)
+                result.Add("Squad 1: Not enought Squad Point.");
+        }
+
+        // Squad 2 check:
+        if (entity.ArrayUnit[3] is not null && entity.ArrayUnit[4] is not null && entity.ArrayUnit[5] is not null)
+        {
+            if (entity.ArrayUnit[3].SP < entity.ArrayUnit[4].PC + entity.ArrayUnit[5].PC)
+                result.Add("Squad 2: Not enought Squad Point.");
+        }
+
+        return result;
     }
 }

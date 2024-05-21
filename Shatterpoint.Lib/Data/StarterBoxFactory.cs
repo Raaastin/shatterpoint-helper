@@ -5,11 +5,11 @@ using Shatterpoint.Lib.Units.Abilities;
 namespace Shatterpoint.Lib.Services
 {
     /// <summary>
-    /// Factory for Starter Box
+    /// Factory for Starter Set
     /// </summary>
     public static class StarterBoxFactory
     {
-        private const string warbandname = "Starter Box";
+        private const string warbandname = "Starter Set";
 
         public static Unit Kalani()
         {

@@ -55,7 +55,7 @@ div.page-title-selected {
     font-weight: 700;
     padding: 5px;
     background-color: #252530;
-    border-bottom: 1px dashed lightslategrey;
+    border-bottom: 1px solid lightslategrey;
 }
 
 .back-band {
