@@ -162,6 +162,12 @@
     display: flex;
     justify-content: center;
 }
+    .poubelle > img {
+        width: 45px;
+        height: auto;
+        border-radius: 50%;
+        background-color: darkslategrey;
+    }
 
 .fade-in {
     animation: fadeIn 1s;
