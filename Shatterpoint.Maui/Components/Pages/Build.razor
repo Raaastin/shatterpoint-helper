@@ -79,11 +79,11 @@
             <div class="flex-auto fade-in" @onclick="async () => await OnEmptyClick(buffer)" @key="unit">
                 @if (unit is not null)
                 {
-                    <ProfilePicture Scale="0.4" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(buffer)" />
+                    <ProfilePicture Scale="0.45" Top="@unit.Top" Left="@unit.Left" Src="@unit.StanceCardUrl1" Alt="@unit.Name" IsSelected="@IsSelected(buffer)" />
                 }
                 else
                 {
-                    <ProfilePictureEmpty AvailablePoint="@GetAvailablePoint(buffer)" Scale="0.4" IsSelected="@IsSelected(buffer)" UnitType="GetUnitType(buffer)" />
+                    <ProfilePictureEmpty AvailablePoint="@GetAvailablePoint(buffer)" Scale="0.45" IsSelected="@IsSelected(buffer)" UnitType="GetUnitType(buffer)" />
                 }
             </div>
             i++;
@@ -91,7 +91,7 @@
 
         <div class="flex-auto">
             <a class="poubelle fade-in" href="#" @onclick="() => DeleteList()">
-                <img style="width:40px; height:auto; border-radius:50%; outline: 2px solid black; " alt="clear" src="img/icons/trash.png" />
+                <img alt="clear" src="img/icons/trash.png" />
             </a>
         </div>
     </div>

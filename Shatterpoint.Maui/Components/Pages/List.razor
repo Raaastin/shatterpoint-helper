@@ -28,6 +28,7 @@
         @foreach (var entity in Lists)
         {
             <li @onclick="(MouseEventArgs e) => HandleClick(entity.Filename, e)">
+                <div class="text strike-team">@entity.ArrayUnit.FirstOrDefault(x => x is not null).Name.Split(" ").First() @entity.ArrayUnit.LastOrDefault(x => x is not null).Name.Split(" ").Last()</div>
                 <div class="flex-container">
                     <div class="flex-container flex-left @FlexExpanded(entity.Filename)">
                         <input class="img-button" type="image" src="img/icons/list.png" @onclick="() => EditList(entity.Filename)" value="Edit List" />

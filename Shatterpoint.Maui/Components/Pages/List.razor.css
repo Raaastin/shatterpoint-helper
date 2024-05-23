@@ -4,7 +4,7 @@
 }
 
 .text {
-    padding: 5px;
+    padding-left: 10px;
 }
 
     .text.force {
@@ -13,6 +13,10 @@
 
     .text.list-error {
         color: mediumvioletred;
+    }
+
+    .text.strike-team {
+        color: magenta;
     }
 
 /* Flex li */
