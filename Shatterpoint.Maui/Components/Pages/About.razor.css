@@ -1,13 +1,12 @@
-html {
-    height: 100%;
-}
-
 .page-content {
     background-color: #121212;
     color: wheat;
     font-size: 0.8em;
     display: block;
-    height: 100%;
     padding: 5px;
 }
 
+    .page-content > div h4 {
+        font-weight: 700;
+        color: orangered;
+    }

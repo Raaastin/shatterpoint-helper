@@ -3,6 +3,14 @@
     line-height: normal;
 }
 
+body {
+    height: 100vh;
+}
+
+    body > div#app {
+        height: 100%;
+    }
+
 a, .btn-link {
     color: #006bb7;
 }
