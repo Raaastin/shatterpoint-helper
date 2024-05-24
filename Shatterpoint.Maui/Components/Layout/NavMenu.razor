@@ -18,12 +18,15 @@
             <a class="img-container flex-auto flex @IsSelected(3)" @onclick='() => Navigate("/play")'>
                 <img class="units-icon" src="/img/icons/lightsabers.png" alt="Menu cards" />
             </a>
-            @if (IfDebug())
+            <a class="img-container flex-auto flex @IsSelected(4)" @onclick='() => Navigate("/about")'>
+                <img class="units-icon" src="/img/icons/about.png" alt="about" />
+            </a>
+            @* @if (IfDebug())
             {
                 <a class="img-container flex-auto flex @IsSelected(4)" @onclick='() => Navigate("/sandbox")'>
                     <div class="units-icon">sandbox</div>
                 </a>
-            }
+            } *@
         </div>
     }
     else
@@ -38,7 +41,7 @@
 <div class="@GetClass(1)">List Building</div>
 <div class="@GetClass(2)">Lists</div>
 <div class="@GetClass(3)">Custom Cards</div>
-<div class="@GetClass(4)">Sandbox</div>
+<div class="@GetClass(4)">About</div>
 
 @code {
     public int SelectedTab { get; set; } = 2;

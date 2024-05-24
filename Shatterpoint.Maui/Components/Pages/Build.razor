@@ -51,7 +51,7 @@
                         </div>
                     </a>
                     <div class="icon-detail-container">
-                        <a @onclick='() => NavigationService.NavigateFromTo("/build", $"/cards/{unit.Name}")'>
+                        <a @onclick='() => NavigationService.NavigateFromTo($"/build/{FileId}", $"/cards/{unit.Name}")'>
                             <img class="icon-detail" alt="details" src="/img/icons/card-detail.png" />
                         </a>
                     </div>

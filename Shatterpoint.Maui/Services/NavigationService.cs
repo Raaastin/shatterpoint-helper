@@ -65,7 +65,7 @@ namespace Shatterpoint.Maui.Services
                 return 2;
             if (url.Contains("play"))
                 return 3;
-            if (url.Contains("sandbox"))
+            if (url.Contains("about"))
                 return 4;
 
             return -1;
