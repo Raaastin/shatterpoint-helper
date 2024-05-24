@@ -1,8 +1,10 @@
 ﻿@using Shatterpoint.Lib.Extensions
+@using Shatterpoint.Lib.Services
 @using Shatterpoint.Lib.Units
 @using Shatterpoint.Lib.Units.Abilities
 @using Shatterpoint.Lib.Data;
 
+@inject SelectedUnitsService SelectedUnitService;
 
 <div class="dynamic-card fade-in">
     <div style="@GetBackgroundImage()" class="dynamic-card-title flex-row">
@@ -56,12 +58,12 @@
                             @if (ability.Weilder.Name != @Unit?.Name)
                             {
                                 <div class="specific-ability-weilder">
-                                    <ProfilePicture Scale="0.35" Top="@ability.Weilder.Top" Left="@ability.Weilder.Left" Src="@ability.Weilder.StanceCardUrl1" Alt="@ability.Weilder.Name" />
+                                    <ProfilePicture Scale="0.3" Top="@ability.Weilder.Top" Left="@ability.Weilder.Left" Src="@ability.Weilder.StanceCardUrl1" Alt="@ability.Weilder.Name" />
                                 </div>
                             }
                         </td>
                         <td>
-                            <div class="ability-content">
+                            <div class="ability-content tooltip-container">
                                 <div class="ability-title">
                                     <h4>@((MarkupString)@ability.Name)</h4>
                                     @for (int i = 0; i < ability.Cost; i++)
@@ -74,6 +76,17 @@
                                 <p>
                                     @((MarkupString)@ability.Text.ToRawHtmlDescription())
                                 </p>
+                                @if (ability.Synergies is not null)
+                                {
+                                    <div class="tooltip-content flex-row">
+                                        @foreach (var unit in GetCompatible(ability))
+                                        {
+                                            <div class="flex-row">
+                                                <ProfilePicture Scale="0.4" Src="@unit.StanceCardUrl1" Left="@unit.Left" Top="@unit.Top" Alt="@unit.Name"></ProfilePicture>
+                                            </div>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </td>
                     </tr>
@@ -122,4 +135,18 @@
                 return @String.Format("/img/abilities/{0}.png", ability.Type);
         }
     }
+
+    public List<Unit> GetCompatible(Ability ability)
+    {
+        var result = new List<Unit>();
+        foreach (var unit in SelectedUnitService.UnitSelectionArray.Where(x => x is not null))
+        {
+            if (SelectedUnitService.IsAbilityCompatible(ability, unit))
+            {
+                result.Add(unit);
+            }
+        }
+        return result;
+    }
 }
+

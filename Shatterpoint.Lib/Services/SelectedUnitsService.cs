@@ -135,23 +135,25 @@ namespace Shatterpoint.Lib.Services
         }
 
         /// <summary>
-        /// todo
+        /// Return true when the ability contains at least 1 synergy that match the unit. 
+        /// If synargy array is null, the ability is self use only. 
+        /// If synargy array is empty array, the ability is compatible with any allied unit
         /// </summary>
         /// <param name="ability"></param>
         /// <param name="unit"></param>
         /// <returns></returns>
         public bool IsAbilityCompatible(Ability ability, Unit unit)
         {
+            if (ability.Synergies is null)
+                return false;
+
             return
-                ability.Synergies is not null &&
-                (
                 ability.Synergies.Any(x =>
                         (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
                         (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
                         ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
                         ) ||
-                    ability.Synergies.Count == 0 // case: all allies synergy
-                );
+                    ability.Synergies.Count == 0; // case: all allies synergy
         }
 
         /// <summary>
