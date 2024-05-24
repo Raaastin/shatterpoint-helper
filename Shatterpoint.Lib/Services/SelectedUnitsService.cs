@@ -94,10 +94,7 @@ namespace Shatterpoint.Lib.Services
                     (x.Timing.Contains(Timing.AnotherActive)) &&
                     (x.Type == AbilityType.Reactive || x.Type == AbilityType.Inate || x.Type == AbilityType.Identity)))
                 {
-                    if (ability.Synergies.Any(x =>
-                        (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) // Synergy by Keyword
-                    ))
+                    if (IsAbilityCompatible(ability, unit))
                     {
                         synergyAbilities.Add(ability);
                     }
@@ -127,12 +124,7 @@ namespace Shatterpoint.Lib.Services
             {
                 foreach (var ability in ally.Abilities.Where(x => x.Timing.Contains(Timing.AlliedTargeted)))
                 {
-                    if (ability.Synergies.Any(x =>
-                        (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
-                        ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
-                        ) ||
-                    ability.Synergies.Count == 0) // case: all allies synergy
+                    if (IsAbilityCompatible(ability, unit))
                     {
                         result.Add(ability);
                     }
@@ -140,6 +132,26 @@ namespace Shatterpoint.Lib.Services
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// todo
+        /// </summary>
+        /// <param name="ability"></param>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public bool IsAbilityCompatible(Ability ability, Unit unit)
+        {
+            return
+                ability.Synergies is not null &&
+                (
+                ability.Synergies.Any(x =>
+                        (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
+                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
+                        ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        ) ||
+                    ability.Synergies.Count == 0 // case: all allies synergy
+                );
         }
 
         /// <summary>

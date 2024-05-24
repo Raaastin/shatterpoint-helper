@@ -50,7 +50,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Characters in this Unit have Scale until the end of the Turn. One character in this Unit may *dash*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -60,7 +60,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 2,
                         Text = "After a *melee* attack made by a character in this Unit is resolved, this Unit may use this ability. Each enemy Unit that has one or more characters engaged with the attacker, except the defending Unit, suffers *damage**damage*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -71,7 +71,8 @@ namespace Shatterpoint.Lib.Services
                         Cost = 0,
                         Text = "After this Unit makes a combat action, choose an allied Battle Droid Supporting character within *range*3. The chosen character may *dash*. Then, that character may make a 5 dice attack targeting one of the same enemy characters within *range* and LOS.",
                         Synergies = [
-                            new Synergy(){
+                            new Synergy()
+                            {
                                 Type = UnitType.Support,
                                 KeyWords = [KeyWords.BattleDroid]
                             }],
@@ -84,7 +85,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that character may *heal**heal*. Then, if the Wounded Unit was a Force User, refresh *forceicon**forceicon*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
@@ -147,7 +148,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When you spend *forceicon* to place this Unit's Order Card in reserve, spend one less *forceicon*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Start]
                     },
                     new Ability()
@@ -157,7 +158,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "While a character in this Unit is contesting one or more Active objectives, it has Protection and Steadfast.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     }
                 ];
@@ -184,7 +185,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *dash*",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -194,7 +195,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 1,
                         Text = "When a character in this Unit targets an enemy character that is contesting one or more Active objectives with an attack, this Unit may use this ability. Add 2 dice to the attack roll",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -204,7 +205,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Protection.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     }
                 ];

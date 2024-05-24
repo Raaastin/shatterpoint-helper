@@ -68,19 +68,20 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When this Unit is chosen to activate with a Shatterpoint Card, if its Active Stance is <b>Form VII Vaapad</b>, it immediately makes a focus action and characters in this Unit have Impact [2] until the end of the Turn. <br/>If its Active Stance is <b>Jedi Master</b>, refresh *forceicon**forceicon* and one character in this Unit may *heal**heal**heal*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Start]
                     },
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "This party's over\n\n",
+                        Name = "This party's over",
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "While a character in this Unit is engaged, allied Galactic Republic characters within *range*5 have Steadfast and Protection.",
                         Synergies = [
-                            new Synergy(){
-                                KeyWords =[KeyWords.GalacticRepublic]
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.GalacticRepublic]
                             }],
                         Timing = [Timing.Targeted, Timing.AlliedTargeted]
                     }
@@ -144,11 +145,13 @@ namespace Shatterpoint.Lib.Services
                         Cost = 0,
                         Text = "When deploying a squad that includes this Unit, allied Clone Trooper Secondary characters and allied Clone Trooper Supporting characters may be placed within *range*2 of the first placed character from that squad's Primary Unit, instead of the normal *range*1.",
                         Synergies = [
-                            new Synergy(){
+                            new Synergy()
+                            {
                                 Type = UnitType.Secondary,
                                 KeyWords = [KeyWords.CloneTrooper]
                             },
-                            new Synergy(){
+                            new Synergy()
+                            {
                                 Type = UnitType.Support,
                                 KeyWords = [KeyWords.CloneTrooper]
                             }],
@@ -177,9 +180,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *dash*. If any characters *dash*, this Unit gains *hunker*.",
-                        Synergies =
-                        [
-                        ],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -191,7 +192,8 @@ namespace Shatterpoint.Lib.Services
                         Text = "When a character in another allied Galactic Republic Unit makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. If the targeted character is within *range*5 of a character in this Unit, the target Unit gains *exposed*.",
                         Synergies =
                         [
-                            new Synergy(){
+                            new Synergy()
+                            {
                                 KeyWords = [KeyWords.GalacticRepublic]
                             }
                         ],
@@ -204,7 +206,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "While this Unit has one or more *hunker*, characters in this Unit have Steadfast.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     },
                     new Ability()
@@ -214,7 +216,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When a character in this Unit rolls defense dice during a  attack, if this Unit has one or more , add [expertise] to the roll.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     }
                 ];
