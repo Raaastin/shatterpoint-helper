@@ -118,9 +118,13 @@
 }
 
 .tooltip-container {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .tooltip-content {
+
     padding: 5px;
     visibility: hidden;
     text-align: center;

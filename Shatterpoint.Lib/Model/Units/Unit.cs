@@ -84,12 +84,12 @@ namespace Shatterpoint.Lib.Units
         /// <summary>
         /// Top offset for profile picture
         /// </summary>data
-        public string Top { get; set; } = "-13px";
+        public string Top { get; set; } = "-15px";
 
         /// <summary>
         /// left offset for profile picture
         /// </summary>
-        public string Left { get; set; } = "-663px";
+        public string Left { get; set; } = "-670px";
 
         /// <summary>
         /// Unique name of the unit
