@@ -3,6 +3,7 @@
 @using Shatterpoint.Lib.Units
 @using Shatterpoint.Lib.Units.Abilities
 @using Shatterpoint.Lib.Data;
+@using System.Text
 
 @inject SelectedUnitsService SelectedUnitService;
 
@@ -78,13 +79,16 @@
                                 </p>
                                 @if (ability.Synergies is not null)
                                 {
-                                    <div class="tooltip-content flex-row">
-                                        @foreach (var unit in GetCompatible(ability))
-                                        {
-                                            <div class="flex-row">
-                                                <ProfilePicture Scale="0.4" Src="@unit.StanceCardUrl1" Left="@unit.Left" Top="@unit.Top" Alt="@unit.Name"></ProfilePicture>
-                                            </div>
-                                        }
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-text">@PrintKeywords(GetKeyWords(ability.Synergies)):</div>
+                                        <div class="flex-row">
+                                            @foreach (var unit in GetCompatible(ability))
+                                            {
+                                                <div>
+                                                    <ProfilePicture Scale="0.4" Src="@unit.StanceCardUrl1" Left="@unit.Left" Top="@unit.Top" Alt="@unit.Name"></ProfilePicture>
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
                                 }
                             </div>
@@ -147,6 +151,34 @@
             }
         }
         return result;
+    }
+
+    public List<string> GetKeyWords(List<Synergy> synergies)
+    {
+        var result = new List<string>();
+
+        foreach (var synergy in synergies)
+        {
+            foreach (var keyword in synergy.KeyWords)
+            {
+                if (!result.Contains(keyword))
+                {
+                    result.Add(keyword);
+                }
+            }
+        }
+        return result;
+    }
+
+    public string PrintKeywords(List<string> keywords)
+    {
+        var sb = new StringBuilder();
+
+        foreach (var keyword in keywords)
+        {
+            sb.Append($"{keyword} | ");
+        }
+        return sb.Remove(sb.Length - 3, 3).ToString();
     }
 }
 
