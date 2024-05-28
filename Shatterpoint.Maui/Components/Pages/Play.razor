@@ -17,7 +17,7 @@
     @if (!@SelectedUnitsService.UnitSelectionArray.Any(x => x is not null))
     {
         <p style="color: wheat; padding: 5px;">
-            Hu how, looks like it's empty ...
+            uh-oh, looks like it's empty ...
         </p>
         <p style="color: wheat; padding: 5px;">
             Did you select a non empty list on the tab <input style="width: 30px; position:relative; top:10px;" type="image" src="/img/icons/list-icon.png" alt="list tab" @onclick='() => NavigationService.NavigateFromTo("play", "list")' /> ?
