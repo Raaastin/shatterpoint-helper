@@ -67,7 +67,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Sharpshooter [2]. When this Unit makes a focus action, each character in this Unit may *dash*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()

@@ -85,7 +85,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When you spend *forceicon* to place this Unit's Order Card in reserve, spend 1 less *forceicon*",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Start]
                     }
                 ];
@@ -107,7 +107,7 @@ namespace Shatterpoint.Lib.Services
                 [
                     new Ability()
                     {
-                        Weilder =unit,
+                        Weilder = unit,
                         Name = "Combat A.I. Protocols",
                         Type = AbilityType.Inate,
                         Cost = 0,
@@ -130,7 +130,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When this Unit's Order Card would be placed in reserve, it's controlling player may place it on the bottom of their Order Deck instead",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Start]
                     },
                     new Ability()
@@ -140,7 +140,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "While a character in this Unit is contesting one or more Active objectives, it has Protection",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     }
                 ];
@@ -170,7 +170,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *jump*. This Unit may use this ability two times during its activation",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -180,7 +180,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 2,
                         Text = "Choose a character in this Unit and an enemy character within *range*3 of that character. Push the choosen enemy character *range*3 away from the choosen allied character",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -190,7 +190,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "After a *melee* attack targetting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     },
                     new Ability()
@@ -218,7 +218,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Identity,
                         Cost = 0,
                         Text = "When a character in this Unit Wounds an enemy Unit, after the effect is resolved, that carachter may *heal**heal**heal*. If it Wounded a Primary Unit or Secondary Unit, it may also *advance* or *jump*. If it Wounder a primary Unit, refresh *forceicon**forceicon*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
@@ -248,7 +248,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *advance*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -258,7 +258,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 2,
                         Text = "Choose a character in this Unit and an enemy character within *range*3 of that character. Pull the chosen enemy character *range*2 Toward the chosen allied character. Then the chosen enemy character gains Exposed",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -268,7 +268,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When this Unit is Wounded by a *melee* attack, after the attack is resolved, one character in this Unit may immediately *dash* and make a 5 dive *melee* attack targeting the character that Wounded it.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Targeted]
                     },
                     new Ability()
@@ -278,7 +278,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Identity,
                         Cost = 0,
                         Text = "While this Unit is not Wounded, when it would spend F to use an ability, it may suffer *damage* equal to the cost of the ability instead.<br/><br/>For every 3 *damage* this Unit has, characters in this Unit add 1 die to their *melee* Attack rolls. <br/>For each injured token this Unit has, characters in this Unit add 3 dice to their *melee* attack rolls.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
@@ -306,7 +306,12 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Tactic,
                         Cost = 0,
                         Text = "At the start of this Unit's activation, choose another allied Mandalorian character. The chosen character may *jump*.",
-                        Synergies = [],
+                        Synergies = [
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.Mandalorian]
+                            }
+                        ],
                         Timing = [Timing.Start]
                     },
                     new Ability()
@@ -316,7 +321,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *jump*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -326,7 +331,12 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this Unit immediately makes a focus action",
-                        Synergies = [],
+                        Synergies = [
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.Mandalorian]
+                            }
+                        ],
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -336,7 +346,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Sharpshooter(2). When a character in this Unit makes a *ranged* attack, the target does not benefit from Cover. After this Unit Makes a focus action, it gains *hunker*",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -346,7 +356,11 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When a character in this Unit makes a *melee* attack targeting an enemy character that is Engaged with another allied Mandalorian character, it adds 2 dice to the attack roll",
-                        Synergies = [],
+                        Synergies = [new Synergy()
+                        {
+                            KeyWords = [KeyWords.Mandalorian]
+                        }
+                        ],
                         Timing = [Timing.Active]
                     }
                 ];
@@ -377,7 +391,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *jump*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -387,7 +401,12 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this unit immediately makes a focus action",
-                        Synergies = [],
+                        Synergies = [
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.Mandalorian]
+                            }
+                        ],
                         Timing = [Timing.Active]
                     },
                     new Ability()
@@ -397,7 +416,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "When an enemy character that is Engaged with one or more characters in this Unit *advance* or *dash*, after the move is resolved, the moving character's unit suffers *damage**damage* if the moving character is no longer engaged with one or more characters in this Unit.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Opponent]
                     },
                     new Ability()
@@ -407,7 +426,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Impact(1)",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
@@ -436,37 +455,37 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this unit may *jump*",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "I'm going to end this",
-                        Type = AbilityType.Reactive,
-                        Cost = 2,
-                        Text = "After this Unit makes a combat action, it may use this ability. One character in this unit may make an attack targeting one of the same enemy characters within range and LOS",
-                        Synergies = [],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Deflect",
-                        Type = AbilityType.Reactive,
-                        Cost = 0,
-                        Text = "After a *ranged* attack targeting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*.",
-                        Synergies = [],
-                        Timing = [Timing.Targeted]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "This is where the fun begins",
-                        Type = AbilityType.Identity,
-                        Cost = 0,
-                        Text = "When a character in this Unit Wounds an enemy Primary Unit or enemy Secondary Unit, after this effect is resolved, move the Struggle token one space toward your Momentum tokens. Then, if the Wounded Unit is a Primary Unit, each allied Galactic Republic character may *heal*.",
-                        Synergies =
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "I'm going to end this",
+                    Type = AbilityType.Reactive,
+                    Cost = 2,
+                    Text = "After this Unit makes a combat action, it may use this ability. One character in this unit may make an attack targeting one of the same enemy characters within range and LOS",
+                    Synergies = null,
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Deflect",
+                    Type = AbilityType.Reactive,
+                    Cost = 0,
+                    Text = "After a *ranged* attack targeting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*.",
+                    Synergies = null,
+                    Timing = [Timing.Targeted]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "This is where the fun begins",
+                    Type = AbilityType.Identity,
+                    Cost = 0,
+                    Text = "When a character in this Unit Wounds an enemy Primary Unit or enemy Secondary Unit, after this effect is resolved, move the Struggle token one space toward your Momentum tokens. Then, if the Wounded Unit is a Primary Unit, each allied Galactic Republic character may *heal*.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -478,8 +497,8 @@ namespace Shatterpoint.Lib.Services
                                 Type = null
                             }
                         ],
-                        Timing = [Timing.Active]
-                    }
+                    Timing = [Timing.Active]
+                }
             ];
             return unit;
         }
@@ -516,24 +535,24 @@ namespace Shatterpoint.Lib.Services
                         ],
                         Timing = [Timing.Start]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Defensive maneuver",
-                        Type = AbilityType.Active,
-                        Cost = 1,
-                        Text = "Each character in this Unit may *dash*. If any characters *dash*, this unit gains *hunker*.",
-                        Synergies = [],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "I'm always first, kid",
-                        Type = AbilityType.Reactive,
-                        Cost = 1,
-                        Text = "If this Unit is not Wounded, after an allied Clone Trooper Supporting Unit within *range*3 of this Unit makes a combat action, this Unit may use this ability. One character in this Unit may *dash*. If it does, it may make a 5 dice *melee* or *ranged* attack targeting one of the same enemy characters within *range* and LOS.",
-                        Synergies =
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Defensive maneuver",
+                    Type = AbilityType.Active,
+                    Cost = 1,
+                    Text = "Each character in this Unit may *dash*. If any characters *dash*, this unit gains *hunker*.",
+                    Synergies = null,
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "I'm always first, kid",
+                    Type = AbilityType.Reactive,
+                    Cost = 1,
+                    Text = "If this Unit is not Wounded, after an allied Clone Trooper Supporting Unit within *range*3 of this Unit makes a combat action, this Unit may use this ability. One character in this Unit may *dash*. If it does, it may make a 5 dice *melee* or *ranged* attack targeting one of the same enemy characters within *range* and LOS.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -545,16 +564,16 @@ namespace Shatterpoint.Lib.Services
                                 Type = UnitType.Support
                             }
                         ],
-                        Timing = [Timing.AnotherActive]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Bring it on, clankers",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "After an allied Clone Trooper unit within *range*3 of this Unit gains *hunker*, one character in that Unit may *heal*.",
-                        Synergies =
+                    Timing = [Timing.AnotherActive]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Bring it on, clankers",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "After an allied Clone Trooper unit within *range*3 of this Unit gains *hunker*, one character in that Unit may *heal*.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -566,18 +585,18 @@ namespace Shatterpoint.Lib.Services
                                 Type = null
                             }
                         ],
-                        Timing = [Timing.Active, Timing.AnotherActive]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Brothers in arms",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "While this Unit has one or more *hunker*, characters in this Unit have Steadfast.",
-                        Synergies = [],
-                        Timing = [Timing.Targeted]
-                    }
+                    Timing = [Timing.Active, Timing.AnotherActive]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Brothers in arms",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "While this Unit has one or more *hunker*, characters in this Unit have Steadfast.",
+                    Synergies = null,
+                    Timing = [Timing.Targeted]
+                }
             ];
             return unit;
         }
@@ -602,17 +621,17 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *dash*. If any characters *dash*, this Unit gains *hunker*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = ("Coordinated fire: *strained*").ToRawHtmlDescription(),
-                        Type = AbilityType.Reactive,
-                        Cost = 0,
-                        Text = "When a character in another allied Galactic Republic Unit makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. If the targeted character is within *range*5 of a character in this Unit, the target Unit gains *strained*.",
-                        Synergies =
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = ("Coordinated fire: *strained*").ToRawHtmlDescription(),
+                    Type = AbilityType.Reactive,
+                    Cost = 0,
+                    Text = "When a character in another allied Galactic Republic Unit makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. If the targeted character is within *range*5 of a character in this Unit, the target Unit gains *strained*.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -622,18 +641,18 @@ namespace Shatterpoint.Lib.Services
                                 ]
                             }
                         ],
-                        Timing = [Timing.AnotherActive]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Brother in arms",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "While this Unit has one or more *hunker*, characters in this Unit have Steadfast.",
-                        Synergies = [],
-                        Timing = [Timing.Targeted]
-                    }
+                    Timing = [Timing.AnotherActive]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Brother in arms",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "While this Unit has one or more *hunker*, characters in this Unit have Steadfast.",
+                    Synergies = null,
+                    Timing = [Timing.Targeted]
+                }
 
             ];
             return unit;
@@ -660,39 +679,39 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *advance*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "What's the matter, too fast for you?",
-                        Type = AbilityType.Reactive,
-                        Cost = 2,
-                        Text = "When a character in this Unit would suffer *damage* from a *melee* attack, this Unit may use this ability. This Unit suffers half the *damage* in the Damage Pool. The attacking Unit suffers the remaining *damage*",
-                        Synergies = [],
-                        Timing = [Timing.Targeted]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Deflect",
-                        Type = AbilityType.Reactive,
-                        Cost = 0,
-                        Text = "After a *ranged* attack targeting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*.",
-                        Synergies = [],
-                        Timing = [Timing.Targeted]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Fierce Protector",
-                        Type = AbilityType.Identity,
-                        Cost = 0,
-                        Text = "When an enemy character Wounds another allied Unit, after the effect is resolved, one character in this Unit may *advance* toward the enemy character that caused the effect. Then, the character that moved may *heal**heal**heal* or, if that character is Engaged with the enemy character, it may make a 5 dice *melee* attack targeting that enemy character.",
-                        Synergies = [],
-                        Timing = [Timing.AlliedTargeted]
-                    },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "What's the matter, too fast for you?",
+                    Type = AbilityType.Reactive,
+                    Cost = 2,
+                    Text = "When a character in this Unit would suffer *damage* from a *melee* attack, this Unit may use this ability. This Unit suffers half the *damage* in the Damage Pool. The attacking Unit suffers the remaining *damage*",
+                    Synergies = null,
+                    Timing = [Timing.Targeted]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Deflect",
+                    Type = AbilityType.Reactive,
+                    Cost = 0,
+                    Text = "After a *ranged* attack targeting a character in this Unit is resolved, this Unit may use this ability. If the attack roll contained one or more *failure* results, the attacking Unit suffers *damage**damage*.",
+                    Synergies = null,
+                    Timing = [Timing.Targeted]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Fierce Protector",
+                    Type = AbilityType.Identity,
+                    Cost = 0,
+                    Text = "When an enemy character Wounds another allied Unit, after the effect is resolved, one character in this Unit may *advance* toward the enemy character that caused the effect. Then, the character that moved may *heal**heal**heal* or, if that character is Engaged with the enemy character, it may make a 5 dice *melee* attack targeting that enemy character.",
+                    Synergies = [],
+                    Timing = [Timing.AlliedTargeted]
+                },
 
             ];
             return unit;
@@ -730,24 +749,24 @@ namespace Shatterpoint.Lib.Services
                         ],
                         Timing = [Timing.Start]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Jet pack",
-                        Type = AbilityType.Active,
-                        Cost = 1,
-                        Text = "Each character in this Unit may *jump*.",
-                        Synergies = [],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Mandalorians are stronger together",
-                        Type = AbilityType.Reactive,
-                        Cost = 0,
-                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this Unit immediately makes a focus action.",
-                        Synergies =
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Jet pack",
+                    Type = AbilityType.Active,
+                    Cost = 1,
+                    Text = "Each character in this Unit may *jump*.",
+                    Synergies = null,
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Mandalorians are stronger together",
+                    Type = AbilityType.Reactive,
+                    Cost = 0,
+                    Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this Unit immediately makes a focus action.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -757,26 +776,26 @@ namespace Shatterpoint.Lib.Services
                                 ]
                             }
                         ],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Mandalore will survive",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "After this Unit makes a focus action, one character in this Unit may *dash* and *heal**heal*.",
-                        Synergies = [],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Some of us serve a higher purpose",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "Allied Madalorian characters within *range*3 of this Unit that are contesting one or more Active objectives have Protection and Steadfast.",
-                        Synergies =
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Mandalore will survive",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "After this Unit makes a focus action, one character in this Unit may *dash* and *heal**heal*.",
+                    Synergies = null,
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Some of us serve a higher purpose",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "Allied Madalorian characters within *range*3 of this Unit that are contesting one or more Active objectives have Protection and Steadfast.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -786,8 +805,8 @@ namespace Shatterpoint.Lib.Services
                                 ]
                             }
                         ],
-                        Timing = [Timing.Targeted, Timing.AlliedTargeted]
-                    }
+                    Timing = [Timing.Targeted, Timing.AlliedTargeted]
+                }
 
             ];
             return unit;
@@ -813,17 +832,17 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this Unit may *jump*.",
-                        Synergies = [],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Mandalorians are stronger together",
-                        Type = AbilityType.Reactive,
-                        Cost = 0,
-                        Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this Unit immediately makes a focus action.",
-                        Synergies =
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Mandalorians are stronger together",
+                    Type = AbilityType.Reactive,
+                    Cost = 0,
+                    Text = "After this Unit makes a move action, it may use this ability. If a character in this Unit is within *range*2 of another allied Mandalorian character, this Unit immediately makes a focus action.",
+                    Synergies =
                         [
                             new Synergy()
                             {
@@ -833,18 +852,18 @@ namespace Shatterpoint.Lib.Services
                                 ]
                             }
                         ],
-                        Timing = [Timing.Active]
-                    },
-                    new Ability()
-                    {
-                        Weilder = unit,
-                        Name = "Helmet Visor",
-                        Type = AbilityType.Inate,
-                        Cost = 0,
-                        Text = "Characters in this Unit have Sharpshooter [1].",
-                        Synergies = [],
-                        Timing = [Timing.Active]
-                    }
+                    Timing = [Timing.Active]
+                },
+                new Ability()
+                {
+                    Weilder = unit,
+                    Name = "Helmet Visor",
+                    Type = AbilityType.Inate,
+                    Cost = 0,
+                    Text = "Characters in this Unit have Sharpshooter [1].",
+                    Synergies = null,
+                    Timing = [Timing.Active]
+                }
             ];
             return unit;
         }

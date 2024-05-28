@@ -104,3 +104,8 @@ li {
     background-color: #252530;
     align-content: center;
 }
+
+.empty-disclaimer {
+    color: wheat;
+    padding: 10px;
+}

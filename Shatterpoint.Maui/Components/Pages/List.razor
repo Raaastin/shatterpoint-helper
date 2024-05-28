@@ -24,6 +24,13 @@
 </script>
 
 <div class="page-content scrollable">
+    @if (Lists is null || Lists.Count == 0)
+    {
+        <div class="empty-disclaimer">
+            uh-oh, looks like it's empty. Start by creating a list.<br/>
+            Click "Add new list" or navigate to <input style="width: 30px; position:relative; top:10px;" type="image" src="/img/icons/list.png" alt="list tab" @onclick='() => NavigationService.NavigateFromTo("list", "build")' />
+        </div>
+    }
     <ul>
         @foreach (var entity in Lists)
         {
