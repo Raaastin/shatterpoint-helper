@@ -50,15 +50,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When a character in this Unit makes an attack, after all Attack Dice and Defense Dice have been rolled, this Unit may spend any number of *forceicon* to use this ability. Reroll one *failure* results in the attack roll for each *forceicon* spent.",
-                        Synergies =
-                        [
-                            new Synergy()
-                            {
-                                Name = null,
-                                Type = null,
-                                KeyWords = null
-                            }
-                        ],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     },
                     new Ability()
