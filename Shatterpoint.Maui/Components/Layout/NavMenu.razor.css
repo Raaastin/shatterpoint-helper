@@ -18,7 +18,7 @@
     .tab-selected > img {
         height: 41px;
         width: auto;
-        animation: sizeUp 1s;
+        animation: sizeUp 0.3s;
     }
 
 .tab-not-selected {
