@@ -16,7 +16,8 @@
     }
 
     .text.strike-team {
-        color: magenta;
+        color: orangered;
+        font-weight: 700;
     }
 
 /* Flex li */

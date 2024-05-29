@@ -11,8 +11,30 @@
 @inject SelectedUnitsService SelectedUnitsService
 @inject NavigationService NavigationService;
 @inject DataAccessLayer DataAccessLayer;
+@inject IJSRuntime JsRunTime;
 
-<div class="unit-selection-panel fade-in">
+<script>
+
+    function getScrollPosition(elementId) {
+        let element = document.getElementById(elementId);
+        return {
+            scrollTop: element.scrollTop,
+            scrollLeft: element.scrollLeft,
+            scrollHeight: element.scrollHeight,
+            clientHeight: element.clientHeight
+        };
+    }
+
+    function scrollToPosition(elementId, position) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.scrollTop = position;
+        }
+    }
+</script>
+
+
+<div id="scrollArea" @onscroll="SaveScroll" class="unit-selection-panel fade-in">
     <ul>
         @code {
             Unit previousUnit = null;
@@ -99,10 +121,26 @@
 
 @code {
 
-    public string FieldText { get; set; }
-    public bool PrimaryChecked { get; set; } = true;
-    public bool SecondaryChecked { get; set; } = true;
-    public bool SupportChecked { get; set; } = true;
+
+    public static double ScrollPosition { get; set; }
+    public class ScrollData
+    {
+        public double ScrollTop { get; set; }
+        public double ScrollLeft { get; set; }
+        public double ScrollHeight { get; set; }
+        public double ClientHeight { get; set; }
+    }
+    private async void SaveScroll(EventArgs eventArgs)
+    {
+        // Utilisez IJSRuntime pour appeler la fonction JavaScript et récupérer la position de défilement
+        var scrollPosition = await JsRunTime.InvokeAsync<ScrollData>("getScrollPosition", "scrollArea");
+        ScrollPosition = scrollPosition.ScrollTop;
+    }
+
+    public static string FieldText { get; set; }
+    public static bool PrimaryChecked { get; set; } = true;
+    public static bool SecondaryChecked { get; set; } = true;
+    public static bool SupportChecked { get; set; } = true;
 
     [Parameter]
     public string FileId { get; set; }
@@ -328,9 +366,13 @@
         || unitType == UnitType.Support && SupportChecked;
     }
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        return base.OnAfterRenderAsync(firstRender);
+        if (firstRender)
+        {
+            await JsRunTime.InvokeVoidAsync("scrollToPosition", "scrollArea", ScrollPosition);
+        }
+        await  base.OnAfterRenderAsync(firstRender);
     }
 
     public UnitType GetUnitType(int index)
