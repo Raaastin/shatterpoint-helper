@@ -11,3 +11,5 @@ Shatterpoint.Lib/bin/
 *.keystore
 Shatterpoint.Test/bin/
 Shatterpoint.Test/obj/
+Struggle.Pal/bin/
+Struggle.Pal/obj/
