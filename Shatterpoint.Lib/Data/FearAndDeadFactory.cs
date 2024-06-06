@@ -130,7 +130,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Coordinate Offensive",
+                        Name = "Coordinated Offensive",
                         Type = AbilityType.Reactive,
                         Cost = 0,
                         Text = "When a character in this Unit or another allied Stormtrooper character makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. Add 1 die to the attack roll for each allied Stormtrooper unit, other that the attacking unit, that is within *range* 5 and LOS of the target.",
@@ -176,7 +176,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Assault Tactic",
+                        Name = "Assault Tactics",
                         Type = AbilityType.Active,
                         Cost = 1,
                         Text = "Each character in this unit may *dash*. Then this Unit may suffer *damage* to immediately perform a focus action.",

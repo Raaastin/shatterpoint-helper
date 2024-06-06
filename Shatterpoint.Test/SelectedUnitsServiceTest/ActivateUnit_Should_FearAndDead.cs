@@ -45,7 +45,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             Assert.Equal(4, result.Count);
             Assert.Contains("Inexorable Advance", result[0].Name, StringComparison.CurrentCultureIgnoreCase);
             Assert.Contains("Imperial Firepower", result[1].Name, StringComparison.CurrentCultureIgnoreCase);
-            Assert.Contains("Coordinate Offensive", result[2].Name, StringComparison.CurrentCultureIgnoreCase);
+            Assert.Contains("Coordinated Offensive", result[2].Name, StringComparison.CurrentCultureIgnoreCase);
             Assert.Contains("so precise", result[3].Name, StringComparison.CurrentCultureIgnoreCase);
 
 
@@ -63,7 +63,7 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
             Assert.Contains("Assault Tactics", result[0].Name, StringComparison.CurrentCultureIgnoreCase);
             Assert.Contains("For the Empire", result[1].Name, StringComparison.CurrentCultureIgnoreCase);
             Assert.Contains("so precise", result[2].Name, StringComparison.CurrentCultureIgnoreCase);
-            Assert.Contains("Coordinated Assault", result[3].Name, StringComparison.CurrentCultureIgnoreCase);
+            Assert.Contains("Coordinated Offensive", result[3].Name, StringComparison.CurrentCultureIgnoreCase);
 
             // Act 2
             result = selectedUnitsService.GetAbilitiesForTheTargetedUnit(db.Get("Stormtroopers"));
