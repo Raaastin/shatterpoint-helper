@@ -66,21 +66,25 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(AppetiteForDestructionFactory.Kraken());
             UnitList.Add(AppetiteForDestructionFactory.B2BAttleDroids());
 
-#if DEBUG
-            foreach (var unit in UnitList)
-            {
-                unit.StanceCardUrl1 = "/img/examples/Untitled.png";
-                unit.StanceCardUrl2 = "/img/examples/Untitled.png";
-                unit.MainCardUrl = "/img/examples/Untitled.png";
-                unit.AbilityCardUrl = "/img/examples/Untitled.png";
+            UnitList.Add(FearAndDeadFactory.Vader());
+            UnitList.Add(FearAndDeadFactory.StormTrooperSergeant());
+            UnitList.Add(FearAndDeadFactory.StormTrooper());
 
-                foreach (var item in unit.Abilities)
-                {
-                    item.Name = "Lorem ipsum dolor sit amet";
-                    item.Cost = 0;
-                    item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
-                }
-            }
+#if DEBUG
+            //foreach (var unit in UnitList)
+            //{
+            //    unit.StanceCardUrl1 = "/img/examples/Untitled.png";
+            //    unit.StanceCardUrl2 = "/img/examples/Untitled.png";
+            //    unit.MainCardUrl = "/img/examples/Untitled.png";
+            //    unit.AbilityCardUrl = "/img/examples/Untitled.png";
+
+            //    foreach (var item in unit.Abilities)
+            //    {
+            //        item.Name = "Lorem ipsum dolor sit amet";
+            //        item.Cost = 0;
+            //        item.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras ornare. Nulla";
+            //    }
+            //}
 #endif
         }
     }

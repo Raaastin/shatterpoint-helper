@@ -10,7 +10,8 @@ namespace Shatterpoint.Lib.Services
     /// </summary>
     public static class FearAndDeadFactory
     {
-        public static string warbandname = "Fear And Dead";
+        public static string warbandname = "Fear And Dead Men";
+
         public static Unit Vader()
         {
             var unit = new Unit("Darth Vader, the emperor's servant", "Darth Vader", UnitType.Primary, UnitCardColor.Black, 7, 12, 3, 3)
@@ -84,6 +85,131 @@ namespace Shatterpoint.Lib.Services
             return unit;
         }
 
+        public static Unit StormTrooperSergeant()
+        {
+            var unit = new Unit("Stormtrooper Sergeant", "", UnitType.Secondary, UnitCardColor.Black, 3, 9, 2)
+            {
+                MainCardUrl = "todo",
+                AbilityCardUrl = "todo",
+                StanceCardUrl1 = "todo",
+                StanceCardUrl2 = "todo",
+                KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper],
+                WarBandName = warbandname,
+                Era = Era.GalacticCivilWar
+            };
+
+            unit.Abilities =
+                [
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Inexorable Advance",
+                        Type = AbilityType.Tactic,
+                        Cost = 0,
+                        Text = "At the start of this Unit's activation, you may choose an allied Galactic Empire Supporting Unit. Each character in the chosen Unit may *advance*. Then if any characters *advance*, the chosen Unit suffers *damage*",
+                        Synergies = [new Synergy()
+                        {
+                            Type = UnitType.Support,
+                            KeyWords = [KeyWords.GalacticEmpire]
+                        }],
+                        Timing = [Timing.Start]
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Imperial Firepower",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Choose an enemy character within *range*4 of two or more allied Galactic Empire characters. The chosen character gains *pinned* or *disarmed*",
+                        Synergies = [new Synergy()
+                        {
+                            KeyWords = [KeyWords.GalacticEmpire]
+                        }],
+                        Timing = [Timing.Active]
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Coordinate Offensive",
+                        Type = AbilityType.Reactive,
+                        Cost = 0,
+                        Text = "When a character in this Unit or another allied Stormtrooper character makes an attack as part of a combat action, before dice are rolled, this Unit may use this ability. Add 1 die to the attack roll for each allied Stormtrooper unit, other that the attacking unit, that is within *range* 5 and LOS of the target.",
+                        Synergies = [new Synergy()
+                        {
+                            KeyWords = [KeyWords.Stormtrooper]
+                        }],
+                        Timing = [Timing.Active, Timing.AnotherActive]
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Only Imperial Stormtroopers are so precise",
+                        Type = AbilityType.Inate,
+                        Cost = 0,
+                        Text = "Characters in this Unit have Sharpshooter[1]",
+                        Synergies = [
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.GalacticEmpire]
+                            }],
+                        Timing = [Timing.Active]
+                    }
+                ];
+            return unit;
+        }
+
+        public static Unit StormTrooper()
+        {
+            var unit = new Unit("Stormtroopers", "", UnitType.Support, UnitCardColor.Black, 4, 9, 2)
+            {
+                MainCardUrl = "todo",
+                AbilityCardUrl = "todo",
+                StanceCardUrl1 = "todo",
+                StanceCardUrl2 = "todo",
+                KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper, KeyWords.Trooper],
+                WarBandName = warbandname,
+                Era = Era.GalacticCivilWar
+            };
+
+            unit.Abilities =
+                [
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Assault Tactic",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Each character in this unit may *dash*. Then this Unit may suffer *damage* to immediately perform a focus action.",
+                        Synergies = null,
+                        Timing = [Timing.Active]
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "For the Empire!",
+                        Type = AbilityType.Active,
+                        Cost = 1,
+                        Text = "Action: Choose an enemy character Engaged with one or more characters in this Unit and one of the allied characters it is Engaged with. Push the chosen character *range*2 Away from the chosen allied character. Then this Unit Gains *exposed*.",
+                        Synergies = null,
+                        Timing = [Timing.Active]
+                    },
+                    new Ability()
+                    {
+                        Weilder = unit,
+                        Name = "Only Imperial Stormtroopers are so precise",
+                        Type = AbilityType.Inate,
+                        Cost = 0,
+                        Text = "Characters in this Unit have Sharpshooter[1]",
+                        Synergies = [
+                            new Synergy()
+                            {
+                                KeyWords = [KeyWords.GalacticEmpire]
+                            }],
+                        Timing = [Timing.Active]
+                    }
+                ];
+            return unit;
+        }
     }
 }
 
