@@ -36,6 +36,7 @@
 
         public const string GalacticEmpire = "Galactic Empire";
         public const string Sith = "Sith";
+        public const string Stormtrooper = "Stormtrooper";
 
         /// <summary>
         /// All available keywords
@@ -48,7 +49,7 @@
             _501ST, GalacticRepublic, Jedi, CloneTrooper, ClanKryze, NiteOwls, DeathWatch, Trooper,
             CloneCommando,
             Handmaiden, B1, B2,
-            GalacticEmpire, Sith
+            GalacticEmpire, Sith, Stormtrooper
         };
     }
 }
