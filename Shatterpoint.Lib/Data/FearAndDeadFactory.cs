@@ -147,11 +147,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Sharpshooter[1]",
-                        Synergies = [
-                            new Synergy()
-                            {
-                                KeyWords = [KeyWords.GalacticEmpire]
-                            }],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
@@ -200,11 +196,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Sharpshooter[1]",
-                        Synergies = [
-                            new Synergy()
-                            {
-                                KeyWords = [KeyWords.GalacticEmpire]
-                            }],
+                        Synergies = null,
                         Timing = [Timing.Active]
                     }
                 ];
