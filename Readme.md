@@ -1,3 +1,7 @@
+### Disclaimer: 
+Outdated readme. Main purpose is accurate, but detail cannot be trusted (ex: it's possible to save more that 1 list). 
+Should be updated once the app development is over.
+
 # Android App: StrugglePal
 Companion app for the board game SW: Shatterpoint.
 
