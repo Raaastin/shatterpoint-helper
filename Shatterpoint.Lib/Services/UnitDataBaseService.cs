@@ -70,6 +70,10 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(FearAndDeadFactory.StormTrooperSergeant());
             UnitList.Add(FearAndDeadFactory.StormTrooper());
 
+            UnitList.Add(YouHaveSomethingIWantFactory.Moff());
+            UnitList.Add(YouHaveSomethingIWantFactory.DarkTrooper());
+            UnitList.Add(YouHaveSomethingIWantFactory.Deathtooper());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{

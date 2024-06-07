@@ -62,7 +62,7 @@ namespace Shatterpoint.Lib.Services
                         Cost = 0,
                         Text = "When an opposing player would spend *forceicon* to place a Unit's Order Card in reserve, they must spend 1 additional *forceicon*.",
                         Synergies = null,
-                        Timing = [Timing.Opponent, Timing.Active, Timing.AnotherActive, Timing.Targeted, Timing.AlliedTargeted]
+                        Timing = [Timing.Opponent]
                     },
                     new Ability()
                     {
@@ -199,7 +199,7 @@ namespace Shatterpoint.Lib.Services
                     new Ability()
                     {
                         Weilder = unit,
-                        Name = "Immovable",
+                        Name = "Unrelenting",
                         Type = AbilityType.Inate,
                         Cost = 0,
                         Text = "Characters in this Unit have Protection and Immunity[*pinned*].",
