@@ -9,5 +9,6 @@ namespace Shatterpoint.Lib.Model.Units
     public class Era
     {
         public const string GalacticCivilWar = "Galactic Civil War";
+        public const string TheNewRepublic = "The New Republic";
     }
 }

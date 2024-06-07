@@ -16,10 +16,10 @@ namespace Shatterpoint.Lib.Services
         {
             var unit = new Unit("Darth Vader, the emperor's servant", "Darth Vader", UnitType.Primary, UnitCardColor.Black, 7, 12, 3, 3)
             {
-                MainCardUrl = "todo",
-                AbilityCardUrl = "todo",
-                StanceCardUrl1 = "todo",
-                StanceCardUrl2 = "todo",
+                MainCardUrl = "https://shatterpointdb.com/media/dzan4rqk/darth-vader-emperors-servant-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/a2sentr3/darth-vader-emperors-servant-abilities-card.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/gfvfqbx3/darth-vader-emperors-servant-stance-two-card.png",
+                StanceCardUrl2 = "https://shatterpointdb.com/media/gewbys5a/darth-vader-emperors-servant-stance-one-card.png",
                 KeyWords = [KeyWords.ForceUser, KeyWords.GalacticEmpire, KeyWords.Sith],
                 WarBandName = warbandname,
                 Era = Era.GalacticCivilWar
@@ -89,10 +89,10 @@ namespace Shatterpoint.Lib.Services
         {
             var unit = new Unit("Stormtrooper Sergeant", "", UnitType.Secondary, UnitCardColor.Black, 3, 9, 2)
             {
-                MainCardUrl = "todo",
-                AbilityCardUrl = "todo",
-                StanceCardUrl1 = "todo",
-                StanceCardUrl2 = "todo",
+                MainCardUrl = "https://shatterpointdb.com/media/cusmhjkk/shatterpoint-stormtrooper-sergeant-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/vnwlu5p0/shatterpoint-stormtrooper-sergeant-abilities-card.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/ir5joe3o/shatterpoint-stormtrooper-sergeant-stance.png",
+                StanceCardUrl2 = null,
                 KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper],
                 WarBandName = warbandname,
                 Era = Era.GalacticCivilWar
@@ -158,10 +158,10 @@ namespace Shatterpoint.Lib.Services
         {
             var unit = new Unit("Stormtroopers", "", UnitType.Support, UnitCardColor.Black, 4, 9, 2)
             {
-                MainCardUrl = "todo",
-                AbilityCardUrl = "todo",
-                StanceCardUrl1 = "todo",
-                StanceCardUrl2 = "todo",
+                MainCardUrl = "https://shatterpointdb.com/media/yxlh3upn/shatterpoint-stormtroopers-unit-card.png",
+                AbilityCardUrl = "https://shatterpointdb.com/media/rggjzkc5/shatterpoint-stormtroopers-abilities-card.png",
+                StanceCardUrl1 = "https://shatterpointdb.com/media/sqjepdet/shatterpoint-stormtroopers-stance.png",
+                StanceCardUrl2 = null,
                 KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper, KeyWords.Trooper],
                 WarBandName = warbandname,
                 Era = Era.GalacticCivilWar

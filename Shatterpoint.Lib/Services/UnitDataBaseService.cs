@@ -77,7 +77,6 @@ namespace Shatterpoint.Lib.Services
             //    unit.StanceCardUrl2 = "/img/examples/Untitled.png";
             //    unit.MainCardUrl = "/img/examples/Untitled.png";
             //    unit.AbilityCardUrl = "/img/examples/Untitled.png";
-
             //    foreach (var item in unit.Abilities)
             //    {
             //        item.Name = "Lorem ipsum dolor sit amet";
