@@ -22,7 +22,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl2 = "https://shatterpointdb.com/media/gewbys5a/darth-vader-emperors-servant-stance-one-card.png",
                 KeyWords = [KeyWords.ForceUser, KeyWords.GalacticEmpire, KeyWords.Sith],
                 WarBandName = warbandname,
-                Era = Era.GalacticCivilWar
+                Era = [Era.GalacticCivilWar]
             };
 
             unit.Abilities =
@@ -95,7 +95,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl2 = null,
                 KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper],
                 WarBandName = warbandname,
-                Era = Era.GalacticCivilWar
+                Era = [Era.GalacticCivilWar]
             };
 
             unit.Abilities =
@@ -164,7 +164,7 @@ namespace Shatterpoint.Lib.Services
                 StanceCardUrl2 = null,
                 KeyWords = [KeyWords.GalacticEmpire, KeyWords.Stormtrooper, KeyWords.Trooper],
                 WarBandName = warbandname,
-                Era = Era.GalacticCivilWar
+                Era = [Era.GalacticCivilWar]
             };
 
             unit.Abilities =
