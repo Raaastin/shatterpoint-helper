@@ -66,6 +66,14 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(AppetiteForDestructionFactory.Kraken());
             UnitList.Add(AppetiteForDestructionFactory.B2BAttleDroids());
 
+            UnitList.Add(FearAndDeadFactory.Vader());
+            UnitList.Add(FearAndDeadFactory.StormTrooperSergeant());
+            UnitList.Add(FearAndDeadFactory.StormTrooper());
+
+            UnitList.Add(YouHaveSomethingIWantFactory.Moff());
+            UnitList.Add(YouHaveSomethingIWantFactory.DarkTrooper());
+            UnitList.Add(YouHaveSomethingIWantFactory.Deathtooper());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{
@@ -73,7 +81,6 @@ namespace Shatterpoint.Lib.Services
             //    unit.StanceCardUrl2 = "/img/examples/Untitled.png";
             //    unit.MainCardUrl = "/img/examples/Untitled.png";
             //    unit.AbilityCardUrl = "/img/examples/Untitled.png";
-
             //    foreach (var item in unit.Abilities)
             //    {
             //        item.Name = "Lorem ipsum dolor sit amet";

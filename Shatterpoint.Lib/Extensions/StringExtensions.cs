@@ -28,6 +28,7 @@ namespace Shatterpoint.Lib.Extensions
             }
 
             // Bold additional words: 
+            result = result.Replace("Action:", $"<b>Action:</b>");
             result = result.Replace("Supporting", $"<b>Supporting</b>");
             result = result.Replace("Primary Unit", $"<b>Primary Unit</b>");
             result = result.Replace("Secondary Unit", $"<b>Secondary Unit</b>");

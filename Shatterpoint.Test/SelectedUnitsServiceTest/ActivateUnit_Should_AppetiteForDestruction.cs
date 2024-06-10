@@ -3,12 +3,12 @@ using Shatterpoint.Lib.Units;
 
 namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
-    public class ActivateUnit_Should_Should_AppetiteForDestruction
+    public class ActivateUnit_Should_AppetiteForDestruction
     {
         public SelectedUnitsService selectedUnitsService { get; set; }
         public UnitDataBaseService db;
 
-        public ActivateUnit_Should_Should_AppetiteForDestruction()
+        public ActivateUnit_Should_AppetiteForDestruction()
         {
             db = new();
             selectedUnitsService = new();

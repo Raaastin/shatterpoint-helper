@@ -3,12 +3,12 @@ using Shatterpoint.Lib.Units;
 
 namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 {
-    public class ActivateUnit_Should_Should_ThisPartyIsOver
+    public class ActivateUnit_Should_ThisPartyIsOver
     {
         public SelectedUnitsService selectedUnitsService { get; set; }
         public UnitDataBaseService db;
 
-        public ActivateUnit_Should_Should_ThisPartyIsOver()
+        public ActivateUnit_Should_ThisPartyIsOver()
         {
             db = new();
             selectedUnitsService = new();

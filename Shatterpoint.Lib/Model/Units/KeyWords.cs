@@ -34,6 +34,11 @@
         public const string B1 = "B1";
         public const string B2 = "B2";
 
+        public const string GalacticEmpire = "Galactic Empire";
+        public const string Sith = "Sith";
+        public const string Stormtrooper = "Stormtrooper";
+        public const string DeathTrooper = "Death Trooper";
+
         /// <summary>
         /// All available keywords
         /// </summary>
@@ -44,7 +49,9 @@
             NightSister, ForceUser, Scoundrel, ShadowCollective, Mandalorian, SuperCommando,
             _501ST, GalacticRepublic, Jedi, CloneTrooper, ClanKryze, NiteOwls, DeathWatch, Trooper,
             CloneCommando,
-            Handmaiden, B1, B2
+            Handmaiden, B1, B2,
+            GalacticEmpire, Sith, Stormtrooper,
+            DeathTrooper
         };
     }
 }
