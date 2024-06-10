@@ -124,6 +124,8 @@
                 return "background-image: url(../img/card/title-back-blue.png);";
             case UnitCardColor.Dark:
                 return "background-image: url(../img/card/title-back-dark.png);";
+            case UnitCardColor.Grey:
+                return "background-image: url(../img/card/title-back-grey.png);";
             default:
                 return "background-image: url(../img/card/title-back-blue.png);";
         }
@@ -139,6 +141,8 @@
                 return @String.Format("/img/abilities/{0}-blue.png", ability.Type);
             case UnitCardColor.Dark:
                 return @String.Format("/img/abilities/{0}-dark.png", ability.Type);
+            case UnitCardColor.Grey:
+                return @String.Format("/img/abilities/{0}-grey.png", ability.Type);
             default:
                 return @String.Format("/img/abilities/{0}.png", ability.Type);
         }
