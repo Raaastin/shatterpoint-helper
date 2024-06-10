@@ -14,7 +14,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Moff()
         {
-            var unit = new Unit("Moff Gideon", "Moff Gideon", UnitType.Primary, UnitCardColor.Black, 8, 10, 3, 3)
+            var unit = new Unit("Moff Gideon", "Moff Gideon", UnitType.Primary, UnitCardColor.Dark, 8, 10, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/tqvf04co/shatterpoint-moff-gideon-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/qiolefrk/shatterpoint-moff-gideon-abilities-card.png",
@@ -84,7 +84,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Deathtooper()
         {
-            var unit = new Unit("Death Trooper Escort", "", UnitType.Secondary, UnitCardColor.Black, 4, 9, 2)
+            var unit = new Unit("Death Trooper Escort", "", UnitType.Secondary, UnitCardColor.Dark, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/ipun0yn3/shatterpoint-death-trooper-escort-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/oxwf2ysp/shatterpoint-death-trooper-escort-abilities-card.png",
@@ -150,7 +150,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit DarkTrooper()
         {
-            var unit = new Unit("Dark Troopers", "", UnitType.Support, UnitCardColor.Black, 4, 8, 2)
+            var unit = new Unit("Dark Troopers", "", UnitType.Support, UnitCardColor.Dark, 4, 8, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/ckfo10hn/shatterpoint-dark-trooper-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/sa2e45ux/shatterpoint-dark-trooper-abilities-card.png",

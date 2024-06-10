@@ -39,6 +39,9 @@
         public const string Stormtrooper = "Stormtrooper";
         public const string DeathTrooper = "Death Trooper";
 
+        public const string BountyHunter = "Bounty Hunter";
+        public const string Mercenary = "Mercenary";
+
         /// <summary>
         /// All available keywords
         /// </summary>
@@ -51,7 +54,7 @@
             CloneCommando,
             Handmaiden, B1, B2,
             GalacticEmpire, Sith, Stormtrooper,
-            DeathTrooper
+            DeathTrooper, BountyHunter, Mercenary
         };
     }
 }

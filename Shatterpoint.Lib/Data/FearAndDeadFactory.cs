@@ -14,7 +14,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit Vader()
         {
-            var unit = new Unit("Darth Vader, the emperor's servant", "Darth Vader", UnitType.Primary, UnitCardColor.Black, 7, 12, 3, 3)
+            var unit = new Unit("Darth Vader, the emperor's servant", "Darth Vader", UnitType.Primary, UnitCardColor.Dark, 7, 12, 3, 3)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/dzan4rqk/darth-vader-emperors-servant-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/a2sentr3/darth-vader-emperors-servant-abilities-card.png",
@@ -87,7 +87,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit StormTrooperSergeant()
         {
-            var unit = new Unit("Stormtrooper Sergeant", "", UnitType.Secondary, UnitCardColor.Black, 3, 9, 2)
+            var unit = new Unit("Stormtrooper Sergeant", "", UnitType.Secondary, UnitCardColor.Dark, 3, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/cusmhjkk/shatterpoint-stormtrooper-sergeant-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/vnwlu5p0/shatterpoint-stormtrooper-sergeant-abilities-card.png",
@@ -156,7 +156,7 @@ namespace Shatterpoint.Lib.Services
 
         public static Unit StormTrooper()
         {
-            var unit = new Unit("Stormtroopers", "", UnitType.Support, UnitCardColor.Black, 4, 9, 2)
+            var unit = new Unit("Stormtroopers", "", UnitType.Support, UnitCardColor.Dark, 4, 9, 2)
             {
                 MainCardUrl = "https://shatterpointdb.com/media/yxlh3upn/shatterpoint-stormtroopers-unit-card.png",
                 AbilityCardUrl = "https://shatterpointdb.com/media/rggjzkc5/shatterpoint-stormtroopers-abilities-card.png",
