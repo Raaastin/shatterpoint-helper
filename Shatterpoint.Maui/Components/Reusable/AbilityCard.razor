@@ -159,11 +159,14 @@
 
         foreach (var synergy in synergies)
         {
-            foreach (var keyword in synergy.KeyWords)
+            if (synergy.KeyWords is not null)
             {
-                if (!result.Contains(keyword))
+                foreach (var keyword in synergy.KeyWords)
                 {
-                    result.Add(keyword);
+                    if (!result.Contains(keyword))
+                    {
+                        result.Add(keyword);
+                    }
                 }
             }
         }
@@ -178,7 +181,10 @@
         {
             sb.Append($"{keyword} | ");
         }
-        return sb.Remove(sb.Length - 3, 3).ToString();
+        if (sb.Length > 3)
+            sb.Remove(sb.Length - 3, 3);
+
+        return sb.ToString();
     }
 }
 

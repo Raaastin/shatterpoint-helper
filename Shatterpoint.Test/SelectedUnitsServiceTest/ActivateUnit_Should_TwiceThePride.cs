@@ -68,9 +68,8 @@ namespace ShatterpointReference.Test.SelectedUnitsServiceTest
 
             // Act 2
             result = selectedUnitsService.GetAbilitiesForTheTargetedUnit(db.Get("MagnaGuard"));
-            Assert.Equal(2, result.Count);
+            Assert.Single(result);
             Assert.Contains("Twice the pride, double the fall", result[0].Name, StringComparison.CurrentCultureIgnoreCase);
-            Assert.Contains("Brave. But foolish", result[1].Name, StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }

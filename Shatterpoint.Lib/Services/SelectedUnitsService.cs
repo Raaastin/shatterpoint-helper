@@ -150,9 +150,11 @@ namespace Shatterpoint.Lib.Services
             return
                 ability.Synergies.Any(x =>
                         x.NoCardRelated is false && // prevent unexpected occurence
-                        (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords is not null && x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
-                        ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        (
+                            (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
+                            (x.KeyWords is not null && x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
+                            ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        )
                         ) ||
                     ability.Synergies.Count == 0; // case: all allies synergy
         }
