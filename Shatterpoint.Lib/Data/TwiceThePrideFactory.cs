@@ -58,7 +58,7 @@ namespace Shatterpoint.Lib.Services
                         Type = AbilityType.Reactive,
                         Cost = 1,
                         Text = "After a *melee* attack targetting an allied character within *range*2 is resolved, this Unit may use this ability. If the attack contained no *hit* results, one character in this Unit may *dash* and then make a 5 dice *melee* attack targetting the attacking character.",
-                        Synergies = null,
+                        Synergies = [],
                         Timing = [Timing.Targeted, Timing.AlliedTargeted]
                     },
                     new Ability()
