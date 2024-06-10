@@ -127,7 +127,7 @@ namespace Shatterpoint.Lib.Services
                         Name = "Disciplined ",
                         Type = AbilityType.Reactive,
                         Cost = 1,
-                        Text = "After an attack targetting a character in this Unit is resolved, if this Unit is not Wounded, this Unit may use this ability. Each character in this Unit may  Toward an Active objective. After the move is resolved, is no characters in this Unit are Engaged, this Unit gains *hunker*.",
+                        Text = "After an attack targetting a character in this Unit is resolved, if this Unit is not Wounded, this Unit may use this ability. Each character in this Unit may *reposition* Toward an Active objective. After the move is resolved, if no characters in this Unit are Engaged, this Unit gains *hunker*.",
                         Synergies = [new Synergy()
                         {
                             KeyWords = [KeyWords.Stormtrooper]
