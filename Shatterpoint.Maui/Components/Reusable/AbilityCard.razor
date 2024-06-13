@@ -122,6 +122,10 @@
                 return "background-image: url(../img/card/title-back-red.png);";
             case UnitCardColor.Blue:
                 return "background-image: url(../img/card/title-back-blue.png);";
+            case UnitCardColor.Dark:
+                return "background-image: url(../img/card/title-back-dark.png);";
+            case UnitCardColor.Grey:
+                return "background-image: url(../img/card/title-back-grey.png);";
             default:
                 return "background-image: url(../img/card/title-back-blue.png);";
         }
@@ -135,6 +139,10 @@
                 return @String.Format("/img/abilities/{0}.png", ability.Type);
             case UnitCardColor.Blue:
                 return @String.Format("/img/abilities/{0}-blue.png", ability.Type);
+            case UnitCardColor.Dark:
+                return @String.Format("/img/abilities/{0}-dark.png", ability.Type);
+            case UnitCardColor.Grey:
+                return @String.Format("/img/abilities/{0}-grey.png", ability.Type);
             default:
                 return @String.Format("/img/abilities/{0}.png", ability.Type);
         }
@@ -159,11 +167,14 @@
 
         foreach (var synergy in synergies)
         {
-            foreach (var keyword in synergy.KeyWords)
+            if (synergy.KeyWords is not null)
             {
-                if (!result.Contains(keyword))
+                foreach (var keyword in synergy.KeyWords)
                 {
-                    result.Add(keyword);
+                    if (!result.Contains(keyword))
+                    {
+                        result.Add(keyword);
+                    }
                 }
             }
         }
@@ -178,7 +189,10 @@
         {
             sb.Append($"{keyword} | ");
         }
-        return sb.Remove(sb.Length - 3, 3).ToString();
+        if (sb.Length > 3)
+            sb.Remove(sb.Length - 3, 3);
+
+        return sb.ToString();
     }
 }
 

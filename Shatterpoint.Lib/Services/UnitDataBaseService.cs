@@ -74,6 +74,10 @@ namespace Shatterpoint.Lib.Services
             UnitList.Add(YouHaveSomethingIWantFactory.DarkTrooper());
             UnitList.Add(YouHaveSomethingIWantFactory.Deathtooper());
 
+            UnitList.Add(TwiceThePrideFactory.Dooku());
+            UnitList.Add(TwiceThePrideFactory.JangoFett());
+            UnitList.Add(TwiceThePrideFactory.MagnaGuard());
+
 #if DEBUG
             //foreach (var unit in UnitList)
             //{

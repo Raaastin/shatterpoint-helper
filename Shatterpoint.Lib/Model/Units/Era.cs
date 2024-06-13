@@ -10,5 +10,6 @@ namespace Shatterpoint.Lib.Model.Units
     {
         public const string GalacticCivilWar = "Galactic Civil War";
         public const string TheNewRepublic = "The New Republic";
+        public const string CloneWars = "Clone Wars";
     }
 }

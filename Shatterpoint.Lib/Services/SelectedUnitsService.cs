@@ -136,8 +136,8 @@ namespace Shatterpoint.Lib.Services
 
         /// <summary>
         /// Return true when the ability contains at least 1 synergy that match the unit. 
-        /// If synargy array is null, the ability is self use only. 
-        /// If synargy array is empty array, the ability is compatible with any allied unit
+        /// If synergy array is null, the ability is self use only. 
+        /// If synergy array is empty array, the ability is compatible with any allied unit
         /// </summary>
         /// <param name="ability"></param>
         /// <param name="unit"></param>
@@ -149,9 +149,12 @@ namespace Shatterpoint.Lib.Services
 
             return
                 ability.Synergies.Any(x =>
-                        (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
-                        (x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
-                        ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        x.NoCardRelated is false && // prevent unexpected occurence
+                        (
+                            (x.Name is not null && x.Name == unit.Name) || // case: synergy with this character
+                            (x.KeyWords is not null && x.KeyWords.Count != 0 && x.KeyWords.Intersect(unit.KeyWords).Any() && (x.Type is null || x.Type == unit.Type)) || // Synergy by Keyword (and type if any)                      
+                            ((x.KeyWords is null || x.KeyWords.Count == 0) && x.Type == unit.Type) // Synergy by type (and not keywords)
+                        )
                         ) ||
                     ability.Synergies.Count == 0; // case: all allies synergy
         }
