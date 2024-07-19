@@ -2,6 +2,9 @@
 Outdated readme. Main purpose is accurate, but detail cannot be trusted (ex: it's possible to save more that 1 list). 
 Should be updated once the app development is over.
 
+Deprecated: 
+This repo is no more supported. The app is currently being fully reworked in kotlin for better user experience and performance
+
 # Android App: StrugglePal
 Companion app for the board game SW: Shatterpoint.
 
